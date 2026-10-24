@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "採購文件可視化",
-    "generated_at": "2026-10-25 01:33",
+    "generated_at": "2026-10-25 01:55",
     "source_generated_at": "2026-10-24 23:07",
     "today": "2026-10-24",
     "timezone": "Asia/Macau",
@@ -19,6 +19,54 @@
       "待對方補充資料後交行政": 1,
       "行政部與甲方跟進中": 1
     },
+    "headlines": [
+      {
+        "id": "awaiting_admin_max",
+        "tone": "danger",
+        "side": "admin",
+        "label": "待行政回覆最久",
+        "unit": "天",
+        "value": 31,
+        "display": "31",
+        "sub": "PA-26-273 · 採購仿生機械手及相關演示化、展品化之服務",
+        "hint": "已提交待回覆 · 自最近提交／重交起算"
+      },
+      {
+        "id": "admin_total_max",
+        "tone": "danger",
+        "side": "admin",
+        "label": "行政累計處理最長",
+        "unit": "天",
+        "value": 59,
+        "display": "59",
+        "sub": "合肥市科技馆与澳门科学馆合作意向书 · 合肥市科技馆与澳门科学馆合作意向书",
+        "hint": "未完成文件中 admin_total 最大值"
+      },
+      {
+        "id": "avg_admin_vs_edu",
+        "tone": "contrast",
+        "side": "both",
+        "label": "平均處理天數",
+        "unit": "天",
+        "value_admin": 21.5,
+        "value_edu": 10.5,
+        "display_admin": "21.5",
+        "display_edu": "10.5",
+        "sub": "行政 21.5 天 · EED 10.5 天",
+        "hint": "有數據文件：行政 n=18 · EED n=14"
+      },
+      {
+        "id": "pending_edu_max",
+        "tone": "fast",
+        "side": "edu",
+        "label": "待同事重交最久",
+        "unit": "天",
+        "value": 8,
+        "display": "8",
+        "sub": "PA-26-270 · 為澳科館微定位導覽系統取得保養服務（2026-2029）",
+        "hint": "行政已回覆待重交 · EED 側對比（通常遠短於行政）"
+      }
+    ],
     "notes": [
       "未完成＝目前狀態唔係「完成」",
       "時間線：行政部處理段（提交→行政回覆）vs EDU 處理段（行政回覆→重交／進行中）",
@@ -774,7 +822,7 @@
             "role": "admin",
             "start": "2026-10-18 09:54",
             "end": "2026-10-25",
-            "days": null,
+            "days": 7,
             "round": 5,
             "label": "進行中：待行政回覆",
             "open": true
@@ -931,7 +979,7 @@
             "role": "admin",
             "start": "2026-10-07",
             "end": "2026-10-25",
-            "days": null,
+            "days": 18,
             "round": 4,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1016,7 +1064,7 @@
             "role": "admin",
             "start": "2026-10-09 20:00",
             "end": "2026-10-25",
-            "days": null,
+            "days": 16,
             "round": 2,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1217,7 +1265,7 @@
             "role": "admin",
             "start": "2026-10-23 10:17",
             "end": "2026-10-25",
-            "days": null,
+            "days": 2,
             "round": 5,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1338,7 +1386,7 @@
             "role": "admin",
             "start": "2026-10-16 11:57",
             "end": "2026-10-25",
-            "days": null,
+            "days": 9,
             "round": 3,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1459,7 +1507,7 @@
             "role": "admin",
             "start": "2026-10-22 13:31",
             "end": "2026-10-25",
-            "days": null,
+            "days": 3,
             "round": 3,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1620,7 +1668,7 @@
             "role": "admin",
             "start": "2026-10-15 17:31",
             "end": "2026-10-25",
-            "days": null,
+            "days": 10,
             "round": 6,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1705,7 +1753,7 @@
             "role": "admin",
             "start": "2026-10-21 09:58",
             "end": "2026-10-25",
-            "days": null,
+            "days": 4,
             "round": 2,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1866,7 +1914,7 @@
             "role": "admin",
             "start": "2026-10-23 16:26",
             "end": "2026-10-25",
-            "days": null,
+            "days": 2,
             "round": 3,
             "label": "進行中：待行政回覆",
             "open": true
@@ -1951,7 +1999,7 @@
             "role": "admin",
             "start": "2026-10-24 19:11",
             "end": "2026-10-25",
-            "days": null,
+            "days": 1,
             "round": 2,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2030,7 +2078,7 @@
             "role": "admin",
             "start": "2026-09-24 12:01",
             "end": "2026-10-25",
-            "days": null,
+            "days": 31,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2099,7 +2147,7 @@
             "role": "admin",
             "start": "2026-09-29 10:49",
             "end": "2026-10-25",
-            "days": null,
+            "days": 26,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2178,7 +2226,7 @@
             "role": "admin",
             "start": "2026-09-29 18:53",
             "end": "2026-10-25",
-            "days": null,
+            "days": 26,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2237,7 +2285,7 @@
             "role": "admin",
             "start": "2026-09-30 11:12",
             "end": "2026-10-25",
-            "days": null,
+            "days": 25,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2296,7 +2344,7 @@
             "role": "admin",
             "start": "2026-10-12 11:52",
             "end": "2026-10-25",
-            "days": null,
+            "days": 13,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2355,7 +2403,7 @@
             "role": "admin",
             "start": "2026-10-20 12:51",
             "end": "2026-10-25",
-            "days": null,
+            "days": 5,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2404,7 +2452,7 @@
             "role": "admin",
             "start": "2026-10-20 12:53",
             "end": "2026-10-25",
-            "days": null,
+            "days": 5,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true
@@ -2453,7 +2501,7 @@
             "role": "admin",
             "start": "2026-10-21 15:15",
             "end": "2026-10-25",
-            "days": null,
+            "days": 4,
             "round": 1,
             "label": "進行中：待行政回覆",
             "open": true

@@ -220,12 +220,16 @@ def build_timeline(doc: dict, progress: list[dict]) -> list[dict]:
     elif status == "已提交待回覆":
         start = last_resub or first
         if start:
+            start_dt = parse_dt(start)
+            open_days = None
+            if start_dt:
+                open_days = max(0, (datetime.now(TZ).date() - start_dt.date()).days)
             segments.append(
                 {
                     "role": "admin",
                     "start": start,
                     "end": today,
-                    "days": None,
+                    "days": open_days,
                     "round": doc.get("current_round"),
                     "label": "進行中：待行政回覆",
                     "open": True,
@@ -291,6 +295,135 @@ def build_timeline(doc: dict, progress: list[dict]) -> list[dict]:
         span = {"min_ts": min(times), "max_ts": max(times)}
 
     return {"events": events, "segments": segments, "span": span}
+
+
+
+def to_float(v):
+    if v is None or v == "":
+        return None
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def days_since(date_str: str | None, today_d) -> int | None:
+    dt = parse_dt(date_str)
+    if not dt:
+        return None
+    return max(0, (today_d - dt.date()).days)
+
+
+def short_title(title: str, n: int = 28) -> str:
+    t = (title or "").strip()
+    return t if len(t) <= n else t[: n - 1] + "…"
+
+
+def compute_headlines(viz_docs: list[dict], today_str: str) -> list[dict]:
+    """Headline KPIs highlighting 行政慢 vs EED 快."""
+    # Prefer live Asia/Macau "now" so headline wait days match open timeline segments
+    today_d = datetime.now(TZ).date()
+    _ = today_str  # dataset today kept for meta; headlines use live clock
+
+    awaiting = [d for d in viz_docs if d.get("status") == "已提交待回覆"]
+    wait_rows = []
+    for d in awaiting:
+        start = d.get("last_resubmit") or d.get("first_submit")
+        days = days_since(start, today_d)
+        if days is not None:
+            wait_rows.append((days, d))
+    wait_rows.sort(key=lambda x: -x[0])
+    max_wait = wait_rows[0] if wait_rows else None
+
+    admin_rows = []
+    for d in viz_docs:
+        at = to_float(d.get("admin_total"))
+        if at is not None:
+            admin_rows.append((at, d))
+    admin_rows.sort(key=lambda x: -x[0])
+    max_admin = admin_rows[0] if admin_rows else None
+
+    pending = [d for d in viz_docs if d.get("status") == "行政部已回覆待同事重交"]
+    pend_rows = []
+    for d in pending:
+        days = to_float(d.get("days_since_reply"))
+        if days is not None:
+            pend_rows.append((days, d))
+    pend_rows.sort(key=lambda x: -x[0])
+    max_pend = pend_rows[0] if pend_rows else None
+
+    admin_vals = [to_float(d.get("admin_total")) for d in viz_docs]
+    admin_vals = [v for v in admin_vals if v is not None]
+    coll_vals = [to_float(d.get("colleague_total")) for d in viz_docs]
+    coll_vals = [v for v in coll_vals if v is not None]
+    avg_admin = round(sum(admin_vals) / len(admin_vals), 1) if admin_vals else None
+    avg_coll = round(sum(coll_vals) / len(coll_vals), 1) if coll_vals else None
+
+    headlines: list[dict] = []
+    if max_wait:
+        days, d = max_wait
+        headlines.append(
+            {
+                "id": "awaiting_admin_max",
+                "tone": "danger",
+                "side": "admin",
+                "label": "待行政回覆最久",
+                "unit": "天",
+                "value": days,
+                "display": str(int(days)) if float(days).is_integer() else str(days),
+                "sub": f"{d.get('id') or ''} · {short_title(d.get('title') or '')}",
+                "hint": "已提交待回覆 · 自最近提交／重交起算",
+            }
+        )
+    if max_admin:
+        days, d = max_admin
+        val = int(days) if float(days).is_integer() else round(days, 1)
+        headlines.append(
+            {
+                "id": "admin_total_max",
+                "tone": "danger",
+                "side": "admin",
+                "label": "行政累計處理最長",
+                "unit": "天",
+                "value": val,
+                "display": str(val),
+                "sub": f"{d.get('id') or ''} · {short_title(d.get('title') or '')}",
+                "hint": "未完成文件中 admin_total 最大值",
+            }
+        )
+    if avg_admin is not None and avg_coll is not None:
+        headlines.append(
+            {
+                "id": "avg_admin_vs_edu",
+                "tone": "contrast",
+                "side": "both",
+                "label": "平均處理天數",
+                "unit": "天",
+                "value_admin": avg_admin,
+                "value_edu": avg_coll,
+                "display_admin": str(avg_admin),
+                "display_edu": str(avg_coll),
+                "sub": f"行政 {avg_admin} 天 · EED {avg_coll} 天",
+                "hint": f"有數據文件：行政 n={len(admin_vals)} · EED n={len(coll_vals)}",
+            }
+        )
+    if max_pend:
+        days, d = max_pend
+        val = int(days) if float(days).is_integer() else round(float(days), 1)
+        headlines.append(
+            {
+                "id": "pending_edu_max",
+                "tone": "fast",
+                "side": "edu",
+                "label": "待同事重交最久",
+                "unit": "天",
+                "value": val,
+                "display": str(val),
+                "sub": f"{d.get('id') or ''} · {short_title(d.get('title') or '')}",
+                "hint": "行政已回覆待重交 · EED 側對比（通常遠短於行政）",
+            }
+        )
+    return headlines
 
 
 def main() -> None:
@@ -409,6 +542,7 @@ def main() -> None:
             "progress_linked_count": len(progress_slim),
             "completed_hidden": sum(1 for d in docs_all if d.get("status") == "完成"),
             "status_counts": status_counts,
+            "headlines": compute_headlines(viz_docs, today),
             "notes": [
                 "未完成＝目前狀態唔係「完成」",
                 "時間線：行政部處理段（提交→行政回覆）vs EDU 處理段（行政回覆→重交／進行中）",

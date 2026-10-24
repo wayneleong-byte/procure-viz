@@ -23,6 +23,13 @@
     return `<span class="badge ${esc(g)}">${esc(status)}</span>`;
   }
 
+  function fmtNum(v) {
+    if (v == null || v === "") return null;
+    const n = Number(v);
+    if (!Number.isFinite(n)) return null;
+    return Number.isInteger(n) ? String(n) : String(Math.round(n * 10) / 10);
+  }
+
   function pct(ts, span) {
     if (!span || span.max_ts == null || span.min_ts == null) return 50;
     if (span.max_ts === span.min_ts) return 50;
@@ -32,8 +39,10 @@
 
   function parseLoose(t) {
     if (!t) return null;
-    // Prefer viz timestamps already computed; fallback parse
-    const d = Date.parse(String(t).replace(" ", "T") + (String(t).includes("+") || String(t).includes("Z") ? "" : "+08:00"));
+    const d = Date.parse(
+      String(t).replace(" ", "T") +
+        (String(t).includes("+") || String(t).includes("Z") ? "" : "+08:00")
+    );
     return Number.isFinite(d) ? d / 1000 : null;
   }
 
@@ -55,6 +64,182 @@
       span = { min_ts: Math.min(...times), max_ts: Math.max(...times) };
     }
     return span;
+  }
+
+  /* ---- Flip board ---- */
+  function makeDigitEl(ch, tone) {
+    const el = document.createElement("div");
+    if (ch === "." || ch === ",") {
+      el.className = "flip-digit dot";
+      el.textContent = ".";
+      return el;
+    }
+    if (!/\d/.test(ch)) {
+      el.className = "flip-digit char";
+      el.textContent = ch;
+      return el;
+    }
+    el.className = `flip-digit tone-${tone || "danger"}`;
+    el.dataset.target = ch;
+    el.innerHTML = `
+      <div class="top"><span>0</span></div>
+      <div class="bottom"><span>0</span></div>
+      <div class="hinge"><span>0</span></div>`;
+    return el;
+  }
+
+  function buildFlipBoard(display, tone) {
+    const board = document.createElement("div");
+    board.className = "flip-board";
+    String(display ?? "—")
+      .split("")
+      .forEach((ch) => board.appendChild(makeDigitEl(ch, tone)));
+    return board;
+  }
+
+  function animateFlipBoard(board) {
+    const digits = $$(".flip-digit[data-target]", board);
+    digits.forEach((digit, idx) => {
+      const target = digit.dataset.target;
+      const top = digit.querySelector(".top span");
+      const bottom = digit.querySelector(".bottom span");
+      const hinge = digit.querySelector(".hinge");
+      const hingeSpan = digit.querySelector(".hinge span");
+      let cur = 0;
+      const steps = Number(target);
+      const delay = idx * 90;
+      setTimeout(() => {
+        const tick = () => {
+          if (cur >= steps) {
+            top.textContent = target;
+            bottom.textContent = target;
+            hingeSpan.textContent = target;
+            digit.classList.remove("flipping");
+            return;
+          }
+          const next = cur + 1;
+          hingeSpan.textContent = String(cur);
+          top.textContent = String(next);
+          digit.classList.remove("flipping");
+          void digit.offsetWidth;
+          digit.classList.add("flipping");
+          const onEnd = () => {
+            hinge.removeEventListener("animationend", onEnd);
+            bottom.textContent = String(next);
+            hingeSpan.textContent = String(next);
+            digit.classList.remove("flipping");
+            cur = next;
+            setTimeout(tick, 40);
+          };
+          hinge.addEventListener("animationend", onEnd);
+        };
+        tick();
+      }, delay);
+    });
+  }
+
+  function renderHeadlines() {
+    const box = $("#headlines");
+    const items = (DATA.meta && DATA.meta.headlines) || [];
+    if (!items.length) {
+      box.innerHTML = "";
+      return;
+    }
+    box.innerHTML = "";
+    const boards = [];
+    items.forEach((h) => {
+      const card = document.createElement("article");
+      card.className = `hl-card tone-${esc(h.tone || "danger")}`;
+      const label = document.createElement("div");
+      label.className = "hl-label";
+      label.textContent = h.label || "";
+      card.appendChild(label);
+
+      if (h.id === "avg_admin_vs_edu") {
+        const pair = document.createElement("div");
+        pair.className = "hl-pair";
+        const adminBlock = document.createElement("div");
+        adminBlock.className = "hl-pair-block";
+        adminBlock.innerHTML = `<span class="hl-pair-tag admin">行政（慢）</span>`;
+        const adminBoard = buildFlipBoard(h.display_admin ?? h.value_admin, "admin");
+        adminBlock.appendChild(adminBoard);
+        const vs = document.createElement("div");
+        vs.className = "hl-vs";
+        vs.textContent = "vs";
+        const eduBlock = document.createElement("div");
+        eduBlock.className = "hl-pair-block";
+        eduBlock.innerHTML = `<span class="hl-pair-tag edu">EED（快）</span>`;
+        const eduBoard = buildFlipBoard(h.display_edu ?? h.value_edu, "edu");
+        eduBlock.appendChild(eduBoard);
+        const unit = document.createElement("span");
+        unit.className = "hl-unit";
+        unit.textContent = h.unit || "天";
+        pair.appendChild(adminBlock);
+        pair.appendChild(vs);
+        pair.appendChild(eduBlock);
+        pair.appendChild(unit);
+        card.appendChild(pair);
+        boards.push(adminBoard, eduBoard);
+      } else {
+        const row = document.createElement("div");
+        row.className = "hl-value-row";
+        const tone = h.tone === "fast" ? "fast" : "danger";
+        const board = buildFlipBoard(h.display ?? h.value, tone);
+        row.appendChild(board);
+        const unit = document.createElement("span");
+        unit.className = "hl-unit";
+        unit.textContent = h.unit || "天";
+        row.appendChild(unit);
+        card.appendChild(row);
+        boards.push(board);
+      }
+
+      if (h.sub) {
+        const sub = document.createElement("div");
+        sub.className = "hl-sub";
+        sub.textContent = h.sub;
+        card.appendChild(sub);
+      }
+      if (h.hint) {
+        const hint = document.createElement("div");
+        hint.className = "hl-hint";
+        hint.textContent = h.hint;
+        card.appendChild(hint);
+      }
+      box.appendChild(card);
+    });
+    requestAnimationFrame(() => boards.forEach(animateFlipBoard));
+  }
+
+  function dayBadges(d) {
+    const parts = [];
+    const at = fmtNum(d.admin_total);
+    const ct = fmtNum(d.colleague_total);
+    if (at != null) {
+      parts.push(`<span class="badge days-danger" title="行政累計處理天數">行政 ${esc(at)}天</span>`);
+    }
+    if (ct != null) {
+      parts.push(`<span class="badge days-fast" title="EED／同事累計處理天數">EED ${esc(ct)}天</span>`);
+    }
+    if (d.status_group === "awaiting_admin") {
+      // show open wait if we can infer from open segment
+      const open = (d.timeline?.segments || []).find((s) => s.open && s.role === "admin");
+      if (open && open.days != null) {
+        parts.push(`<span class="badge days-danger">待回覆 ${esc(fmtNum(open.days))}天</span>`);
+      }
+    }
+    if (d.status_group === "pending_resubmit" && d.days_since_reply != null) {
+      parts.push(
+        `<span class="badge days-fast">待重交 ${esc(fmtNum(d.days_since_reply))}天</span>`
+      );
+    }
+    if (!parts.length) return "";
+    return `<span class="day-badges">${parts.join("")}</span>`;
+  }
+
+  function isSlowAdmin(d) {
+    const at = Number(d.admin_total);
+    return (Number.isFinite(at) && at >= 20) || d.status_group === "awaiting_admin";
   }
 
   function renderOverview() {
@@ -99,12 +284,14 @@
           )
           .join("");
 
-        return `<article class="doc-row" data-id="${esc(d.id)}" tabindex="0"
+        const slow = isSlowAdmin(d) ? " slow-admin" : "";
+        return `<article class="doc-row${slow}" data-id="${esc(d.id)}" tabindex="0"
           data-title="${esc(d.title)}" data-follow="${esc(fu)}" data-submitter="${esc(d.submitter || "")}">
           <div class="doc-head">
             <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
               <span class="doc-id">${esc(d.id)}</span>
               ${statusLabel(d.status_group, d.status)}
+              ${dayBadges(d)}
               <span class="doc-meta">R${esc(d.current_round ?? "—")} · ${esc(d.stage || "")}</span>
             </div>
             <div class="doc-title-hint" title="${esc(d.title)}">${esc(d.title)}</div>
@@ -118,6 +305,8 @@
               · 提交人：${esc(d.submitter || "—")}
               · 首次提交：${esc(d.first_submit || "—")}
               · 最近行政回覆：${esc(d.last_reply || "—")}
+              · 行政累計：${esc(fmtNum(d.admin_total) ?? "—")}天
+              · EED累計：${esc(fmtNum(d.colleague_total) ?? "—")}天
             </div>
             ${d.last_reply_summary ? `<div style="margin-top:6px">摘要：${esc(d.last_reply_summary)}</div>` : ""}
             <table class="event-table">
@@ -206,7 +395,6 @@
       box.innerHTML = `<div class="empty">沒有符合篩選的電郵</div>`;
       return;
     }
-    // Cap render for performance
     const MAX = 400;
     const slice = rows.slice(0, MAX);
     box.innerHTML =
@@ -236,9 +424,13 @@
   function bindTabs() {
     $$(".tab").forEach((btn) => {
       btn.addEventListener("click", () => {
-        $$(".tab").forEach((b) => b.classList.remove("active"));
+        $$(".tab").forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
         $$(".panel").forEach((p) => p.classList.remove("active"));
         btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
         $(`#panel-${btn.dataset.tab}`)?.classList.add("active");
       });
     });
@@ -256,6 +448,12 @@
     $("#status-breakdown").textContent = Object.entries(sc)
       .map(([k, v]) => `${k} ${v}`)
       .join(" · ");
+    const foot = $("#site-footer");
+    if (foot) {
+      foot.innerHTML = `採購文件可視化 · GitHub Pages 已上線 · 產出 ${esc(m.generated_at || "—")}（Asia/Macau）<br>
+        公開網址：<a href="https://wayneleong-byte.github.io/procure-viz/">wayneleong-byte.github.io/procure-viz</a>
+        · 唯讀資料來源 dataset.json`;
+    }
   }
 
   async function boot() {
@@ -263,6 +461,7 @@
     if (!res.ok) throw new Error("無法載入 data/viz.json");
     DATA = await res.json();
     renderMeta();
+    renderHeadlines();
     renderOverview();
     fillEmailFilters();
     renderEmails();
