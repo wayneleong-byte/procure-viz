@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-MO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>採購文件可視化 · 儀表板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="eyebrow">澳門科學館 · 採購文件追蹤</div>
+      <h1>採購文件可視化</h1>
+      <p class="sub" id="meta-line">載入中…</p>
+      <p class="sub" id="status-breakdown" style="margin-top:4px"></p>
+    </div>
+    <div class="meta-chips" aria-label="統計">
+      <div class="chip"><b id="stat-incomplete">—</b><span>未完成文件</span></div>
+      <div class="chip"><b id="stat-emails">—</b><span>相關電郵</span></div>
+      <div class="chip"><b id="stat-off">—</b><span>非上班時段</span></div>
+      <div class="chip"><b id="stat-progress">—</b><span>進度查詢（已配對）</span></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="分頁">
+    <button type="button" class="tab active" data-tab="overview" role="tab" aria-selected="true">TAG 1 · 未完成文件總覽</button>
+    <button type="button" class="tab" data-tab="emails" role="tab" aria-selected="false">TAG 2 · 相關文件／電郵時段</button>
+  </nav>
+
+  <section id="panel-overview" class="panel active" role="tabpanel">
+    <div class="toolbar">
+      <div class="legend">
+        <span><i class="swatch admin"></i>行政部處理段</span>
+        <span><i class="swatch edu"></i>EDU（展教部）處理段</span>
+        <span><i class="swatch progress"></i>進度查詢</span>
+        <span style="opacity:.85">狀態色：橙＝待同事重交 · 藍＝已提交待回覆 · 紫＝報價／跟進中</span>
+      </div>
+      <div class="filters">
+        <button type="button" class="btn ghost" id="btn-clear-focus">清除聚焦</button>
+      </div>
+    </div>
+    <p class="sub" style="margin-bottom:12px;color:var(--muted);font-size:.85rem">
+      點擊任一列可動態縮放／聚焦該文件時間線；滑鼠移上顯示編號、文件名稱與跟進同事。完成狀態唔顯示喺此總覽。
+    </p>
+    <div id="doc-list" class="doc-list"></div>
+  </section>
+
+  <section id="panel-emails" class="panel" role="tabpanel">
+    <div class="toolbar">
+      <div class="legend">
+        <span><i class="swatch admin"></i>行政部（procure 等）</span>
+        <span><i class="swatch edu"></i>EDU 同事（提交／進度查詢）</span>
+        <span>上班時段 <strong>09:00–18:30</strong> Asia/Macau；週末或此時段外標「非上班」</span>
+      </div>
+      <div class="filters">
+        <select id="filter-role" aria-label="角色">
+          <option value="">全部角色</option>
+          <option value="admin">行政部</option>
+          <option value="edu">EDU</option>
+        </select>
+        <select id="filter-pa" aria-label="文件"></select>
+        <label style="display:inline-flex;gap:6px;align-items:center;font-size:.85rem;color:var(--muted)">
+          <input type="checkbox" id="filter-off"> 只睇非上班
+        </label>
+        <input type="search" id="filter-q" placeholder="搜尋標題／寄件人／編號" aria-label="搜尋">
+      </div>
+    </div>
+    <div class="email-stats">
+      <span class="chip" style="min-width:auto"><span id="email-count-view">—</span></span>
+    </div>
+    <div id="email-list" class="email-list"></div>
+  </section>
+
+  <footer class="site">
+    採購文件可視化 · 本機草稿（未公開部署）<br>
+    唯讀資料來源：/workspace/procure/dataset.json · Asia/Macau
+  </footer>
+</div>
+<script src="./assets/app.js"></script>
+</body>
+</html>
