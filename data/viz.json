@@ -2,8 +2,8 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）",
-    "generated_at": "2026-10-25 10:42",
-    "source_generated_at": "2026-10-25 10:41",
+    "generated_at": "2026-10-25 11:00",
+    "source_generated_at": "2026-10-25 10:57",
     "today": "2026-10-25",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
@@ -53,6 +53,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -110,18 +111,18 @@
         "gaps": [
           {
             "from_t": "2026-09-24 12:01",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1790222460.0,
-            "to_ts": 1792896167.52763,
-            "days": 30.9,
+            "to_ts": 1792897215.766008,
+            "days": 31.0,
             "role": "admin",
             "open": true,
-            "label": "至今 30.9 天"
+            "label": "至今 31.0 天"
           }
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -144,6 +145,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -189,9 +191,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1790650140.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 26.0,
             "role": "admin",
             "open": true,
@@ -200,7 +202,7 @@
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -223,6 +225,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -280,9 +283,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1790679180.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 25.7,
             "role": "admin",
             "open": true,
@@ -291,7 +294,7 @@
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -314,6 +317,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -347,9 +351,9 @@
         "gaps": [
           {
             "from_t": "2026-09-30 11:12",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1790737920.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 25.0,
             "role": "admin",
             "open": true,
@@ -358,7 +362,7 @@
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -381,6 +385,7 @@
       "last_reply": "2026-10-07 17:55",
       "last_reply_summary": "須按附件修改（附件：PA-26-248.pdf）；按權限機關意見須增加5間抽選供應商並更新「建議供應商名單」：濠光傳媒有限公司、嘉圖斯有限公司、力信國際有限公司、萬利電腦數控系統有限公司、誠廣告創作有限公司；同時更新所有相應文件（如立項建議書）",
       "last_resubmit": "2026-10-09 20:00",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 2,
       "admin_total": 23,
@@ -401,10 +406,10 @@
           {
             "t": "2026-10-07 17:55",
             "ts": 1791366900.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-248.pdf）；按權限機關意見須增加5間抽選供應商並更新「建議供應商名單」：濠光傳媒有限公司、嘉圖斯有限公司、力信國際有限公司、萬利電腦數控系統有限公司、誠廣告創作有限公司；同時更新所有相應文件（如立項建議書）",
+            "kind": "third_party",
+            "role": "third",
+            "label": "須按附件修改（附件：PA-26-248.pdf）；按權限機關意見須增加5間抽選供應商並更新「建議供應商名單」：濠光傳媒有限公司、嘉圖斯有限公司、力信國際有限公司、萬利電腦數控系統有限公司、誠廣告創作有限公司；同時更新所有相應文件（如立項建議書）",
+            "detail": "",
             "who": "Procure",
             "round": 1,
             "secondary": false
@@ -428,7 +433,7 @@
             "from_ts": 1789315200.0,
             "to_ts": 1791366900.0,
             "days": 23.7,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "23.7 天"
           },
@@ -438,15 +443,15 @@
             "from_ts": 1791366900.0,
             "to_ts": 1791547200.0,
             "days": 2.1,
-            "role": "edu",
+            "role": "third",
             "open": false,
             "label": "2.1 天"
           },
           {
             "from_t": "2026-10-09 20:00",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1791547200.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 15.6,
             "role": "admin",
             "open": true,
@@ -455,7 +460,7 @@
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -478,6 +483,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -511,9 +517,9 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1791777120.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 13.0,
             "role": "admin",
             "open": true,
@@ -522,7 +528,7 @@
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -545,6 +551,7 @@
       "last_reply": "2026-10-14 14:39",
       "last_reply_summary": "[10-07 19:41] 須按附件修改（附件：PA-26-194.pdf）；按權限機關意見須增加3間抽選供應商（第一類別及第二類別）並更新「建議供應商名單」：易簡智能科技有限公司、艾克方案有限公司、萬利電腦數控系統有限公司、國豐網絡工程有限公司、澳門麥芽科技有限公司、維思科技有限公司；同時更新所有相應文件（如立項建議書）；[10-14 14:39] 須按附件修改（附件：PA-26-194.pdf）",
       "last_resubmit": "2026-10-15 17:31",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 5,
       "admin_total": 13.1,
@@ -576,10 +583,10 @@
           {
             "t": "2026-09-23 11:05",
             "ts": 1790132700.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R3 行政回覆",
-            "detail": "按權限機關意見須增加3間抽選供應商（第一類別）並更新「建議供應商名單」：富勵恩有限公司、艾克方案有限公司、萬利電腦數控系統有限公司；同時更新所有相應文件（如立項建議書）",
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商（第一類別）並更新「建議供應商名單」：富勵恩有限公司、艾克方案有限公司、萬利電腦數控系統有限公司；同時更新所有相應文件（如立項建議書）",
+            "detail": "",
             "who": "Procure",
             "round": 3,
             "secondary": false
@@ -622,10 +629,10 @@
           {
             "t": "2026-10-07 19:41",
             "ts": 1791373260.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R4 行政回覆",
-            "detail": "[10-07 19:41] 須按附件修改（附件：PA-26-194.pdf）；按權限機關意見須增加3間抽選供應商（第一類別及第二類別）並更新「建議供應商名單」：易簡智能科技有限公司、艾克方案有限公司、萬利電腦數控系統有限公司、國豐網絡工程有限公司、澳門麥芽科技有限公司、維思科技有限公司；同時更新所有相應文件（如立…",
+            "kind": "third_party",
+            "role": "third",
+            "label": "[10-07 19:41] 須按附件修改（附件：PA-26-194.pdf）；按權限機關意見須增加3間抽選供應商（第一類別及第二類別）並更新「建議供應商名單」：易簡智能科技有限公司、艾克方案有限公司、萬利電腦數控系統有限公司、國豐網絡工程有限公司、澳門麥芽科技有限公司、維思科技有限公司；同時更新所有相應文件（如立…",
+            "detail": "",
             "who": "Procure",
             "round": 4,
             "secondary": false
@@ -671,7 +678,7 @@
             "from_ts": 1790132280.0,
             "to_ts": 1790132700.0,
             "days": 0.0,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "0.0 天"
           },
@@ -681,7 +688,7 @@
             "from_ts": 1790132700.0,
             "to_ts": 1790245320.0,
             "days": 1.3,
-            "role": "edu",
+            "role": "third",
             "open": false,
             "label": "1.3 天"
           },
@@ -691,7 +698,7 @@
             "from_ts": 1790245320.0,
             "to_ts": 1791373260.0,
             "days": 13.1,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "13.1 天"
           },
@@ -701,7 +708,7 @@
             "from_ts": 1791373260.0,
             "to_ts": 1791527160.0,
             "days": 1.8,
-            "role": "edu",
+            "role": "third",
             "open": false,
             "label": "1.8 天"
           },
@@ -727,9 +734,9 @@
           },
           {
             "from_t": "2026-10-15 17:31",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792056660.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 9.7,
             "role": "admin",
             "open": true,
@@ -738,7 +745,7 @@
         ],
         "span": {
           "min_ts": 1790132280.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -761,6 +768,7 @@
       "last_reply": "2026-10-13 16:28",
       "last_reply_summary": "須按附件修改（附件：PA-26-244.pdf）",
       "last_resubmit": "2026-10-16 11:57",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 3,
       "admin_total": 27,
@@ -866,9 +874,9 @@
           },
           {
             "from_t": "2026-10-16 11:33",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792121580.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 9.0,
             "role": "admin",
             "open": true,
@@ -877,7 +885,75 @@
         ],
         "span": {
           "min_ts": 1787673600.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
+        }
+      }
+    },
+    {
+      "id": "PA-26-302",
+      "stage": "Form 1",
+      "title": "為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
+      "status": "已提交待回覆",
+      "status_group": "awaiting_admin",
+      "attr_label": "R1 · Form 1",
+      "submitter": "Siky Lam",
+      "follow_up": [
+        "Siky Lam"
+      ],
+      "first_submit": "2026-10-16",
+      "status_since": "2026-10-16",
+      "days_in_status": 9,
+      "days_since_first_submit": 9,
+      "current_round": 1,
+      "last_reply": "",
+      "last_reply_summary": "",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 1,
+      "admin_total": "",
+      "colleague_total": "",
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-10-16",
+            "ts": 1792080000.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
+            "who": "Siky Lam",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-24 13:47",
+            "ts": 1792820820.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢： PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
+            "who": "Siky Lam",
+            "round": null,
+            "secondary": true,
+            "closed": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-10-16",
+            "to_t": "2026-10-25 11:00",
+            "from_ts": 1792080000.0,
+            "to_ts": 1792897215.766008,
+            "days": 9.5,
+            "role": "admin",
+            "open": true,
+            "label": "至今 9.5 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1792080000.0,
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -900,6 +976,7 @@
       "last_reply": "2026-09-25 00:03",
       "last_reply_summary": "須按附件修改（附件：教育部_2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表.pdf）",
       "last_resubmit": "2026-10-18 09:54",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 2,
       "admin_total": "",
@@ -965,9 +1042,9 @@
           },
           {
             "from_t": "2026-10-18 09:54",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792288440.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 7.0,
             "role": "admin",
             "open": true,
@@ -976,74 +1053,7 @@
         ],
         "span": {
           "min_ts": 1790265780.0,
-          "max_ts": 1792896167.52763
-        }
-      }
-    },
-    {
-      "id": "PA-26-302",
-      "stage": "Form 1",
-      "title": "為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
-      "attr_label": "R1 · Form 1",
-      "submitter": "Siky Lam",
-      "follow_up": [
-        "Siky Lam"
-      ],
-      "first_submit": "2026-10-20 12:51",
-      "status_since": "2026-10-20 12:51",
-      "days_in_status": 5,
-      "days_since_first_submit": 5,
-      "current_round": 1,
-      "last_reply": "",
-      "last_reply_summary": "",
-      "last_resubmit": "",
-      "days_since_reply": "",
-      "n_rounds": 1,
-      "admin_total": "",
-      "colleague_total": "",
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-10-20 12:51",
-            "ts": 1792471860.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R1 提交",
-            "detail": "[提交至行政採購文件] 有關PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
-            "who": "Siky Lam",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-24 13:47",
-            "ts": 1792820820.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢： PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
-            "who": "Siky Lam",
-            "round": null,
-            "secondary": true,
-            "closed": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-10-20 12:51",
-            "to_t": "2026-10-25 10:42",
-            "from_ts": 1792471860.0,
-            "to_ts": 1792896167.52763,
-            "days": 4.9,
-            "role": "admin",
-            "open": true,
-            "label": "至今 4.9 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1792471860.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1066,6 +1076,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -1087,9 +1098,9 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792471980.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 4.9,
             "role": "admin",
             "open": true,
@@ -1098,7 +1109,7 @@
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1121,6 +1132,7 @@
       "last_reply": "",
       "last_reply_summary": "",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -1142,9 +1154,9 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792566900.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 3.8,
             "role": "admin",
             "open": true,
@@ -1153,7 +1165,7 @@
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1176,6 +1188,7 @@
       "last_reply": "2026-10-15 19:58",
       "last_reply_summary": "須按附件修改（附件：PP-26-068-EED.pdf）",
       "last_resubmit": "2026-10-21 09:58",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 2,
       "admin_total": 16.1,
@@ -1239,9 +1252,9 @@
           },
           {
             "from_t": "2026-10-21 09:58",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792547880.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 4.0,
             "role": "admin",
             "open": true,
@@ -1250,7 +1263,7 @@
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1273,6 +1286,7 @@
       "last_reply": "2026-10-14 11:41",
       "last_reply_summary": "須按附件修改（附件：PA-26-120(2)_第二次修改.pdf）",
       "last_resubmit": "2026-10-22 13:31",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 3,
       "admin_total": 2.2,
@@ -1378,9 +1392,9 @@
           },
           {
             "from_t": "2026-10-22 13:31",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792647060.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 2.9,
             "role": "admin",
             "open": true,
@@ -1389,7 +1403,7 @@
         ],
         "span": {
           "min_ts": 1791361560.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1412,6 +1426,7 @@
       "last_reply": "2026-10-13 15:44",
       "last_reply_summary": "[10-09 15:43] 須按附件修改（附件：PA-26-242_第二次修改.pdf）；[10-13 15:44] 須按附件修改（附件：PA-26-242_第三次修改.pdf）",
       "last_resubmit": "2026-10-23 10:17",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 5,
       "admin_total": 15.0,
@@ -1502,10 +1517,10 @@
           {
             "t": "2026-09-24 13:09",
             "ts": 1790226540.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R2 行政回覆",
-            "detail": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：地域電腦有限公司、金達資訊科技有限公司、華特工程(澳門)有限公司",
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：地域電腦有限公司、金達資訊科技有限公司、華特工程(澳門)有限公司",
+            "detail": "",
             "who": "Procure",
             "round": 2,
             "secondary": false
@@ -1595,7 +1610,7 @@
             "from_ts": 1790040300.0,
             "to_ts": 1790226540.0,
             "days": 2.2,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "2.2 天"
           },
@@ -1605,7 +1620,7 @@
             "from_ts": 1790226540.0,
             "to_ts": 1790236920.0,
             "days": 0.1,
-            "role": "edu",
+            "role": "third",
             "open": false,
             "label": "0.1 天"
           },
@@ -1651,9 +1666,9 @@
           },
           {
             "from_t": "2026-10-22 10:06",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792634760.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 3.0,
             "role": "admin",
             "open": true,
@@ -1662,7 +1677,7 @@
         ],
         "span": {
           "min_ts": 1788941520.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1685,6 +1700,7 @@
       "last_reply": "2026-10-23 11:46",
       "last_reply_summary": "須按附件修改（附件：PA-26-255.pdf）",
       "last_resubmit": "2026-10-23 16:26",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 3,
       "admin_total": 37.8,
@@ -1847,9 +1863,9 @@
           },
           {
             "from_t": "2026-10-23 16:26",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792743960.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 1.8,
             "role": "admin",
             "open": true,
@@ -1858,7 +1874,7 @@
         ],
         "span": {
           "min_ts": 1788796800.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1881,6 +1897,7 @@
       "last_reply": "2026-10-23 20:28",
       "last_reply_summary": "須按附件修改（附件：PA-26-288_第1次修改.pdf）",
       "last_resubmit": "2026-10-24 19:11",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 2,
       "admin_total": 15,
@@ -1944,18 +1961,18 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792840260.0,
-            "to_ts": 1792896167.52763,
-            "days": 0.6,
+            "to_ts": 1792897215.766008,
+            "days": 0.7,
             "role": "admin",
             "open": true,
-            "label": "至今 0.6 天"
+            "label": "至今 0.7 天"
           }
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -1978,6 +1995,7 @@
       "last_reply": "2026-09-25 10:41",
       "last_reply_summary": "須按附件修改（附件：PA-26-135.pdf）",
       "last_resubmit": "2026-10-21 10:08",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 3,
       "admin_total": 0.7,
@@ -2010,10 +2028,10 @@
           {
             "t": "2026-09-23 19:25",
             "ts": 1790162700.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R4 行政回覆",
-            "detail": "按權限機關意見須增加3間抽選供應商（第一類別及第二類別）並更新「建議供應商名單」：甡物科技有限公司、正方電腦科技有限公司、澳門混合現實科技有限公司、壹劃有限公司、華風廣告製作、溢利商業用品有限公司；同時更新所有相應文件（如立項建議書）",
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商（第一類別及第二類別）並更新「建議供應商名單」：甡物科技有限公司、正方電腦科技有限公司、澳門混合現實科技有限公司、壹劃有限公司、華風廣告製作、溢利商業用品有限公司；同時更新所有相應文件（如立項建議書）",
+            "detail": "",
             "who": "Procure",
             "round": 4,
             "secondary": false
@@ -2059,7 +2077,7 @@
             "from_ts": 1790162700.0,
             "to_ts": 1790241120.0,
             "days": 0.9,
-            "role": "edu",
+            "role": "third",
             "open": false,
             "label": "0.9 天"
           },
@@ -2085,9 +2103,9 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792548480.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 4.0,
             "role": "third",
             "open": true,
@@ -2096,7 +2114,7 @@
         ],
         "span": {
           "min_ts": 1784859540.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2119,6 +2137,7 @@
       "last_reply": "2026-10-08 21:26",
       "last_reply_summary": "須按附件修改（附件：PA-26-220_第四次修改.pdf）",
       "last_resubmit": "2026-10-09 18:41",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 3,
       "admin_total": 13,
@@ -2238,9 +2257,9 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1791542460.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 15.7,
             "role": "third",
             "open": true,
@@ -2249,7 +2268,7 @@
         ],
         "span": {
           "min_ts": 1787732880.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2265,14 +2284,15 @@
         "Guida Lai"
       ],
       "first_submit": "2026-08-17",
-      "status_since": "2026-10-08 21:32",
-      "days_in_status": 17,
+      "status_since": "2026-10-22",
+      "days_in_status": 3,
       "days_since_first_submit": 69,
       "current_round": 1,
-      "last_reply": "2026-10-08 21:32",
-      "last_reply_summary": "供應商尚在查閱協議中",
+      "last_reply": "2026-10-22",
+      "last_reply_summary": "行政部收到第三方回饋",
       "last_resubmit": "",
-      "days_since_reply": 17,
+      "admin_clock_from": "2026-10-22",
+      "days_since_reply": 3,
       "n_rounds": 1,
       "admin_total": 21,
       "colleague_total": "",
@@ -2292,11 +2312,11 @@
           {
             "t": "2026-09-07",
             "ts": 1788710400.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "行政部表示將直接與甲方溝通協議事宜",
-            "who": "行政部",
+            "kind": "third_party",
+            "role": "third",
+            "label": "行政部表示將直接與甲方溝通協議事宜",
+            "detail": "",
+            "who": "第三方",
             "round": 1,
             "secondary": false
           },
@@ -2306,7 +2326,7 @@
             "kind": "admin_reply",
             "role": "admin",
             "label": "R1 行政回覆（追加）",
-            "detail": "",
+            "detail": "行政部回覆律師意見並繼續與對方跟進",
             "who": "行政部",
             "round": 1,
             "secondary": false
@@ -2314,11 +2334,44 @@
           {
             "t": "2026-10-08 21:32",
             "ts": 1791466320.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆（追加）",
+            "kind": "third_party",
+            "role": "third",
+            "label": "供應商尚在查閱協議中",
             "detail": "",
-            "who": "行政部",
+            "who": "第三方",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-09",
+            "ts": 1791475200.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "行政部收到第三方回饋",
+            "detail": "",
+            "who": "第三方",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-21",
+            "ts": 1792512000.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "第三方收到行政部回饋",
+            "detail": "",
+            "who": "第三方",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-22",
+            "ts": 1792598400.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "行政部收到第三方回饋",
+            "detail": "",
+            "who": "第三方",
             "round": 1,
             "secondary": false
           }
@@ -2330,7 +2383,7 @@
             "from_ts": 1786896000.0,
             "to_ts": 1788710400.0,
             "days": 21.0,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "21.0 天"
           },
@@ -2356,18 +2409,48 @@
           },
           {
             "from_t": "2026-10-08 21:32",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-09",
             "from_ts": 1791466320.0,
-            "to_ts": 1792896167.52763,
-            "days": 16.5,
+            "to_ts": 1791475200.0,
+            "days": 0.1,
+            "role": "third",
+            "open": false,
+            "label": "0.1 天"
+          },
+          {
+            "from_t": "2026-10-09",
+            "to_t": "2026-10-21",
+            "from_ts": 1791475200.0,
+            "to_ts": 1792512000.0,
+            "days": 12.0,
+            "role": "third",
+            "open": false,
+            "label": "12.0 天"
+          },
+          {
+            "from_t": "2026-10-21",
+            "to_t": "2026-10-22",
+            "from_ts": 1792512000.0,
+            "to_ts": 1792598400.0,
+            "days": 1.0,
+            "role": "third",
+            "open": false,
+            "label": "1.0 天"
+          },
+          {
+            "from_t": "2026-10-22",
+            "to_t": "2026-10-25 11:00",
+            "from_ts": 1792598400.0,
+            "to_ts": 1792897215.766008,
+            "days": 3.5,
             "role": "third",
             "open": true,
-            "label": "至今 16.5 天"
+            "label": "至今 3.5 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2390,6 +2473,7 @@
       "last_reply": "2026-09-30 21:59",
       "last_reply_summary": "律師意見已回；待蔚來補充簽署代表／權限資料後交行政（Oscar 2026-10-12）",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": "",
@@ -2434,9 +2518,9 @@
         "gaps": [
           {
             "from_t": "2026-09-30 21:59",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1790776740.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 24.5,
             "role": "third",
             "open": true,
@@ -2445,7 +2529,7 @@
         ],
         "span": {
           "min_ts": 1790776740.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2468,6 +2552,7 @@
       "last_reply": "2026-10-16 20:43",
       "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": 9,
       "n_rounds": 2,
       "admin_total": 14.4,
@@ -2511,10 +2596,10 @@
           {
             "t": "2026-10-16 20:43",
             "ts": 1792154580.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R2 行政回覆",
-            "detail": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
+            "detail": "",
             "who": "Procure",
             "round": 2,
             "secondary": false
@@ -2537,15 +2622,15 @@
             "from_ts": 1791896880.0,
             "to_ts": 1792154580.0,
             "days": 3.0,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "3.0 天"
           },
           {
             "from_t": "2026-10-16 20:43",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792154580.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 8.6,
             "role": "edu",
             "open": true,
@@ -2554,7 +2639,7 @@
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2577,6 +2662,7 @@
       "last_reply": "2026-10-21 21:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-132(2)_第四次修改.pdf）",
       "last_resubmit": "2026-10-12 17:19",
+      "admin_clock_from": "",
       "days_since_reply": 4,
       "n_rounds": 4,
       "admin_total": 14.1,
@@ -2807,9 +2893,9 @@
           },
           {
             "from_t": "2026-10-21 21:50",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792590600.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 3.5,
             "role": "edu",
             "open": true,
@@ -2818,7 +2904,7 @@
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2841,6 +2927,7 @@
       "last_reply": "2026-10-23 20:31",
       "last_reply_summary": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
       "last_resubmit": "2026-10-14 17:22",
+      "admin_clock_from": "",
       "days_since_reply": 2,
       "n_rounds": 2,
       "admin_total": 30.1,
@@ -2895,10 +2982,10 @@
           {
             "t": "2026-10-23 20:31",
             "ts": 1792758660.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R2 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
+            "kind": "third_party",
+            "role": "third",
+            "label": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
+            "detail": "",
             "who": "Procure",
             "round": 2,
             "secondary": false
@@ -2931,15 +3018,15 @@
             "from_ts": 1791969720.0,
             "to_ts": 1792758660.0,
             "days": 9.1,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "9.1 天"
           },
           {
             "from_t": "2026-10-23 20:31",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792758660.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 1.6,
             "role": "edu",
             "open": true,
@@ -2948,7 +3035,7 @@
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -2971,6 +3058,7 @@
       "last_reply": "2026-10-23 17:55",
       "last_reply_summary": "須按附件修改（附件：PA-26-272_第一次修改.pdf）",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": 32.2,
@@ -3049,9 +3137,9 @@
           },
           {
             "from_t": "2026-10-23 17:55",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792749300.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 1.7,
             "role": "edu",
             "open": true,
@@ -3060,7 +3148,7 @@
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -3083,6 +3171,7 @@
       "last_reply": "2026-10-23 12:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-279_第1次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：城易智慧城市科技有限公司、澳門混合現實科技有限公司、寶豐策劃有限公司",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": 28.8,
@@ -3127,10 +3216,10 @@
           {
             "t": "2026-10-23 12:50",
             "ts": 1792731000.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-279_第1次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：城易智慧城市科技有限公司、澳門混合現實科技有限公司、寶豐策劃有限公司",
+            "kind": "third_party",
+            "role": "third",
+            "label": "須按附件修改（附件：PA-26-279_第1次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：城易智慧城市科技有限公司、澳門混合現實科技有限公司、寶豐策劃有限公司",
+            "detail": "",
             "who": "Procure",
             "round": 1,
             "secondary": false
@@ -3143,15 +3232,15 @@
             "from_ts": 1790240520.0,
             "to_ts": 1792731000.0,
             "days": 28.8,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "28.8 天"
           },
           {
             "from_t": "2026-10-23 12:50",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792731000.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 1.9,
             "role": "edu",
             "open": true,
@@ -3160,7 +3249,7 @@
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     },
@@ -3183,6 +3272,7 @@
       "last_reply": "2026-10-23 11:54",
       "last_reply_summary": "須按附件修改（附件：PA-26-280.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：寶豐策劃有限公司、博航創作有限公司、永誠會展設備服務有限公司",
       "last_resubmit": "",
+      "admin_clock_from": "",
       "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": 23.7,
@@ -3239,10 +3329,10 @@
           {
             "t": "2026-10-23 11:54",
             "ts": 1792727640.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-280.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：寶豐策劃有限公司、博航創作有限公司、永誠會展設備服務有限公司",
+            "kind": "third_party",
+            "role": "third",
+            "label": "須按附件修改（附件：PA-26-280.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：寶豐策劃有限公司、博航創作有限公司、永誠會展設備服務有限公司",
+            "detail": "",
             "who": "Procure",
             "round": 1,
             "secondary": false
@@ -3255,15 +3345,15 @@
             "from_ts": 1790679420.0,
             "to_ts": 1792727640.0,
             "days": 23.7,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "23.7 天"
           },
           {
             "from_t": "2026-10-23 11:54",
-            "to_t": "2026-10-25 10:42",
+            "to_t": "2026-10-25 11:00",
             "from_ts": 1792727640.0,
-            "to_ts": 1792896167.52763,
+            "to_ts": 1792897215.766008,
             "days": 2.0,
             "role": "edu",
             "open": true,
@@ -3272,7 +3362,7 @@
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1792896167.52763
+          "max_ts": 1792897215.766008
         }
       }
     }

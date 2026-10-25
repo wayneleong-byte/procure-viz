@@ -161,6 +161,26 @@ def attr_label(doc: dict) -> str:
     return f"{rpart} · {stage_short(doc.get('stage') or '')}"
 
 
+def parse_reply_annotations(round_obj: dict) -> dict[str, str]:
+    """Extract date → summary from round notes like 2026-10-09「行政部收到第三方回饋」."""
+    out: dict[str, str] = {}
+    for note in round_obj.get("notes") or []:
+        if not note:
+            continue
+        for m in re.finditer(
+            r"(20\d{2}-\d{2}-\d{2}(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?)\s*[「\"]([^」\"]+)[」\"]",
+            str(note),
+        ):
+            out[m.group(1).strip()] = m.group(2).strip()
+        # also bare: 行政部回覆 2026-09-07 …
+        for m in re.finditer(
+            r"行政部回覆\s+(20\d{2}-\d{2}-\d{2}(?:\s+\d{1,2}:\d{2})?)",
+            str(note),
+        ):
+            out.setdefault(m.group(1).strip(), "行政部回覆")
+    return out
+
+
 def resolve_first_submit(doc: dict) -> tuple[str, bool]:
     """Return (date_str, estimated). Prefer dataset first_submit; else earliest round date."""
     fs = (doc.get("first_submit") or "").strip()
@@ -236,6 +256,10 @@ def gap_role_between(prev: dict, nxt: dict | None, status: str, open_end: bool) 
     # 行政回覆 → EDU重交／提交：EDU處理
     if pk == "admin_reply" and nk in ("submission", "resubmission", "first_submit"):
         return "edu"
+    # 涉及第三方／甲方節點：間隔用藍色
+    if pr == "third" or nr == "third" or pk == "third_party" or nk == "third_party":
+        if status in THIRD_STATUSES or pr == "third" or nr == "third":
+            return "third"
     # 行政回覆 → 另一則行政回覆：仍算行政段（或第三方跟進中）
     if pk == "admin_reply" and nk == "admin_reply":
         if status in THIRD_STATUSES:
@@ -309,6 +333,7 @@ def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
                 }
             )
 
+        annotations = parse_reply_annotations(r)
         seen = set()
         for rd in reply_dates:
             if not rd or rd in seen:
@@ -316,18 +341,40 @@ def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
             seen.add(rd)
             rdt = parse_dt(rd)
             is_main = rd == reply_raw
-            summary = (r.get("reply_summary") or "") if is_main else ""
+            summary = ""
+            if is_main:
+                summary = r.get("reply_summary") or ""
+            if not summary:
+                summary = annotations.get(rd) or ""
+            # fuzzy: annotation key may be date-only while rd has time
+            if not summary:
+                rd_day = rd[:10]
+                for ak, av in annotations.items():
+                    if ak.startswith(rd_day) or rd.startswith(ak[:10]):
+                        summary = av
+                        break
             if len(summary) > 160:
                 summary = summary[:157] + "…"
+            is_third = bool(summary and ("第三方" in summary or "甲方" in summary or "供應商" in summary))
+            role = "third" if is_third else "admin"
+            if is_third:
+                label = f"R{rn} 第三方／甲方跟進" + ("" if is_main else "")
+                kind = "third_party"
+            else:
+                label = f"R{rn} 行政回覆" + ("" if is_main else "（追加）")
+                kind = "admin_reply"
+            if summary and is_third:
+                # Prefer the concrete event text as label suffix for clarity
+                label = summary
             nodes.append(
                 {
                     "t": rd,
                     "ts": rdt.timestamp() if rdt else None,
-                    "kind": "admin_reply",
-                    "role": "admin",
-                    "label": f"R{rn} 行政回覆" + ("" if is_main else "（追加）"),
-                    "detail": summary,
-                    "who": display_name(r.get("replier") or "行政部"),
+                    "kind": kind,
+                    "role": role,
+                    "label": label,
+                    "detail": summary if not is_third else ("" if label == summary else summary),
+                    "who": display_name(r.get("replier") or ("第三方" if is_third else "行政部")),
                     "round": rn,
                     "secondary": False,
                 }
@@ -380,6 +427,7 @@ def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
             "submission": 1,
             "resubmission": 2,
             "admin_reply": 3,
+            "third_party": 3,
             "progress_inquiry": 4,
         }
         # Sort first
@@ -678,6 +726,7 @@ def main() -> None:
                 "last_reply": d.get("last_reply") or "",
                 "last_reply_summary": (d.get("last_reply_summary") or "")[:240],
                 "last_resubmit": d.get("last_resubmit") or "",
+                "admin_clock_from": d.get("admin_clock_from") or "",
                 "days_since_reply": d.get("days_since_reply"),
                 "n_rounds": d.get("n_rounds"),
                 "admin_total": d.get("admin_total"),
