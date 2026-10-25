@@ -122,15 +122,6 @@
     $("#stat-off").textContent = m.email_off_hours ?? "—";
     $("#meta-line").textContent =
       `最後更新：${m.generated_at || "—"}（${m.timezone || "Asia/Macau"}）`;
-    const foot = $("#site-footer");
-    if (foot) {
-      foot.innerHTML = `教育部工作文件進程（不包括HR） · GitHub Pages · 產出 ${esc(
-        m.generated_at || "—"
-      )}（Asia/Macau）<br>
-        公開網址：<a href="https://wayneleong-byte.github.io/procure-viz/">wayneleong-byte.github.io/procure-viz</a>
-        · 資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）
-        · 來源時間：${esc(m.source_generated_at || "—")}`;
-    }
   }
 
   function renderHome() {

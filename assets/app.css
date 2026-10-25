@@ -533,28 +533,6 @@ a { color: var(--accent); }
   text-align: center;
   font-size: clamp(1.05rem, 1rem + .2vw, 1.2rem);
 }
-.about-fold {
-  margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: clamp(.82rem, .78rem + .12vw, .92rem);
-  line-height: 1.55;
-}
-.about-fold > summary {
-  cursor: pointer; list-style: none;
-  font-weight: 600; color: var(--muted);
-  user-select: none; padding: 4px 0;
-}
-.about-fold > summary::-webkit-details-marker { display: none; }
-.about-fold > summary::before {
-  content: "▸ "; color: var(--accent); font-weight: 700;
-}
-.about-fold[open] > summary::before { content: "▾ "; }
-.about-fold .about-body {
-  margin-top: 8px; padding: 10px 12px;
-  background: rgba(0,0,0,.22); border-radius: 10px;
-  border: 1px solid var(--border);
-}
-.about-fold .about-body a { color: var(--accent); }
 .wrap { padding-bottom: 48px; }
 
 

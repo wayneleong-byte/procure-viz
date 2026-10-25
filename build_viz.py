@@ -801,7 +801,7 @@ def main() -> None:
     viz = {
         "meta": {
             "title": "教育部工作文件進程（不包括HR）",
-            "subtitle": "資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）",
+            "subtitle": "",
             "generated_at": today_dt.strftime("%Y-%m-%d %H:%M"),
             "source_generated_at": generated_at,
             "today": today,
