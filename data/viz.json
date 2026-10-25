@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "採購文件可視化",
-    "generated_at": "2026-10-25 01:55",
-    "source_generated_at": "2026-10-24 23:07",
-    "today": "2026-10-24",
+    "generated_at": "2026-10-25 08:46",
+    "source_generated_at": "2026-10-25 08:43",
+    "today": "2026-10-25",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
     "incomplete_count": 28,
@@ -61,8 +61,8 @@
         "side": "edu",
         "label": "待同事重交最久",
         "unit": "天",
-        "value": 8,
-        "display": "8",
+        "value": 9,
+        "display": "9",
         "sub": "PA-26-270 · 為澳科館微定位導覽系統取得保養服務（2026-2029）",
         "hint": "行政已回覆待重交 · EED 側對比（通常遠短於行政）"
       }
@@ -90,7 +90,7 @@
       "last_reply": "2026-10-16 20:43",
       "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
       "last_resubmit": "",
-      "days_since_reply": 8,
+      "days_since_reply": 9,
       "n_rounds": 2,
       "admin_total": 14.4,
       "colleague_total": "",
@@ -150,7 +150,7 @@
             "role": "edu",
             "start": "2026-10-16 20:43",
             "end": "2026-10-25",
-            "days": 8,
+            "days": 9,
             "round": 2,
             "label": "進行中：待 EDU 重交",
             "open": true
@@ -177,7 +177,7 @@
       "last_reply": "2026-10-21 21:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-132(2)_第四次修改.pdf）",
       "last_resubmit": "2026-10-12 17:19",
-      "days_since_reply": 3,
+      "days_since_reply": 4,
       "n_rounds": 4,
       "admin_total": 14.1,
       "colleague_total": 8.0,
@@ -351,7 +351,7 @@
             "role": "edu",
             "start": "2026-10-21 21:50",
             "end": "2026-10-25",
-            "days": 3,
+            "days": 4,
             "round": 4,
             "label": "進行中：待 EDU 重交",
             "open": true
@@ -378,7 +378,7 @@
       "last_reply": "2026-10-23 11:54",
       "last_reply_summary": "須按附件修改（附件：PA-26-280.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：寶豐策劃有限公司、博航創作有限公司、永誠會展設備服務有限公司",
       "last_resubmit": "",
-      "days_since_reply": 1,
+      "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": 23.7,
       "colleague_total": "",
@@ -448,7 +448,7 @@
             "role": "edu",
             "start": "2026-10-23 11:54",
             "end": "2026-10-25",
-            "days": 1,
+            "days": 2,
             "round": 1,
             "label": "進行中：待 EDU 重交",
             "open": true
@@ -475,7 +475,7 @@
       "last_reply": "2026-10-23 12:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-279_第1次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：城易智慧城市科技有限公司、澳門混合現實科技有限公司、寶豐策劃有限公司",
       "last_resubmit": "",
-      "days_since_reply": 1,
+      "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": 28.8,
       "colleague_total": "",
@@ -535,7 +535,7 @@
             "role": "edu",
             "start": "2026-10-23 12:50",
             "end": "2026-10-25",
-            "days": 1,
+            "days": 2,
             "round": 1,
             "label": "進行中：待 EDU 重交",
             "open": true
@@ -562,7 +562,7 @@
       "last_reply": "2026-10-23 17:55",
       "last_reply_summary": "須按附件修改（附件：PA-26-272_第一次修改.pdf）",
       "last_resubmit": "",
-      "days_since_reply": 1,
+      "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": 32.2,
       "colleague_total": "",
@@ -632,7 +632,7 @@
             "role": "edu",
             "start": "2026-10-23 17:55",
             "end": "2026-10-25",
-            "days": 1,
+            "days": 2,
             "round": 1,
             "label": "進行中：待 EDU 重交",
             "open": true
@@ -659,7 +659,7 @@
       "last_reply": "2026-10-23 20:31",
       "last_reply_summary": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
       "last_resubmit": "2026-10-14 17:22",
-      "days_since_reply": 1,
+      "days_since_reply": 2,
       "n_rounds": 2,
       "admin_total": 30.1,
       "colleague_total": 7.0,
@@ -745,7 +745,7 @@
             "role": "edu",
             "start": "2026-10-23 20:31",
             "end": "2026-10-25",
-            "days": 1,
+            "days": 2,
             "round": 2,
             "label": "進行中：待 EDU 重交",
             "open": true
@@ -2823,7 +2823,7 @@
       "last_reply": "2026-10-08 21:32",
       "last_reply_summary": "供應商尚在查閱協議中",
       "last_resubmit": "",
-      "days_since_reply": 16,
+      "days_since_reply": 17,
       "n_rounds": 1,
       "admin_total": 21,
       "colleague_total": "",
@@ -7060,7 +7060,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢：PA-26-132　為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 100
+      "days": 101
     },
     {
       "pa": "PA-26-135",
@@ -7068,7 +7068,7 @@
       "from": "LamChan",
       "subject": "文件進度查詢: PA-26-135",
       "closed": true,
-      "days": 92
+      "days": 93
     },
     {
       "pa": "PA-26-220",
@@ -7076,7 +7076,7 @@
       "from": "Yan Wong",
       "subject": "文件進度查詢: PA-26-220",
       "closed": true,
-      "days": 59
+      "days": 60
     },
     {
       "pa": "PA-26-132(2)",
@@ -7084,7 +7084,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 51
+      "days": 52
     },
     {
       "pa": "PA-26-132(2)",
@@ -7092,7 +7092,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 45
+      "days": 46
     },
     {
       "pa": "PA-26-242",
@@ -7100,7 +7100,7 @@
       "from": "Nettie Si",
       "subject": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 45
+      "days": 46
     },
     {
       "pa": "PA-26-132(2)",
@@ -7108,7 +7108,7 @@
       "from": "Keira Wan",
       "subject": "回覆: 文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 43
+      "days": 44
     },
     {
       "pa": "PA-26-242",
@@ -7116,7 +7116,7 @@
       "from": "Nettie Si",
       "subject": "第2次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 42
+      "days": 43
     },
     {
       "pa": "PA-26-242",
@@ -7124,7 +7124,7 @@
       "from": "Nettie Si",
       "subject": "第3次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 38
+      "days": 39
     },
     {
       "pa": "PA-26-255",
@@ -7132,7 +7132,7 @@
       "from": "Fong Ng",
       "subject": "文件進度查詢【第一次】：PA-26-255 赴北京參加網絡安全培訓",
       "closed": true,
-      "days": 38
+      "days": 39
     },
     {
       "pa": "PA-26-132(2)",
@@ -7140,7 +7140,7 @@
       "from": "Keira Wan",
       "subject": "回覆: 文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 36
+      "days": 37
     },
     {
       "pa": "PA-26-242",
@@ -7148,7 +7148,7 @@
       "from": "Nettie Si",
       "subject": "第4次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 36
+      "days": 37
     },
     {
       "pa": "PA-26-272",
@@ -7156,7 +7156,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-272 為2027澳門北斗航天大賽採購承辦賽事服務",
       "closed": true,
-      "days": 24
+      "days": 25
     },
     {
       "pa": "PA-26-132(2)",
@@ -7164,7 +7164,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢 [第1次]：PA-26-132(2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）(為第1次通知EDU需要作出文件修改)",
       "closed": true,
-      "days": 19
+      "days": 20
     },
     {
       "pa": "PA-26-242",
@@ -7172,7 +7172,7 @@
       "from": "Nettie Si",
       "subject": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）- 為第1次通知EDU需要作出文件修改",
       "closed": true,
-      "days": 19
+      "days": 20
     },
     {
       "pa": "PA-26-255",
@@ -7180,7 +7180,7 @@
       "from": "Fong Ng",
       "subject": "文件進度查詢【第二次】：PA-26-255 赴北京參加網絡安全培訓",
       "closed": true,
-      "days": 19
+      "days": 20
     },
     {
       "pa": "PA-26-220",
@@ -7188,7 +7188,7 @@
       "from": "Yan Wong",
       "subject": "文件進度查詢：PA-26-220 為澳門科學館各部門訂購實體參考書籍及2027年實體期刊",
       "closed": true,
-      "days": 19
+      "days": 20
     },
     {
       "pa": "PA-26-194",
@@ -7196,7 +7196,7 @@
       "from": "Ryan Lei",
       "subject": "文件進度查詢：PA-26-194為澳門科學館採購智能機器人及AI交互設備 (完成第2次修改)",
       "closed": true,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "PA-26-194",
@@ -7204,7 +7204,7 @@
       "from": "Ryan Lei",
       "subject": "文件進度查詢：PA-26-194為澳門科學館採購智能機器人及AI交互設備 (完成第2次修改)",
       "closed": true,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "建議書-2027年度科普劇場運作建議",
@@ -7212,7 +7212,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "PA-26-280",
@@ -7220,7 +7220,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢: PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "closed": true,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "PA-26-273",
@@ -7228,7 +7228,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-273 採購仿生機械手及相關演示化、展品化之服務",
       "closed": false,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "科學館與蔚來簽署第二次補充合作協議",
@@ -7236,7 +7236,7 @@
       "from": "Ryan Lei",
       "subject": "文件進度查詢：科學館與蔚來簽署第二次補充合作協議",
       "closed": true,
-      "days": 14
+      "days": 15
     },
     {
       "pa": "PA-26-279",
@@ -7244,7 +7244,7 @@
       "from": "Thomas Tai",
       "subject": "文件進度查詢：PA-26-279-為“青年科技村”學員採購人工智能範疇培訓課程（2026/2027年度）",
       "closed": true,
-      "days": 14
+      "days": 15
     },
     {
       "pa": "PA-26-272",
@@ -7252,7 +7252,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-272 為2027澳門北斗航天大賽採購承辦賽事服務",
       "closed": true,
-      "days": 13
+      "days": 14
     },
     {
       "pa": "PA-26-270",
@@ -7260,7 +7260,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）",
       "closed": true,
-      "days": 12
+      "days": 13
     },
     {
       "pa": "PA-26-271",
@@ -7268,7 +7268,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-271 為擴增實境網上瀏覽平台系統取得保養服務（2027-2030年）",
       "closed": false,
-      "days": 12
+      "days": 13
     },
     {
       "pa": "PA-26-280",
@@ -7276,7 +7276,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢: PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "closed": true,
-      "days": 11
+      "days": 12
     },
     {
       "pa": "建議書-2027年度科普劇場運作建議",
@@ -7284,7 +7284,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
-      "days": 11
+      "days": 12
     },
     {
       "pa": "PA-26-273",
@@ -7292,7 +7292,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-273 採購仿生機械手及相關演示化、展品化之服務",
       "closed": false,
-      "days": 10
+      "days": 11
     },
     {
       "pa": "AI 工具報銷預計申請表（2026年7月至12月）",
@@ -7300,7 +7300,7 @@
       "from": "Silvia Lio",
       "subject": "文件進度查詢：（無編號）2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
       "closed": true,
-      "days": 8
+      "days": 9
     },
     {
       "pa": "PA-26-279",
@@ -7308,7 +7308,7 @@
       "from": "Thomas Tai",
       "subject": "Re: 文件進度查詢：PA-26-279-為“青年科技村”學員採購人工智能範疇培訓課程（2026/2027年度）",
       "closed": true,
-      "days": 7
+      "days": 8
     },
     {
       "pa": "PA-26-272",
@@ -7316,7 +7316,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-272 為2027澳門北斗航天大賽採購承辦賽事服務",
       "closed": true,
-      "days": 5
+      "days": 6
     },
     {
       "pa": "PA-26-280",
@@ -7324,7 +7324,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢: PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "closed": true,
-      "days": 3
+      "days": 4
     },
     {
       "pa": "建議書-2027年度科普劇場運作建議",
@@ -7332,7 +7332,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
-      "days": 3
+      "days": 4
     },
     {
       "pa": "PA-26-286",
@@ -7340,7 +7340,7 @@
       "from": "Lam Chan",
       "subject": "文件進度查詢【第二次】：PA-26-286 為“國際青少年創科教育大賽（澳門區）2027”採購承辦賽事服務",
       "closed": false,
-      "days": 3
+      "days": 4
     },
     {
       "pa": "PA-26-221",
@@ -7348,7 +7348,7 @@
       "from": "Yan Wong",
       "subject": "文件進度查詢：PA-26-221 為澳門科學館2台電子書借閱機取得系統維護服務續期二年（2027-2028）",
       "closed": false,
-      "days": 3
+      "days": 4
     },
     {
       "pa": "PA-26-255",
@@ -7356,7 +7356,7 @@
       "from": "Fong Ng",
       "subject": "文件進度查詢【第一次】：PA-26-255 赴北京參加網絡安全培訓 (為第1次通知EDU需要作出文件修改)",
       "closed": true,
-      "days": 2
+      "days": 3
     },
     {
       "pa": "PA-26-271",
@@ -7364,7 +7364,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-271 為擴增實境網上瀏覽平台系統取得保養服務（2027-2030年）",
       "closed": false,
-      "days": 2
+      "days": 3
     },
     {
       "pa": "PA-26-273",
@@ -7372,7 +7372,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-273 採購仿生機械手及相關演示化、展品化之服務",
       "closed": false,
-      "days": 2
+      "days": 3
     },
     {
       "pa": "PA-26-165",
@@ -7380,7 +7380,7 @@
       "from": "Carlos Nip",
       "subject": "文件進度查詢：PA-26-165 為“幸以橋樑度春秋──茅以升生平事蹟展”提供航拍服務",
       "closed": true,
-      "days": 1
+      "days": 2
     },
     {
       "pa": "PA-26-302",
@@ -7388,7 +7388,7 @@
       "from": "Siky Lam",
       "subject": "文件進度查詢： PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
       "closed": false,
-      "days": 0
+      "days": 1
     }
   ]
 }
