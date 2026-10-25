@@ -122,16 +122,14 @@
     $("#stat-off").textContent = m.email_off_hours ?? "—";
     $("#meta-line").textContent =
       `最後更新：${m.generated_at || "—"}（${m.timezone || "Asia/Macau"}）`;
-    $("#source-line").textContent =
-      m.subtitle ||
-      `資料來源 generated_at：${m.source_generated_at || "—"} · 唯讀 dataset.json`;
     const foot = $("#site-footer");
     if (foot) {
       foot.innerHTML = `教育部工作文件進程（不包括HR） · GitHub Pages · 產出 ${esc(
         m.generated_at || "—"
       )}（Asia/Macau）<br>
         公開網址：<a href="https://wayneleong-byte.github.io/procure-viz/">wayneleong-byte.github.io/procure-viz</a>
-        · 資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）`;
+        · 資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）
+        · 來源時間：${esc(m.source_generated_at || "—")}`;
     }
   }
 
@@ -150,13 +148,9 @@
         </button>`;
       })
       .join("");
-    html += `<button type="button" class="status-card" data-goto="home" disabled style="opacity:.7;cursor:default">
+    html += `<button type="button" class="status-card total-card" data-goto="home" disabled>
       <span class="sc-name">未完成總數</span>
       <span class="sc-num">${total}</span>
-    </button>`;
-    html += `<button type="button" class="status-card email-entry" data-goto="email">
-      <span class="sc-name">行政部郵件時間段統計</span>
-      <span class="sc-num">查看 →</span>
     </button>`;
     box.innerHTML = html;
     $$(".status-card[data-goto]", box).forEach((btn) => {
@@ -173,7 +167,8 @@
       <div class="chip"><b>${on}</b><span>辦公時間</span></div>
       <div class="chip"><b>${off}</b><span>非辦公時間</span></div>
       <div class="chip"><b>${t ? Math.round((off / t) * 1000) / 10 : 0}%</b><span>非辦公比例</span></div>`;
-    $("#btn-goto-email").onclick = () => switchTab("email");
+    const btn = $("#btn-goto-email");
+    if (btn) btn.onclick = () => switchTab("email");
   }
 
   function renderHomeCharts() {
@@ -415,6 +410,79 @@
     order.forEach(renderDocList);
   }
 
+  /** Half-hour index: 0=00:00 … 18=09:00 … 37=18:30 … 47=23:30 */
+  const WORK_START_I = 18; // 09:00
+  const WORK_END_I = 37;   // 18:30 inclusive
+
+  function isWorkBucket(i) {
+    return i >= WORK_START_I && i <= WORK_END_I;
+  }
+
+  /** Chart.js plugin: paint office / off-hours vertical bands + axis labels */
+  const officeHoursBandsPlugin = {
+    id: "officeHoursBands",
+    beforeDatasetsDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      if (!chartArea || !scales.x) return;
+      const x = scales.x;
+      const n = (chart.data.labels || []).length;
+      if (!n) return;
+      const y0 = chartArea.top;
+      const y1 = chartArea.bottom;
+      const h = y1 - y0;
+
+      // Off-hours (left of work): 0 .. WORK_START_I-1
+      // Work: WORK_START_I .. WORK_END_I
+      // Off-hours (right): WORK_END_I+1 .. n-1
+      const bands = [
+        { from: 0, to: WORK_START_I - 1, fill: "rgba(71, 85, 105, 0.38)", label: "非辦公" },
+        { from: WORK_START_I, to: WORK_END_I, fill: "rgba(52, 211, 153, 0.16)", label: "辦公" },
+        { from: WORK_END_I + 1, to: n - 1, fill: "rgba(71, 85, 105, 0.38)", label: "非辦公" },
+      ];
+
+      ctx.save();
+      for (const b of bands) {
+        if (b.to < b.from || b.from >= n) continue;
+        const x0 = x.getPixelForValue(b.from) - (x.getPixelForValue(1) - x.getPixelForValue(0)) / 2;
+        const x1 = x.getPixelForValue(b.to) + (x.getPixelForValue(1) - x.getPixelForValue(0)) / 2;
+        const left = Math.max(chartArea.left, Math.min(x0, x1));
+        const right = Math.min(chartArea.right, Math.max(x0, x1));
+        if (right <= left) continue;
+        ctx.fillStyle = b.fill;
+        ctx.fillRect(left, y0, right - left, h);
+      }
+
+      // Vertical dividers at work boundaries
+      ctx.strokeStyle = "rgba(52, 211, 153, 0.55)";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 3]);
+      for (const edge of [WORK_START_I, WORK_END_I + 1]) {
+        if (edge < 0 || edge >= n) continue;
+        const px = x.getPixelForValue(edge) - (x.getPixelForValue(1) - x.getPixelForValue(0)) / 2;
+        if (px < chartArea.left || px > chartArea.right) continue;
+        ctx.beginPath();
+        ctx.moveTo(px, y0);
+        ctx.lineTo(px, y1);
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
+
+      // Band labels near top
+      ctx.font = "650 12px Noto Sans TC, sans-serif";
+      ctx.textBaseline = "top";
+      for (const b of bands) {
+        if (b.to < b.from || b.from >= n) continue;
+        const mid = (b.from + b.to) / 2;
+        const px = x.getPixelForValue(mid);
+        if (px < chartArea.left + 8 || px > chartArea.right - 8) continue;
+        ctx.fillStyle = b.label === "辦公" ? "rgba(167, 243, 208, 0.95)" : "rgba(203, 213, 225, 0.85)";
+        ctx.textAlign = "center";
+        ctx.fillText(b.label, px, y0 + 4);
+      }
+      ctx.restore();
+    },
+  };
+
   function renderEmailCharts() {
     if (typeof Chart === "undefined") return;
     applyChartDefaults();
@@ -495,7 +563,7 @@
       });
     }
 
-    // 24h half-hour stacked
+    // 24h half-hour stacked — with office / off-hours band backgrounds
     destroyChart("emailHourly");
     const ctx3 = $("#chart-email-hourly");
     const buckets = es.half_hour || [];
@@ -512,6 +580,7 @@
       charts.emailHourly = new Chart(ctx3, {
         type: "bar",
         data: { labels, datasets },
+        plugins: [officeHoursBandsPlugin],
         options: {
           responsive: true,
           maintainAspectRatio: false,
@@ -520,17 +589,30 @@
               position: "bottom",
               labels: { color: "#c8d6dc", boxWidth: 10, font: { size: 10 } },
             },
-            tooltip: { mode: "index", intersect: false },
+            tooltip: {
+              mode: "index",
+              intersect: false,
+              callbacks: {
+                afterTitle(items) {
+                  const i = items[0]?.dataIndex;
+                  if (i == null) return "";
+                  return isWorkBucket(i) ? "（辦公時間）" : "（非辦公時間）";
+                },
+              },
+            },
           },
           scales: {
             x: {
               stacked: true,
               ticks: {
-                color: "#8aa0ab",
                 maxRotation: 90,
                 autoSkip: true,
                 maxTicksLimit: 24,
                 font: { size: 9 },
+                color(ctx) {
+                  const i = ctx.index;
+                  return isWorkBucket(i) ? "#6ee7b7" : "#94a3b8";
+                },
               },
               grid: { display: false },
             },
