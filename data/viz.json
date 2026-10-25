@@ -2,17 +2,17 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-10-25 11:00",
+    "generated_at": "2026-10-25 17:53",
     "source_generated_at": "2026-10-25 10:57",
     "today": "2026-10-25",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
     "incomplete_count": 27,
+    "completed_count": 13,
     "email_count": 277,
     "email_on_hours": 190,
     "email_off_hours": 87,
     "progress_linked_count": 42,
-    "completed_hidden": 13,
     "status_order": [
       "已提交待回覆",
       "報價進行中",
@@ -28,8 +28,9 @@
       "行政部已回覆待同事重交": 6
     },
     "notes": [
-      "未完成＝目前狀態唔係「完成」；本頁唔顯示已完成文件",
-      "時間線由首次提交起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
+      "未完成＝目前狀態唔係「完成」；已完成見「已完成文件流程時間記錄」",
+      "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
+      "已完成案時間線喺最後事件收束，唔再延伸至今日",
       "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間"
     ]
   },
@@ -47,8 +48,10 @@
       ],
       "first_submit": "2026-09-24 12:01",
       "status_since": "2026-09-24 12:01",
+      "completed_at": "",
       "days_in_status": 31,
       "days_since_first_submit": 31,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -111,18 +114,18 @@
         "gaps": [
           {
             "from_t": "2026-09-24 12:01",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1790222460.0,
-            "to_ts": 1792897215.766008,
-            "days": 31.0,
+            "to_ts": 1792922030.402007,
+            "days": 31.2,
             "role": "admin",
             "open": true,
-            "label": "至今 31.0 天"
+            "label": "至今 31.2 天"
           }
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -139,8 +142,10 @@
       ],
       "first_submit": "2026-09-29 10:49",
       "status_since": "2026-09-29 10:49",
+      "completed_at": "",
       "days_in_status": 26,
       "days_since_first_submit": 26,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -191,18 +196,18 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1790650140.0,
-            "to_ts": 1792897215.766008,
-            "days": 26.0,
+            "to_ts": 1792922030.402007,
+            "days": 26.3,
             "role": "admin",
             "open": true,
-            "label": "至今 26.0 天"
+            "label": "至今 26.3 天"
           }
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -219,8 +224,10 @@
       ],
       "first_submit": "2026-09-29 18:53",
       "status_since": "2026-09-29 18:53",
+      "completed_at": "",
       "days_in_status": 26,
       "days_since_first_submit": 26,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -283,18 +290,18 @@
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1790679180.0,
-            "to_ts": 1792897215.766008,
-            "days": 25.7,
+            "to_ts": 1792922030.402007,
+            "days": 26.0,
             "role": "admin",
             "open": true,
-            "label": "至今 25.7 天"
+            "label": "至今 26.0 天"
           }
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -311,8 +318,10 @@
       ],
       "first_submit": "2026-09-30 11:12",
       "status_since": "2026-09-30 11:12",
+      "completed_at": "",
       "days_in_status": 25,
       "days_since_first_submit": 25,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -351,18 +360,18 @@
         "gaps": [
           {
             "from_t": "2026-09-30 11:12",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1790737920.0,
-            "to_ts": 1792897215.766008,
-            "days": 25.0,
+            "to_ts": 1792922030.402007,
+            "days": 25.3,
             "role": "admin",
             "open": true,
-            "label": "至今 25.0 天"
+            "label": "至今 25.3 天"
           }
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -379,8 +388,10 @@
       ],
       "first_submit": "2026-09-14",
       "status_since": "2026-10-09 20:00",
+      "completed_at": "",
       "days_in_status": 16,
       "days_since_first_submit": 41,
+      "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-07 17:55",
       "last_reply_summary": "須按附件修改（附件：PA-26-248.pdf）；按權限機關意見須增加5間抽選供應商並更新「建議供應商名單」：濠光傳媒有限公司、嘉圖斯有限公司、力信國際有限公司、萬利電腦數控系統有限公司、誠廣告創作有限公司；同時更新所有相應文件（如立項建議書）",
@@ -449,18 +460,18 @@
           },
           {
             "from_t": "2026-10-09 20:00",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1791547200.0,
-            "to_ts": 1792897215.766008,
-            "days": 15.6,
+            "to_ts": 1792922030.402007,
+            "days": 15.9,
             "role": "admin",
             "open": true,
-            "label": "至今 15.6 天"
+            "label": "至今 15.9 天"
           }
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -477,8 +488,10 @@
       ],
       "first_submit": "2026-10-12 11:52",
       "status_since": "2026-10-12 11:52",
+      "completed_at": "",
       "days_in_status": 13,
       "days_since_first_submit": 13,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -517,18 +530,18 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1791777120.0,
-            "to_ts": 1792897215.766008,
-            "days": 13.0,
+            "to_ts": 1792922030.402007,
+            "days": 13.3,
             "role": "admin",
             "open": true,
-            "label": "至今 13.0 天"
+            "label": "至今 13.3 天"
           }
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -545,8 +558,10 @@
       ],
       "first_submit": "2026-09-23 10:58",
       "status_since": "2026-10-15 17:31",
+      "completed_at": "",
       "days_in_status": 10,
       "days_since_first_submit": 32,
+      "process_days": null,
       "current_round": 6,
       "last_reply": "2026-10-14 14:39",
       "last_reply_summary": "[10-07 19:41] 須按附件修改（附件：PA-26-194.pdf）；按權限機關意見須增加3間抽選供應商（第一類別及第二類別）並更新「建議供應商名單」：易簡智能科技有限公司、艾克方案有限公司、萬利電腦數控系統有限公司、國豐網絡工程有限公司、澳門麥芽科技有限公司、維思科技有限公司；同時更新所有相應文件（如立項建議書）；[10-14 14:39] 須按附件修改（附件：PA-26-194.pdf）",
@@ -734,18 +749,18 @@
           },
           {
             "from_t": "2026-10-15 17:31",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792056660.0,
-            "to_ts": 1792897215.766008,
-            "days": 9.7,
+            "to_ts": 1792922030.402007,
+            "days": 10.0,
             "role": "admin",
             "open": true,
-            "label": "至今 9.7 天"
+            "label": "至今 10.0 天"
           }
         ],
         "span": {
           "min_ts": 1790132280.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -762,8 +777,10 @@
       ],
       "first_submit": "2026-08-26",
       "status_since": "2026-10-16 11:57",
+      "completed_at": "",
       "days_in_status": 9,
       "days_since_first_submit": 60,
+      "process_days": null,
       "current_round": 3,
       "last_reply": "2026-10-13 16:28",
       "last_reply_summary": "須按附件修改（附件：PA-26-244.pdf）",
@@ -874,18 +891,18 @@
           },
           {
             "from_t": "2026-10-16 11:33",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792121580.0,
-            "to_ts": 1792897215.766008,
-            "days": 9.0,
+            "to_ts": 1792922030.402007,
+            "days": 9.3,
             "role": "admin",
             "open": true,
-            "label": "至今 9.0 天"
+            "label": "至今 9.3 天"
           }
         ],
         "span": {
           "min_ts": 1787673600.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -902,8 +919,10 @@
       ],
       "first_submit": "2026-10-16",
       "status_since": "2026-10-16",
+      "completed_at": "",
       "days_in_status": 9,
       "days_since_first_submit": 9,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -942,18 +961,18 @@
         "gaps": [
           {
             "from_t": "2026-10-16",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792080000.0,
-            "to_ts": 1792897215.766008,
-            "days": 9.5,
+            "to_ts": 1792922030.402007,
+            "days": 9.7,
             "role": "admin",
             "open": true,
-            "label": "至今 9.5 天"
+            "label": "至今 9.7 天"
           }
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -970,8 +989,10 @@
       ],
       "first_submit": "2026-09-25 00:03",
       "status_since": "2026-10-18 09:54",
+      "completed_at": "",
       "days_in_status": 7,
       "days_since_first_submit": 30,
+      "process_days": null,
       "current_round": 5,
       "last_reply": "2026-09-25 00:03",
       "last_reply_summary": "須按附件修改（附件：教育部_2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表.pdf）",
@@ -1042,18 +1063,18 @@
           },
           {
             "from_t": "2026-10-18 09:54",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792288440.0,
-            "to_ts": 1792897215.766008,
-            "days": 7.0,
+            "to_ts": 1792922030.402007,
+            "days": 7.3,
             "role": "admin",
             "open": true,
-            "label": "至今 7.0 天"
+            "label": "至今 7.3 天"
           }
         ],
         "span": {
           "min_ts": 1790265780.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1070,8 +1091,10 @@
       ],
       "first_submit": "2026-10-20 12:53",
       "status_since": "2026-10-20 12:53",
+      "completed_at": "",
       "days_in_status": 5,
       "days_since_first_submit": 5,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -1098,18 +1121,18 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792471980.0,
-            "to_ts": 1792897215.766008,
-            "days": 4.9,
+            "to_ts": 1792922030.402007,
+            "days": 5.2,
             "role": "admin",
             "open": true,
-            "label": "至今 4.9 天"
+            "label": "至今 5.2 天"
           }
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1126,8 +1149,10 @@
       ],
       "first_submit": "2026-10-21 15:15",
       "status_since": "2026-10-21 15:15",
+      "completed_at": "",
       "days_in_status": 4,
       "days_since_first_submit": 4,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "",
       "last_reply_summary": "",
@@ -1154,18 +1179,18 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792566900.0,
-            "to_ts": 1792897215.766008,
-            "days": 3.8,
+            "to_ts": 1792922030.402007,
+            "days": 4.1,
             "role": "admin",
             "open": true,
-            "label": "至今 3.8 天"
+            "label": "至今 4.1 天"
           }
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1182,8 +1207,10 @@
       ],
       "first_submit": "2026-09-29 16:24",
       "status_since": "2026-10-21 09:58",
+      "completed_at": "",
       "days_in_status": 4,
       "days_since_first_submit": 26,
+      "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-15 19:58",
       "last_reply_summary": "須按附件修改（附件：PP-26-068-EED.pdf）",
@@ -1252,18 +1279,18 @@
           },
           {
             "from_t": "2026-10-21 09:58",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792547880.0,
-            "to_ts": 1792897215.766008,
-            "days": 4.0,
+            "to_ts": 1792922030.402007,
+            "days": 4.3,
             "role": "admin",
             "open": true,
-            "label": "至今 4.0 天"
+            "label": "至今 4.3 天"
           }
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1280,8 +1307,10 @@
       ],
       "first_submit": "2026-10-07 16:26",
       "status_since": "2026-10-22 13:31",
+      "completed_at": "",
       "days_in_status": 3,
       "days_since_first_submit": 18,
+      "process_days": null,
       "current_round": 3,
       "last_reply": "2026-10-14 11:41",
       "last_reply_summary": "須按附件修改（附件：PA-26-120(2)_第二次修改.pdf）",
@@ -1392,18 +1421,18 @@
           },
           {
             "from_t": "2026-10-22 13:31",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792647060.0,
-            "to_ts": 1792897215.766008,
-            "days": 2.9,
+            "to_ts": 1792922030.402007,
+            "days": 3.2,
             "role": "admin",
             "open": true,
-            "label": "至今 2.9 天"
+            "label": "至今 3.2 天"
           }
         ],
         "span": {
           "min_ts": 1791361560.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1420,8 +1449,10 @@
       ],
       "first_submit": "2026-09-22 09:19",
       "status_since": "2026-10-23 10:17",
+      "completed_at": "",
       "days_in_status": 2,
       "days_since_first_submit": 33,
+      "process_days": null,
       "current_round": 5,
       "last_reply": "2026-10-13 15:44",
       "last_reply_summary": "[10-09 15:43] 須按附件修改（附件：PA-26-242_第二次修改.pdf）；[10-13 15:44] 須按附件修改（附件：PA-26-242_第三次修改.pdf）",
@@ -1666,18 +1697,18 @@
           },
           {
             "from_t": "2026-10-22 10:06",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792634760.0,
-            "to_ts": 1792897215.766008,
-            "days": 3.0,
+            "to_ts": 1792922030.402007,
+            "days": 3.3,
             "role": "admin",
             "open": true,
-            "label": "至今 3.0 天"
+            "label": "至今 3.3 天"
           }
         ],
         "span": {
           "min_ts": 1788941520.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1694,8 +1725,10 @@
       ],
       "first_submit": "2026-09-08",
       "status_since": "2026-10-23 16:26",
+      "completed_at": "",
       "days_in_status": 2,
       "days_since_first_submit": 47,
+      "process_days": null,
       "current_round": 3,
       "last_reply": "2026-10-23 11:46",
       "last_reply_summary": "須按附件修改（附件：PA-26-255.pdf）",
@@ -1863,18 +1896,18 @@
           },
           {
             "from_t": "2026-10-23 16:26",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792743960.0,
-            "to_ts": 1792897215.766008,
-            "days": 1.8,
+            "to_ts": 1792922030.402007,
+            "days": 2.1,
             "role": "admin",
             "open": true,
-            "label": "至今 1.8 天"
+            "label": "至今 2.1 天"
           }
         ],
         "span": {
           "min_ts": 1788796800.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1891,8 +1924,10 @@
       ],
       "first_submit": "2026-10-08",
       "status_since": "2026-10-24 19:11",
+      "completed_at": "",
       "days_in_status": 1,
       "days_since_first_submit": 17,
+      "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 20:28",
       "last_reply_summary": "須按附件修改（附件：PA-26-288_第1次修改.pdf）",
@@ -1961,18 +1996,18 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792840260.0,
-            "to_ts": 1792897215.766008,
-            "days": 0.7,
+            "to_ts": 1792922030.402007,
+            "days": 0.9,
             "role": "admin",
             "open": true,
-            "label": "至今 0.7 天"
+            "label": "至今 0.9 天"
           }
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -1989,8 +2024,10 @@
       ],
       "first_submit": "2026-09-23 19:25",
       "status_since": "2026-09-25 10:41",
+      "completed_at": "",
       "days_in_status": 30,
       "days_since_first_submit": 32,
+      "process_days": null,
       "current_round": 6,
       "last_reply": "2026-09-25 10:41",
       "last_reply_summary": "須按附件修改（附件：PA-26-135.pdf）",
@@ -2103,18 +2140,18 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792548480.0,
-            "to_ts": 1792897215.766008,
-            "days": 4.0,
+            "to_ts": 1792922030.402007,
+            "days": 4.3,
             "role": "third",
             "open": true,
-            "label": "至今 4.0 天"
+            "label": "至今 4.3 天"
           }
         ],
         "span": {
           "min_ts": 1784859540.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -2131,8 +2168,10 @@
       ],
       "first_submit": "2026-09-24 21:30",
       "status_since": "2026-10-08 21:26",
+      "completed_at": "",
       "days_in_status": 17,
       "days_since_first_submit": 31,
+      "process_days": null,
       "current_round": 5,
       "last_reply": "2026-10-08 21:26",
       "last_reply_summary": "須按附件修改（附件：PA-26-220_第四次修改.pdf）",
@@ -2257,18 +2296,18 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1791542460.0,
-            "to_ts": 1792897215.766008,
-            "days": 15.7,
+            "to_ts": 1792922030.402007,
+            "days": 16.0,
             "role": "third",
             "open": true,
-            "label": "至今 15.7 天"
+            "label": "至今 16.0 天"
           }
         ],
         "span": {
           "min_ts": 1787732880.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -2285,8 +2324,10 @@
       ],
       "first_submit": "2026-08-17",
       "status_since": "2026-10-22",
+      "completed_at": "",
       "days_in_status": 3,
       "days_since_first_submit": 69,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "2026-10-22",
       "last_reply_summary": "行政部收到第三方回饋",
@@ -2439,18 +2480,18 @@
           },
           {
             "from_t": "2026-10-22",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792598400.0,
-            "to_ts": 1792897215.766008,
-            "days": 3.5,
+            "to_ts": 1792922030.402007,
+            "days": 3.7,
             "role": "third",
             "open": true,
-            "label": "至今 3.5 天"
+            "label": "至今 3.7 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -2467,8 +2508,10 @@
       ],
       "first_submit": "2026-09-30 21:59",
       "status_since": "2026-09-30 21:59",
+      "completed_at": "",
       "days_in_status": 25,
       "days_since_first_submit": 25,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "2026-09-30 21:59",
       "last_reply_summary": "律師意見已回；待蔚來補充簽署代表／權限資料後交行政（Oscar 2026-10-12）",
@@ -2518,18 +2561,18 @@
         "gaps": [
           {
             "from_t": "2026-09-30 21:59",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1790776740.0,
-            "to_ts": 1792897215.766008,
-            "days": 24.5,
+            "to_ts": 1792922030.402007,
+            "days": 24.8,
             "role": "third",
             "open": true,
-            "label": "至今 24.5 天"
+            "label": "至今 24.8 天"
           }
         ],
         "span": {
           "min_ts": 1790776740.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -2546,8 +2589,10 @@
       ],
       "first_submit": "2026-09-29 10:48",
       "status_since": "2026-10-16 20:43",
+      "completed_at": "",
       "days_in_status": 9,
       "days_since_first_submit": 26,
+      "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-16 20:43",
       "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
@@ -2628,18 +2673,18 @@
           },
           {
             "from_t": "2026-10-16 20:43",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792154580.0,
-            "to_ts": 1792897215.766008,
-            "days": 8.6,
+            "to_ts": 1792922030.402007,
+            "days": 8.9,
             "role": "edu",
             "open": true,
-            "label": "至今 8.6 天"
+            "label": "至今 8.9 天"
           }
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -2656,8 +2701,10 @@
       ],
       "first_submit": "2026-09-19 12:21",
       "status_since": "2026-10-21 21:50",
+      "completed_at": "",
       "days_in_status": 4,
       "days_since_first_submit": 36,
+      "process_days": null,
       "current_round": 4,
       "last_reply": "2026-10-21 21:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-132(2)_第四次修改.pdf）",
@@ -2893,18 +2940,18 @@
           },
           {
             "from_t": "2026-10-21 21:50",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792590600.0,
-            "to_ts": 1792897215.766008,
-            "days": 3.5,
+            "to_ts": 1792922030.402007,
+            "days": 3.8,
             "role": "edu",
             "open": true,
-            "label": "至今 3.5 天"
+            "label": "至今 3.8 天"
           }
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -2921,8 +2968,10 @@
       ],
       "first_submit": "2026-09-16",
       "status_since": "2026-10-23 20:31",
+      "completed_at": "",
       "days_in_status": 2,
       "days_since_first_submit": 39,
+      "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 20:31",
       "last_reply_summary": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
@@ -3024,18 +3073,18 @@
           },
           {
             "from_t": "2026-10-23 20:31",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792758660.0,
-            "to_ts": 1792897215.766008,
-            "days": 1.6,
+            "to_ts": 1792922030.402007,
+            "days": 1.9,
             "role": "edu",
             "open": true,
-            "label": "至今 1.6 天"
+            "label": "至今 1.9 天"
           }
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -3052,8 +3101,10 @@
       ],
       "first_submit": "2026-09-21 12:03",
       "status_since": "2026-10-23 17:55",
+      "completed_at": "",
       "days_in_status": 2,
       "days_since_first_submit": 34,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "2026-10-23 17:55",
       "last_reply_summary": "須按附件修改（附件：PA-26-272_第一次修改.pdf）",
@@ -3137,18 +3188,18 @@
           },
           {
             "from_t": "2026-10-23 17:55",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792749300.0,
-            "to_ts": 1792897215.766008,
-            "days": 1.7,
+            "to_ts": 1792922030.402007,
+            "days": 2.0,
             "role": "edu",
             "open": true,
-            "label": "至今 1.7 天"
+            "label": "至今 2.0 天"
           }
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -3165,8 +3216,10 @@
       ],
       "first_submit": "2026-09-24 17:02",
       "status_since": "2026-10-23 12:50",
+      "completed_at": "",
       "days_in_status": 2,
       "days_since_first_submit": 31,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "2026-10-23 12:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-279_第1次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：城易智慧城市科技有限公司、澳門混合現實科技有限公司、寶豐策劃有限公司",
@@ -3238,18 +3291,18 @@
           },
           {
             "from_t": "2026-10-23 12:50",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792731000.0,
-            "to_ts": 1792897215.766008,
-            "days": 1.9,
+            "to_ts": 1792922030.402007,
+            "days": 2.2,
             "role": "edu",
             "open": true,
-            "label": "至今 1.9 天"
+            "label": "至今 2.2 天"
           }
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
         }
       }
     },
@@ -3266,8 +3319,10 @@
       ],
       "first_submit": "2026-09-29 18:57",
       "status_since": "2026-10-23 11:54",
+      "completed_at": "",
       "days_in_status": 2,
       "days_since_first_submit": 26,
+      "process_days": null,
       "current_round": 1,
       "last_reply": "2026-10-23 11:54",
       "last_reply_summary": "須按附件修改（附件：PA-26-280.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：寶豐策劃有限公司、博航創作有限公司、永誠會展設備服務有限公司",
@@ -3351,18 +3406,2058 @@
           },
           {
             "from_t": "2026-10-23 11:54",
-            "to_t": "2026-10-25 11:00",
+            "to_t": "2026-10-25 17:53",
             "from_ts": 1792727640.0,
-            "to_ts": 1792897215.766008,
-            "days": 2.0,
+            "to_ts": 1792922030.402007,
+            "days": 2.2,
             "role": "edu",
             "open": true,
-            "label": "至今 2.0 天"
+            "label": "至今 2.2 天"
           }
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1792897215.766008
+          "max_ts": 1792922030.402007
+        }
+      }
+    }
+  ],
+  "completed_documents": [
+    {
+      "id": "PA-26-168",
+      "stage": "Form 1",
+      "title": "為人工智能課程採購教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R6 · Form 1",
+      "submitter": "Thomas Tai",
+      "follow_up": [
+        "Thomas Tai"
+      ],
+      "first_submit": "2026-09-21 15:31",
+      "status_since": "2026-10-21 17:25",
+      "completed_at": "2026-10-21 17:25",
+      "days_in_status": 4,
+      "days_since_first_submit": 34,
+      "process_days": 30.1,
+      "current_round": 6,
+      "last_reply": "2026-10-21 17:25",
+      "last_reply_summary": "立項建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-13 11:40",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 24.4,
+      "colleague_total": 5.7,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-07-08 18:19",
+            "ts": 1783505940.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-07-15 18:32",
+            "ts": 1784111520.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "Re: 文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-07-16 19:28",
+            "ts": 1784201280.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "Fwd: 文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-07-22 11:25",
+            "ts": 1784690700.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "Re: 文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-08-12 18:03",
+            "ts": 1786528980.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-08-28 12:00",
+            "ts": 1787889600.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-07 19:36",
+            "ts": 1788780960.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "Re: 文件進度查詢: PA-26-168 為人工智能課程教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-21 15:31",
+            "ts": 1789975860.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-168文件須作出修正的地方 (為第3次通知EDU需要作出文件修改)",
+            "who": "Thomas Tai",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-25 00:25",
+            "ts": 1790267100.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-168.pdf）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-29 20:56",
+            "ts": 1790686560.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R5 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-168文件須作出修正的地方 (為第4次通知EDU需要作出文件修改)",
+            "who": "David Chan",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-12 16:17",
+            "ts": 1791793020.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R5 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-168.pdf）",
+            "who": "Procure",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-13 11:40",
+            "ts": 1791862800.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R6 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-168文件須作出修正的地方 (為第5次通知EDU需要作出文件修改)",
+            "who": "Thomas Tai",
+            "round": 6,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-21 10:21",
+            "ts": 1792549260.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-168-為人工智能課程採購教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-21 17:25",
+            "ts": 1792574700.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R6 行政回覆",
+            "detail": "立項建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 6,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-21 15:31",
+            "to_t": "2026-09-25 00:25",
+            "from_ts": 1789975860.0,
+            "to_ts": 1790267100.0,
+            "days": 3.4,
+            "role": "admin",
+            "open": false,
+            "label": "3.4 天"
+          },
+          {
+            "from_t": "2026-09-25 00:25",
+            "to_t": "2026-09-29 20:56",
+            "from_ts": 1790267100.0,
+            "to_ts": 1790686560.0,
+            "days": 4.9,
+            "role": "edu",
+            "open": false,
+            "label": "4.9 天"
+          },
+          {
+            "from_t": "2026-09-29 20:56",
+            "to_t": "2026-10-12 16:17",
+            "from_ts": 1790686560.0,
+            "to_ts": 1791793020.0,
+            "days": 12.8,
+            "role": "admin",
+            "open": false,
+            "label": "12.8 天"
+          },
+          {
+            "from_t": "2026-10-12 16:17",
+            "to_t": "2026-10-13 11:40",
+            "from_ts": 1791793020.0,
+            "to_ts": 1791862800.0,
+            "days": 0.8,
+            "role": "edu",
+            "open": false,
+            "label": "0.8 天"
+          },
+          {
+            "from_t": "2026-10-13 11:40",
+            "to_t": "2026-10-21 17:25",
+            "from_ts": 1791862800.0,
+            "to_ts": 1792574700.0,
+            "days": 8.2,
+            "role": "admin",
+            "open": false,
+            "label": "8.2 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1783505940.0,
+          "max_ts": 1792574700.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-222(2)",
+      "stage": "Form 2",
+      "title": "為科學館人員申請Fab Academy課程培訓費用（2027年度）",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R6 · Form 2",
+      "submitter": "Thomas Tai",
+      "follow_up": [
+        "Thomas Tai"
+      ],
+      "first_submit": "2026-09-18 15:05",
+      "status_since": "2026-10-21 17:20",
+      "completed_at": "2026-10-21 17:20",
+      "days_in_status": 4,
+      "days_since_first_submit": 37,
+      "process_days": 33.1,
+      "current_round": 6,
+      "last_reply": "2026-10-21 17:20",
+      "last_reply_summary": "採購判給建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-12 09:55",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 5,
+      "admin_total": 15.7,
+      "colleague_total": 11.2,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-08-28 12:04",
+            "ts": 1787889840.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢: PA-26-222 (2) 為科學館人員申請Fab Academy課程培訓費用（2027年度）",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-18 15:05",
+            "ts": 1789715100.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Thomas Tai",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-18 15:05",
+            "ts": 1789715100.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-222(2).pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-21 15:32",
+            "ts": 1789975920.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-222(2)文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
+            "who": "Thomas Tai",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-24 22:21",
+            "ts": 1790259660.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-222(2)_第三次修改.pdf）",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-29 15:08",
+            "ts": 1790665680.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件]PA-26-222(2)為科學館人員申請Fab Academy課程培訓費用 （2027年度） (第四次提交)",
+            "who": "Natalie Chan",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07 12:13",
+            "ts": 1791346380.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-222(2)-為科學館人員申請Fab Academy課程培訓費用（2027年度）",
+            "who": "Natalie Chan",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-08 21:23",
+            "ts": 1791465780.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-222(2)_第四次修改.pdf）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-12 09:55",
+            "ts": 1791770100.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R5 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-222(2)文件須作出修正的地方 (為第4次通知EDU需要作出文件修改)",
+            "who": "Thomas Tai",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-15 12:14",
+            "ts": 1792037640.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R5 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-222(2)_第五次修改.pdf）",
+            "who": "Procure",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-21 17:20",
+            "ts": 1792574400.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R6 行政回覆",
+            "detail": "採購判給建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 6,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-18 15:05",
+            "to_t": "2026-09-21 15:32",
+            "from_ts": 1789715100.0,
+            "to_ts": 1789975920.0,
+            "days": 3.0,
+            "role": "edu",
+            "open": false,
+            "label": "3.0 天"
+          },
+          {
+            "from_t": "2026-09-21 15:32",
+            "to_t": "2026-09-24 22:21",
+            "from_ts": 1789975920.0,
+            "to_ts": 1790259660.0,
+            "days": 3.3,
+            "role": "admin",
+            "open": false,
+            "label": "3.3 天"
+          },
+          {
+            "from_t": "2026-09-24 22:21",
+            "to_t": "2026-09-29 15:08",
+            "from_ts": 1790259660.0,
+            "to_ts": 1790665680.0,
+            "days": 4.7,
+            "role": "edu",
+            "open": false,
+            "label": "4.7 天"
+          },
+          {
+            "from_t": "2026-09-29 15:08",
+            "to_t": "2026-10-08 21:23",
+            "from_ts": 1790665680.0,
+            "to_ts": 1791465780.0,
+            "days": 9.3,
+            "role": "admin",
+            "open": false,
+            "label": "9.3 天"
+          },
+          {
+            "from_t": "2026-10-08 21:23",
+            "to_t": "2026-10-12 09:55",
+            "from_ts": 1791465780.0,
+            "to_ts": 1791770100.0,
+            "days": 3.5,
+            "role": "edu",
+            "open": false,
+            "label": "3.5 天"
+          },
+          {
+            "from_t": "2026-10-12 09:55",
+            "to_t": "2026-10-15 12:14",
+            "from_ts": 1791770100.0,
+            "to_ts": 1792037640.0,
+            "days": 3.1,
+            "role": "admin",
+            "open": false,
+            "label": "3.1 天"
+          },
+          {
+            "from_t": "2026-10-15 12:14",
+            "to_t": "2026-10-21 17:20",
+            "from_ts": 1792037640.0,
+            "to_ts": 1792574400.0,
+            "days": 6.2,
+            "role": "admin",
+            "open": false,
+            "label": "6.2 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1787889840.0,
+          "max_ts": 1792574400.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-047(2)",
+      "stage": "Form 2",
+      "title": "為申請成為Fab Academy Node購買CNC設備",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R4 · Form 2",
+      "submitter": "David Chan",
+      "follow_up": [
+        "David Chan"
+      ],
+      "first_submit": "2026-09-23 19:47",
+      "status_since": "2026-10-21 17:08",
+      "completed_at": "2026-10-21 17:08",
+      "days_in_status": 4,
+      "days_since_first_submit": 32,
+      "process_days": 27.9,
+      "current_round": 4,
+      "last_reply": "2026-10-21 17:08",
+      "last_reply_summary": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-09 16:52",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 21.0,
+      "colleague_total": 6.8,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-23 19:47",
+            "ts": 1790164020.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "David Chan",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-23 19:47",
+            "ts": 1790164020.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-047(2)_第二次修改.pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-29 20:59",
+            "ts": 1790686740.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-047(2)文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
+            "who": "David Chan",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07 16:49",
+            "ts": 1791362940.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢【第一次】：PA-26-047(2) 為申請成為Fab Academy Node購買CNC設備",
+            "who": "David Chan",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-08 20:42",
+            "ts": 1791463320.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-047(2)_第三次修改.pdf）",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-09 16:52",
+            "ts": 1791535920.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-047(2)文件須作出修正的地方 (為第3次通知EDU需要作出文件修改)",
+            "who": "David Chan",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-17 18:18",
+            "ts": 1792232280.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢【第二次】：PA-26-047(2) 為申請成為Fab Academy Node購買CNC設備",
+            "who": "David Chan",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-21 17:08",
+            "ts": 1792573680.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-23 19:47",
+            "to_t": "2026-09-29 20:59",
+            "from_ts": 1790164020.0,
+            "to_ts": 1790686740.0,
+            "days": 6.0,
+            "role": "edu",
+            "open": false,
+            "label": "6.0 天"
+          },
+          {
+            "from_t": "2026-09-29 20:59",
+            "to_t": "2026-10-08 20:42",
+            "from_ts": 1790686740.0,
+            "to_ts": 1791463320.0,
+            "days": 9.0,
+            "role": "admin",
+            "open": false,
+            "label": "9.0 天"
+          },
+          {
+            "from_t": "2026-10-08 20:42",
+            "to_t": "2026-10-09 16:52",
+            "from_ts": 1791463320.0,
+            "to_ts": 1791535920.0,
+            "days": 0.8,
+            "role": "edu",
+            "open": false,
+            "label": "0.8 天"
+          },
+          {
+            "from_t": "2026-10-09 16:52",
+            "to_t": "2026-10-21 17:08",
+            "from_ts": 1791535920.0,
+            "to_ts": 1792573680.0,
+            "days": 12.0,
+            "role": "admin",
+            "open": false,
+            "label": "12.0 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1790164020.0,
+          "max_ts": 1792573680.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-257",
+      "stage": "Form 1",
+      "title": "為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R5 · Form 1",
+      "submitter": "Carlos Nip",
+      "follow_up": [
+        "Carlos Nip"
+      ],
+      "first_submit": "2026-09-25 16:35",
+      "status_since": "2026-10-21 16:52",
+      "completed_at": "2026-10-21 16:52",
+      "days_in_status": 4,
+      "days_since_first_submit": 30,
+      "process_days": 26,
+      "current_round": 5,
+      "last_reply": "2026-10-21 16:52",
+      "last_reply_summary": "立項建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-14 17:20",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 5,
+      "admin_total": 14.1,
+      "colleague_total": 10.1,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-25 16:35",
+            "ts": 1790325300.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Carlos Nip",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-25 16:35",
+            "ts": 1790325300.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-257.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-29 16:36",
+            "ts": 1790670960.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "[提交至行政採購文件]PA-26-257 為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品 (第二次提交)",
+            "who": "Carlos Nip",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-06 10:36",
+            "ts": 1791254160.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "須按附件修改（附件：PA-26-257.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：宏願科技有限公司、啟文出版傳媒有限公司、訊藝有限公司",
+            "detail": "",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07 10:02",
+            "ts": 1791338520.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件]PA-26-257 為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品 (第三次提交)",
+            "who": "Carlos Nip",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07 16:40",
+            "ts": 1791362400.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "[10-07 16:40] 有關閣下所準備的文件PA-26-257，於10月7日文件被權限機關退回，並提出以下意見：文件第四頁「三、採購項目及數量的表格，有3位評審重複呈現的目的為何? 要麼整合，要麼註明原因」，並在文件第五頁「五、批准」的第1點最後之「'」改為放置在「......徵文比賽」後；此外，收到權限機關…",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-12 18:03",
+            "ts": 1791799380.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件]PA-26-257 為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品 (第四次提交)",
+            "who": "Carlos Nip",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-14 11:23",
+            "ts": 1791948180.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆（追加）",
+            "detail": "",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-14 17:20",
+            "ts": 1791969600.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R5 提交",
+            "detail": "[提交至行政採購文件]PA-26-257 為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品 (第五次提交)",
+            "who": "Carlos Nip",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-21 16:52",
+            "ts": 1792572720.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R5 行政回覆",
+            "detail": "立項建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 5,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-25 16:35",
+            "to_t": "2026-09-29 16:36",
+            "from_ts": 1790325300.0,
+            "to_ts": 1790670960.0,
+            "days": 4.0,
+            "role": "edu",
+            "open": false,
+            "label": "4.0 天"
+          },
+          {
+            "from_t": "2026-09-29 16:36",
+            "to_t": "2026-10-06 10:36",
+            "from_ts": 1790670960.0,
+            "to_ts": 1791254160.0,
+            "days": 6.8,
+            "role": "third",
+            "open": false,
+            "label": "6.8 天"
+          },
+          {
+            "from_t": "2026-10-06 10:36",
+            "to_t": "2026-10-07 10:02",
+            "from_ts": 1791254160.0,
+            "to_ts": 1791338520.0,
+            "days": 1.0,
+            "role": "third",
+            "open": false,
+            "label": "1.0 天"
+          },
+          {
+            "from_t": "2026-10-07 10:02",
+            "to_t": "2026-10-07 16:40",
+            "from_ts": 1791338520.0,
+            "to_ts": 1791362400.0,
+            "days": 0.3,
+            "role": "admin",
+            "open": false,
+            "label": "0.3 天"
+          },
+          {
+            "from_t": "2026-10-07 16:40",
+            "to_t": "2026-10-12 18:03",
+            "from_ts": 1791362400.0,
+            "to_ts": 1791799380.0,
+            "days": 5.1,
+            "role": "edu",
+            "open": false,
+            "label": "5.1 天"
+          },
+          {
+            "from_t": "2026-10-12 18:03",
+            "to_t": "2026-10-14 11:23",
+            "from_ts": 1791799380.0,
+            "to_ts": 1791948180.0,
+            "days": 1.7,
+            "role": "admin",
+            "open": false,
+            "label": "1.7 天"
+          },
+          {
+            "from_t": "2026-10-14 11:23",
+            "to_t": "2026-10-14 17:20",
+            "from_ts": 1791948180.0,
+            "to_ts": 1791969600.0,
+            "days": 0.2,
+            "role": "edu",
+            "open": false,
+            "label": "0.2 天"
+          },
+          {
+            "from_t": "2026-10-14 17:20",
+            "to_t": "2026-10-21 16:52",
+            "from_ts": 1791969600.0,
+            "to_ts": 1792572720.0,
+            "days": 7.0,
+            "role": "admin",
+            "open": false,
+            "label": "7.0 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1790325300.0,
+          "max_ts": 1792572720.0
+        }
+      }
+    },
+    {
+      "id": "合肥市科技馆与澳门科学馆合作意向书",
+      "stage": "不適用（無編號）",
+      "title": "合肥市科技馆与澳门科学馆合作意向书",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R5 · 無編號",
+      "submitter": "Guida Lai",
+      "follow_up": [
+        "Guida Lai"
+      ],
+      "first_submit": "2026-07-16",
+      "status_since": "2026-10-17",
+      "completed_at": "2026-10-17",
+      "days_in_status": 8,
+      "days_since_first_submit": 101,
+      "process_days": 93,
+      "current_round": 5,
+      "last_reply": "2026-10-16 14:44",
+      "last_reply_summary": "律師意見4：對第四條第五款調整（爭議先協商、否則向澳門法院起訴）不表反對",
+      "last_resubmit": "2026-10-17",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 5,
+      "admin_total": 68,
+      "colleague_total": 25,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-07-16",
+            "ts": 1784131200.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "首次提交（同事補充，無信件）",
+            "who": "Guida Lai",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-08-12",
+            "ts": 1786464000.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "行政部回覆",
+            "who": "行政部",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-08-28",
+            "ts": 1787846400.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "同事重交（同事補充，無信件）",
+            "who": "Guida Lai",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-02",
+            "ts": 1788278400.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "行政部回覆",
+            "who": "行政部",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-10",
+            "ts": 1788969600.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "同事重交（同事補充，無信件）",
+            "who": "Guida Lai",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07",
+            "ts": 1791302400.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "同事重交（同事補充，無信件）",
+            "who": "Guida Lai",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07 16:38",
+            "ts": 1791362280.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "經律師查閱閣下9月10日提供之合肥市科技館法務部意見後，以下灰色標示段落為律師回覆的原文：；為著貴司最大利益而言，保留澳門法律為意向書適用法律的條款最為穩妥",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-16 14:44",
+            "ts": 1792133040.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "律師意見4：對第四條第五款調整（爭議先協商、否則向澳門法院起訴）不表反對",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-17",
+            "ts": 1792166400.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R5 提交",
+            "detail": "同事重交（同事補充，無信件）",
+            "who": "Guida Lai",
+            "round": 5,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-07-16",
+            "to_t": "2026-08-12",
+            "from_ts": 1784131200.0,
+            "to_ts": 1786464000.0,
+            "days": 27.0,
+            "role": "admin",
+            "open": false,
+            "label": "27.0 天"
+          },
+          {
+            "from_t": "2026-08-12",
+            "to_t": "2026-08-28",
+            "from_ts": 1786464000.0,
+            "to_ts": 1787846400.0,
+            "days": 16.0,
+            "role": "edu",
+            "open": false,
+            "label": "16.0 天"
+          },
+          {
+            "from_t": "2026-08-28",
+            "to_t": "2026-09-02",
+            "from_ts": 1787846400.0,
+            "to_ts": 1788278400.0,
+            "days": 5.0,
+            "role": "admin",
+            "open": false,
+            "label": "5.0 天"
+          },
+          {
+            "from_t": "2026-09-02",
+            "to_t": "2026-09-10",
+            "from_ts": 1788278400.0,
+            "to_ts": 1788969600.0,
+            "days": 8.0,
+            "role": "edu",
+            "open": false,
+            "label": "8.0 天"
+          },
+          {
+            "from_t": "2026-09-10",
+            "to_t": "2026-10-07",
+            "from_ts": 1788969600.0,
+            "to_ts": 1791302400.0,
+            "days": 27.0,
+            "role": "edu",
+            "open": false,
+            "label": "27.0 天"
+          },
+          {
+            "from_t": "2026-10-07",
+            "to_t": "2026-10-07 16:38",
+            "from_ts": 1791302400.0,
+            "to_ts": 1791362280.0,
+            "days": 0.7,
+            "role": "admin",
+            "open": false,
+            "label": "0.7 天"
+          },
+          {
+            "from_t": "2026-10-07 16:38",
+            "to_t": "2026-10-16 14:44",
+            "from_ts": 1791362280.0,
+            "to_ts": 1792133040.0,
+            "days": 8.9,
+            "role": "admin",
+            "open": false,
+            "label": "8.9 天"
+          },
+          {
+            "from_t": "2026-10-16 14:44",
+            "to_t": "2026-10-17",
+            "from_ts": 1792133040.0,
+            "to_ts": 1792166400.0,
+            "days": 0.4,
+            "role": "edu",
+            "open": false,
+            "label": "0.4 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1784131200.0,
+          "max_ts": 1792166400.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-285",
+      "stage": "Form 1",
+      "title": "赴廣州神農草堂中醫藥博物館進行考察",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R3 · Form 1",
+      "submitter": "Lam Chan",
+      "follow_up": [
+        "Lam Chan"
+      ],
+      "first_submit": "2026-09-29 16:23",
+      "status_since": "2026-10-16 17:31",
+      "completed_at": "2026-10-16 17:31",
+      "days_in_status": 9,
+      "days_since_first_submit": 26,
+      "process_days": 17,
+      "current_round": 3,
+      "last_reply": "2026-10-16 17:31",
+      "last_reply_summary": "立項建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-14 16:12",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 13.6,
+      "colleague_total": 3.6,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-29 16:23",
+            "ts": 1790670180.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-285 赴廣州神農草堂中醫藥博物館進行考察 首次提交",
+            "who": "Lam Chan",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-09 15:45",
+            "ts": 1791531900.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-285_第一次修改.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-12 09:58",
+            "ts": 1791770280.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-285 文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
+            "who": "Lam Chan",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-13 21:07",
+            "ts": 1791896820.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-285_第二次修改.pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-14 16:12",
+            "ts": 1791965520.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-285 文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
+            "who": "Lam Chan",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-16 17:31",
+            "ts": 1792143060.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "立項建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-29 16:23",
+            "to_t": "2026-10-09 15:45",
+            "from_ts": 1790670180.0,
+            "to_ts": 1791531900.0,
+            "days": 10.0,
+            "role": "admin",
+            "open": false,
+            "label": "10.0 天"
+          },
+          {
+            "from_t": "2026-10-09 15:45",
+            "to_t": "2026-10-12 09:58",
+            "from_ts": 1791531900.0,
+            "to_ts": 1791770280.0,
+            "days": 2.8,
+            "role": "edu",
+            "open": false,
+            "label": "2.8 天"
+          },
+          {
+            "from_t": "2026-10-12 09:58",
+            "to_t": "2026-10-13 21:07",
+            "from_ts": 1791770280.0,
+            "to_ts": 1791896820.0,
+            "days": 1.5,
+            "role": "admin",
+            "open": false,
+            "label": "1.5 天"
+          },
+          {
+            "from_t": "2026-10-13 21:07",
+            "to_t": "2026-10-14 16:12",
+            "from_ts": 1791896820.0,
+            "to_ts": 1791965520.0,
+            "days": 0.8,
+            "role": "edu",
+            "open": false,
+            "label": "0.8 天"
+          },
+          {
+            "from_t": "2026-10-14 16:12",
+            "to_t": "2026-10-16 17:31",
+            "from_ts": 1791965520.0,
+            "to_ts": 1792143060.0,
+            "days": 2.1,
+            "role": "admin",
+            "open": false,
+            "label": "2.1 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1790670180.0,
+          "max_ts": 1792143060.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-192(2)",
+      "stage": "Form 2",
+      "title": "為2026/27 FIRST® LEGO® League澳門區賽事採購承辦服務",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R4 · Form 2",
+      "submitter": "Carlos Nip",
+      "follow_up": [
+        "Carlos Nip"
+      ],
+      "first_submit": "2026-09-22 18:52",
+      "status_since": "2026-10-09 15:40",
+      "completed_at": "2026-10-09 15:40",
+      "days_in_status": 16,
+      "days_since_first_submit": 33,
+      "process_days": 16.9,
+      "current_round": 4,
+      "last_reply": "2026-10-09 15:40",
+      "last_reply_summary": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-07 10:03",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 14.5,
+      "colleague_total": 1.6,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-08-03 16:45",
+            "ts": 1785746700.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢: PA-26-192 及執委會建議書",
+            "who": "Yan Wong",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-08-07 16:21",
+            "ts": 1786090860.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "RE: 文件進度查詢: PA-26-192 及執委會建議書(第二次查詢)",
+            "who": "Yan Wong",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-22 18:52",
+            "ts": 1790074320.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Carlos Nip",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-22 18:52",
+            "ts": 1790074320.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-192(2).pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-23 12:13",
+            "ts": 1790136780.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件]PA-26-192(2) 為2026/27 FIRST® LEGO® League澳門區賽事採購承辦服務 (第四次提交)",
+            "who": "Carlos Nip",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-05 14:13",
+            "ts": 1791180780.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度第一次查詢：PA-26-192(2) 為2026/27 FIRST® LEGO® League澳門區賽事採購承辦服務",
+            "who": "Carlos Nip",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-05 19:57",
+            "ts": 1791201420.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "[10-05 19:57] Dear Carlos；有關閣下所準備的文件PA-26-192(2)，於10月5日文件被權限機關退回，並提出以下意見：文件第五頁「\"學會\"全文更正為\"協會\"」，並在文件第六頁支付款項的補充說明：「澳門科學館有權...﹔有且只有被澳門科學館決定...」段落中圈起「有且」的「有」字。權限機…",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-06 12:18",
+            "ts": 1791260280.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆（追加）",
+            "detail": "",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-07 10:03",
+            "ts": 1791338580.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件]PA-26-192(2) 為2026/27 FIRST® LEGO® League澳門區賽事採購承辦服務 (第五次提交)",
+            "who": "Carlos Nip",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-09 15:40",
+            "ts": 1791531600.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-22 18:52",
+            "to_t": "2026-09-23 12:13",
+            "from_ts": 1790074320.0,
+            "to_ts": 1790136780.0,
+            "days": 0.7,
+            "role": "edu",
+            "open": false,
+            "label": "0.7 天"
+          },
+          {
+            "from_t": "2026-09-23 12:13",
+            "to_t": "2026-10-05 19:57",
+            "from_ts": 1790136780.0,
+            "to_ts": 1791201420.0,
+            "days": 12.3,
+            "role": "admin",
+            "open": false,
+            "label": "12.3 天"
+          },
+          {
+            "from_t": "2026-10-05 19:57",
+            "to_t": "2026-10-06 12:18",
+            "from_ts": 1791201420.0,
+            "to_ts": 1791260280.0,
+            "days": 0.7,
+            "role": "admin",
+            "open": false,
+            "label": "0.7 天"
+          },
+          {
+            "from_t": "2026-10-06 12:18",
+            "to_t": "2026-10-07 10:03",
+            "from_ts": 1791260280.0,
+            "to_ts": 1791338580.0,
+            "days": 0.9,
+            "role": "edu",
+            "open": false,
+            "label": "0.9 天"
+          },
+          {
+            "from_t": "2026-10-07 10:03",
+            "to_t": "2026-10-09 15:40",
+            "from_ts": 1791338580.0,
+            "to_ts": 1791531600.0,
+            "days": 2.2,
+            "role": "admin",
+            "open": false,
+            "label": "2.2 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1785746700.0,
+          "max_ts": 1791531600.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-203(2)",
+      "stage": "Form 2",
+      "title": "為澳門科學館“青年科技村”科創人才培養計劃採購數字孿生培訓課程及取得課程設備租用服務（2026/2027學年）",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R3 · Form 2",
+      "submitter": "Siky Lam",
+      "follow_up": [
+        "Siky Lam"
+      ],
+      "first_submit": "2026-09-21 14:51",
+      "status_since": "2026-10-08 16:00",
+      "completed_at": "2026-10-08 16:00",
+      "days_in_status": 17,
+      "days_since_first_submit": 34,
+      "process_days": 17,
+      "current_round": 3,
+      "last_reply": "2026-10-08 16:00",
+      "last_reply_summary": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-09-24 11:20",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 2,
+      "admin_total": 15.1,
+      "colleague_total": 1.9,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-08-01 10:17",
+            "ts": 1785550620.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-203為“青年科技村”科創人才培養計劃採購數字孿生培訓課程（2026/2027學年）",
+            "who": "Siky Lam",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-21 14:51",
+            "ts": 1789973460.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-203(2)文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
+            "who": "Siky Lam",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-22 12:48",
+            "ts": 1790052480.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-203(2)_第二次修改.pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-24 11:20",
+            "ts": 1790220000.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-203(2)文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
+            "who": "Siky Lam",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-05 09:41",
+            "ts": 1791164460.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-203 (2) 為澳門科學館“青年科技村”科創人才培養計劃採購數字孿生培訓課程及取得課程設備租用服務（2026/2027學年）",
+            "who": "Siky Lam",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-08 16:00",
+            "ts": 1791446400.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-21 14:51",
+            "to_t": "2026-09-22 12:48",
+            "from_ts": 1789973460.0,
+            "to_ts": 1790052480.0,
+            "days": 0.9,
+            "role": "admin",
+            "open": false,
+            "label": "0.9 天"
+          },
+          {
+            "from_t": "2026-09-22 12:48",
+            "to_t": "2026-09-24 11:20",
+            "from_ts": 1790052480.0,
+            "to_ts": 1790220000.0,
+            "days": 1.9,
+            "role": "edu",
+            "open": false,
+            "label": "1.9 天"
+          },
+          {
+            "from_t": "2026-09-24 11:20",
+            "to_t": "2026-10-08 16:00",
+            "from_ts": 1790220000.0,
+            "to_ts": 1791446400.0,
+            "days": 14.2,
+            "role": "admin",
+            "open": false,
+            "label": "14.2 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1785550620.0,
+          "max_ts": 1791446400.0
+        }
+      }
+    },
+    {
+      "id": "建議書-茅以升生平事迹展",
+      "stage": "不適用（無編號）",
+      "title": "建議書「有關於2027年1月舉辦\"幸以橋樑度春秋-茅以升生平事迹展\"」",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R6 · 無編號",
+      "submitter": "Guida Lai",
+      "follow_up": [
+        "Guida Lai"
+      ],
+      "first_submit": "2026-09-24 22:20",
+      "status_since": "2026-10-06 18:56",
+      "completed_at": "2026-10-06 18:56",
+      "days_in_status": 19,
+      "days_since_first_submit": 31,
+      "process_days": 11.9,
+      "current_round": 6,
+      "last_reply": "2026-10-06 18:56",
+      "last_reply_summary": "建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 2,
+      "admin_total": "",
+      "colleague_total": "",
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-24 22:20",
+            "ts": 1790259600.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Guida Lai",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-24 22:20",
+            "ts": 1790259600.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R5 行政回覆",
+            "detail": "有關閣下9月16日提交的「有關於2027年1月舉辦\"幸以橋樑度春秋-茅以升生平事蹟展\"」建議書，由於上級在簽署時誤填了日期，現請閣下重新列印文件，請閣下於9月25日早上盡早提交",
+            "who": "Procure",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-06 18:56",
+            "ts": 1791284160.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R6 行政回覆",
+            "detail": "建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 6,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-24 22:20",
+            "to_t": "2026-10-06 18:56",
+            "from_ts": 1790259600.0,
+            "to_ts": 1791284160.0,
+            "days": 11.9,
+            "role": "admin",
+            "open": false,
+            "label": "11.9 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1790259600.0,
+          "max_ts": 1791284160.0
+        }
+      }
+    },
+    {
+      "id": "PP-26-075-EED",
+      "stage": "Form 1",
+      "title": "關於2026年10月舉辦“神奇生物大發現”特展",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R4 · Form 1",
+      "submitter": "Carlos Nip",
+      "follow_up": [
+        "Carlos Nip"
+      ],
+      "first_submit": "2026-09-21 18:34",
+      "status_since": "2026-10-05 17:28",
+      "completed_at": "2026-10-05 17:28",
+      "days_in_status": 20,
+      "days_since_first_submit": 34,
+      "process_days": 14,
+      "current_round": 4,
+      "last_reply": "2026-10-05 17:28",
+      "last_reply_summary": "建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-09-29 16:34",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 4,
+      "admin_total": 7.1,
+      "colleague_total": 6.8,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-21 18:34",
+            "ts": 1789986840.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Carlos Nip",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-21 18:34",
+            "ts": 1789986840.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須按附件修改（附件：關於2026年10月舉辦＂神奇生物大發現＂特展_第一次修改.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-23 17:48",
+            "ts": 1790156880.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "[提交至行政採購文件]PP-26-075-EED 事由：關於2026年10月舉辦“神奇生物大發現”特展 (第二次提交)",
+            "who": "Carlos Nip",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-24 17:31",
+            "ts": 1790242260.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PP-26-075-EED_第二次修改.pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-25 14:53",
+            "ts": 1790319180.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件]PP-26-075-EED 事由：關於2026年10月舉辦“神奇生物大發現”特展 (第三次提交)",
+            "who": "Carlos Nip",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-25 18:18",
+            "ts": 1790331480.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "須按附件修改（附件：PP-26-075-EED_第三次修改.pdf）",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-29 16:34",
+            "ts": 1790670840.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件]PP-26-075-EED 事由：關於2026年10月舉辦“神奇生物大發現”特展 (第四次提交)",
+            "who": "Carlos Nip",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-05 17:28",
+            "ts": 1791192480.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-21 18:34",
+            "to_t": "2026-09-23 17:48",
+            "from_ts": 1789986840.0,
+            "to_ts": 1790156880.0,
+            "days": 2.0,
+            "role": "edu",
+            "open": false,
+            "label": "2.0 天"
+          },
+          {
+            "from_t": "2026-09-23 17:48",
+            "to_t": "2026-09-24 17:31",
+            "from_ts": 1790156880.0,
+            "to_ts": 1790242260.0,
+            "days": 1.0,
+            "role": "admin",
+            "open": false,
+            "label": "1.0 天"
+          },
+          {
+            "from_t": "2026-09-24 17:31",
+            "to_t": "2026-09-25 14:53",
+            "from_ts": 1790242260.0,
+            "to_ts": 1790319180.0,
+            "days": 0.9,
+            "role": "edu",
+            "open": false,
+            "label": "0.9 天"
+          },
+          {
+            "from_t": "2026-09-25 14:53",
+            "to_t": "2026-09-25 18:18",
+            "from_ts": 1790319180.0,
+            "to_ts": 1790331480.0,
+            "days": 0.1,
+            "role": "admin",
+            "open": false,
+            "label": "0.1 天"
+          },
+          {
+            "from_t": "2026-09-25 18:18",
+            "to_t": "2026-09-29 16:34",
+            "from_ts": 1790331480.0,
+            "to_ts": 1790670840.0,
+            "days": 3.9,
+            "role": "edu",
+            "open": false,
+            "label": "3.9 天"
+          },
+          {
+            "from_t": "2026-09-29 16:34",
+            "to_t": "2026-10-05 17:28",
+            "from_ts": 1790670840.0,
+            "to_ts": 1791192480.0,
+            "days": 6.0,
+            "role": "admin",
+            "open": false,
+            "label": "6.0 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1789986840.0,
+          "max_ts": 1791192480.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-199(2)",
+      "stage": "Form 2",
+      "title": "為“青年科技村”科創人才培養計劃提供太空科學及人工智能醫學影像診斷課程編制及提供導師服務(2026/2027學年)",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R5 · Form 2",
+      "submitter": "Siky Lam",
+      "follow_up": [
+        "Siky Lam"
+      ],
+      "first_submit": "2026-09-18 18:12",
+      "status_since": "2026-09-22 17:53",
+      "completed_at": "2026-09-22 17:53",
+      "days_in_status": 33,
+      "days_since_first_submit": 37,
+      "process_days": 4,
+      "current_round": 5,
+      "last_reply": "2026-09-22 17:53",
+      "last_reply_summary": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 2,
+      "admin_total": "",
+      "colleague_total": "",
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-18 18:12",
+            "ts": 1789726320.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Siky Lam",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-18 18:12",
+            "ts": 1789726320.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-199(2).pdf）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-22 17:53",
+            "ts": 1790070780.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R5 行政回覆",
+            "detail": "採購判給建議書及判給通知已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 5,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-18 18:12",
+            "to_t": "2026-09-22 17:53",
+            "from_ts": 1789726320.0,
+            "to_ts": 1790070780.0,
+            "days": 4.0,
+            "role": "admin",
+            "open": false,
+            "label": "4.0 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1789726320.0,
+          "max_ts": 1790070780.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-120",
+      "stage": "Form 1",
+      "title": "為澳門科學館人員提供大型語言模型（LLM）專業培訓課程",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R1 · Form 1",
+      "submitter": "Candy Fok",
+      "follow_up": [
+        "Candy Fok"
+      ],
+      "first_submit": "2026-09-18 17:57",
+      "status_since": "2026-09-18 17:57",
+      "completed_at": "2026-09-18 17:57",
+      "days_in_status": 37,
+      "days_since_first_submit": 37,
+      "process_days": 0,
+      "current_round": 1,
+      "last_reply": "2026-09-18 17:57",
+      "last_reply_summary": "立項建議書已獲上級批示（批示見附件）",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 1,
+      "admin_total": "",
+      "colleague_total": "",
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-18 17:57",
+            "ts": 1789725420.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Candy Fok",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-18 17:57",
+            "ts": 1789725420.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "立項建議書已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          }
+        ],
+        "gaps": [],
+        "span": {
+          "min_ts": 1789725420.0,
+          "max_ts": 1789725420.0
+        }
+      }
+    },
+    {
+      "id": "PA-26-213",
+      "stage": "Form 1",
+      "title": "為澳門科學館展示的標本採購保險(2026-2027年)",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R1 · Form 1",
+      "submitter": "Guida Lai",
+      "follow_up": [
+        "Guida Lai"
+      ],
+      "first_submit": "2026-09-18 10:35",
+      "status_since": "2026-09-18 10:35",
+      "completed_at": "2026-09-18 10:35",
+      "days_in_status": 37,
+      "days_since_first_submit": 37,
+      "process_days": 0,
+      "current_round": 1,
+      "last_reply": "2026-09-18 10:35",
+      "last_reply_summary": "開支許可申請書及判給通知已獲上級批示（批示見附件）",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 1,
+      "admin_total": "",
+      "colleague_total": "",
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-18 10:35",
+            "ts": 1789698900.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Guida Lai",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-18 10:35",
+            "ts": 1789698900.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "開支許可申請書及判給通知已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          }
+        ],
+        "gaps": [],
+        "span": {
+          "min_ts": 1789698900.0,
+          "max_ts": 1789698900.0
         }
       }
     }

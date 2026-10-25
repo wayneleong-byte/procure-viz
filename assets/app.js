@@ -88,6 +88,8 @@
       const n = sc[st] || 0;
       html += `<button type="button" class="tab" data-tab="${esc(id)}" role="tab" aria-selected="false">${esc(st)}<span class="tab-count">${n}</span></button>`;
     });
+    const cc = (DATA.meta && DATA.meta.completed_count) ?? ((DATA.completed_documents || []).length);
+    html += `<button type="button" class="tab" data-tab="completed" role="tab" aria-selected="false">已完成文件流程時間記錄<span class="tab-count">${cc}</span></button>`;
     html += `<button type="button" class="tab" data-tab="email" role="tab" aria-selected="false">行政部郵件時間段統計</button>`;
     nav.innerHTML = html;
     $$(".tab", nav).forEach((btn) => {
@@ -98,7 +100,7 @@
   function buildStatusPanels() {
     const wrap = $("#status-panels");
     const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
-    wrap.innerHTML = order
+    let html = order
       .map((st) => {
         const id = STATUS_TAB[st] || st;
         return `<section id="panel-${esc(id)}" class="panel" role="tabpanel">
@@ -113,6 +115,17 @@
         </section>`;
       })
       .join("");
+    html += `<section id="panel-completed" class="panel" role="tabpanel">
+      <div class="card" style="margin-bottom:10px">
+        <h2 class="card-title">已完成文件流程時間記錄</h2>
+        <p class="card-hint">未展開：編號 · 完成後累積天數 · 由首次／紀錄起點至今 · 文件屬性 · 文件名稱。點擊列展開完整流程時間線（紅＝行政部、綠＝EDU、藍＝第三方；已完成唔再延伸至今日）。</p>
+        <div class="list-head">
+          <span>文件編號</span><span>完成後天數</span><span>首次至今</span><span>屬性</span><span>文件名稱</span><span></span>
+        </div>
+        <div class="doc-list" id="list-completed"></div>
+      </div>
+    </section>`;
+    wrap.innerHTML = html;
   }
 
   function renderMeta() {
@@ -396,9 +409,67 @@
     });
   }
 
+  function renderCompletedList() {
+    const list = $("#list-completed");
+    if (!list) return;
+    const docs = DATA.completed_documents || [];
+    if (!docs.length) {
+      list.innerHTML = `<div class="empty">目前沒有已完成文件記錄</div>`;
+      return;
+    }
+    list.innerHTML = docs
+      .map((d) => {
+        const fu = (d.follow_up || []).filter(Boolean).join("、") || "—";
+        const process =
+          d.process_days != null && d.process_days !== ""
+            ? ` · 流程共 ${esc(fmtDays(d.process_days))} 天`
+            : "";
+        return `<article class="doc-row" data-id="${esc(d.id)}">
+          <button type="button" class="doc-summary" aria-expanded="false">
+            <span class="c-id">${esc(d.id)}</span>
+            <span class="c-din">${esc(fmtDays(d.days_in_status))}<small>完成後天數</small></span>
+            <span class="c-dfs">${esc(fmtDays(d.days_since_first_submit))}<small>首次至今</small></span>
+            <span class="c-attr">${esc(d.attr_label || "")}</span>
+            <span class="c-title" title="${esc(d.title)}">${esc(d.title)}</span>
+            <span class="c-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="doc-detail">
+            <div class="doc-meta-line">
+              跟進：<strong style="color:#fff">${esc(fu)}</strong>
+              · 提交人：${esc(d.submitter || "—")}
+              · 首次／起點：${esc(d.first_submit || "—")}
+              · 完成時間：${esc(d.completed_at || d.last_reply || "—")}
+              ${process}
+            </div>
+            ${
+              d.last_reply_summary
+                ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
+                : ""
+            }
+            <div class="legend" style="margin-bottom:10px">
+              <span><i class="swatch admin"></i>行政部間隔</span>
+              <span><i class="swatch edu"></i>EDU 間隔</span>
+              <span><i class="swatch third"></i>第三方間隔</span>
+            </div>
+            ${renderTimeline(d)}
+          </div>
+        </article>`;
+      })
+      .join("");
+
+    $$(".doc-row", list).forEach((row) => {
+      const btn = $(".doc-summary", row);
+      btn.addEventListener("click", () => {
+        const open = row.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
+  }
+
   function renderAllLists() {
     const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
     order.forEach(renderDocList);
+    renderCompletedList();
   }
 
   /** Half-hour index: 0=00:00 … 18=09:00 … 37=18:30 … 47=23:30 */

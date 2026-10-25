@@ -209,10 +209,41 @@ def resolve_first_submit(doc: dict) -> tuple[str, bool]:
     return raw, pri >= 2
 
 
+def resolve_completed_at(doc: dict) -> str:
+    """Best-effort completion / last-event timestamp for closed docs."""
+    candidates: list[tuple[float, str]] = []
+    for raw in (doc.get("last_resubmit"), doc.get("last_reply")):
+        if not raw:
+            continue
+        dt = parse_dt(raw)
+        if dt:
+            candidates.append((dt.timestamp(), raw))
+    for r in doc.get("rounds") or []:
+        for key in ("resub_date", "reply_date", "submission_date"):
+            raw = r.get(key) or ""
+            if not raw:
+                continue
+            dt = parse_dt(raw)
+            if dt:
+                candidates.append((dt.timestamp(), raw))
+        for rd in r.get("reply_dates") or []:
+            if not rd:
+                continue
+            dt = parse_dt(rd)
+            if dt:
+                candidates.append((dt.timestamp(), rd))
+    if not candidates:
+        return ""
+    candidates.sort(key=lambda x: x[0])
+    return candidates[-1][1]
+
+
 def status_anchor_date(doc: dict) -> str:
     """Date when current status started (for days_in_status)."""
     status = doc.get("status") or ""
     first, _ = resolve_first_submit(doc)
+    if status == "完成":
+        return resolve_completed_at(doc) or doc.get("last_reply") or first or ""
     if status == "行政部已回覆待同事重交":
         return doc.get("last_reply") or ""
     if status == "已提交待回覆":
@@ -281,8 +312,17 @@ def gap_role_between(prev: dict, nxt: dict | None, status: str, open_end: bool) 
     return "third"
 
 
-def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
-    """nodes + gaps; gaps show days with role colour (admin/edu/third)."""
+def build_timeline(
+    doc: dict,
+    progress: list[dict],
+    today_dt: datetime,
+    *,
+    closed: bool = False,
+) -> dict:
+    """nodes + gaps; gaps show days with role colour (admin/edu/third).
+
+    closed=True（已完成）：唔加「至今」open gap；可加完成節點並喺終點收束。
+    """
     status = doc.get("status") or ""
     nodes: list[dict] = []
     first, first_est = resolve_first_submit(doc)
@@ -420,6 +460,72 @@ def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
             }
         )
 
+    # Completed docs: append a terminal 「完成」 node if we have an end time
+    # that is not already the last primary-ish event.
+    if closed:
+        end_raw = (
+            (doc.get("last_resubmit") or "").strip()
+            or (doc.get("last_reply") or "").strip()
+            or ""
+        )
+        # Prefer latest among last_reply / last_resubmit / latest round dates
+        end_candidates: list[tuple[float, str]] = []
+        for raw in (
+            doc.get("last_reply"),
+            doc.get("last_resubmit"),
+            end_raw,
+        ):
+            if not raw:
+                continue
+            edt = parse_dt(raw)
+            if edt:
+                end_candidates.append((edt.timestamp(), raw))
+        for r in doc.get("rounds") or []:
+            for key in ("resub_date", "reply_date", "submission_date"):
+                raw = r.get(key) or ""
+                if not raw:
+                    continue
+                edt = parse_dt(raw)
+                if edt:
+                    end_candidates.append((edt.timestamp(), raw))
+            for rd in r.get("reply_dates") or []:
+                if not rd:
+                    continue
+                edt = parse_dt(rd)
+                if edt:
+                    end_candidates.append((edt.timestamp(), rd))
+        if end_candidates:
+            end_candidates.sort(key=lambda x: x[0])
+            end_ts, end_t = end_candidates[-1]
+            # Only add explicit 完成 marker if no existing node at that instant
+            # with a substantive kind (submission/admin_reply/third/resub)
+            has_at_end = any(
+                n.get("ts") is not None
+                and abs(n["ts"] - end_ts) < 1
+                and n.get("kind")
+                in ("submission", "resubmission", "admin_reply", "third_party", "completed")
+                for n in nodes
+            )
+            if not has_at_end:
+                nodes.append(
+                    {
+                        "t": end_t,
+                        "ts": end_ts,
+                        "kind": "completed",
+                        "role": "edu",
+                        "label": "完成",
+                        "detail": "",
+                        "who": "",
+                        "round": None,
+                        "secondary": False,
+                    }
+                )
+            else:
+                # Tag an existing end node? Prefer adding label only when last
+                # node isn't already clearly terminal — leave as-is; closed
+                # gaps handle the rest.
+                pass
+
     # Deduplicate nodes: same ts+kind+label keep one; prefer non-first_submit over duplicate submission
     def dedupe(nodes_in: list[dict]) -> list[dict]:
         kind_rank = {
@@ -428,6 +534,7 @@ def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
             "resubmission": 2,
             "admin_reply": 3,
             "third_party": 3,
+            "completed": 5,
             "progress_inquiry": 4,
         }
         # Sort first
@@ -490,6 +597,9 @@ def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
         nxt = primary[i + 1] if i + 1 < len(primary) else None
         start_dt = parse_dt(cur.get("t"))
         if nxt is None:
+            if closed:
+                # Completed: no open-to-today gap; timeline ends at last event
+                continue
             # open gap to today for incomplete docs
             end_dt = today_dt
             end_t = today_str
@@ -684,6 +794,7 @@ def main() -> None:
 
     docs_all = ds.get("documents") or []
     incomplete = [d for d in docs_all if (d.get("status") or "") != "完成"]
+    completed = [d for d in docs_all if (d.get("status") or "") == "完成"]
     progress = ds.get("progress_inquiries") or []
     emails = ds.get("emails") or []
 
@@ -698,42 +809,52 @@ def main() -> None:
 
     incomplete_sorted = sorted(incomplete, key=doc_sort)
 
-    viz_docs = []
-    for d in incomplete_sorted:
+    def build_doc_viz(d: dict, *, closed: bool = False) -> dict:
         fu = d.get("follow_up") or []
         first, _est = resolve_first_submit(d)
         anchor = status_anchor_date(d)
+        completed_at = resolve_completed_at(d) if closed else ""
         dis = days_since(anchor, today_d)
         dsfs = days_since(first, today_d)
-        timeline = build_timeline(d, progress, today_dt)
-        viz_docs.append(
-            {
-                "id": d.get("key") or d.get("doc_id"),
-                "stage": d.get("stage") or "",
-                "title": d.get("title") or "",
-                "status": d.get("status") or "",
-                "status_group": STATUS_GROUP.get(d.get("status") or "", "other"),
-                "attr_label": attr_label(d),
-                "submitter": display_name(d.get("submitter")),
-                "follow_up": [display_name(x) for x in fu]
-                if isinstance(fu, list)
-                else [display_name(fu)],
-                "first_submit": first,
-                "status_since": anchor,
-                "days_in_status": dis,
-                "days_since_first_submit": dsfs,
-                "current_round": d.get("current_round"),
-                "last_reply": d.get("last_reply") or "",
-                "last_reply_summary": (d.get("last_reply_summary") or "")[:240],
-                "last_resubmit": d.get("last_resubmit") or "",
-                "admin_clock_from": d.get("admin_clock_from") or "",
-                "days_since_reply": d.get("days_since_reply"),
-                "n_rounds": d.get("n_rounds"),
-                "admin_total": d.get("admin_total"),
-                "colleague_total": d.get("colleague_total"),
-                "timeline": timeline,
-            }
-        )
+        # Process span for completed: first_submit → completed_at
+        process_days = None
+        if closed and first and completed_at:
+            process_days = days_between(parse_dt(first), parse_dt(completed_at))
+            if process_days is not None:
+                process_days = int(process_days) if float(process_days).is_integer() else process_days
+        timeline = build_timeline(d, progress, today_dt, closed=closed)
+        return {
+            "id": d.get("key") or d.get("doc_id"),
+            "stage": d.get("stage") or "",
+            "title": d.get("title") or "",
+            "status": d.get("status") or "",
+            "status_group": (
+                "completed" if closed else STATUS_GROUP.get(d.get("status") or "", "other")
+            ),
+            "attr_label": attr_label(d),
+            "submitter": display_name(d.get("submitter")),
+            "follow_up": [display_name(x) for x in fu]
+            if isinstance(fu, list)
+            else [display_name(fu)],
+            "first_submit": first,
+            "status_since": anchor,
+            "completed_at": completed_at if closed else "",
+            "days_in_status": dis,
+            "days_since_first_submit": dsfs,
+            "process_days": process_days,
+            "current_round": d.get("current_round"),
+            "last_reply": d.get("last_reply") or "",
+            "last_reply_summary": (d.get("last_reply_summary") or "")[:240],
+            "last_resubmit": d.get("last_resubmit") or "",
+            "admin_clock_from": d.get("admin_clock_from") or "",
+            "days_since_reply": d.get("days_since_reply"),
+            "n_rounds": d.get("n_rounds"),
+            "admin_total": d.get("admin_total"),
+            "colleague_total": d.get("colleague_total"),
+            "timeline": timeline,
+        }
+
+    viz_docs = [build_doc_viz(d, closed=False) for d in incomplete_sorted]
 
     # Re-sort within each status by days_in_status desc
     viz_docs.sort(
@@ -745,6 +866,19 @@ def main() -> None:
             d.get("id") or "",
         )
     )
+
+    # Completed: newest completion first; then longer process span
+    viz_completed = [build_doc_viz(d, closed=True) for d in completed]
+
+    def completed_sort_key(d):
+        ca = parse_dt(d.get("completed_at") or "")
+        return (
+            -(ca.timestamp() if ca else 0),
+            -(d.get("process_days") if d.get("process_days") is not None else -1),
+            d.get("id") or "",
+        )
+
+    viz_completed.sort(key=completed_sort_key)
 
     email_events = []
     for e in emails:
@@ -808,20 +942,22 @@ def main() -> None:
             "timezone": "Asia/Macau",
             "work_hours": "09:00–18:30",
             "incomplete_count": len(viz_docs),
+            "completed_count": len(viz_completed),
             "email_count": len(email_events),
             "email_on_hours": email_stats["on_hours"],
             "email_off_hours": email_stats["off_hours"],
             "progress_linked_count": len(progress_slim),
-            "completed_hidden": sum(1 for d in docs_all if d.get("status") == "完成"),
             "status_order": STATUS_ORDER,
             "status_counts": status_counts,
             "notes": [
-                "未完成＝目前狀態唔係「完成」；本頁唔顯示已完成文件",
-                "時間線由首次提交起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
+                "未完成＝目前狀態唔係「完成」；已完成見「已完成文件流程時間記錄」",
+                "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
+                "已完成案時間線喺最後事件收束，唔再延伸至今日",
                 "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
             ],
         },
         "documents": viz_docs,
+        "completed_documents": viz_completed,
         "emails": email_events,
         "email_stats": email_stats,
         "progress": progress_slim,
@@ -832,8 +968,8 @@ def main() -> None:
     out.write_text(json.dumps(viz, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {out} ({out.stat().st_size} bytes)")
     print(
-        f"incomplete={len(viz_docs)} emails={len(email_events)} "
-        f"off={email_stats['off_hours']} status={status_counts}"
+        f"incomplete={len(viz_docs)} completed={len(viz_completed)} "
+        f"emails={len(email_events)} off={email_stats['off_hours']} status={status_counts}"
     )
 
 
