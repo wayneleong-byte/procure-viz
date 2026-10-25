@@ -4,12 +4,40 @@
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
 
+  const STATUS_ORDER = [
+    "已提交待回覆",
+    "報價進行中",
+    "行政部與甲方跟進中",
+    "待對方補充資料後交行政",
+    "行政部已回覆待同事重交",
+  ];
+
+  const STATUS_TAB = {
+    "已提交待回覆": "awaiting",
+    "報價進行中": "quotation",
+    "行政部與甲方跟進中": "admin_client",
+    "待對方補充資料後交行政": "awaiting_party",
+    "行政部已回覆待同事重交": "pending",
+  };
+
+  const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
+
+  const TYPE_COLORS = [
+    "#38bdf8", "#a78bfa", "#f472b6", "#fbbf24", "#34d399",
+    "#fb923c", "#60a5fa", "#c084fc", "#4ade80", "#f87171",
+  ];
+
   let DATA = null;
-  let focusedId = null;
-  const tip = document.createElement("div");
-  tip.className = "tooltip";
-  tip.setAttribute("role", "tooltip");
-  document.body.appendChild(tip);
+  let charts = {};
+  let emailChartsReady = false;
+
+  function applyChartDefaults() {
+    if (typeof Chart === "undefined") return;
+    Chart.defaults.font.family = '"Noto Sans TC", "PingFang TC", sans-serif';
+    Chart.defaults.font.size = 14;
+    Chart.defaults.color = "#c5d5de";
+  }
+
 
   function esc(s) {
     return String(s ?? "")
@@ -19,346 +47,504 @@
       .replace(/"/g, "&quot;");
   }
 
-  function statusLabel(g, status) {
-    return `<span class="badge ${esc(g)}">${esc(status)}</span>`;
-  }
-
-  function fmtNum(v) {
-    if (v == null || v === "") return null;
+  function fmtDays(v) {
+    if (v == null || v === "") return "—";
     const n = Number(v);
-    if (!Number.isFinite(n)) return null;
+    if (!Number.isFinite(n)) return "—";
     return Number.isInteger(n) ? String(n) : String(Math.round(n * 10) / 10);
   }
 
-  function pct(ts, span) {
-    if (!span || span.max_ts == null || span.min_ts == null) return 50;
-    if (span.max_ts === span.min_ts) return 50;
-    const p = ((ts - span.min_ts) / (span.max_ts - span.min_ts)) * 100;
-    return Math.max(1, Math.min(99, p));
+  function destroyChart(key) {
+    if (charts[key]) {
+      charts[key].destroy();
+      delete charts[key];
+    }
   }
 
-  function parseLoose(t) {
-    if (!t) return null;
-    const d = Date.parse(
-      String(t).replace(" ", "T") +
-        (String(t).includes("+") || String(t).includes("Z") ? "" : "+08:00")
-    );
-    return Number.isFinite(d) ? d / 1000 : null;
+  function switchTab(tabId) {
+    $$(".tab").forEach((b) => {
+      const on = b.dataset.tab === tabId;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    $$(".panel").forEach((p) => p.classList.remove("active"));
+    const panel = $(`#panel-${tabId}`);
+    if (panel) panel.classList.add("active");
+    if (tabId === "email") {
+      requestAnimationFrame(() => renderEmailCharts());
+    }
+    if (tabId === "home") {
+      requestAnimationFrame(() => renderHomeCharts());
+    }
   }
 
-  function enrichSpan(doc) {
+  function buildTabs() {
+    const nav = $("#main-tabs");
+    const sc = (DATA.meta && DATA.meta.status_counts) || {};
+    const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    let html = `<button type="button" class="tab active" data-tab="home" role="tab" aria-selected="true">首頁</button>`;
+    order.forEach((st) => {
+      const id = STATUS_TAB[st] || st;
+      const n = sc[st] || 0;
+      html += `<button type="button" class="tab" data-tab="${esc(id)}" role="tab" aria-selected="false">${esc(st)}<span class="tab-count">${n}</span></button>`;
+    });
+    html += `<button type="button" class="tab" data-tab="email" role="tab" aria-selected="false">行政部郵件時間段統計</button>`;
+    nav.innerHTML = html;
+    $$(".tab", nav).forEach((btn) => {
+      btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+    });
+  }
+
+  function buildStatusPanels() {
+    const wrap = $("#status-panels");
+    const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    wrap.innerHTML = order
+      .map((st) => {
+        const id = STATUS_TAB[st] || st;
+        return `<section id="panel-${esc(id)}" class="panel" role="tabpanel">
+          <div class="card" style="margin-bottom:10px">
+            <h2 class="card-title">${esc(st)}</h2>
+            <p class="card-hint">未展開：編號 · 目前狀態累積天數 · 由首次提交至今 · 文件屬性 · 文件名稱。點擊列展開時間線（紅＝行政部、綠＝EDU、藍＝第三方間隔天數）。</p>
+            <div class="list-head">
+              <span>文件編號</span><span>狀態天數</span><span>首次至今</span><span>屬性</span><span>文件名稱</span><span></span>
+            </div>
+            <div class="doc-list" id="list-${esc(id)}"></div>
+          </div>
+        </section>`;
+      })
+      .join("");
+  }
+
+  function renderMeta() {
+    const m = DATA.meta || {};
+    $("#stat-total").textContent = m.incomplete_count ?? "—";
+    $("#stat-emails").textContent = m.email_count ?? "—";
+    $("#stat-off").textContent = m.email_off_hours ?? "—";
+    $("#meta-line").textContent =
+      `最後更新：${m.generated_at || "—"}（${m.timezone || "Asia/Macau"}）`;
+    $("#source-line").textContent =
+      m.subtitle ||
+      `資料來源 generated_at：${m.source_generated_at || "—"} · 唯讀 dataset.json`;
+    const foot = $("#site-footer");
+    if (foot) {
+      foot.innerHTML = `教育部工作文件進程（不包括HR） · GitHub Pages · 產出 ${esc(
+        m.generated_at || "—"
+      )}（Asia/Macau）<br>
+        公開網址：<a href="https://wayneleong-byte.github.io/procure-viz/">wayneleong-byte.github.io/procure-viz</a>
+        · 資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）`;
+    }
+  }
+
+  function renderHome() {
+    const sc = (DATA.meta && DATA.meta.status_counts) || {};
+    const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    const box = $("#status-cards");
+    const total = DATA.meta?.incomplete_count ?? 0;
+    let html = order
+      .map((st) => {
+        const id = STATUS_TAB[st] || st;
+        const n = sc[st] || 0;
+        return `<button type="button" class="status-card" data-goto="${esc(id)}">
+          <span class="sc-name">${esc(st)}</span>
+          <span class="sc-num">${n}</span>
+        </button>`;
+      })
+      .join("");
+    html += `<button type="button" class="status-card" data-goto="home" disabled style="opacity:.7;cursor:default">
+      <span class="sc-name">未完成總數</span>
+      <span class="sc-num">${total}</span>
+    </button>`;
+    html += `<button type="button" class="status-card email-entry" data-goto="email">
+      <span class="sc-name">行政部郵件時間段統計</span>
+      <span class="sc-num">查看 →</span>
+    </button>`;
+    box.innerHTML = html;
+    $$(".status-card[data-goto]", box).forEach((btn) => {
+      if (btn.disabled) return;
+      btn.addEventListener("click", () => switchTab(btn.dataset.goto));
+    });
+
+    const es = DATA.email_stats || {};
+    const prev = $("#email-preview-stats");
+    const on = es.on_hours ?? 0;
+    const off = es.off_hours ?? 0;
+    const t = es.total || on + off || 1;
+    prev.innerHTML = `
+      <div class="chip"><b>${on}</b><span>辦公時間</span></div>
+      <div class="chip"><b>${off}</b><span>非辦公時間</span></div>
+      <div class="chip"><b>${t ? Math.round((off / t) * 1000) / 10 : 0}%</b><span>非辦公比例</span></div>`;
+    $("#btn-goto-email").onclick = () => switchTab("email");
+  }
+
+  function renderHomeCharts() {
+    if (typeof Chart === "undefined") return;
+    const sc = (DATA.meta && DATA.meta.status_counts) || {};
+    const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    const labels = order.slice();
+    const values = order.map((s) => sc[s] || 0);
+
+    destroyChart("status");
+    const ctx = $("#chart-status");
+    if (ctx) {
+      charts.status = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels,
+          datasets: [
+            {
+              label: "文件數",
+              data: values,
+              backgroundColor: [
+                "#38bdf8",
+                "#a78bfa",
+                "#60a5fa",
+                "#818cf8",
+                "#34d399",
+              ],
+              borderRadius: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                title: (items) => items[0]?.label || "",
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#8aa0ab",
+                maxRotation: 45,
+                minRotation: 20,
+                font: { size: 10 },
+              },
+              grid: { display: false },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { color: "#8aa0ab", precision: 0 },
+              grid: { color: "rgba(255,255,255,.06)" },
+            },
+          },
+        },
+      });
+    }
+
+    const es = DATA.email_stats || {};
+    destroyChart("emailPreview");
+    const ctx2 = $("#chart-email-preview");
+    if (ctx2) {
+      charts.emailPreview = new Chart(ctx2, {
+        type: "doughnut",
+        data: {
+          labels: ["辦公時間", "非辦公時間"],
+          datasets: [
+            {
+              data: [es.on_hours || 0, es.off_hours || 0],
+              backgroundColor: ["#38bdf8", "#fb923c"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom", labels: { color: "#c8d6dc", boxWidth: 12 } },
+          },
+        },
+      });
+    }
+  }
+
+  function renderTimeline(doc) {
     const tl = doc.timeline || {};
-    let span = tl.span ? { ...tl.span } : null;
-    const times = [];
-    (tl.events || []).forEach((e) => {
-      const ts = e.ts != null ? e.ts : parseLoose(e.t);
-      if (ts != null) times.push(ts);
-    });
-    (tl.segments || []).forEach((s) => {
-      const a = parseLoose(s.start);
-      const b = parseLoose(s.end);
-      if (a != null) times.push(a);
-      if (b != null) times.push(b);
-    });
-    if (times.length) {
-      span = { min_ts: Math.min(...times), max_ts: Math.max(...times) };
+    const nodes = tl.nodes || [];
+    const gaps = tl.gaps || [];
+    if (!nodes.length) {
+      return `<div class="empty">無時間線節點</div>`;
     }
-    return span;
+    const primary = nodes.filter((n) => !n.secondary);
+    const secondary = nodes.filter((n) => n.secondary);
+    return buildTimelineHtml(primary, secondary, gaps);
   }
 
-  /* ---- Flip board ---- */
-  function makeDigitEl(ch, tone) {
-    const el = document.createElement("div");
-    if (ch === "." || ch === ",") {
-      el.className = "flip-digit dot";
-      el.textContent = ".";
-      return el;
-    }
-    if (!/\d/.test(ch)) {
-      el.className = "flip-digit char";
-      el.textContent = ch;
-      return el;
-    }
-    el.className = `flip-digit tone-${tone || "danger"}`;
-    el.dataset.target = ch;
-    el.innerHTML = `
-      <div class="top"><span>0</span></div>
-      <div class="bottom"><span>0</span></div>
-      <div class="hinge"><span>0</span></div>`;
-    return el;
+  function nodeHtml(n) {
+    const role = n.role || "edu";
+    return `<div class="vt-item">
+      <div class="vt-time">${esc(n.t || "")}</div>
+      <div class="vt-body">
+        <div class="vt-node role-${esc(role)}${n.secondary ? " secondary" : ""}">
+          <div class="vt-label">
+            <span class="role-pill ${esc(role)}">${esc(ROLE_ZH[role] || role)}</span>
+            ${esc(n.label || n.kind || "")}${n.secondary ? " · 次要" : ""}
+          </div>
+          ${n.who ? `<div class="vt-who">${esc(n.who)}</div>` : ""}
+          ${n.detail ? `<div class="vt-detail">${esc(n.detail)}</div>` : ""}
+        </div>
+      </div>
+    </div>`;
   }
 
-  function buildFlipBoard(display, tone) {
-    const board = document.createElement("div");
-    board.className = "flip-board";
-    String(display ?? "—")
-      .split("")
-      .forEach((ch) => board.appendChild(makeDigitEl(ch, tone)));
-    return board;
+  function gapHtml(g) {
+    if (!g) return "";
+    const role = g.role || "third";
+    const days = fmtDays(g.days);
+    return `<div class="vt-item">
+      <div class="vt-time"></div>
+      <div class="vt-body">
+        <div class="vt-gap ${esc(role)}${g.open ? " open" : ""}">
+          <span class="gap-role">${esc(ROLE_ZH[role] || role)}</span>
+          <span>${days} 天${g.open ? "（至今）" : ""}</span>
+        </div>
+      </div>
+    </div>`;
   }
 
-  function animateFlipBoard(board) {
-    const digits = $$(".flip-digit[data-target]", board);
-    digits.forEach((digit, idx) => {
-      const target = digit.dataset.target;
-      const top = digit.querySelector(".top span");
-      const bottom = digit.querySelector(".bottom span");
-      const hinge = digit.querySelector(".hinge");
-      const hingeSpan = digit.querySelector(".hinge span");
-      let cur = 0;
-      const steps = Number(target);
-      const delay = idx * 90;
-      setTimeout(() => {
-        const tick = () => {
-          if (cur >= steps) {
-            top.textContent = target;
-            bottom.textContent = target;
-            hingeSpan.textContent = target;
-            digit.classList.remove("flipping");
-            return;
-          }
-          const next = cur + 1;
-          hingeSpan.textContent = String(cur);
-          top.textContent = String(next);
-          digit.classList.remove("flipping");
-          void digit.offsetWidth;
-          digit.classList.add("flipping");
-          const onEnd = () => {
-            hinge.removeEventListener("animationend", onEnd);
-            bottom.textContent = String(next);
-            hingeSpan.textContent = String(next);
-            digit.classList.remove("flipping");
-            cur = next;
-            setTimeout(tick, 40);
-          };
-          hinge.addEventListener("animationend", onEnd);
-        };
-        tick();
-      }, delay);
-    });
-  }
+  function buildTimelineHtml(primary, secondary, gaps) {
+    // Pair gaps to primary by sequential from_ts matching
+    const gapPool = gaps.slice();
+    let html = `<div class="v-timeline">`;
+    for (let i = 0; i < primary.length; i++) {
+      const n = primary[i];
+      const prevTs = i === 0 ? Number.NEGATIVE_INFINITY : primary[i - 1].ts ?? Number.NEGATIVE_INFINITY;
+      const curTs = n.ts != null ? n.ts : Number.POSITIVE_INFINITY;
+      secondary
+        .filter((s) => {
+          const ts = s.ts != null ? s.ts : 0;
+          return ts > prevTs && ts <= curTs + 0.001;
+        })
+        .forEach((s) => {
+          html += nodeHtml(s);
+        });
+      html += nodeHtml(n);
 
-  function renderHeadlines() {
-    const box = $("#headlines");
-    const items = (DATA.meta && DATA.meta.headlines) || [];
-    if (!items.length) {
-      box.innerHTML = "";
-      return;
-    }
-    box.innerHTML = "";
-    const boards = [];
-    items.forEach((h) => {
-      const card = document.createElement("article");
-      card.className = `hl-card tone-${esc(h.tone || "danger")}`;
-      const label = document.createElement("div");
-      label.className = "hl-label";
-      label.textContent = h.label || "";
-      card.appendChild(label);
-
-      if (h.id === "avg_admin_vs_edu") {
-        const pair = document.createElement("div");
-        pair.className = "hl-pair";
-        const adminBlock = document.createElement("div");
-        adminBlock.className = "hl-pair-block";
-        adminBlock.innerHTML = `<span class="hl-pair-tag admin">行政（慢）</span>`;
-        const adminBoard = buildFlipBoard(h.display_admin ?? h.value_admin, "admin");
-        adminBlock.appendChild(adminBoard);
-        const vs = document.createElement("div");
-        vs.className = "hl-vs";
-        vs.textContent = "vs";
-        const eduBlock = document.createElement("div");
-        eduBlock.className = "hl-pair-block";
-        eduBlock.innerHTML = `<span class="hl-pair-tag edu">EED（快）</span>`;
-        const eduBoard = buildFlipBoard(h.display_edu ?? h.value_edu, "edu");
-        eduBlock.appendChild(eduBoard);
-        const unit = document.createElement("span");
-        unit.className = "hl-unit";
-        unit.textContent = h.unit || "天";
-        pair.appendChild(adminBlock);
-        pair.appendChild(vs);
-        pair.appendChild(eduBlock);
-        pair.appendChild(unit);
-        card.appendChild(pair);
-        boards.push(adminBoard, eduBoard);
-      } else {
-        const row = document.createElement("div");
-        row.className = "hl-value-row";
-        const tone = h.tone === "fast" ? "fast" : "danger";
-        const board = buildFlipBoard(h.display ?? h.value, tone);
-        row.appendChild(board);
-        const unit = document.createElement("span");
-        unit.className = "hl-unit";
-        unit.textContent = h.unit || "天";
-        row.appendChild(unit);
-        card.appendChild(row);
-        boards.push(board);
+      // Find best matching unused gap starting at this node
+      let gIdx = gapPool.findIndex((g) => {
+        if (g.from_ts != null && n.ts != null) return Math.abs(g.from_ts - n.ts) < 2;
+        return g.from_t === n.t;
+      });
+      if (gIdx < 0 && i < gapPool.length) {
+        // if open last gap etc., take next remaining if last primary
+        if (i === primary.length - 1 && gapPool.length) gIdx = gapPool.length - 1;
       }
-
-      if (h.sub) {
-        const sub = document.createElement("div");
-        sub.className = "hl-sub";
-        sub.textContent = h.sub;
-        card.appendChild(sub);
-      }
-      if (h.hint) {
-        const hint = document.createElement("div");
-        hint.className = "hl-hint";
-        hint.textContent = h.hint;
-        card.appendChild(hint);
-      }
-      box.appendChild(card);
-    });
-    requestAnimationFrame(() => boards.forEach(animateFlipBoard));
-  }
-
-  function dayBadges(d) {
-    const parts = [];
-    const at = fmtNum(d.admin_total);
-    const ct = fmtNum(d.colleague_total);
-    if (at != null) {
-      parts.push(`<span class="badge days-danger" title="行政累計處理天數">行政 ${esc(at)}天</span>`);
-    }
-    if (ct != null) {
-      parts.push(`<span class="badge days-fast" title="EED／同事累計處理天數">EED ${esc(ct)}天</span>`);
-    }
-    if (d.status_group === "awaiting_admin") {
-      // show open wait if we can infer from open segment
-      const open = (d.timeline?.segments || []).find((s) => s.open && s.role === "admin");
-      if (open && open.days != null) {
-        parts.push(`<span class="badge days-danger">待回覆 ${esc(fmtNum(open.days))}天</span>`);
+      if (gIdx >= 0) {
+        const g = gapPool.splice(gIdx, 1)[0];
+        html += gapHtml(g);
       }
     }
-    if (d.status_group === "pending_resubmit" && d.days_since_reply != null) {
-      parts.push(
-        `<span class="badge days-fast">待重交 ${esc(fmtNum(d.days_since_reply))}天</span>`
-      );
+    // trailing secondaries after last primary
+    if (primary.length) {
+      const lastTs = primary[primary.length - 1].ts ?? 0;
+      secondary
+        .filter((s) => (s.ts ?? 0) > lastTs)
+        .forEach((s) => {
+          html += nodeHtml(s);
+        });
     }
-    if (!parts.length) return "";
-    return `<span class="day-badges">${parts.join("")}</span>`;
+    // leftover gaps
+    gapPool.forEach((g) => {
+      html += gapHtml(g);
+    });
+    html += `</div>`;
+    return html;
   }
 
-  function isSlowAdmin(d) {
-    const at = Number(d.admin_total);
-    return (Number.isFinite(at) && at >= 20) || d.status_group === "awaiting_admin";
-  }
-
-  function renderOverview() {
-    const list = $("#doc-list");
-    const docs = DATA.documents || [];
+  function renderDocList(status) {
+    const id = STATUS_TAB[status] || status;
+    const list = $(`#list-${id}`);
+    if (!list) return;
+    const docs = (DATA.documents || []).filter((d) => d.status === status);
     if (!docs.length) {
-      list.innerHTML = `<div class="empty">目前沒有未完成文件</div>`;
+      list.innerHTML = `<div class="empty">此狀態目前沒有文件</div>`;
       return;
     }
     list.innerHTML = docs
       .map((d) => {
-        const span = enrichSpan(d);
-        const segs = (d.timeline?.segments || [])
-          .map((s) => {
-            const a = parseLoose(s.start);
-            const b = parseLoose(s.end);
-            if (a == null || b == null || !span) return "";
-            const left = pct(Math.min(a, b), span);
-            const right = pct(Math.max(a, b), span);
-            const w = Math.max(0.8, right - left);
-            return `<div class="seg ${esc(s.role)}${s.open ? " open" : ""}" style="left:calc(12px + (100% - 24px)*${left / 100});width:calc((100% - 24px)*${w / 100})" title="${esc(s.label || "")}"></div>`;
-          })
-          .join("");
-        const evs = (d.timeline?.events || [])
-          .map((e) => {
-            const ts = e.ts != null ? e.ts : parseLoose(e.t);
-            if (ts == null || !span) return "";
-            const left = pct(ts, span);
-            return `<div class="ev ${esc(e.kind)}" style="left:calc(12px + (100% - 24px)*${left / 100})" data-kind="${esc(e.kind)}" title="${esc((e.label || "") + " · " + (e.t || ""))}"></div>`;
-          })
-          .join("");
-
         const fu = (d.follow_up || []).filter(Boolean).join("、") || "—";
-        const eventsRows = (d.timeline?.events || [])
-          .map(
-            (e) => `<tr>
-            <td>${esc(e.t || "")}</td>
-            <td><span class="role-pill ${esc(e.role)}">${e.role === "admin" ? "行政" : "EDU"}</span></td>
-            <td>${esc(e.label || e.kind)}</td>
-            <td>${esc(e.who || "")}${e.detail ? `<div style="color:var(--muted);font-size:.78rem;margin-top:2px">${esc(String(e.detail).slice(0, 140))}</div>` : ""}</td>
-          </tr>`
-          )
-          .join("");
-
-        const slow = isSlowAdmin(d) ? " slow-admin" : "";
-        return `<article class="doc-row${slow}" data-id="${esc(d.id)}" tabindex="0"
-          data-title="${esc(d.title)}" data-follow="${esc(fu)}" data-submitter="${esc(d.submitter || "")}">
-          <div class="doc-head">
-            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
-              <span class="doc-id">${esc(d.id)}</span>
-              ${statusLabel(d.status_group, d.status)}
-              ${dayBadges(d)}
-              <span class="doc-meta">R${esc(d.current_round ?? "—")} · ${esc(d.stage || "")}</span>
-            </div>
-            <div class="doc-title-hint" title="${esc(d.title)}">${esc(d.title)}</div>
-          </div>
-          <div class="timeline" aria-label="來回時間線">
-            <div class="track"></div>
-            ${segs}${evs}
-          </div>
+        return `<article class="doc-row" data-id="${esc(d.id)}">
+          <button type="button" class="doc-summary" aria-expanded="false">
+            <span class="c-id">${esc(d.id)}</span>
+            <span class="c-din">${esc(fmtDays(d.days_in_status))}<small>狀態天數</small></span>
+            <span class="c-dfs">${esc(fmtDays(d.days_since_first_submit))}<small>首次至今</small></span>
+            <span class="c-attr">${esc(d.attr_label || "")}</span>
+            <span class="c-title" title="${esc(d.title)}">${esc(d.title)}</span>
+            <span class="c-chev" aria-hidden="true">›</span>
+          </button>
           <div class="doc-detail">
-            <div>跟進：<strong style="color:#fff">${esc(fu)}</strong>
+            <div class="doc-meta-line">
+              跟進：<strong style="color:#fff">${esc(fu)}</strong>
               · 提交人：${esc(d.submitter || "—")}
-              · 首次提交：${esc(d.first_submit || "—")}
+              · 首次／起點：${esc(d.first_submit || "—")}
+              · 狀態起點：${esc(d.status_since || "—")}
               · 最近行政回覆：${esc(d.last_reply || "—")}
-              · 行政累計：${esc(fmtNum(d.admin_total) ?? "—")}天
-              · EED累計：${esc(fmtNum(d.colleague_total) ?? "—")}天
             </div>
-            ${d.last_reply_summary ? `<div style="margin-top:6px">摘要：${esc(d.last_reply_summary)}</div>` : ""}
-            <table class="event-table">
-              <thead><tr><th>時間</th><th>角色</th><th>事件</th><th>說明</th></tr></thead>
-              <tbody>${eventsRows || `<tr><td colspan="4">（無時間線事件）</td></tr>`}</tbody>
-            </table>
+            ${
+              d.last_reply_summary
+                ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
+                : ""
+            }
+            <div class="legend" style="margin-bottom:10px">
+              <span><i class="swatch admin"></i>行政部間隔</span>
+              <span><i class="swatch edu"></i>EDU 間隔</span>
+              <span><i class="swatch third"></i>第三方間隔</span>
+            </div>
+            ${renderTimeline(d)}
           </div>
         </article>`;
       })
       .join("");
 
-    list.classList.toggle("zoomed", !!focusedId);
     $$(".doc-row", list).forEach((row) => {
-      const id = row.dataset.id;
-      row.classList.toggle("focused", focusedId === id);
-      row.addEventListener("click", () => toggleFocus(id));
-      row.addEventListener("keydown", (ev) => {
-        if (ev.key === "Enter" || ev.key === " ") {
-          ev.preventDefault();
-          toggleFocus(id);
-        }
+      const btn = $(".doc-summary", row);
+      btn.addEventListener("click", () => {
+        const open = row.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
       });
-      row.addEventListener("mousemove", (ev) => showTip(row, ev));
-      row.addEventListener("mouseleave", hideTip);
     });
   }
 
-  function toggleFocus(id) {
-    focusedId = focusedId === id ? null : id;
-    const list = $("#doc-list");
-    list.classList.toggle("zoomed", !!focusedId);
-    $$(".doc-row", list).forEach((row) => {
-      row.classList.toggle("focused", focusedId === row.dataset.id);
-    });
-    if (focusedId) {
-      const el = $(`.doc-row[data-id="${CSS.escape(focusedId)}"]`);
-      el?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  function renderAllLists() {
+    const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    order.forEach(renderDocList);
+  }
+
+  function renderEmailCharts() {
+    if (typeof Chart === "undefined") return;
+    applyChartDefaults();
+    const es = DATA.email_stats || {};
+
+    destroyChart("emailTotal");
+    const ctx1 = $("#chart-email-total");
+    if (ctx1) {
+      charts.emailTotal = new Chart(ctx1, {
+        type: "doughnut",
+        data: {
+          labels: ["辦公時間", "非辦公時間"],
+          datasets: [
+            {
+              data: [es.on_hours || 0, es.off_hours || 0],
+              backgroundColor: ["#38bdf8", "#fb923c"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom", labels: { color: "#c8d6dc" } },
+            title: {
+              display: true,
+              text: `共 ${es.total || 0} 封`,
+              color: "#e8f2f6",
+              font: { size: 13 },
+            },
+          },
+        },
+      });
     }
-  }
 
-  function showTip(row, ev) {
-    tip.innerHTML = `<div class="tt-id">${esc(row.dataset.id)}</div>
-      <div class="tt-title">${esc(row.dataset.title)}</div>
-      <div class="tt-meta">跟進／負責：${esc(row.dataset.follow || "—")}<br>提交人：${esc(row.dataset.submitter || "—")}</div>`;
-    tip.classList.add("show");
-    const x = Math.min(ev.clientX + 14, window.innerWidth - 360);
-    const y = Math.min(ev.clientY + 14, window.innerHeight - 120);
-    tip.style.left = x + "px";
-    tip.style.top = y + "px";
-  }
-  function hideTip() {
-    tip.classList.remove("show");
+    // Grouped bar: per stage on vs off (admin)
+    destroyChart("emailStage");
+    const ctx2 = $("#chart-email-stage");
+    const byStage = es.by_stage || {};
+    const stageLabels = Object.keys(byStage);
+    if (ctx2) {
+      charts.emailStage = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: stageLabels.length ? stageLabels : ["（無）"],
+          datasets: [
+            {
+              label: "辦公時間",
+              data: stageLabels.map((k) => byStage[k].on),
+              backgroundColor: "#38bdf8",
+              borderRadius: 4,
+            },
+            {
+              label: "非辦公時間",
+              data: stageLabels.map((k) => byStage[k].off),
+              backgroundColor: "#fb923c",
+              borderRadius: 4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom", labels: { color: "#c8d6dc", boxWidth: 12 } },
+          },
+          scales: {
+            x: { ticks: { color: "#8aa0ab" }, grid: { display: false } },
+            y: {
+              beginAtZero: true,
+              stacked: false,
+              ticks: { color: "#8aa0ab", precision: 0 },
+              grid: { color: "rgba(255,255,255,.06)" },
+            },
+          },
+        },
+      });
+    }
+
+    // 24h half-hour stacked
+    destroyChart("emailHourly");
+    const ctx3 = $("#chart-email-hourly");
+    const buckets = es.half_hour || [];
+    const typeKeys = es.type_keys || [];
+    if (ctx3) {
+      const labels = buckets.map((b) => b.label);
+      const datasets = typeKeys.map((typ, i) => ({
+        label: typ,
+        data: buckets.map((b) => (b.by_type && b.by_type[typ]) || 0),
+        backgroundColor: TYPE_COLORS[i % TYPE_COLORS.length],
+        stack: "s",
+        borderWidth: 0,
+      }));
+      charts.emailHourly = new Chart(ctx3, {
+        type: "bar",
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: { color: "#c8d6dc", boxWidth: 10, font: { size: 10 } },
+            },
+            tooltip: { mode: "index", intersect: false },
+          },
+          scales: {
+            x: {
+              stacked: true,
+              ticks: {
+                color: "#8aa0ab",
+                maxRotation: 90,
+                autoSkip: true,
+                maxTicksLimit: 24,
+                font: { size: 9 },
+              },
+              grid: { display: false },
+            },
+            y: {
+              stacked: true,
+              beginAtZero: true,
+              ticks: { color: "#8aa0ab", precision: 0 },
+              grid: { color: "rgba(255,255,255,.06)" },
+            },
+          },
+        },
+      });
+    }
+    emailChartsReady = true;
   }
 
   function fillEmailFilters() {
@@ -388,7 +574,6 @@
           (e.pa || "").toLowerCase().includes(q)
       );
     }
-
     $("#email-count-view").textContent = `顯示 ${rows.length}／${(DATA.emails || []).length}`;
     const box = $("#email-list");
     if (!rows.length) {
@@ -405,13 +590,13 @@
           return `<div class="email-row${off ? " off-hours" : ""}">
             <div>
               <div class="time">${esc(e.t || "—")}</div>
-              ${off ? `<span class="badge off">非上班</span>` : `<span class="badge on">上班時段</span>`}
+              ${off ? `<span class="badge off">非辦公</span>` : `<span class="badge on">辦公</span>`}
             </div>
             <div><span class="role-pill ${esc(e.role)}">${roleLabel}</span></div>
             <div class="pa">${esc(e.pa || "—")}</div>
             <div>
               <div class="subj">${esc(e.subject || "(無標題)")}</div>
-              <div class="from">${esc(e.from || "")} · ${esc(e.kind || "")} · ${esc(e.folder || "")}</div>
+              <div class="from">${esc(e.from || "")} · ${esc(e.kind_label || e.kind || "")} · ${esc(e.stage || "")}</div>
             </div>
           </div>`;
         })
@@ -421,39 +606,21 @@
         : "");
   }
 
-  function bindTabs() {
-    $$(".tab").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        $$(".tab").forEach((b) => {
-          b.classList.remove("active");
-          b.setAttribute("aria-selected", "false");
-        });
-        $$(".panel").forEach((p) => p.classList.remove("active"));
-        btn.classList.add("active");
-        btn.setAttribute("aria-selected", "true");
-        $(`#panel-${btn.dataset.tab}`)?.classList.add("active");
-      });
-    });
+  function renderEmailAnalysis() {
+    const es = DATA.email_stats || {};
+    $("#email-analysis").textContent = es.analysis || "（暫無分析）";
   }
 
-  function renderMeta() {
-    const m = DATA.meta || {};
-    $("#stat-incomplete").textContent = m.incomplete_count ?? "—";
-    $("#stat-emails").textContent = m.email_count ?? "—";
-    $("#stat-off").textContent = m.email_off_hours ?? "—";
-    $("#stat-progress").textContent = m.progress_linked_count ?? "—";
-    $("#meta-line").textContent =
-      `資料來源 generated_at：${m.source_generated_at || "—"} · 本頁產出：${m.generated_at || "—"}（${m.timezone || "Asia/Macau"}）`;
-    const sc = m.status_counts || {};
-    $("#status-breakdown").textContent = Object.entries(sc)
-      .map(([k, v]) => `${k} ${v}`)
-      .join(" · ");
-    const foot = $("#site-footer");
-    if (foot) {
-      foot.innerHTML = `採購文件可視化 · GitHub Pages 已上線 · 產出 ${esc(m.generated_at || "—")}（Asia/Macau）<br>
-        公開網址：<a href="https://wayneleong-byte.github.io/procure-viz/">wayneleong-byte.github.io/procure-viz</a>
-        · 唯讀資料來源 dataset.json`;
+  function waitForChart(cb, tries = 40) {
+    if (typeof Chart !== "undefined") {
+      cb();
+      return;
     }
+    if (tries <= 0) {
+      console.warn("Chart.js 未能載入");
+      return;
+    }
+    setTimeout(() => waitForChart(cb, tries - 1), 50);
   }
 
   async function boot() {
@@ -461,23 +628,28 @@
     if (!res.ok) throw new Error("無法載入 data/viz.json");
     DATA = await res.json();
     renderMeta();
-    renderHeadlines();
-    renderOverview();
+    buildTabs();
+    buildStatusPanels();
+    renderHome();
+    renderAllLists();
+    renderEmailAnalysis();
     fillEmailFilters();
     renderEmails();
-    bindTabs();
     $("#filter-role").addEventListener("change", renderEmails);
     $("#filter-pa").addEventListener("change", renderEmails);
     $("#filter-off").addEventListener("change", renderEmails);
     $("#filter-q").addEventListener("input", renderEmails);
-    $("#btn-clear-focus").addEventListener("click", () => {
-      focusedId = null;
-      renderOverview();
+    waitForChart(() => {
+      applyChartDefaults();
+      renderHomeCharts();
     });
   }
 
   boot().catch((err) => {
-    $("#doc-list").innerHTML = `<div class="empty">載入失敗：${esc(err.message)}<br>請用本機 HTTP server 開啟（見 README），勿直接用部分瀏覽器的 file:// 限制。</div>`;
+    const el = $("#status-cards") || $("#panel-home");
+    if (el) {
+      el.innerHTML = `<div class="empty">載入失敗：${esc(err.message)}</div>`;
+    }
     console.error(err);
   });
 })();

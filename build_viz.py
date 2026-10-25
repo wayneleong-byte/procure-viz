@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Build slim viz.json + static dashboard for 採購文件可視化.
+"""Build slim viz.json for 教育部工作文件進程（不包括HR）.
 
-Read-only on /workspace/procure/{dataset,sheet_rows}.json.
-Writes /workspace/procure-viz/data/viz.json (and optionally refreshes nothing else).
-Timezone: Asia/Macau. No secrets written.
+Read-only on /workspace/procure/{dataset,sheet_rows,history}.json.
+Writes /workspace/procure-viz/data/viz.json.
+Timezone: Asia/Macau. No secrets. No qualitative 快/慢 wording.
 """
 from __future__ import annotations
 
 import json
 import re
+from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -18,20 +19,50 @@ OUT_DIR = Path("/workspace/procure-viz")
 DATA_DIR = OUT_DIR / "data"
 TZ = ZoneInfo("Asia/Macau")
 
-# Work hours Asia/Macau: 09:00–18:30 inclusive
 WORK_START = 9 * 60
 WORK_END = 18 * 60 + 30
 
 ADMIN_FOLDERS = {"04 Procure"}
 EDU_FOLDERS = {"000[提交至行政採購文件]", "000 文件進度查詢"}
-ADMIN_ADDR_HINT = re.compile(r"procure@|admin@", re.I)
+
+# Fixed display order for home + tabs
+STATUS_ORDER = [
+    "已提交待回覆",
+    "報價進行中",
+    "行政部與甲方跟進中",
+    "待對方補充資料後交行政",
+    "行政部已回覆待同事重交",
+]
 
 STATUS_GROUP = {
-    "行政部已回覆待同事重交": "pending_resubmit",
     "已提交待回覆": "awaiting_admin",
     "報價進行中": "quotation",
-    "待對方補充資料後交行政": "followup",
-    "行政部與甲方跟進中": "followup",
+    "行政部與甲方跟進中": "admin_client",
+    "待對方補充資料後交行政": "awaiting_party",
+    "行政部已回覆待同事重交": "pending_resubmit",
+}
+
+THIRD_STATUSES = {
+    "報價進行中",
+    "行政部與甲方跟進中",
+    "待對方補充資料後交行政",
+}
+
+KIND_LABEL_ZH = {
+    "submission": "提交",
+    "revision": "修改回覆",
+    "approval": "批准／通過",
+    "info": "資訊",
+    "notice": "通知",
+    "other": "其他",
+    "progress_inquiry": "進度查詢",
+}
+
+STAGE_LABEL_ZH = {
+    "Form 1": "Form 1",
+    "Form 2": "Form 2",
+    "不適用（無編號）": "無編號",
+    "": "未分類",
 }
 
 
@@ -39,58 +70,35 @@ def parse_dt(s: str | None) -> datetime | None:
     if not s:
         return None
     s = str(s).strip()
-    for fmt in (
-        "%Y-%m-%dT%H:%M:%S%z",
-        "%Y-%m-%dT%H:%M:%S",
-        "%Y-%m-%d %H:%M:%S",
-        "%Y-%m-%d %H:%M",
-        "%Y-%m-%d",
+    try:
+        if "T" in s or "+" in s[10:] or s.endswith("Z"):
+            dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=TZ)
+            else:
+                dt = dt.astimezone(TZ)
+            return dt
+    except Exception:
+        pass
+    for fmt, n in (
+        ("%Y-%m-%d %H:%M:%S", 19),
+        ("%Y-%m-%d %H:%M", 16),
+        ("%Y-%m-%d", 10),
     ):
         try:
-            if fmt.endswith("%z") and s.endswith("+08:00"):
-                s2 = s
-            elif "T" in s and "+" in s[10:]:
-                # normalize +08:00
-                dt = datetime.fromisoformat(s)
-                if dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=TZ)
-                else:
-                    dt = dt.astimezone(TZ)
-                return dt
-            dt = datetime.strptime(s[: len(fmt) + 8] if "T" in fmt else s[:19], fmt.replace("%z", ""))
+            dt = datetime.strptime(s[:n], fmt)
             return dt.replace(tzinfo=TZ)
         except ValueError:
             continue
-    try:
-        dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=TZ)
-        else:
-            dt = dt.astimezone(TZ)
-        return dt
-    except Exception:
-        return None
-
-
-def fmt_dt(dt: datetime | None, date_only_hint: str | None = None) -> str:
-    if dt is None:
-        return date_only_hint or ""
-    if dt.hour == 0 and dt.minute == 0 and date_only_hint and " " not in (date_only_hint or ""):
-        return dt.strftime("%Y-%m-%d")
-    if dt.hour == 0 and dt.minute == 0 and (not date_only_hint or " " not in str(date_only_hint)):
-        # keep as date if original lacked time
-        return dt.strftime("%Y-%m-%d")
-    return dt.strftime("%Y-%m-%d %H:%M")
+    return None
 
 
 def is_off_hours(dt: datetime | None) -> bool | None:
     if dt is None:
         return None
-    mins = dt.hour * 60 + dt.minute
-    # weekends always off-hours for badge purposes? Spec says 09:00–18:30 = normal; mark non-work clearly.
-    # Also treat Sat/Sun as off-hours.
     if dt.weekday() >= 5:
         return True
+    mins = dt.hour * 60 + dt.minute
     return not (WORK_START <= mins <= WORK_END)
 
 
@@ -100,7 +108,6 @@ def display_name(person) -> str:
     if isinstance(person, list):
         return ", ".join(display_name(p) for p in person if p)
     s = str(person)
-    # "Name <email>" → Name
     m = re.match(r"^([^<]+)<", s)
     if m:
         return m.group(1).strip()
@@ -119,185 +126,6 @@ def role_of_email(e: dict) -> str:
     return "edu"
 
 
-def build_timeline(doc: dict, progress: list[dict]) -> list[dict]:
-    """Build ordered timeline events + colored segments for one document."""
-    events: list[dict] = []
-    segments: list[dict] = []
-
-    rounds = doc.get("rounds") or []
-    for r in rounds:
-        rn = r.get("round")
-        sub_raw = r.get("submission_date") or ""
-        reply_raw = r.get("reply_date") or ""
-        resub_raw = r.get("resub_date") or ""
-        # Extra admin reply dates on same round
-        reply_dates = r.get("reply_dates") or ([] if not reply_raw else [reply_raw])
-
-        sub_dt = parse_dt(sub_raw)
-        if sub_raw:
-            events.append(
-                {
-                    "t": sub_raw,
-                    "ts": sub_dt.timestamp() if sub_dt else None,
-                    "kind": "submission",
-                    "role": "edu",
-                    "label": f"R{rn} 提交",
-                    "detail": r.get("submission_subject") or r.get("label") or "",
-                    "who": display_name(r.get("submitter") or doc.get("submitter")),
-                    "round": rn,
-                }
-            )
-
-        # All admin replies in this round
-        seen = set()
-        for rd in reply_dates:
-            if not rd or rd in seen:
-                continue
-            seen.add(rd)
-            rdt = parse_dt(rd)
-            is_main = rd == reply_raw
-            events.append(
-                {
-                    "t": rd,
-                    "ts": rdt.timestamp() if rdt else None,
-                    "kind": "admin_reply",
-                    "role": "admin",
-                    "label": f"R{rn} 行政回覆" + ("" if is_main else "（追加）"),
-                    "detail": (r.get("reply_summary") or "") if is_main else "",
-                    "who": display_name(r.get("replier") or "行政部"),
-                    "round": rn,
-                }
-            )
-
-        # Segment: admin processing = submission → first reply
-        if sub_raw and reply_raw:
-            segments.append(
-                {
-                    "role": "admin",
-                    "start": sub_raw,
-                    "end": reply_raw,
-                    "days": r.get("admin_days") or None,
-                    "round": rn,
-                    "label": f"R{rn} 行政部處理",
-                }
-            )
-        # Segment: EDU processing = reply answered → resubmit
-        ans = r.get("answers_reply_date") or reply_raw
-        # For this round's resub: the resub closes this round's open reply
-        if resub_raw and (ans or reply_raw):
-            start = ans or reply_raw
-            segments.append(
-                {
-                    "role": "edu",
-                    "start": start,
-                    "end": resub_raw,
-                    "days": r.get("resub_days") or None,
-                    "round": rn,
-                    "label": f"R{rn} EDU 重交",
-                }
-            )
-
-    # Open ball segment to "today"
-    status = doc.get("status") or ""
-    last_reply = doc.get("last_reply") or ""
-    last_resub = doc.get("last_resubmit") or ""
-    first = doc.get("first_submit") or ""
-    today = datetime.now(TZ).strftime("%Y-%m-%d")
-
-    if status == "行政部已回覆待同事重交" and last_reply:
-        # open EDU segment
-        segments.append(
-            {
-                "role": "edu",
-                "start": last_reply,
-                "end": today,
-                "days": doc.get("days_since_reply"),
-                "round": doc.get("current_round"),
-                "label": "進行中：待 EDU 重交",
-                "open": True,
-            }
-        )
-    elif status == "已提交待回覆":
-        start = last_resub or first
-        if start:
-            start_dt = parse_dt(start)
-            open_days = None
-            if start_dt:
-                open_days = max(0, (datetime.now(TZ).date() - start_dt.date()).days)
-            segments.append(
-                {
-                    "role": "admin",
-                    "start": start,
-                    "end": today,
-                    "days": open_days,
-                    "round": doc.get("current_round"),
-                    "label": "進行中：待行政回覆",
-                    "open": True,
-                }
-            )
-    elif status in ("報價進行中", "行政部與甲方跟進中", "待對方補充資料後交行政"):
-        start = last_reply or last_resub or first
-        if start:
-            segments.append(
-                {
-                    "role": "admin",
-                    "start": start,
-                    "end": today,
-                    "days": None,
-                    "round": doc.get("current_round"),
-                    "label": f"進行中：{status}",
-                    "open": True,
-                }
-            )
-
-    # Progress inquiry markers linked to this PA
-    for p in progress:
-        if not p.get("linked"):
-            continue
-        if p.get("pa") != doc.get("key"):
-            continue
-        raw = p.get("inquiry_date") or p.get("date") or ""
-        pdt = parse_dt(raw)
-        events.append(
-            {
-                "t": raw,
-                "ts": pdt.timestamp() if pdt else None,
-                "kind": "progress_inquiry",
-                "role": "edu",
-                "label": "進度查詢",
-                "detail": p.get("subject") or p.get("summary") or "",
-                "who": display_name(p.get("from")),
-                "closed": bool(p.get("closed")),
-            }
-        )
-
-    # Sort events
-    def sort_key(ev):
-        if ev.get("ts") is not None:
-            return (0, ev["ts"])
-        return (1, ev.get("t") or "")
-
-    events.sort(key=sort_key)
-
-    # Compute span
-    times = []
-    for ev in events:
-        if ev.get("ts") is not None:
-            times.append(ev["ts"])
-    for seg in segments:
-        for k in ("start", "end"):
-            dt = parse_dt(seg.get(k))
-            if dt:
-                times.append(dt.timestamp())
-
-    span = None
-    if times:
-        span = {"min_ts": min(times), "max_ts": max(times)}
-
-    return {"events": events, "segments": segments, "span": span}
-
-
-
 def to_float(v):
     if v is None or v == "":
         return None
@@ -307,6 +135,12 @@ def to_float(v):
         return None
 
 
+def days_between(a: datetime | None, b: datetime | None) -> float | None:
+    if not a or not b:
+        return None
+    return max(0.0, round((b - a).total_seconds() / 86400.0, 1))
+
+
 def days_since(date_str: str | None, today_d) -> int | None:
     dt = parse_dt(date_str)
     if not dt:
@@ -314,143 +148,516 @@ def days_since(date_str: str | None, today_d) -> int | None:
     return max(0, (today_d - dt.date()).days)
 
 
-def short_title(title: str, n: int = 28) -> str:
-    t = (title or "").strip()
-    return t if len(t) <= n else t[: n - 1] + "…"
+def stage_short(stage: str) -> str:
+    s = (stage or "").strip()
+    if s in ("不適用（無編號）", "不適用", "無編號"):
+        return "無編號"
+    return s or "—"
 
 
-def compute_headlines(viz_docs: list[dict], today_str: str) -> list[dict]:
-    """Headline KPIs highlighting 行政慢 vs EED 快."""
-    # Prefer live Asia/Macau "now" so headline wait days match open timeline segments
-    today_d = datetime.now(TZ).date()
-    _ = today_str  # dataset today kept for meta; headlines use live clock
+def attr_label(doc: dict) -> str:
+    rn = doc.get("current_round")
+    rpart = f"R{rn}" if rn not in (None, "") else "R—"
+    return f"{rpart} · {stage_short(doc.get('stage') or '')}"
 
-    awaiting = [d for d in viz_docs if d.get("status") == "已提交待回覆"]
-    wait_rows = []
-    for d in awaiting:
-        start = d.get("last_resubmit") or d.get("first_submit")
-        days = days_since(start, today_d)
-        if days is not None:
-            wait_rows.append((days, d))
-    wait_rows.sort(key=lambda x: -x[0])
-    max_wait = wait_rows[0] if wait_rows else None
 
-    admin_rows = []
-    for d in viz_docs:
-        at = to_float(d.get("admin_total"))
-        if at is not None:
-            admin_rows.append((at, d))
-    admin_rows.sort(key=lambda x: -x[0])
-    max_admin = admin_rows[0] if admin_rows else None
+def resolve_first_submit(doc: dict) -> tuple[str, bool]:
+    """Return (date_str, estimated). Prefer dataset first_submit; else earliest round date."""
+    fs = (doc.get("first_submit") or "").strip()
+    if fs:
+        return fs, False
+    candidates: list[tuple[int, float, str]] = []  # priority, ts, raw
+    for r in doc.get("rounds") or []:
+        for key, pri in (("submission_date", 0), ("resub_date", 1), ("reply_date", 2)):
+            raw = r.get(key) or ""
+            if not raw:
+                continue
+            dt = parse_dt(raw)
+            if dt:
+                candidates.append((pri, dt.timestamp(), raw))
+        for rd in r.get("reply_dates") or []:
+            if not rd:
+                continue
+            dt = parse_dt(rd)
+            if dt:
+                candidates.append((2, dt.timestamp(), rd))
+    if not candidates:
+        return "", True
+    # earliest by time; if tie, prefer submission
+    candidates.sort(key=lambda x: (x[1], x[0]))
+    pri, _, raw = candidates[0]
+    return raw, pri >= 2
 
-    pending = [d for d in viz_docs if d.get("status") == "行政部已回覆待同事重交"]
-    pend_rows = []
-    for d in pending:
-        days = to_float(d.get("days_since_reply"))
-        if days is not None:
-            pend_rows.append((days, d))
-    pend_rows.sort(key=lambda x: -x[0])
-    max_pend = pend_rows[0] if pend_rows else None
 
-    admin_vals = [to_float(d.get("admin_total")) for d in viz_docs]
-    admin_vals = [v for v in admin_vals if v is not None]
-    coll_vals = [to_float(d.get("colleague_total")) for d in viz_docs]
-    coll_vals = [v for v in coll_vals if v is not None]
-    avg_admin = round(sum(admin_vals) / len(admin_vals), 1) if admin_vals else None
-    avg_coll = round(sum(coll_vals) / len(coll_vals), 1) if coll_vals else None
+def status_anchor_date(doc: dict) -> str:
+    """Date when current status started (for days_in_status)."""
+    status = doc.get("status") or ""
+    first, _ = resolve_first_submit(doc)
+    if status == "行政部已回覆待同事重交":
+        return doc.get("last_reply") or ""
+    if status == "已提交待回覆":
+        return doc.get("last_resubmit") or first or ""
+    if status in THIRD_STATUSES:
+        return (
+            doc.get("last_reply")
+            or doc.get("last_resubmit")
+            or first
+            or ""
+        )
+    return first or ""
 
-    headlines: list[dict] = []
-    if max_wait:
-        days, d = max_wait
-        headlines.append(
+
+def gap_role_between(prev: dict, nxt: dict | None, status: str, open_end: bool) -> str:
+    """Assign interval colour role: admin | edu | third."""
+    pk = prev.get("kind") or ""
+    pr = prev.get("role") or ""
+
+    if open_end or nxt is None:
+        if status == "已提交待回覆":
+            return "admin"
+        if status == "行政部已回覆待同事重交":
+            return "edu"
+        if status in THIRD_STATUSES:
+            return "third"
+        if pr == "edu" or pk in ("submission", "resubmission", "first_submit"):
+            return "admin"
+        if pr == "admin" or pk == "admin_reply":
+            return "edu"
+        return "third"
+
+    nk = nxt.get("kind") or ""
+    nr = nxt.get("role") or ""
+
+    # EDU提交 → 行政回覆：行政處理
+    if pk in ("submission", "resubmission", "first_submit") and (
+        nk == "admin_reply" or nr == "admin"
+    ):
+        return "admin"
+    # 行政回覆 → EDU重交／提交：EDU處理
+    if pk == "admin_reply" and nk in ("submission", "resubmission", "first_submit"):
+        return "edu"
+    # 行政回覆 → 另一則行政回覆：仍算行政段（或第三方跟進中）
+    if pk == "admin_reply" and nk == "admin_reply":
+        if status in THIRD_STATUSES:
+            return "third"
+        return "admin"
+    # 兩次 EDU 節點之間
+    if pr == "edu" and nr == "edu":
+        return "edu"
+    if pr == "admin" and nr == "edu":
+        return "edu"
+    if pr == "edu" and nr == "admin":
+        return "admin"
+    if status in THIRD_STATUSES:
+        return "third"
+    if pr == "admin":
+        return "admin"
+    if pr == "edu":
+        return "edu"
+    return "third"
+
+
+def build_timeline(doc: dict, progress: list[dict], today_dt: datetime) -> dict:
+    """nodes + gaps; gaps show days with role colour (admin/edu/third)."""
+    status = doc.get("status") or ""
+    nodes: list[dict] = []
+    first, first_est = resolve_first_submit(doc)
+    first_dt = parse_dt(first)
+
+    # Ensure first-submit / 紀錄起點 node exists at timeline start
+    if first:
+        already_sub = any(
+            (r.get("submission_date") or "") == first for r in (doc.get("rounds") or [])
+        )
+        if not already_sub:
+            nodes.append(
+                {
+                    "t": first,
+                    "ts": first_dt.timestamp() if first_dt else None,
+                    "kind": "first_submit",
+                    "role": "edu",
+                    "label": "紀錄起點（缺首次提交時間）" if first_est else "首次提交",
+                    "detail": "",
+                    "who": display_name(doc.get("submitter")),
+                    "round": None,
+                    "secondary": False,
+                }
+            )
+
+    rounds = sorted(doc.get("rounds") or [], key=lambda r: (r.get("round") is None, r.get("round") or 0))
+    for r in rounds:
+        rn = r.get("round")
+        sub_raw = r.get("submission_date") or ""
+        reply_raw = r.get("reply_date") or ""
+        resub_raw = r.get("resub_date") or ""
+        reply_dates = r.get("reply_dates") or ([] if not reply_raw else [reply_raw])
+
+        if sub_raw:
+            # skip duplicate of first_submit node with same timestamp
+            sub_dt = parse_dt(sub_raw)
+            nodes.append(
+                {
+                    "t": sub_raw,
+                    "ts": sub_dt.timestamp() if sub_dt else None,
+                    "kind": "submission",
+                    "role": "edu",
+                    "label": f"R{rn} 提交",
+                    "detail": r.get("submission_subject") or r.get("label") or "",
+                    "who": display_name(r.get("submitter") or doc.get("submitter")),
+                    "round": rn,
+                    "secondary": False,
+                }
+            )
+
+        seen = set()
+        for rd in reply_dates:
+            if not rd or rd in seen:
+                continue
+            seen.add(rd)
+            rdt = parse_dt(rd)
+            is_main = rd == reply_raw
+            summary = (r.get("reply_summary") or "") if is_main else ""
+            if len(summary) > 160:
+                summary = summary[:157] + "…"
+            nodes.append(
+                {
+                    "t": rd,
+                    "ts": rdt.timestamp() if rdt else None,
+                    "kind": "admin_reply",
+                    "role": "admin",
+                    "label": f"R{rn} 行政回覆" + ("" if is_main else "（追加）"),
+                    "detail": summary,
+                    "who": display_name(r.get("replier") or "行政部"),
+                    "round": rn,
+                    "secondary": False,
+                }
+            )
+
+        if resub_raw:
+            # resub often equals next round submission; still record if distinct
+            rdt = parse_dt(resub_raw)
+            nodes.append(
+                {
+                    "t": resub_raw,
+                    "ts": rdt.timestamp() if rdt else None,
+                    "kind": "resubmission",
+                    "role": "edu",
+                    "label": f"R{rn} 重交",
+                    "detail": "",
+                    "who": display_name(r.get("submitter") or doc.get("submitter")),
+                    "round": rn,
+                    "secondary": False,
+                }
+            )
+
+    # Progress inquiry markers (secondary)
+    for p in progress:
+        if not p.get("linked"):
+            continue
+        if p.get("pa") != doc.get("key"):
+            continue
+        raw = p.get("inquiry_date") or p.get("date") or ""
+        pdt = parse_dt(raw)
+        nodes.append(
             {
-                "id": "awaiting_admin_max",
-                "tone": "danger",
-                "side": "admin",
-                "label": "待行政回覆最久",
-                "unit": "天",
-                "value": days,
-                "display": str(int(days)) if float(days).is_integer() else str(days),
-                "sub": f"{d.get('id') or ''} · {short_title(d.get('title') or '')}",
-                "hint": "已提交待回覆 · 自最近提交／重交起算",
+                "t": raw,
+                "ts": pdt.timestamp() if pdt else None,
+                "kind": "progress_inquiry",
+                "role": "edu",
+                "label": "進度查詢",
+                "detail": (p.get("subject") or p.get("summary") or "")[:120],
+                "who": display_name(p.get("from")),
+                "round": None,
+                "secondary": True,
+                "closed": bool(p.get("closed")),
             }
         )
-    if max_admin:
-        days, d = max_admin
-        val = int(days) if float(days).is_integer() else round(days, 1)
-        headlines.append(
-            {
-                "id": "admin_total_max",
-                "tone": "danger",
-                "side": "admin",
-                "label": "行政累計處理最長",
-                "unit": "天",
-                "value": val,
-                "display": str(val),
-                "sub": f"{d.get('id') or ''} · {short_title(d.get('title') or '')}",
-                "hint": "未完成文件中 admin_total 最大值",
-            }
+
+    # Deduplicate nodes: same ts+kind+label keep one; prefer non-first_submit over duplicate submission
+    def dedupe(nodes_in: list[dict]) -> list[dict]:
+        kind_rank = {
+            "first_submit": 0,
+            "submission": 1,
+            "resubmission": 2,
+            "admin_reply": 3,
+            "progress_inquiry": 4,
+        }
+        # Sort first
+        def sk(n):
+            kr = kind_rank.get(n.get("kind") or "", 9)
+            if n.get("ts") is not None:
+                return (0, n["ts"], 0 if not n.get("secondary") else 1, kr, n.get("label") or "")
+            return (1, 0, 1, kr, n.get("t") or "")
+
+        nodes_in = sorted(nodes_in, key=sk)
+        out = []
+        seen_keys = set()
+        for n in nodes_in:
+            key = (n.get("ts"), n.get("t"), n.get("kind"), n.get("label"))
+            # Also collapse first_submit that matches a later submission with same t
+            if n.get("kind") == "first_submit":
+                # keep for now; remove if identical t submission exists
+                pass
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            out.append(n)
+        # Remove first_submit if any submission/resub with same t exists
+        times_sub = {
+            (n.get("ts"), n.get("t"))
+            for n in out
+            if n.get("kind") in ("submission", "resubmission")
+        }
+        cleaned = []
+        for n in out:
+            if n.get("kind") == "first_submit" and (n.get("ts"), n.get("t")) in times_sub:
+                continue
+            cleaned.append(n)
+        # Collapse identical t+role consecutive resubmission+submission
+        final = []
+        for n in cleaned:
+            if final:
+                prev = final[-1]
+                if (
+                    prev.get("ts") == n.get("ts")
+                    and prev.get("t") == n.get("t")
+                    and prev.get("role") == n.get("role")
+                    and {prev.get("kind"), n.get("kind")} <= {"submission", "resubmission"}
+                ):
+                    # keep submission label if available
+                    if n.get("kind") == "submission":
+                        final[-1] = n
+                    continue
+            final.append(n)
+        return final
+
+    nodes = dedupe(nodes)
+
+    # Build gaps between primary (non-secondary) nodes; progress stays as markers only
+    primary = [n for n in nodes if not n.get("secondary")]
+    gaps: list[dict] = []
+    today_str = today_dt.strftime("%Y-%m-%d %H:%M")
+
+    for i, cur in enumerate(primary):
+        nxt = primary[i + 1] if i + 1 < len(primary) else None
+        start_dt = parse_dt(cur.get("t"))
+        if nxt is None:
+            # open gap to today for incomplete docs
+            end_dt = today_dt
+            end_t = today_str
+            open_end = True
+            role = gap_role_between(cur, None, status, True)
+            days = days_between(start_dt, end_dt)
+            gaps.append(
+                {
+                    "from_t": cur.get("t"),
+                    "to_t": end_t,
+                    "from_ts": cur.get("ts"),
+                    "to_ts": end_dt.timestamp(),
+                    "days": days,
+                    "role": role,  # admin | edu | third
+                    "open": True,
+                    "label": f"至今 {days if days is not None else '—'} 天",
+                }
+            )
+        else:
+            end_dt = parse_dt(nxt.get("t"))
+            role = gap_role_between(cur, nxt, status, False)
+            days = days_between(start_dt, end_dt)
+            # Skip zero-length gaps (same instant)
+            same_ts = (
+                cur.get("ts") is not None
+                and nxt.get("ts") is not None
+                and abs(cur["ts"] - nxt["ts"]) < 1
+            )
+            if same_ts or (cur.get("t") and cur.get("t") == nxt.get("t") and (days or 0) == 0):
+                continue
+            gaps.append(
+                {
+                    "from_t": cur.get("t"),
+                    "to_t": nxt.get("t"),
+                    "from_ts": cur.get("ts"),
+                    "to_ts": nxt.get("ts"),
+                    "days": days,
+                    "role": role,
+                    "open": False,
+                    "label": f"{days if days is not None else '—'} 天",
+                }
+            )
+
+    times = [n["ts"] for n in nodes if n.get("ts") is not None]
+    for g in gaps:
+        if g.get("from_ts") is not None:
+            times.append(g["from_ts"])
+        if g.get("to_ts") is not None:
+            times.append(g["to_ts"])
+    span = {"min_ts": min(times), "max_ts": max(times)} if times else None
+
+    return {"nodes": nodes, "gaps": gaps, "span": span}
+
+
+def half_hour_bucket(dt: datetime) -> int:
+    """0..47 index for 00:00, 00:30, ..."""
+    return dt.hour * 2 + (1 if dt.minute >= 30 else 0)
+
+
+def bucket_label(i: int) -> str:
+    h = i // 2
+    m = 30 if i % 2 else 0
+    return f"{h:02d}:{m:02d}"
+
+
+def build_email_stats(email_events: list[dict]) -> dict:
+    total = len(email_events)
+    on_n = sum(1 for e in email_events if e.get("off_hours") is False)
+    off_n = sum(1 for e in email_events if e.get("off_hours") is True)
+    unk = total - on_n - off_n
+
+    admin = [e for e in email_events if e.get("role") == "admin"]
+    edu = [e for e in email_events if e.get("role") == "edu"]
+
+    def on_off(rows):
+        on = sum(1 for e in rows if e.get("off_hours") is False)
+        off = sum(1 for e in rows if e.get("off_hours") is True)
+        return {"on": on, "off": off, "total": len(rows)}
+
+    by_stage = {}
+    for e in admin:
+        st = STAGE_LABEL_ZH.get(e.get("stage") or "", e.get("stage") or "未分類")
+        if e.get("stage") == "不適用（無編號）":
+            st = "無編號"
+        elif not e.get("stage"):
+            st = "未分類"
+        else:
+            st = e.get("stage")
+        by_stage.setdefault(st, {"on": 0, "off": 0, "total": 0})
+        by_stage[st]["total"] += 1
+        if e.get("off_hours") is True:
+            by_stage[st]["off"] += 1
+        elif e.get("off_hours") is False:
+            by_stage[st]["on"] += 1
+
+    by_kind = {}
+    for e in admin:
+        k = e.get("kind") or "other"
+        label = KIND_LABEL_ZH.get(k, k)
+        by_kind.setdefault(label, {"on": 0, "off": 0, "total": 0, "kind": k})
+        by_kind[label]["total"] += 1
+        if e.get("off_hours") is True:
+            by_kind[label]["off"] += 1
+        elif e.get("off_hours") is False:
+            by_kind[label]["on"] += 1
+
+    # Half-hour buckets for ALL emails, stacked by stage (or kind if no stage)
+    buckets = []
+    for i in range(48):
+        buckets.append({"i": i, "label": bucket_label(i), "total": 0, "by_type": {}})
+
+    type_keys = set()
+    for e in email_events:
+        ts = e.get("ts")
+        if ts is None:
+            continue
+        dt = datetime.fromtimestamp(ts, TZ)
+        bi = half_hour_bucket(dt)
+        st = e.get("stage") or ""
+        if st == "不適用（無編號）":
+            typ = "無編號"
+        elif st:
+            typ = st
+        else:
+            typ = KIND_LABEL_ZH.get(e.get("kind") or "", e.get("kind") or "其他")
+        type_keys.add(typ)
+        buckets[bi]["total"] += 1
+        buckets[bi]["by_type"][typ] = buckets[bi]["by_type"].get(typ, 0) + 1
+
+    # Peak half-hour
+    peak = max(buckets, key=lambda b: b["total"]) if buckets else None
+
+    # Analysis text (繁中, no 快/慢)
+    def pct(n, d):
+        return round(100.0 * n / d, 1) if d else 0.0
+
+    lines = []
+    lines.append(
+        f"共收錄 {total} 封相關電郵（行政部 {len(admin)}、EDU {len(edu)}）。"
+        f"辦公時間定義為平日 09:00–18:30（Asia/Macau）；平日此時段以外及週末計入非辦公時間。"
+    )
+    if total:
+        lines.append(
+            f"整體：辦公時間 {on_n} 封（{pct(on_n, total)}%）、"
+            f"非辦公時間 {off_n} 封（{pct(off_n, total)}%）"
+            + (f"、未能判定 {unk} 封。" if unk else "。")
         )
-    if avg_admin is not None and avg_coll is not None:
-        headlines.append(
-            {
-                "id": "avg_admin_vs_edu",
-                "tone": "contrast",
-                "side": "both",
-                "label": "平均處理天數",
-                "unit": "天",
-                "value_admin": avg_admin,
-                "value_edu": avg_coll,
-                "display_admin": str(avg_admin),
-                "display_edu": str(avg_coll),
-                "sub": f"行政 {avg_admin} 天 · EED {avg_coll} 天",
-                "hint": f"有數據文件：行政 n={len(admin_vals)} · EED n={len(coll_vals)}",
-            }
+    if admin:
+        a_on = sum(1 for e in admin if e.get("off_hours") is False)
+        a_off = sum(1 for e in admin if e.get("off_hours") is True)
+        lines.append(
+            f"行政部發出：辦公 {a_on}（{pct(a_on, len(admin))}%）、"
+            f"非辦公 {a_off}（{pct(a_off, len(admin))}%）。"
         )
-    if max_pend:
-        days, d = max_pend
-        val = int(days) if float(days).is_integer() else round(float(days), 1)
-        headlines.append(
-            {
-                "id": "pending_edu_max",
-                "tone": "fast",
-                "side": "edu",
-                "label": "待同事重交最久",
-                "unit": "天",
-                "value": val,
-                "display": str(val),
-                "sub": f"{d.get('id') or ''} · {short_title(d.get('title') or '')}",
-                "hint": "行政已回覆待重交 · EED 側對比（通常遠短於行政）",
-            }
+        # per stage snippet
+        parts = []
+        for st, v in sorted(by_stage.items(), key=lambda x: -x[1]["total"]):
+            parts.append(
+                f"{st} {v['total']} 封（辦公 {pct(v['on'], v['total'])}%／非辦公 {pct(v['off'], v['total'])}%）"
+            )
+        if parts:
+            lines.append("行政部按文件類型：" + "；".join(parts) + "。")
+    if peak and peak["total"]:
+        lines.append(
+            f"半小時時段高峰：{peak['label']} 起共 {peak['total']} 封。"
         )
-    return headlines
+
+    return {
+        "total": total,
+        "on_hours": on_n,
+        "off_hours": off_n,
+        "unknown": unk,
+        "admin": on_off(admin),
+        "edu": on_off(edu),
+        "by_stage": by_stage,
+        "by_kind": by_kind,
+        "half_hour": buckets,
+        "type_keys": sorted(type_keys),
+        "peak": {"label": peak["label"], "total": peak["total"]} if peak else None,
+        "analysis": "\n".join(lines),
+        "work_hours": "09:00–18:30",
+        "off_hours_def": "18:31–08:59（平日）及週末",
+    }
 
 
 def main() -> None:
     ds = json.loads((PROCURE / "dataset.json").read_text(encoding="utf-8"))
-    # sheet_rows available but dataset is richer for rounds/emails
     generated_at = ds.get("generated_at") or ""
     today = ds.get("today") or datetime.now(TZ).strftime("%Y-%m-%d")
+    today_dt = datetime.now(TZ)
+    today_d = today_dt.date()
 
     docs_all = ds.get("documents") or []
     incomplete = [d for d in docs_all if (d.get("status") or "") != "完成"]
     progress = ds.get("progress_inquiries") or []
     emails = ds.get("emails") or []
 
-    # Sort incomplete: pending_resubmit first, then awaiting, then quotation/followup
-    order = {"pending_resubmit": 0, "awaiting_admin": 1, "quotation": 2, "followup": 3}
-
     def doc_sort(d):
-        g = STATUS_GROUP.get(d.get("status") or "", 9)
-        reply = d.get("last_reply") or ""
-        return (order.get(g, 9), reply or "9999")
+        status = d.get("status") or ""
+        try:
+            si = STATUS_ORDER.index(status)
+        except ValueError:
+            si = 99
+        # within status: longer days_in_status first
+        return (si, d.get("key") or "")
 
     incomplete_sorted = sorted(incomplete, key=doc_sort)
 
     viz_docs = []
     for d in incomplete_sorted:
         fu = d.get("follow_up") or []
-        timeline = build_timeline(d, progress)
+        first, _est = resolve_first_submit(d)
+        anchor = status_anchor_date(d)
+        dis = days_since(anchor, today_d)
+        dsfs = days_since(first, today_d)
+        timeline = build_timeline(d, progress, today_dt)
         viz_docs.append(
             {
                 "id": d.get("key") or d.get("doc_id"),
@@ -458,9 +665,15 @@ def main() -> None:
                 "title": d.get("title") or "",
                 "status": d.get("status") or "",
                 "status_group": STATUS_GROUP.get(d.get("status") or "", "other"),
+                "attr_label": attr_label(d),
                 "submitter": display_name(d.get("submitter")),
-                "follow_up": [display_name(x) for x in fu] if isinstance(fu, list) else [display_name(fu)],
-                "first_submit": d.get("first_submit") or "",
+                "follow_up": [display_name(x) for x in fu]
+                if isinstance(fu, list)
+                else [display_name(fu)],
+                "first_submit": first,
+                "status_since": anchor,
+                "days_in_status": dis,
+                "days_since_first_submit": dsfs,
                 "current_round": d.get("current_round"),
                 "last_reply": d.get("last_reply") or "",
                 "last_reply_summary": (d.get("last_reply_summary") or "")[:240],
@@ -473,23 +686,32 @@ def main() -> None:
             }
         )
 
-    # Email events for TAG 2 — slim, no bodies
+    # Re-sort within each status by days_in_status desc
+    viz_docs.sort(
+        key=lambda d: (
+            STATUS_ORDER.index(d["status"])
+            if d["status"] in STATUS_ORDER
+            else 99,
+            -(d.get("days_in_status") if d.get("days_in_status") is not None else -1),
+            d.get("id") or "",
+        )
+    )
+
     email_events = []
     for e in emails:
         raw = e.get("date") or ""
         dt = parse_dt(e.get("date_iso") or raw)
         off = is_off_hours(dt)
         role = role_of_email(e)
-        folder = e.get("folder") or ""
-        # Skip ancient progress noise? Keep all but flag year
         email_events.append(
             {
                 "t": raw,
                 "ts": dt.timestamp() if dt else None,
                 "iso": e.get("date_iso") or "",
-                "role": role,  # admin | edu
-                "folder": folder,
+                "role": role,
+                "folder": e.get("folder") or "",
                 "kind": e.get("kind") or "",
+                "kind_label": KIND_LABEL_ZH.get(e.get("kind") or "", e.get("kind") or ""),
                 "pa": e.get("pa") or "",
                 "stage": e.get("stage") or "",
                 "subject": (e.get("subject") or "")[:160],
@@ -499,10 +721,10 @@ def main() -> None:
                 "weekday": dt.weekday() if dt else None,
             }
         )
+    email_events.sort(key=lambda x: (x["ts"] is None, -(x["ts"] or 0)))
 
-    email_events.sort(key=lambda x: (x["ts"] is None, x["ts"] or 0), reverse=True)
+    email_stats = build_email_stats(email_events)
 
-    # Progress slim for reference
     progress_slim = []
     inc_keys = {d["id"] for d in viz_docs}
     for p in progress:
@@ -519,39 +741,40 @@ def main() -> None:
             }
         )
 
-    # Status counts
-    status_counts = {}
+    status_counts = {s: 0 for s in STATUS_ORDER}
     for d in viz_docs:
-        status_counts[d["status"]] = status_counts.get(d["status"], 0) + 1
-
-    off_n = sum(1 for e in email_events if e.get("off_hours") is True)
-    on_n = sum(1 for e in email_events if e.get("off_hours") is False)
+        st = d["status"]
+        if st in status_counts:
+            status_counts[st] += 1
+        else:
+            status_counts[st] = status_counts.get(st, 0) + 1
 
     viz = {
         "meta": {
-            "title": "採購文件可視化",
-            "generated_at": datetime.now(TZ).strftime("%Y-%m-%d %H:%M"),
+            "title": "教育部工作文件進程（不包括HR）",
+            "subtitle": "資料來源：採購文件追蹤 Sheet／dataset.json（唯讀）",
+            "generated_at": today_dt.strftime("%Y-%m-%d %H:%M"),
             "source_generated_at": generated_at,
             "today": today,
             "timezone": "Asia/Macau",
             "work_hours": "09:00–18:30",
             "incomplete_count": len(viz_docs),
             "email_count": len(email_events),
-            "email_on_hours": on_n,
-            "email_off_hours": off_n,
+            "email_on_hours": email_stats["on_hours"],
+            "email_off_hours": email_stats["off_hours"],
             "progress_linked_count": len(progress_slim),
             "completed_hidden": sum(1 for d in docs_all if d.get("status") == "完成"),
+            "status_order": STATUS_ORDER,
             "status_counts": status_counts,
-            "headlines": compute_headlines(viz_docs, today),
             "notes": [
-                "未完成＝目前狀態唔係「完成」",
-                "時間線：行政部處理段（提交→行政回覆）vs EDU 處理段（行政回覆→重交／進行中）",
-                "進度查詢標記來自 dataset progress_inquiries（已配對到該 PA）",
-                "非上班時間＝平日 09:00–18:30 以外，或週末",
+                "未完成＝目前狀態唔係「完成」；本頁唔顯示已完成文件",
+                "時間線由首次提交起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
+                "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
             ],
         },
         "documents": viz_docs,
         "emails": email_events,
+        "email_stats": email_stats,
         "progress": progress_slim,
     }
 
@@ -559,7 +782,10 @@ def main() -> None:
     out = DATA_DIR / "viz.json"
     out.write_text(json.dumps(viz, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {out} ({out.stat().st_size} bytes)")
-    print(f"incomplete={len(viz_docs)} emails={len(email_events)} off_hours={off_n} progress_linked={len(progress_slim)}")
+    print(
+        f"incomplete={len(viz_docs)} emails={len(email_events)} "
+        f"off={email_stats['off_hours']} status={status_counts}"
+    )
 
 
 if __name__ == "__main__":
