@@ -29,7 +29,7 @@
   ]);
 
   /** Shared doc-list filters (PA text + submitter). */
-  const DOC_FILTER = { pa: "", submitter: "", status: "" };
+  const DOC_FILTER = { pa: "", submitter: "", status: "", sort: "pa" };
 
   const TYPE_COLORS = [
     "#38bdf8", "#a78bfa", "#f472b6", "#fbbf24", "#34d399",
@@ -118,6 +118,13 @@
           <option value="">全部目前狀態</option>
         </select>`
         : "";
+    const sortSelect =
+      scope === "overview"
+        ? `<select class="doc-filter-sort" aria-label="排序">
+          <option value="pa"${DOC_FILTER.sort === "pa" ? " selected" : ""}>文件編號</option>
+          <option value="first_submit"${DOC_FILTER.sort === "first_submit" ? " selected" : ""}>第一次提交日期（由最舊排起）</option>
+        </select>`
+        : "";
     const legend = showShareLegend
       ? `<div class="legend share-legend">
         <span><i class="swatch admin"></i>行政部</span>
@@ -133,6 +140,7 @@
           <option value="">全部負責同事</option>
         </select>
         ${statusSelect}
+        ${sortSelect}
       </div>
     </div>
     <div class="email-stats-line doc-filter-count" data-scope="${esc(scope)}"></div>`;
@@ -144,7 +152,7 @@
     let html = `<section id="panel-overview" class="panel" role="tabpanel">
       <div class="card" style="margin-bottom:10px">
         <h2 class="card-title">總覽</h2>
-        <p class="card-hint">按文件編號排序列出全部文件（未完成＋已完成）。欄位：文件編號 · 目前狀態 · 屬性 · 文件名稱 · 負責同事。純列表，唔展開。</p>
+        <p class="card-hint">列出全部文件（未完成＋已完成）；可用排序選項（文件編號／第一次提交日期）。欄位：文件編號 · 目前狀態 · 屬性 · 文件名稱 · 負責同事。純列表，唔展開。</p>
         ${docFilterToolbar("overview")}
         <div class="list-head overview-head">
           <span>文件編號</span><span>目前狀態</span><span>屬性</span><span>文件名稱</span><span>負責同事</span>
@@ -371,6 +379,7 @@
       const pa = $(".doc-filter-pa", bar);
       const sel = $(".doc-filter-submitter", bar);
       const st = $(".doc-filter-status", bar);
+      const sort = $(".doc-filter-sort", bar);
       if (sel) {
         const keep = DOC_FILTER.submitter;
         sel.innerHTML = `<option value="">全部負責同事</option>` + submitterOptionsHtml();
@@ -380,6 +389,9 @@
         const keep = DOC_FILTER.status;
         st.innerHTML = `<option value="">全部目前狀態</option>` + statusOptionsHtml();
         st.value = keep || "";
+      }
+      if (sort) {
+        sort.value = DOC_FILTER.sort === "first_submit" ? "first_submit" : "pa";
       }
       if (pa) {
         pa.value = DOC_FILTER.pa || "";
@@ -403,6 +415,13 @@
           renderAllLists();
         };
       }
+      if (sort) {
+        sort.onchange = () => {
+          DOC_FILTER.sort = sort.value === "first_submit" ? "first_submit" : "pa";
+          syncDocFilterInputs();
+          renderAllLists();
+        };
+      }
     });
   }
 
@@ -415,6 +434,10 @@
     });
     $$(".doc-filter-status").forEach((el) => {
       if (el.value !== DOC_FILTER.status) el.value = DOC_FILTER.status || "";
+    });
+    $$(".doc-filter-sort").forEach((el) => {
+      const v = DOC_FILTER.sort === "first_submit" ? "first_submit" : "pa";
+      if (el.value !== v) el.value = v;
     });
   }
 
@@ -777,10 +800,25 @@
     });
   }
 
+  function cmpFirstSubmit(a, b) {
+    const fa = String(a.first_submit || "").trim();
+    const fb = String(b.first_submit || "").trim();
+    if (!fa && !fb) return cmpPa(a.id, b.id);
+    if (!fa) return 1;
+    if (!fb) return -1;
+    if (fa < fb) return -1;
+    if (fa > fb) return 1;
+    return cmpPa(a.id, b.id);
+  }
+
   function renderOverviewList() {
     const list = $("#list-overview");
     if (!list) return;
-    const all = allDocs().slice().sort((a, b) => cmpPa(a.id, b.id));
+    const sorter =
+      DOC_FILTER.sort === "first_submit"
+        ? (a, b) => cmpFirstSubmit(a, b)
+        : (a, b) => cmpPa(a.id, b.id);
+    const all = allDocs().slice().sort(sorter);
     const docs = all.filter(matchDocFilter);
     setFilterCount("overview", docs.length, all.length);
     if (!all.length) {
