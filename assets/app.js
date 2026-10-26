@@ -22,6 +22,9 @@
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
 
+  /** Shared doc-list filters (PA text + submitter). */
+  const DOC_FILTER = { pa: "", submitter: "" };
+
   const TYPE_COLORS = [
     "#38bdf8", "#a78bfa", "#f472b6", "#fbbf24", "#34d399",
     "#fb923c", "#60a5fa", "#c084fc", "#4ade80", "#f87171",
@@ -82,7 +85,11 @@
     const nav = $("#main-tabs");
     const sc = (DATA.meta && DATA.meta.status_counts) || {};
     const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    const oc =
+      (DATA.meta && DATA.meta.overview_count) ??
+      ((DATA.documents || []).length + (DATA.completed_documents || []).length);
     let html = `<button type="button" class="tab active" data-tab="home" role="tab" aria-selected="true">首頁</button>`;
+    html += `<button type="button" class="tab" data-tab="overview" role="tab" aria-selected="false">總覽<span class="tab-count">${oc}</span></button>`;
     order.forEach((st) => {
       const id = STATUS_TAB[st] || st;
       const n = sc[st] || 0;
@@ -97,18 +104,47 @@
     });
   }
 
+  function docFilterToolbar(scope) {
+    return `<div class="toolbar doc-filter-bar" data-scope="${esc(scope)}">
+      <div class="legend share-legend">
+        <span><i class="swatch admin"></i>行政部</span>
+        <span><i class="swatch edu"></i>EDU</span>
+        <span><i class="swatch third"></i>第三方</span>
+      </div>
+      <div class="filters">
+        <input type="search" class="doc-filter-pa" placeholder="搜尋文件編號" aria-label="搜尋文件編號" value="${esc(DOC_FILTER.pa)}">
+        <select class="doc-filter-submitter" aria-label="負責同事">
+          <option value="">全部負責同事</option>
+        </select>
+      </div>
+    </div>
+    <div class="email-stats-line doc-filter-count" data-scope="${esc(scope)}"></div>`;
+  }
+
   function buildStatusPanels() {
     const wrap = $("#status-panels");
     const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
-    let html = order
+    let html = `<section id="panel-overview" class="panel" role="tabpanel">
+      <div class="card" style="margin-bottom:10px">
+        <h2 class="card-title">總覽</h2>
+        <p class="card-hint">按文件編號排序列出全部文件（未完成＋已完成）。欄位：文件編號 · 目前狀態 · 屬性 · 文件名稱 · 負責同事。純列表，唔展開。</p>
+        ${docFilterToolbar("overview")}
+        <div class="list-head overview-head">
+          <span>文件編號</span><span>目前狀態</span><span>屬性</span><span>文件名稱</span><span>負責同事</span>
+        </div>
+        <div class="doc-list flat" id="list-overview"></div>
+      </div>
+    </section>`;
+    html += order
       .map((st) => {
         const id = STATUS_TAB[st] || st;
         return `<section id="panel-${esc(id)}" class="panel" role="tabpanel">
           <div class="card" style="margin-bottom:10px">
             <h2 class="card-title">${esc(st)}</h2>
-            <p class="card-hint">未展開：編號 · 目前狀態累積天數 · 由首次提交至今 · 文件屬性 · 文件名稱。點擊列展開時間線（紅＝行政部、綠＝EDU、藍＝第三方間隔天數）。</p>
-            <div class="list-head">
-              <span>文件編號</span><span>狀態天數</span><span>首次至今</span><span>屬性</span><span>文件名稱</span><span></span>
+            <p class="card-hint">未展開：編號 · 狀態天數 · 首次至今 · 屬性 · 文件名稱 · 行政／EDU／第三方時間比例。點擊列展開時間線（紅＝行政部、綠＝EDU、藍＝第三方）。</p>
+            ${docFilterToolbar(id)}
+            <div class="list-head status-head">
+              <span>文件編號</span><span>狀態天數</span><span>首次至今</span><span>屬性</span><span>文件名稱</span><span>時間比例</span><span></span>
             </div>
             <div class="doc-list" id="list-${esc(id)}"></div>
           </div>
@@ -118,14 +154,16 @@
     html += `<section id="panel-completed" class="panel" role="tabpanel">
       <div class="card" style="margin-bottom:10px">
         <h2 class="card-title">已完成文件流程時間記錄</h2>
-        <p class="card-hint">未展開：編號 · 完成後累積天數 · 由首次／紀錄起點至今 · 文件屬性 · 文件名稱。點擊列展開完整流程時間線（紅＝行政部、綠＝EDU、藍＝第三方；已完成唔再延伸至今日）。</p>
-        <div class="list-head">
-          <span>文件編號</span><span>完成後天數</span><span>首次至今</span><span>屬性</span><span>文件名稱</span><span></span>
+        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱 · 行政／EDU／第三方時間比例。點擊列展開完整流程時間線（紅＝行政部、綠＝EDU、藍＝第三方；已完成唔再延伸至今日）。</p>
+        ${docFilterToolbar("completed")}
+        <div class="list-head completed-head">
+          <span>文件編號</span><span>文件總天數</span><span>屬性</span><span>文件名稱</span><span>時間比例</span><span></span>
         </div>
         <div class="doc-list" id="list-completed"></div>
       </div>
     </section>`;
     wrap.innerHTML = html;
+    wireDocFilters();
   }
 
   function renderMeta() {
@@ -262,6 +300,129 @@
     }
   }
 
+  function allDocs() {
+    return (DATA.documents || []).concat(DATA.completed_documents || []);
+  }
+
+  function submitterOptionsHtml() {
+    const fromMeta = (DATA.meta && DATA.meta.submitters) || [];
+    const set = new Set(fromMeta);
+    allDocs().forEach((d) => {
+      const s = (d.submitter || "").trim();
+      if (s) set.add(s);
+    });
+    return Array.from(set)
+      .sort((a, b) => a.localeCompare(b, "zh-Hant"))
+      .map(
+        (s) =>
+          `<option value="${esc(s)}"${DOC_FILTER.submitter === s ? " selected" : ""}>${esc(s)}</option>`
+      )
+      .join("");
+  }
+
+  function wireDocFilters() {
+    $$(".doc-filter-bar").forEach((bar) => {
+      const pa = $(".doc-filter-pa", bar);
+      const sel = $(".doc-filter-submitter", bar);
+      if (sel) {
+        const keep = DOC_FILTER.submitter;
+        sel.innerHTML = `<option value="">全部負責同事</option>` + submitterOptionsHtml();
+        sel.value = keep || "";
+      }
+      if (pa) {
+        pa.value = DOC_FILTER.pa || "";
+        pa.oninput = () => {
+          DOC_FILTER.pa = pa.value || "";
+          syncDocFilterInputs();
+          renderAllLists();
+        };
+      }
+      if (sel) {
+        sel.onchange = () => {
+          DOC_FILTER.submitter = sel.value || "";
+          syncDocFilterInputs();
+          renderAllLists();
+        };
+      }
+    });
+  }
+
+  function syncDocFilterInputs() {
+    $$(".doc-filter-pa").forEach((el) => {
+      if (el.value !== DOC_FILTER.pa) el.value = DOC_FILTER.pa || "";
+    });
+    $$(".doc-filter-submitter").forEach((el) => {
+      if (el.value !== DOC_FILTER.submitter) el.value = DOC_FILTER.submitter || "";
+    });
+  }
+
+  function matchDocFilter(d) {
+    const paQ = (DOC_FILTER.pa || "").trim().toLowerCase();
+    const subQ = (DOC_FILTER.submitter || "").trim();
+    if (paQ) {
+      const id = String(d.id || "").toLowerCase();
+      if (!id.includes(paQ)) return false;
+    }
+    if (subQ) {
+      if ((d.submitter || "").trim() !== subQ) return false;
+    }
+    return true;
+  }
+
+  function setFilterCount(scope, shown, total) {
+    const el = $(`.doc-filter-count[data-scope="${scope}"]`);
+    if (!el) return;
+    const filtered = !!(DOC_FILTER.pa || DOC_FILTER.submitter);
+    el.textContent = filtered
+      ? `顯示 ${shown}／${total}`
+      : `共 ${total} 份`;
+  }
+
+  function paSortKey(id) {
+    const s = String(id || "").trim();
+    if (!s) return [2, 0, 0, 0, ""];
+    const m = s.match(/^PA-(\d+)-(\d+)(?:\((\d+)\))?/i);
+    if (m) return [0, +m[1], +m[2], +(m[3] || 0), s.toUpperCase()];
+    return [1, 0, 0, 0, s.toUpperCase()];
+  }
+
+  function cmpPa(a, b) {
+    const ka = paSortKey(a);
+    const kb = paSortKey(b);
+    for (let i = 0; i < ka.length; i++) {
+      if (ka[i] < kb[i]) return -1;
+      if (ka[i] > kb[i]) return 1;
+    }
+    return 0;
+  }
+
+  function timeShareHtml(ts, { compact = false } = {}) {
+    const t = ts || {};
+    const total = Number(t.total_days) || 0;
+    const ap = Number(t.admin_pct) || 0;
+    const ep = Number(t.edu_pct) || 0;
+    const tp = Number(t.third_pct) || 0;
+    if (total <= 0 && ap + ep + tp <= 0) {
+      return `<div class="share-bar empty" title="暫無時間比例"><span class="share-empty">—</span></div>`;
+    }
+    const title = `行政部 ${ap}%（${fmtDays(t.admin_days)}天）· EDU ${ep}%（${fmtDays(t.edu_days)}天）· 第三方 ${tp}%（${fmtDays(t.third_days)}天）`;
+    const labels = compact
+      ? ""
+      : `<div class="share-labels"><span class="admin">${ap}%</span><span class="edu">${ep}%</span><span class="third">${tp}%</span></div>`;
+    return `<div class="share-wrap" title="${esc(title)}">
+      <div class="share-bar" role="img" aria-label="${esc(title)}">
+        <i class="seg admin" style="width:${ap}%"></i>
+        <i class="seg edu" style="width:${ep}%"></i>
+        <i class="seg third" style="width:${tp}%"></i>
+      </div>
+      ${labels}
+    </div>`;
+  }
+
+  function ownerLabel(d) {
+    return (d.submitter || "").trim() || "—";
+  }
+
   function renderTimeline(doc) {
     const tl = doc.timeline || {};
     const nodes = tl.nodes || [];
@@ -359,37 +520,52 @@
     const id = STATUS_TAB[status] || status;
     const list = $(`#list-${id}`);
     if (!list) return;
-    const docs = (DATA.documents || []).filter((d) => d.status === status);
-    if (!docs.length) {
+    const all = (DATA.documents || []).filter((d) => d.status === status);
+    const docs = all.filter(matchDocFilter);
+    setFilterCount(id, docs.length, all.length);
+    if (!all.length) {
       list.innerHTML = `<div class="empty">此狀態目前沒有文件</div>`;
+      return;
+    }
+    if (!docs.length) {
+      list.innerHTML = `<div class="empty">沒有符合篩選的文件</div>`;
       return;
     }
     list.innerHTML = docs
       .map((d) => {
         const fu = (d.follow_up || []).filter(Boolean).join("、") || "—";
+        const ts = d.time_share || {};
         return `<article class="doc-row" data-id="${esc(d.id)}">
-          <button type="button" class="doc-summary" aria-expanded="false">
+          <button type="button" class="doc-summary has-share" aria-expanded="false">
             <span class="c-id">${esc(d.id)}</span>
             <span class="c-din">${esc(fmtDays(d.days_in_status))}<small>狀態天數</small></span>
             <span class="c-dfs">${esc(fmtDays(d.days_since_first_submit))}<small>首次至今</small></span>
             <span class="c-attr">${esc(d.attr_label || "")}</span>
             <span class="c-title" title="${esc(d.title)}">${esc(d.title)}</span>
+            <span class="c-share">${timeShareHtml(ts, { compact: true })}</span>
             <span class="c-chev" aria-hidden="true">›</span>
           </button>
           <div class="doc-detail">
             <div class="doc-meta-line">
               跟進：<strong style="color:#fff">${esc(fu)}</strong>
-              · 提交人：${esc(d.submitter || "—")}
+              · 負責同事：${esc(ownerLabel(d))}
               · 首次／起點：${esc(d.first_submit || "—")}
               · 狀態起點：${esc(d.status_since || "—")}
               · 最近行政回覆：${esc(d.last_reply || "—")}
             </div>
+            <div class="doc-meta-line share-detail">
+              時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
+              · EDU ${esc(fmtDays(ts.edu_pct))}%（${esc(fmtDays(ts.edu_days))} 天）
+              · 第三方 ${esc(fmtDays(ts.third_pct))}%（${esc(fmtDays(ts.third_days))} 天）
+              · 合計 ${esc(fmtDays(ts.total_days))} 天
+            </div>
+            ${timeShareHtml(ts)}
             ${
               d.last_reply_summary
                 ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
                 : ""
             }
-            <div class="legend" style="margin-bottom:10px">
+            <div class="legend" style="margin:12px 0 10px">
               <span><i class="swatch admin"></i>行政部間隔</span>
               <span><i class="swatch edu"></i>EDU 間隔</span>
               <span><i class="swatch third"></i>第三方間隔</span>
@@ -412,41 +588,55 @@
   function renderCompletedList() {
     const list = $("#list-completed");
     if (!list) return;
-    const docs = DATA.completed_documents || [];
-    if (!docs.length) {
+    const all = DATA.completed_documents || [];
+    const docs = all.filter(matchDocFilter);
+    setFilterCount("completed", docs.length, all.length);
+    if (!all.length) {
       list.innerHTML = `<div class="empty">目前沒有已完成文件記錄</div>`;
+      return;
+    }
+    if (!docs.length) {
+      list.innerHTML = `<div class="empty">沒有符合篩選的文件</div>`;
       return;
     }
     list.innerHTML = docs
       .map((d) => {
         const fu = (d.follow_up || []).filter(Boolean).join("、") || "—";
-        const process =
+        const ts = d.time_share || {};
+        const totalDays =
           d.process_days != null && d.process_days !== ""
-            ? ` · 流程共 ${esc(fmtDays(d.process_days))} 天`
-            : "";
+            ? d.process_days
+            : ts.total_days;
         return `<article class="doc-row" data-id="${esc(d.id)}">
-          <button type="button" class="doc-summary" aria-expanded="false">
+          <button type="button" class="doc-summary completed-summary has-share" aria-expanded="false">
             <span class="c-id">${esc(d.id)}</span>
-            <span class="c-din">${esc(fmtDays(d.days_in_status))}<small>完成後天數</small></span>
-            <span class="c-dfs">${esc(fmtDays(d.days_since_first_submit))}<small>首次至今</small></span>
+            <span class="c-din">${esc(fmtDays(totalDays))}<small>文件總天數</small></span>
             <span class="c-attr">${esc(d.attr_label || "")}</span>
             <span class="c-title" title="${esc(d.title)}">${esc(d.title)}</span>
+            <span class="c-share">${timeShareHtml(ts, { compact: true })}</span>
             <span class="c-chev" aria-hidden="true">›</span>
           </button>
           <div class="doc-detail">
             <div class="doc-meta-line">
               跟進：<strong style="color:#fff">${esc(fu)}</strong>
-              · 提交人：${esc(d.submitter || "—")}
+              · 負責同事：${esc(ownerLabel(d))}
               · 首次／起點：${esc(d.first_submit || "—")}
               · 完成時間：${esc(d.completed_at || d.last_reply || "—")}
-              ${process}
+              · 文件總天數：${esc(fmtDays(totalDays))}
             </div>
+            <div class="doc-meta-line share-detail">
+              時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
+              · EDU ${esc(fmtDays(ts.edu_pct))}%（${esc(fmtDays(ts.edu_days))} 天）
+              · 第三方 ${esc(fmtDays(ts.third_pct))}%（${esc(fmtDays(ts.third_days))} 天）
+              · 合計 ${esc(fmtDays(ts.total_days))} 天
+            </div>
+            ${timeShareHtml(ts)}
             ${
               d.last_reply_summary
                 ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
                 : ""
             }
-            <div class="legend" style="margin-bottom:10px">
+            <div class="legend" style="margin:12px 0 10px">
               <span><i class="swatch admin"></i>行政部間隔</span>
               <span><i class="swatch edu"></i>EDU 間隔</span>
               <span><i class="swatch third"></i>第三方間隔</span>
@@ -466,8 +656,38 @@
     });
   }
 
+  function renderOverviewList() {
+    const list = $("#list-overview");
+    if (!list) return;
+    const all = allDocs().slice().sort((a, b) => cmpPa(a.id, b.id));
+    const docs = all.filter(matchDocFilter);
+    setFilterCount("overview", docs.length, all.length);
+    if (!all.length) {
+      list.innerHTML = `<div class="empty">目前沒有文件</div>`;
+      return;
+    }
+    if (!docs.length) {
+      list.innerHTML = `<div class="empty">沒有符合篩選的文件</div>`;
+      return;
+    }
+    list.innerHTML = docs
+      .map((d) => {
+        const st = d.status || "—";
+        const done = d.status_group === "completed" || st === "完成";
+        return `<div class="overview-row${done ? " is-done" : ""}" data-id="${esc(d.id)}">
+          <span class="c-id">${esc(d.id || "—")}</span>
+          <span class="c-status">${esc(st)}</span>
+          <span class="c-attr">${esc(d.attr_label || "—")}</span>
+          <span class="c-title" title="${esc(d.title)}">${esc(d.title || "—")}</span>
+          <span class="c-owner">${esc(ownerLabel(d))}</span>
+        </div>`;
+      })
+      .join("");
+  }
+
   function renderAllLists() {
     const order = (DATA.meta && DATA.meta.status_order) || STATUS_ORDER;
+    renderOverviewList();
     order.forEach(renderDocList);
     renderCompletedList();
   }

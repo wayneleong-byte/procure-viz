@@ -654,6 +654,73 @@ def build_timeline(
     return {"nodes": nodes, "gaps": gaps, "span": span}
 
 
+
+def compute_time_share(gaps: list[dict] | None) -> dict:
+    """Sum gap days by role (admin/edu/third); pcts sum to 100 when total > 0."""
+    admin_days = 0.0
+    edu_days = 0.0
+    third_days = 0.0
+    for g in gaps or []:
+        raw = g.get("days")
+        if raw is None or raw == "":
+            continue
+        try:
+            d = float(raw)
+        except (TypeError, ValueError):
+            continue
+        if d < 0:
+            d = 0.0
+        role = g.get("role") or ""
+        if role == "admin":
+            admin_days += d
+        elif role == "edu":
+            edu_days += d
+        elif role == "third":
+            third_days += d
+    total = admin_days + edu_days + third_days
+
+    def pct(part: float) -> float:
+        if total <= 0:
+            return 0.0
+        return round(100.0 * part / total, 1)
+
+    ap, ep, tp = pct(admin_days), pct(edu_days), pct(third_days)
+    if total > 0:
+        diff = round(100.0 - (ap + ep + tp), 1)
+        if abs(diff) >= 0.05:
+            # Nudge the largest share so percentages total 100
+            parts = [("admin", ap), ("edu", ep), ("third", tp)]
+            parts.sort(key=lambda x: -x[1])
+            key = parts[0][0]
+            if key == "admin":
+                ap = round(ap + diff, 1)
+            elif key == "edu":
+                ep = round(ep + diff, 1)
+            else:
+                tp = round(tp + diff, 1)
+
+    return {
+        "admin_days": round(admin_days, 1),
+        "edu_days": round(edu_days, 1),
+        "third_days": round(third_days, 1),
+        "total_days": round(total, 1),
+        "admin_pct": ap if total > 0 else 0.0,
+        "edu_pct": ep if total > 0 else 0.0,
+        "third_pct": tp if total > 0 else 0.0,
+    }
+
+
+def pa_sort_key(doc_id: str | None):
+    """Sort PA ids numerically; missing ids last."""
+    s = (doc_id or "").strip()
+    if not s:
+        return (2, 0, 0, 0, "")
+    m = re.match(r"^PA-(\d+)-(\d+)(?:\((\d+)\))?", s, re.I)
+    if m:
+        return (0, int(m.group(1)), int(m.group(2)), int(m.group(3) or 0), s.upper())
+    return (1, 0, 0, 0, s.upper())
+
+
 def half_hour_bucket(dt: datetime) -> int:
     """0..47 index for 00:00, 00:30, ..."""
     return dt.hour * 2 + (1 if dt.minute >= 30 else 0)
@@ -823,6 +890,19 @@ def main() -> None:
             if process_days is not None:
                 process_days = int(process_days) if float(process_days).is_integer() else process_days
         timeline = build_timeline(d, progress, today_dt, closed=closed)
+        time_share = compute_time_share(timeline.get("gaps") or [])
+        # Completed: prefer first→completed_at; else gaps total / timeline span
+        if closed and process_days is None:
+            if time_share.get("total_days"):
+                process_days = time_share["total_days"]
+            else:
+                span = timeline.get("span") or {}
+                if span.get("min_ts") is not None and span.get("max_ts") is not None:
+                    process_days = round(
+                        max(0.0, (span["max_ts"] - span["min_ts"]) / 86400.0), 1
+                    )
+            if process_days is not None and float(process_days).is_integer():
+                process_days = int(process_days)
         return {
             "id": d.get("key") or d.get("doc_id"),
             "stage": d.get("stage") or "",
@@ -851,6 +931,7 @@ def main() -> None:
             "n_rounds": d.get("n_rounds"),
             "admin_total": d.get("admin_total"),
             "colleague_total": d.get("colleague_total"),
+            "time_share": time_share,
             "timeline": timeline,
         }
 
@@ -932,6 +1013,15 @@ def main() -> None:
         else:
             status_counts[st] = status_counts.get(st, 0) + 1
 
+    submitters = sorted(
+        {
+            (d.get("submitter") or "").strip()
+            for d in (viz_docs + viz_completed)
+            if (d.get("submitter") or "").strip()
+        },
+        key=lambda s: s.casefold(),
+    )
+
     viz = {
         "meta": {
             "title": "教育部工作文件進程（不包括HR）",
@@ -943,16 +1033,19 @@ def main() -> None:
             "work_hours": "09:00–18:30",
             "incomplete_count": len(viz_docs),
             "completed_count": len(viz_completed),
+            "overview_count": len(viz_docs) + len(viz_completed),
             "email_count": len(email_events),
             "email_on_hours": email_stats["on_hours"],
             "email_off_hours": email_stats["off_hours"],
             "progress_linked_count": len(progress_slim),
             "status_order": STATUS_ORDER,
             "status_counts": status_counts,
+            "submitters": submitters,
             "notes": [
-                "未完成＝目前狀態唔係「完成」；已完成見「已完成文件流程時間記錄」",
+                "未完成＝目前狀態唔係「完成」；已完成見「已完成文件流程時間記錄」；總覽＝全部文件",
                 "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
-                "已完成案時間線喺最後事件收束，唔再延伸至今日",
+                "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
+                "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",
                 "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
             ],
         },
