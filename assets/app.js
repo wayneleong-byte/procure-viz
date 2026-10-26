@@ -467,7 +467,7 @@
     }
     const title = `行政部 ${ap}%（${fmtDays(t.admin_days)}天）· EDU ${ep}%（${fmtDays(t.edu_days)}天）· 第三方 ${tp}%（${fmtDays(t.third_days)}天）`;
     const labels = compact
-      ? ""
+      ? `<div class="share-labels compact"><span class="admin">${ap}%</span><span class="edu">${ep}%</span><span class="third">${tp}%</span></div>`
       : `<div class="share-labels"><span class="admin">${ap}%</span><span class="edu">${ep}%</span><span class="third">${tp}%</span></div>`;
     return `<div class="share-wrap" title="${esc(title)}">
       <div class="share-bar" role="img" aria-label="${esc(title)}">
@@ -486,12 +486,12 @@
       ? `數據不足，暫以黑色顯示合計 ${fmtDays(total)} 天（唔分行政／EDU／第三方）`
       : "數據不足，暫無可靠時間比例";
     if (total <= 0) {
-      return `<div class="share-bar empty" title="${esc(title)}"><span class="share-empty">—</span></div>`;
+      return `<div class="share-bar empty" title="${esc(title)}"><span class="share-empty">數據不足</span></div>`;
     }
     const labels = compact
-      ? ""
-      : `<div class="share-labels mono"><span class="muted-share">合計 ${esc(fmtDays(total))} 天（數據不足）</span></div>`;
-    return `<div class="share-wrap" title="${esc(title)}">
+      ? `<div class="share-labels mono compact"><span class="muted-share">數據不足 · ${esc(fmtDays(total))}天</span></div>`
+      : `<div class="share-labels mono"><span class="muted-share">合計 ${esc(fmtDays(total))} 天（數據不足，黑色＝唔分角色）</span></div>`;
+    return `<div class="share-wrap share-wrap-black" title="${esc(title)}">
       <div class="share-bar share-bar-black" role="img" aria-label="${esc(title)}">
         <i class="seg black" style="flex:0 0 100%;width:100%"></i>
       </div>

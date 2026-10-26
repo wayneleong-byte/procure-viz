@@ -449,17 +449,28 @@ a { color: var(--accent); }
 .share-bar .seg.black {
   background: #000;
   flex: 0 0 auto;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+}
+.share-wrap-black {
+  padding: 4px 6px 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.22);
 }
 .share-bar.share-bar-black {
-  height: 14px;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.55);
-  box-shadow: 0 0 0 1px rgba(0,0,0,.35);
+  height: 16px;
+  background: #e2e8f0;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.55);
 }
-.doc-detail .share-bar.share-bar-black { height: 18px; }
+.doc-detail .share-bar.share-bar-black { height: 20px; }
 .share-labels.mono { justify-content: flex-start; }
-.share-labels .muted-share { color: #e2e8f0; font-weight: 600; }
+.share-labels.compact {
+  margin-top: 4px;
+  font-size: clamp(.72rem, .68rem + .12vw, .82rem);
+  gap: 4px;
+}
+.share-labels .muted-share { color: #f8fafc; font-weight: 700; letter-spacing: .02em; }
 .swatch.black {
   background: #000;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.45);
