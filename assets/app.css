@@ -446,11 +446,25 @@ a { color: var(--accent); }
 .share-bar .seg.admin { background: var(--admin); }
 .share-bar .seg.edu { background: var(--edu); }
 .share-bar .seg.third { background: var(--third); }
-.share-bar .seg.black { background: #0f172a; }
-.share-bar-black { background: #cbd5e1; }
+.share-bar .seg.black {
+  background: #000;
+  flex: 0 0 auto;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+}
+.share-bar.share-bar-black {
+  height: 14px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.35);
+}
+.doc-detail .share-bar.share-bar-black { height: 18px; }
 .share-labels.mono { justify-content: flex-start; }
-.share-labels .muted-share { color: var(--muted); font-weight: 600; }
-.swatch.black { background: #0f172a; }
+.share-labels .muted-share { color: #e2e8f0; font-weight: 600; }
+.swatch.black {
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.45);
+  border: 1px solid rgba(255,255,255,.35);
+}
 .share-labels {
   display: flex; justify-content: space-between; gap: 6px;
   margin-top: 6px;
@@ -462,7 +476,7 @@ a { color: var(--accent); }
 .share-labels .third { color: var(--third); }
 .doc-detail .share-wrap { max-width: 420px; margin: 0 0 12px; }
 .doc-detail .share-bar { height: 16px; }
-.c-share { min-width: 0; }
+.c-share { min-width: 96px; align-self: center; }
 
 /* Overview flat list */
 .overview-row {

@@ -471,9 +471,9 @@
       : `<div class="share-labels"><span class="admin">${ap}%</span><span class="edu">${ep}%</span><span class="third">${tp}%</span></div>`;
     return `<div class="share-wrap" title="${esc(title)}">
       <div class="share-bar" role="img" aria-label="${esc(title)}">
-        <i class="seg admin" style="width:${ap}%"></i>
-        <i class="seg edu" style="width:${ep}%"></i>
-        <i class="seg third" style="width:${tp}%"></i>
+        <i class="seg admin" style="flex:0 0 ${ap}%;width:${ap}%"></i>
+        <i class="seg edu" style="flex:0 0 ${ep}%;width:${ep}%"></i>
+        <i class="seg third" style="flex:0 0 ${tp}%;width:${tp}%"></i>
       </div>
       ${labels}
     </div>`;
@@ -493,7 +493,7 @@
       : `<div class="share-labels mono"><span class="muted-share">合計 ${esc(fmtDays(total))} 天（數據不足）</span></div>`;
     return `<div class="share-wrap" title="${esc(title)}">
       <div class="share-bar share-bar-black" role="img" aria-label="${esc(title)}">
-        <i class="seg black" style="width:100%"></i>
+        <i class="seg black" style="flex:0 0 100%;width:100%"></i>
       </div>
       ${labels}
     </div>`;
