@@ -21,6 +21,12 @@
   };
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
+  /** Oscar：指定用黑色時間比例（數據不足／特殊跟進） */
+  const FORCE_BLACK_SHARE = new Set([
+    "PA-26-135",
+    "PA-26-220",
+    "科學館與蔚來簽署第二次補充合作協議",
+  ]);
 
   /** Shared doc-list filters (PA text + submitter). */
   const DOC_FILTER = { pa: "", submitter: "", status: "" };
@@ -499,11 +505,24 @@
     </div>`;
   }
 
-  function completedShareHtml(d, { compact = false } = {}) {
+  function forceBlackShare(d) {
     const id = String(d.id || "");
+    if (FORCE_BLACK_SHARE.has(id)) return true;
+    // completed: only PA-26-120(2) keeps RGB; all other completed → black
+    if (d.status_group === "completed" || d.status === "完成") {
+      return id !== "PA-26-120(2)";
+    }
+    return false;
+  }
+
+  function docShareHtml(d, { compact = false } = {}) {
     const ts = d.time_share || {};
-    if (id === "PA-26-120(2)") return timeShareHtml(ts, { compact });
-    return timeShareHtmlBlack(ts, { compact });
+    if (forceBlackShare(d)) return timeShareHtmlBlack(ts, { compact });
+    return timeShareHtml(ts, { compact });
+  }
+
+  function completedShareHtml(d, { compact = false } = {}) {
+    return docShareHtml(d, { compact });
   }
 
   function ownerLabel(d) {
@@ -622,6 +641,19 @@
       .map((d) => {
         const fu = (d.follow_up || []).filter(Boolean).join("、") || "—";
         const ts = d.time_share || {};
+        const black = forceBlackShare(d);
+        const shareDetail = black
+          ? `<div class="doc-meta-line share-detail">
+              時間比例：按指定以黑色條顯示合計 ${esc(fmtDays(ts.total_days))} 天（唔分行政／EDU／第三方）
+            </div>
+            ${timeShareHtmlBlack(ts)}`
+          : `<div class="doc-meta-line share-detail">
+              時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
+              · EDU ${esc(fmtDays(ts.edu_pct))}%（${esc(fmtDays(ts.edu_days))} 天）
+              · 第三方 ${esc(fmtDays(ts.third_pct))}%（${esc(fmtDays(ts.third_days))} 天）
+              · 合計 ${esc(fmtDays(ts.total_days))} 天
+            </div>
+            ${timeShareHtml(ts)}`;
         return `<article class="doc-row" data-id="${esc(d.id)}">
           <button type="button" class="doc-summary has-share" aria-expanded="false">
             <span class="c-id">${esc(d.id)}</span>
@@ -629,7 +661,7 @@
             <span class="c-dfs">${esc(fmtDays(d.days_since_first_submit))}<small>首次至今</small></span>
             <span class="c-attr">${esc(d.attr_label || "")}</span>
             <span class="c-title" title="${esc(d.title)}">${esc(d.title)}</span>
-            <span class="c-share">${timeShareHtml(ts, { compact: true })}</span>
+            <span class="c-share">${docShareHtml(d, { compact: true })}</span>
             <span class="c-chev" aria-hidden="true">›</span>
           </button>
           <div class="doc-detail">
@@ -640,13 +672,7 @@
               · 狀態起點：${esc(d.status_since || "—")}
               · 最近行政回覆：${esc(d.last_reply || "—")}
             </div>
-            <div class="doc-meta-line share-detail">
-              時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
-              · EDU ${esc(fmtDays(ts.edu_pct))}%（${esc(fmtDays(ts.edu_days))} 天）
-              · 第三方 ${esc(fmtDays(ts.third_pct))}%（${esc(fmtDays(ts.third_days))} 天）
-              · 合計 ${esc(fmtDays(ts.total_days))} 天
-            </div>
-            ${timeShareHtml(ts)}
+            ${shareDetail}
             ${
               d.last_reply_summary
                 ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
@@ -1016,13 +1042,26 @@
       pas.map((p) => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
   }
 
+  function emailTimeLabel(e) {
+    if (e && e.t) return e.t;
+    if (e && e.iso) {
+      try {
+        const d = new Date(e.iso);
+        if (!Number.isNaN(d.getTime())) {
+          const p = (n) => String(n).padStart(2, "0");
+          return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+        }
+      } catch (_) {}
+    }
+    return "—";
+  }
+
   function renderEmails() {
-    const role = $("#filter-role").value;
-    const pa = $("#filter-pa").value;
-    const onlyOff = $("#filter-off").checked;
-    const q = ($("#filter-q").value || "").trim().toLowerCase();
-    let rows = DATA.emails || [];
-    if (role) rows = rows.filter((e) => e.role === role);
+    const pa = $("#filter-pa") ? $("#filter-pa").value : "";
+    const onlyOff = $("#filter-off") ? $("#filter-off").checked : false;
+    const q = ($("#filter-q") && $("#filter-q").value || "").trim().toLowerCase();
+    // 只顯示行政部（資料層已過濾；此處再保險）
+    let rows = (DATA.emails || []).filter((e) => e.role === "admin" || !e.role);
     if (pa) rows = rows.filter((e) => e.pa === pa);
     if (onlyOff) rows = rows.filter((e) => e.off_hours === true);
     if (q) {
@@ -1033,10 +1072,14 @@
           (e.pa || "").toLowerCase().includes(q)
       );
     }
-    $("#email-count-view").textContent = `顯示 ${rows.length}／${(DATA.emails || []).length}`;
+    const total = (DATA.emails || []).length;
+    if ($("#email-count-view")) {
+      $("#email-count-view").textContent = `顯示 ${rows.length}／${total}（僅行政部）`;
+    }
     const box = $("#email-list");
+    if (!box) return;
     if (!rows.length) {
-      box.innerHTML = `<div class="empty">沒有符合篩選的電郵</div>`;
+      box.innerHTML = `<div class="empty">沒有符合篩選的行政部電郵</div>`;
       return;
     }
     const MAX = 400;
@@ -1045,13 +1088,12 @@
       slice
         .map((e) => {
           const off = e.off_hours === true;
-          const roleLabel = e.role === "admin" ? "行政" : "EDU";
           return `<div class="email-row${off ? " off-hours" : ""}">
             <div>
-              <div class="time">${esc(e.t || "—")}</div>
+              <div class="time">${esc(emailTimeLabel(e))}</div>
               ${off ? `<span class="badge off">非辦公</span>` : `<span class="badge on">辦公</span>`}
             </div>
-            <div><span class="role-pill ${esc(e.role)}">${roleLabel}</span></div>
+            <div><span class="role-pill admin">行政</span></div>
             <div class="pa">${esc(e.pa || "—")}</div>
             <div>
               <div class="subj">${esc(e.subject || "(無標題)")}</div>
@@ -1094,7 +1136,6 @@
     renderEmailAnalysis();
     fillEmailFilters();
     renderEmails();
-    $("#filter-role").addEventListener("change", renderEmails);
     $("#filter-pa").addEventListener("change", renderEmails);
     $("#filter-off").addEventListener("change", renderEmails);
     $("#filter-q").addEventListener("input", renderEmails);

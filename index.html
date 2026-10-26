@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/app.css?v=202610270101">
+<link rel="stylesheet" href="./assets/app.css?v=202610270110">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
@@ -83,15 +83,9 @@
       <h2 class="card-title">電郵列表</h2>
       <div class="toolbar">
         <div class="legend">
-          <span><i class="swatch admin"></i>行政部</span>
-          <span><i class="swatch edu"></i>EDU</span>
+          <span><i class="swatch admin"></i>僅行政部電郵（已排除 EDU）</span>
         </div>
         <div class="filters">
-          <select id="filter-role" aria-label="角色">
-            <option value="">全部角色</option>
-            <option value="admin">行政部</option>
-            <option value="edu">EDU</option>
-          </select>
           <select id="filter-pa" aria-label="文件"></select>
           <label class="chk"><input type="checkbox" id="filter-off"> 只睇非辦公</label>
           <input type="search" id="filter-q" placeholder="搜尋標題／寄件人／編號" aria-label="搜尋">
@@ -103,6 +97,6 @@
   </section>
 
 </div>
-<script src="./assets/app.js?v=202610270101"></script>
+<script src="./assets/app.js?v=202610270110"></script>
 </body>
 </html>
