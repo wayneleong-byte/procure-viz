@@ -105,7 +105,7 @@
   }
 
   function docFilterToolbar(scope) {
-    const showShareLegend = scope !== "completed" && scope !== "overview";
+    const showShareLegend = scope !== "overview";
     const statusSelect =
       scope === "overview"
         ? `<select class="doc-filter-status" aria-label="目前狀態">
@@ -165,10 +165,10 @@
     html += `<section id="panel-completed" class="panel" role="tabpanel">
       <div class="card" style="margin-bottom:10px">
         <h2 class="card-title">已完成文件流程時間記錄</h2>
-        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱。點擊列展開完整流程時間線（紅＝行政部、綠＝EDU、藍＝第三方；已完成唔再延伸至今日）。因資料不完整，本頁唔顯示時間比例三色條。</p>
+        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱 · 時間比例。資料完整者（目前 PA-26-120(2)）顯示行政／EDU／第三方三色；其餘已完成因數據不足顯示黑色比例條。點擊列展開流程時間線（已完成唔再延伸至今日）。</p>
         ${docFilterToolbar("completed")}
         <div class="list-head completed-head">
-          <span>文件編號</span><span>文件總天數</span><span>屬性</span><span>文件名稱</span><span></span>
+          <span>文件編號</span><span>文件總天數</span><span>屬性</span><span>文件名稱</span><span>時間比例</span><span></span>
         </div>
         <div class="doc-list" id="list-completed"></div>
       </div>
@@ -479,6 +479,33 @@
     </div>`;
   }
 
+  function timeShareHtmlBlack(ts, { compact = false } = {}) {
+    const t = ts || {};
+    const total = Number(t.total_days) || Number(t.admin_days) + Number(t.edu_days) + Number(t.third_days) || 0;
+    const title = total > 0
+      ? `數據不足，暫以黑色顯示合計 ${fmtDays(total)} 天（唔分行政／EDU／第三方）`
+      : "數據不足，暫無可靠時間比例";
+    if (total <= 0) {
+      return `<div class="share-bar empty" title="${esc(title)}"><span class="share-empty">—</span></div>`;
+    }
+    const labels = compact
+      ? ""
+      : `<div class="share-labels mono"><span class="muted-share">合計 ${esc(fmtDays(total))} 天（數據不足）</span></div>`;
+    return `<div class="share-wrap" title="${esc(title)}">
+      <div class="share-bar share-bar-black" role="img" aria-label="${esc(title)}">
+        <i class="seg black" style="width:100%"></i>
+      </div>
+      ${labels}
+    </div>`;
+  }
+
+  function completedShareHtml(d, { compact = false } = {}) {
+    const id = String(d.id || "");
+    const ts = d.time_share || {};
+    if (id === "PA-26-120(2)") return timeShareHtml(ts, { compact });
+    return timeShareHtmlBlack(ts, { compact });
+  }
+
   function ownerLabel(d) {
     return (d.submitter || "").trim() || "—";
   }
@@ -667,12 +694,26 @@
           d.process_days != null && d.process_days !== ""
             ? d.process_days
             : ts.total_days;
+        const fullColor = String(d.id || "") === "PA-26-120(2)";
+        const shareDetail = fullColor
+          ? `<div class="doc-meta-line share-detail">
+              時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
+              · EDU ${esc(fmtDays(ts.edu_pct))}%（${esc(fmtDays(ts.edu_days))} 天）
+              · 第三方 ${esc(fmtDays(ts.third_pct))}%（${esc(fmtDays(ts.third_days))} 天）
+              · 合計 ${esc(fmtDays(ts.total_days))} 天
+            </div>
+            ${timeShareHtml(ts)}`
+          : `<div class="doc-meta-line share-detail">
+              時間比例：數據不足，以黑色條表示合計 ${esc(fmtDays(ts.total_days != null ? ts.total_days : totalDays))} 天（唔分行政／EDU／第三方）
+            </div>
+            ${timeShareHtmlBlack(ts)}`;
         return `<article class="doc-row" data-id="${esc(d.id)}">
-          <button type="button" class="doc-summary completed-summary" aria-expanded="false">
+          <button type="button" class="doc-summary completed-summary has-share" aria-expanded="false">
             <span class="c-id">${esc(d.id)}</span>
             <span class="c-din">${esc(fmtDays(totalDays))}<small>文件總天數</small></span>
             <span class="c-attr">${esc(d.attr_label || "")}</span>
             <span class="c-title" title="${esc(d.title)}">${esc(d.title)}</span>
+            <span class="c-share">${completedShareHtml(d, { compact: true })}</span>
             <span class="c-chev" aria-hidden="true">›</span>
           </button>
           <div class="doc-detail">
@@ -683,6 +724,7 @@
               · 完成時間：${esc(d.completed_at || d.last_reply || "—")}
               · 文件總天數：${esc(fmtDays(totalDays))}
             </div>
+            ${shareDetail}
             ${
               d.last_reply_summary
                 ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
@@ -692,6 +734,7 @@
               <span><i class="swatch admin"></i>行政部間隔</span>
               <span><i class="swatch edu"></i>EDU 間隔</span>
               <span><i class="swatch third"></i>第三方間隔</span>
+              ${fullColor ? "" : `<span><i class="swatch black"></i>比例（數據不足）</span>`}
             </div>
             ${renderTimeline(d)}
           </div>

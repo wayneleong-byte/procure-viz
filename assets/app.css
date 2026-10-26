@@ -347,7 +347,7 @@ a { color: var(--accent); }
   background: transparent; border: 0;
 }
 .doc-summary.completed-summary {
-  grid-template-columns: minmax(120px, 1.05fr) 100px minmax(100px, .85fr) minmax(140px, 2.4fr) 36px;
+  grid-template-columns: minmax(120px, 1.05fr) 100px minmax(100px, .85fr) minmax(140px, 2fr) minmax(120px, 1.1fr) 36px;
 }
 @media (max-width: 900px) {
   .doc-summary {
@@ -365,6 +365,7 @@ a { color: var(--accent); }
       "id attr"
       "din din"
       "title title"
+      "share share"
       "chev chev";
   }
   .doc-summary .c-id { grid-area: id; }
@@ -416,7 +417,7 @@ a { color: var(--accent); }
   grid-template-columns: minmax(120px, 1.05fr) 78px 78px minmax(100px, .85fr) minmax(140px, 1.8fr) minmax(120px, 1.1fr) 36px;
 }
 .list-head.completed-head {
-  grid-template-columns: minmax(120px, 1.05fr) 100px minmax(100px, .85fr) minmax(140px, 2.4fr) 36px;
+  grid-template-columns: minmax(120px, 1.05fr) 100px minmax(100px, .85fr) minmax(140px, 2fr) minmax(120px, 1.1fr) 36px;
 }
 .list-head.overview-head {
   grid-template-columns: minmax(120px, 1fr) minmax(130px, 1.1fr) minmax(100px, .85fr) minmax(160px, 2fr) minmax(110px, 1fr);
@@ -445,6 +446,11 @@ a { color: var(--accent); }
 .share-bar .seg.admin { background: var(--admin); }
 .share-bar .seg.edu { background: var(--edu); }
 .share-bar .seg.third { background: var(--third); }
+.share-bar .seg.black { background: #0f172a; }
+.share-bar-black { background: #cbd5e1; }
+.share-labels.mono { justify-content: flex-start; }
+.share-labels .muted-share { color: var(--muted); font-weight: 600; }
+.swatch.black { background: #0f172a; }
 .share-labels {
   display: flex; justify-content: space-between; gap: 6px;
   margin-top: 6px;
