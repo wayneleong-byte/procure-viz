@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/app.css?v=202610270120">
+<link rel="stylesheet" href="./assets/app.css?v=202610270130">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="meta-chips" aria-label="總覽數字">
       <div class="chip highlight"><b id="stat-total">—</b><span>未完成總數</span></div>
       <div class="chip"><b id="stat-emails">—</b><span>相關電郵</span></div>
-      <div class="chip"><b id="stat-off">—</b><span>非辦公電郵</span></div>
+      <div class="chip"><b id="stat-off">—</b><span>非辦公時間電郵</span></div>
     </div>
   </header>
 
@@ -37,14 +37,14 @@
         </div>
         <div class="card tight email-preview" id="email-preview-card">
           <div class="card-head-row">
-            <h2 class="card-title">電郵 · 辦公 vs 非辦公</h2>
+            <h2 class="card-title">電郵 · 辦公時間 vs 非辦公時間</h2>
             <button type="button" class="btn linkish" id="btn-goto-email">詳細分析 →</button>
           </div>
           <div class="email-preview-row">
             <div class="email-preview-stats" id="email-preview-stats"></div>
             <div class="chart-box home-donut"><canvas id="chart-email-preview" aria-label="辦公非辦公預覽"></canvas></div>
           </div>
-          <p class="card-hint tiny">辦公 09:00–18:30 · 非辦公其餘時段及週末（Asia/Macau）· 點狀態卡進入列表</p>
+          <p class="card-hint tiny">辦公時間 09:00–18:30 · 非辦公時間其餘時段及週末（Asia/Macau）· 點狀態卡進入列表</p>
         </div>
       </div>
     </div>
@@ -56,15 +56,15 @@
     <div class="card analysis-card tight">
       <h2 class="card-title">電郵時段分析</h2>
       <p id="email-analysis" class="analysis-text"></p>
-      <p class="card-hint tiny">辦公：平日 09:00–18:30（Asia/Macau）。非辦公：平日 18:31–08:59 及週末。</p>
+      <p class="card-hint tiny">辦公時間：平日 09:00–18:30（Asia/Macau）。非辦公時間：平日 18:31–08:59 及週末。</p>
     </div>
     <div class="charts-row">
       <div class="card tight">
-        <h2 class="card-title">總表 · 辦公 vs 非辦公</h2>
+        <h2 class="card-title">總表 · 辦公時間 vs 非辦公時間</h2>
         <div class="chart-box"><canvas id="chart-email-total"></canvas></div>
       </div>
       <div class="card tight">
-        <h2 class="card-title">行政部 · 各類型文件</h2>
+        <h2 class="card-title">各類型文件</h2>
         <div class="chart-box"><canvas id="chart-email-stage"></canvas></div>
       </div>
     </div>
@@ -72,8 +72,8 @@
       <h2 class="card-title">24 小時時段分布（每半小時）</h2>
       <div class="hours-legend" aria-hidden="true">
         <span class="hl-work"><i></i>辦公時間 09:00–18:30</span>
-        <span class="hl-off"><i></i>非辦公 18:31–08:59</span>
-        <span class="hl-note">週末全日計非辦公（本圖按鐘點合計，含平日＋週末發送）</span>
+        <span class="hl-off"><i></i>非辦公時間 18:31–08:59</span>
+        <span class="hl-note">週末全日計非辦公時間（本圖按鐘點合計，含平日＋週末發送）</span>
       </div>
       <div class="chart-box wide hourly-wrap">
         <canvas id="chart-email-hourly"></canvas>
@@ -83,11 +83,11 @@
       <h2 class="card-title">電郵列表</h2>
       <div class="toolbar">
         <div class="legend">
-          <span><i class="swatch admin"></i>僅行政部電郵（已排除 EDU）</span>
+          <span><i class="swatch admin"></i>電郵</span>
         </div>
         <div class="filters">
           <select id="filter-pa" aria-label="文件"></select>
-          <label class="chk"><input type="checkbox" id="filter-off"> 只睇非辦公</label>
+          <label class="chk"><input type="checkbox" id="filter-off"> 只睇非辦公時間</label>
           <input type="search" id="filter-q" placeholder="搜尋標題／寄件人／編號" aria-label="搜尋">
         </div>
       </div>
@@ -97,6 +97,6 @@
   </section>
 
 </div>
-<script src="./assets/app.js?v=202610270120"></script>
+<script src="./assets/app.js?v=202610270130"></script>
 </body>
 </html>

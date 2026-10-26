@@ -733,44 +733,26 @@ def bucket_label(i: int) -> str:
 
 
 def analyze_admin_bursts(email_events: list[dict], near_sec: int = 60) -> str:
-    """Flag possible 'compose then send in a row' patterns among admin mails."""
+    """List chains of ≥2 emails with adjacent gaps ≤ near_sec (1 minute). No analysis prose."""
     rows = [e for e in email_events if e.get("ts") is not None]
     rows.sort(key=lambda e: e["ts"])
-    lines = ["【連續寄出檢查｜行政部】"]
-    # pairs within near_sec
-    pairs = []
-    for a, b in zip(rows, rows[1:]):
-        gap = b["ts"] - a["ts"]
-        if 0 <= gap <= near_sec:
-            pairs.append((gap, a, b))
-    few = [p for p in pairs if p[0] <= 5]
-    if few:
-        lines.append(f"發現 {len(few)} 組相隔 ≤5 秒嘅連續寄出（較似預寫後一次過／批量送出）。")
-        for gap, a, b in few[:8]:
-            lines.append(
-                f"· 隔 {gap:.0f}s：{a.get('t')}「{(a.get('subject') or '')[:40]}」→ "
-                f"{b.get('t')}「{(b.get('subject') or '')[:40]}」"
-            )
-    else:
-        lines.append("未見相隔 ≤5 秒嘅連續寄出（暫無「只隔幾秒成批送出」硬證據）。")
-
-    # clusters of ≥3 within 60s rolling chain
+    lines = ["【連續寄出情況】"]
+    # clusters: adjacent gaps ≤ near_sec, group size ≥ 2
     clusters = []
     i = 0
     while i < len(rows):
         j = i + 1
         while j < len(rows) and rows[j]["ts"] - rows[j - 1]["ts"] <= near_sec:
             j += 1
-        if j - i >= 3:
+        if j - i >= 2:
             clusters.append(rows[i:j])
             i = j
         else:
             i += 1
-    if clusters:
-        lines.append(
-            f"另有 {len(clusters)} 組「{near_sec} 秒內連續 ≥3 封」短串（可能係操作員逐封連寄／預寫後短時間內送出）："
-        )
-        for c in sorted(clusters, key=len, reverse=True)[:5]:
+    if not clusters:
+        lines.append("無。")
+    else:
+        for c in clusters:
             span = c[-1]["ts"] - c[0]["ts"]
             lines.append(
                 f"· {c[0].get('t')}–{c[-1].get('t')}（{len(c)} 封，跨 {span:.0f}s）："
@@ -778,17 +760,6 @@ def analyze_admin_bursts(email_events: list[dict], near_sec: int = 60) -> str:
                     f"{(e.get('pa') or '—')}「{(e.get('subject') or '')[:28]}」" for e in c[:4]
                 )
                 + ("…" if len(c) > 4 else "")
-            )
-    else:
-        lines.append(f"未見 {near_sec} 秒內連續 ≥3 封嘅短串。")
-
-    # note closest gaps for transparency
-    if pairs:
-        closest = sorted(pairs, key=lambda x: x[0])[:5]
-        lines.append("最近距離例子（≤60s）：")
-        for gap, a, b in closest:
-            lines.append(
-                f"· 隔 {gap:.0f}s｜{a.get('t')} {a.get('pa') or '—'} → {b.get('t')} {b.get('pa') or '—'}"
             )
     return "\n".join(lines)
 
@@ -865,12 +836,8 @@ def build_email_stats(email_events: list[dict]) -> dict:
         return round(100.0 * n / d, 1) if d else 0.0
 
     lines = []
-    if edu:
-        scope = f"行政部 {len(admin)}、EDU {len(edu)}"
-    else:
-        scope = f"僅行政部 {len(admin)}"
     lines.append(
-        f"共收錄 {total} 封相關電郵（{scope}）。"
+        f"共收錄 {total} 封相關電郵。"
         f"辦公時間定義為平日 09:00–18:30（Asia/Macau）；平日此時段以外及週末計入非辦公時間。"
     )
     if total:
@@ -879,21 +846,14 @@ def build_email_stats(email_events: list[dict]) -> dict:
             f"非辦公時間 {off_n} 封（{pct(off_n, total)}%）"
             + (f"、未能判定 {unk} 封。" if unk else "。")
         )
-    if admin:
-        a_on = sum(1 for e in admin if e.get("off_hours") is False)
-        a_off = sum(1 for e in admin if e.get("off_hours") is True)
-        lines.append(
-            f"行政部發出：辦公 {a_on}（{pct(a_on, len(admin))}%）、"
-            f"非辦公 {a_off}（{pct(a_off, len(admin))}%）。"
-        )
-        # per stage snippet
+    if by_stage:
         parts = []
         for st, v in sorted(by_stage.items(), key=lambda x: -x[1]["total"]):
             parts.append(
-                f"{st} {v['total']} 封（辦公 {pct(v['on'], v['total'])}%／非辦公 {pct(v['off'], v['total'])}%）"
+                f"{st} {v['total']} 封（辦公時間 {pct(v['on'], v['total'])}%／非辦公時間 {pct(v['off'], v['total'])}%）"
             )
         if parts:
-            lines.append("行政部按文件類型：" + "；".join(parts) + "。")
+            lines.append("按文件類型：" + "；".join(parts) + "。")
     if peak and peak["total"]:
         lines.append(
             f"半小時時段高峰：{peak['label']} 起共 {peak['total']} 封。"

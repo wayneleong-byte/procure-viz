@@ -876,9 +876,9 @@
       // Work: WORK_START_I .. WORK_END_I
       // Off-hours (right): WORK_END_I+1 .. n-1
       const bands = [
-        { from: 0, to: WORK_START_I - 1, fill: "rgba(71, 85, 105, 0.38)", label: "非辦公" },
-        { from: WORK_START_I, to: WORK_END_I, fill: "rgba(52, 211, 153, 0.16)", label: "辦公" },
-        { from: WORK_END_I + 1, to: n - 1, fill: "rgba(71, 85, 105, 0.38)", label: "非辦公" },
+        { from: 0, to: WORK_START_I - 1, fill: "rgba(71, 85, 105, 0.38)", label: "非辦公時間" },
+        { from: WORK_START_I, to: WORK_END_I, fill: "rgba(52, 211, 153, 0.16)", label: "辦公時間" },
+        { from: WORK_END_I + 1, to: n - 1, fill: "rgba(71, 85, 105, 0.38)", label: "非辦公時間" },
       ];
 
       ctx.save();
@@ -916,7 +916,7 @@
         const mid = (b.from + b.to) / 2;
         const px = x.getPixelForValue(mid);
         if (px < chartArea.left + 8 || px > chartArea.right - 8) continue;
-        ctx.fillStyle = b.label === "辦公" ? "rgba(167, 243, 208, 0.95)" : "rgba(203, 213, 225, 0.85)";
+        ctx.fillStyle = b.label === "辦公時間" ? "rgba(167, 243, 208, 0.95)" : "rgba(203, 213, 225, 0.85)";
         ctx.textAlign = "center";
         ctx.fillText(b.label, px, y0 + 4);
       }
@@ -1112,12 +1112,12 @@
     }
     const total = (DATA.emails || []).length;
     if ($("#email-count-view")) {
-      $("#email-count-view").textContent = `顯示 ${rows.length}／${total}（僅行政部）`;
+      $("#email-count-view").textContent = `顯示 ${rows.length}／${total}`;
     }
     const box = $("#email-list");
     if (!box) return;
     if (!rows.length) {
-      box.innerHTML = `<div class="empty">沒有符合篩選的行政部電郵</div>`;
+      box.innerHTML = `<div class="empty">沒有符合篩選的電郵</div>`;
       return;
     }
     const MAX = 400;
@@ -1129,7 +1129,7 @@
           return `<div class="email-row${off ? " off-hours" : ""}">
             <div>
               <div class="time">${esc(emailTimeLabel(e))}</div>
-              ${off ? `<span class="badge off">非辦公</span>` : `<span class="badge on">辦公</span>`}
+              ${off ? `<span class="badge off">非辦公時間</span>` : `<span class="badge on">辦公時間</span>`}
             </div>
             <div><span class="role-pill admin">行政</span></div>
             <div class="pa">${esc(e.pa || "—")}</div>
