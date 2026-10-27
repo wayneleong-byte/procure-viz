@@ -2,8 +2,8 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-10-27 01:53",
-    "source_generated_at": "2026-10-27 01:50",
+    "generated_at": "2026-10-27 08:48",
+    "source_generated_at": "2026-10-27 08:44",
     "today": "2026-10-27",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
@@ -82,10 +82,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 32.6,
+        "admin_days": 32.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 32.6,
+        "total_days": 32.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -143,18 +143,18 @@
         "gaps": [
           {
             "from_t": "2026-09-24 12:01",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1790222460.0,
-            "to_ts": 1793037198.633075,
-            "days": 32.6,
+            "to_ts": 1793062086.44722,
+            "days": 32.9,
             "role": "admin",
             "open": true,
-            "label": "至今 32.6 天"
+            "label": "至今 32.9 天"
           }
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -185,10 +185,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 27.6,
+        "admin_days": 27.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 27.6,
+        "total_days": 27.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -234,18 +234,18 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1790650140.0,
-            "to_ts": 1793037198.633075,
-            "days": 27.6,
+            "to_ts": 1793062086.44722,
+            "days": 27.9,
             "role": "admin",
             "open": true,
-            "label": "至今 27.6 天"
+            "label": "至今 27.9 天"
           }
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -276,10 +276,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 27.3,
+        "admin_days": 27.6,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 27.3,
+        "total_days": 27.6,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -337,18 +337,18 @@
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1790679180.0,
-            "to_ts": 1793037198.633075,
-            "days": 27.3,
+            "to_ts": 1793062086.44722,
+            "days": 27.6,
             "role": "admin",
             "open": true,
-            "label": "至今 27.3 天"
+            "label": "至今 27.6 天"
           }
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -379,10 +379,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 26.6,
+        "admin_days": 26.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 26.6,
+        "total_days": 26.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -416,18 +416,18 @@
         "gaps": [
           {
             "from_t": "2026-09-30 11:12",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1790737920.0,
-            "to_ts": 1793037198.633075,
-            "days": 26.6,
+            "to_ts": 1793062086.44722,
+            "days": 26.9,
             "role": "admin",
             "open": true,
-            "label": "至今 26.6 天"
+            "label": "至今 26.9 天"
           }
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -458,13 +458,13 @@
       "admin_total": 23,
       "colleague_total": 2.1,
       "time_share": {
-        "admin_days": 17.2,
+        "admin_days": 17.5,
         "edu_days": 0.0,
         "third_days": 25.8,
-        "total_days": 43.0,
-        "admin_pct": 40.0,
+        "total_days": 43.3,
+        "admin_pct": 40.4,
         "edu_pct": 0.0,
-        "third_pct": 60.0
+        "third_pct": 59.6
       },
       "timeline": {
         "nodes": [
@@ -525,18 +525,18 @@
           },
           {
             "from_t": "2026-10-09 20:00",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1791547200.0,
-            "to_ts": 1793037198.633075,
-            "days": 17.2,
+            "to_ts": 1793062086.44722,
+            "days": 17.5,
             "role": "admin",
             "open": true,
-            "label": "至今 17.2 天"
+            "label": "至今 17.5 天"
           }
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -567,10 +567,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 14.6,
+        "admin_days": 14.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 14.6,
+        "total_days": 14.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -604,18 +604,18 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1791777120.0,
-            "to_ts": 1793037198.633075,
-            "days": 14.6,
+            "to_ts": 1793062086.44722,
+            "days": 14.9,
             "role": "admin",
             "open": true,
-            "label": "至今 14.6 天"
+            "label": "至今 14.9 天"
           }
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -646,13 +646,13 @@
       "admin_total": 13.1,
       "colleague_total": 4.4,
       "time_share": {
-        "admin_days": 78.8,
+        "admin_days": 79.1,
         "edu_days": 1.1,
         "third_days": 16.2,
-        "total_days": 96.1,
-        "admin_pct": 82.0,
+        "total_days": 96.4,
+        "admin_pct": 82.1,
         "edu_pct": 1.1,
-        "third_pct": 16.9
+        "third_pct": 16.8
       },
       "timeline": {
         "nodes": [
@@ -854,18 +854,18 @@
           },
           {
             "from_t": "2026-10-15 17:31",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792056660.0,
-            "to_ts": 1793037198.633075,
-            "days": 11.3,
+            "to_ts": 1793062086.44722,
+            "days": 11.6,
             "role": "admin",
             "open": true,
-            "label": "至今 11.3 天"
+            "label": "至今 11.6 天"
           }
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -896,12 +896,12 @@
       "admin_total": 27,
       "colleague_total": 23.8,
       "time_share": {
-        "admin_days": 39.1,
+        "admin_days": 39.4,
         "edu_days": 23.0,
         "third_days": 0.0,
-        "total_days": 62.1,
-        "admin_pct": 63.0,
-        "edu_pct": 37.0,
+        "total_days": 62.4,
+        "admin_pct": 63.1,
+        "edu_pct": 36.9,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1005,18 +1005,18 @@
           },
           {
             "from_t": "2026-10-16 11:33",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792121580.0,
-            "to_ts": 1793037198.633075,
-            "days": 10.6,
+            "to_ts": 1793062086.44722,
+            "days": 10.9,
             "role": "admin",
             "open": true,
-            "label": "至今 10.6 天"
+            "label": "至今 10.9 天"
           }
         ],
         "span": {
           "min_ts": 1787673600.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1047,10 +1047,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 11.1,
+        "admin_days": 11.4,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 11.1,
+        "total_days": 11.4,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1084,18 +1084,18 @@
         "gaps": [
           {
             "from_t": "2026-10-16",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792080000.0,
-            "to_ts": 1793037198.633075,
-            "days": 11.1,
+            "to_ts": 1793062086.44722,
+            "days": 11.4,
             "role": "admin",
             "open": true,
-            "label": "至今 11.1 天"
+            "label": "至今 11.4 天"
           }
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1126,12 +1126,12 @@
       "admin_total": "",
       "colleague_total": 23.4,
       "time_share": {
-        "admin_days": 8.7,
+        "admin_days": 9.0,
         "edu_days": 23.4,
         "third_days": 0.0,
-        "total_days": 32.1,
-        "admin_pct": 27.1,
-        "edu_pct": 72.9,
+        "total_days": 32.4,
+        "admin_pct": 27.8,
+        "edu_pct": 72.2,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1195,18 +1195,18 @@
           },
           {
             "from_t": "2026-10-18 09:54",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792288440.0,
-            "to_ts": 1793037198.633075,
-            "days": 8.7,
+            "to_ts": 1793062086.44722,
+            "days": 9.0,
             "role": "admin",
             "open": true,
-            "label": "至今 8.7 天"
+            "label": "至今 9.0 天"
           }
         ],
         "span": {
           "min_ts": 1790265780.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1237,10 +1237,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 6.5,
+        "admin_days": 6.8,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 6.5,
+        "total_days": 6.8,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1262,18 +1262,18 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792471980.0,
-            "to_ts": 1793037198.633075,
-            "days": 6.5,
+            "to_ts": 1793062086.44722,
+            "days": 6.8,
             "role": "admin",
             "open": true,
-            "label": "至今 6.5 天"
+            "label": "至今 6.8 天"
           }
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1304,10 +1304,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 5.4,
+        "admin_days": 5.7,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 5.4,
+        "total_days": 5.7,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1329,18 +1329,18 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792566900.0,
-            "to_ts": 1793037198.633075,
-            "days": 5.4,
+            "to_ts": 1793062086.44722,
+            "days": 5.7,
             "role": "admin",
             "open": true,
-            "label": "至今 5.4 天"
+            "label": "至今 5.7 天"
           }
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1371,12 +1371,12 @@
       "admin_total": 16.1,
       "colleague_total": 5.6,
       "time_share": {
-        "admin_days": 21.8,
+        "admin_days": 22.1,
         "edu_days": 5.6,
         "third_days": 0.0,
-        "total_days": 27.4,
-        "admin_pct": 79.6,
-        "edu_pct": 20.4,
+        "total_days": 27.7,
+        "admin_pct": 79.8,
+        "edu_pct": 20.2,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1438,18 +1438,18 @@
           },
           {
             "from_t": "2026-10-21 09:58",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792547880.0,
-            "to_ts": 1793037198.633075,
-            "days": 5.7,
+            "to_ts": 1793062086.44722,
+            "days": 6.0,
             "role": "admin",
             "open": true,
-            "label": "至今 5.7 天"
+            "label": "至今 6.0 天"
           }
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1480,12 +1480,12 @@
       "admin_total": 15.0,
       "colleague_total": 5.2,
       "time_share": {
-        "admin_days": 20.9,
+        "admin_days": 21.1,
         "edu_days": 11.6,
         "third_days": 2.3,
-        "total_days": 34.8,
-        "admin_pct": 60.1,
-        "edu_pct": 33.3,
+        "total_days": 35.0,
+        "admin_pct": 60.3,
+        "edu_pct": 33.1,
         "third_pct": 6.6
       },
       "timeline": {
@@ -1723,18 +1723,18 @@
           },
           {
             "from_t": "2026-10-22 10:06",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792634760.0,
-            "to_ts": 1793037198.633075,
-            "days": 4.7,
+            "to_ts": 1793062086.44722,
+            "days": 4.9,
             "role": "admin",
             "open": true,
-            "label": "至今 4.7 天"
+            "label": "至今 4.9 天"
           }
         ],
         "span": {
           "min_ts": 1788941520.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1765,10 +1765,10 @@
       "admin_total": 37.8,
       "colleague_total": 0.4,
       "time_share": {
-        "admin_days": 48.6,
+        "admin_days": 48.9,
         "edu_days": 0.4,
         "third_days": 0.0,
-        "total_days": 49.0,
+        "total_days": 49.3,
         "admin_pct": 99.2,
         "edu_pct": 0.8,
         "third_pct": 0.0
@@ -1931,18 +1931,18 @@
           },
           {
             "from_t": "2026-10-23 16:26",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792743960.0,
-            "to_ts": 1793037198.633075,
-            "days": 3.4,
+            "to_ts": 1793062086.44722,
+            "days": 3.7,
             "role": "admin",
             "open": true,
-            "label": "至今 3.4 天"
+            "label": "至今 3.7 天"
           }
         ],
         "span": {
           "min_ts": 1788796800.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -1973,12 +1973,12 @@
       "admin_total": 15,
       "colleague_total": 0.9,
       "time_share": {
-        "admin_days": 18.2,
+        "admin_days": 18.5,
         "edu_days": 0.9,
         "third_days": 0.0,
-        "total_days": 19.1,
-        "admin_pct": 95.3,
-        "edu_pct": 4.7,
+        "total_days": 19.4,
+        "admin_pct": 95.4,
+        "edu_pct": 4.6,
         "third_pct": 0.0
       },
       "timeline": {
@@ -2040,18 +2040,18 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792840260.0,
-            "to_ts": 1793037198.633075,
-            "days": 2.3,
+            "to_ts": 1793062086.44722,
+            "days": 2.6,
             "role": "admin",
             "open": true,
-            "label": "至今 2.3 天"
+            "label": "至今 2.6 天"
           }
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -2082,13 +2082,13 @@
       "admin_total": 23.7,
       "colleague_total": 3.2,
       "time_share": {
-        "admin_days": 0.4,
+        "admin_days": 0.7,
         "edu_days": 0.0,
         "third_days": 26.9,
-        "total_days": 27.3,
-        "admin_pct": 1.5,
+        "total_days": 27.6,
+        "admin_pct": 2.5,
         "edu_pct": 0.0,
-        "third_pct": 98.5
+        "third_pct": 97.5
       },
       "timeline": {
         "nodes": [
@@ -2185,18 +2185,18 @@
           },
           {
             "from_t": "2026-10-26 16:07",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1793002020.0,
-            "to_ts": 1793037198.633075,
-            "days": 0.4,
+            "to_ts": 1793062086.44722,
+            "days": 0.7,
             "role": "admin",
             "open": true,
-            "label": "至今 0.4 天"
+            "label": "至今 0.7 天"
           }
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -2229,8 +2229,8 @@
       "time_share": {
         "admin_days": 0.7,
         "edu_days": 26.0,
-        "third_days": 78.4,
-        "total_days": 105.1,
+        "third_days": 78.6,
+        "total_days": 105.3,
         "admin_pct": 0.7,
         "edu_pct": 24.7,
         "third_pct": 74.6
@@ -2348,18 +2348,18 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792548480.0,
-            "to_ts": 1793037198.633075,
-            "days": 5.7,
+            "to_ts": 1793062086.44722,
+            "days": 5.9,
             "role": "third",
             "open": true,
-            "label": "至今 5.7 天"
+            "label": "至今 5.9 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -2392,11 +2392,11 @@
       "time_share": {
         "admin_days": 52.8,
         "edu_days": 1.0,
-        "third_days": 17.3,
-        "total_days": 71.1,
-        "admin_pct": 74.3,
+        "third_days": 17.6,
+        "total_days": 71.4,
+        "admin_pct": 74.0,
         "edu_pct": 1.4,
-        "third_pct": 24.3
+        "third_pct": 24.6
       },
       "timeline": {
         "nodes": [
@@ -2523,18 +2523,18 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1791542460.0,
-            "to_ts": 1793037198.633075,
-            "days": 17.3,
+            "to_ts": 1793062086.44722,
+            "days": 17.6,
             "role": "third",
             "open": true,
-            "label": "至今 17.3 天"
+            "label": "至今 17.6 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -2567,8 +2567,8 @@
       "time_share": {
         "admin_days": 0.0,
         "edu_days": 0.0,
-        "third_days": 71.1,
-        "total_days": 71.1,
+        "third_days": 71.4,
+        "total_days": 71.4,
         "admin_pct": 0.0,
         "edu_pct": 0.0,
         "third_pct": 100.0
@@ -2716,18 +2716,18 @@
           },
           {
             "from_t": "2026-10-22",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792598400.0,
-            "to_ts": 1793037198.633075,
-            "days": 5.1,
+            "to_ts": 1793062086.44722,
+            "days": 5.4,
             "role": "third",
             "open": true,
-            "label": "至今 5.1 天"
+            "label": "至今 5.4 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -2760,11 +2760,11 @@
       "time_share": {
         "admin_days": 45.0,
         "edu_days": 0.0,
-        "third_days": 60.0,
-        "total_days": 105.0,
-        "admin_pct": 42.9,
+        "third_days": 60.3,
+        "total_days": 105.3,
+        "admin_pct": 42.7,
         "edu_pct": 0.0,
-        "third_pct": 57.1
+        "third_pct": 57.3
       },
       "timeline": {
         "nodes": [
@@ -2879,18 +2879,18 @@
           },
           {
             "from_t": "2026-10-22 10:59",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792637940.0,
-            "to_ts": 1793037198.633075,
-            "days": 4.6,
+            "to_ts": 1793062086.44722,
+            "days": 4.9,
             "role": "third",
             "open": true,
-            "label": "至今 4.6 天"
+            "label": "至今 4.9 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -2922,12 +2922,12 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 14.4,
-        "edu_days": 10.2,
+        "edu_days": 10.5,
         "third_days": 3.0,
-        "total_days": 27.6,
-        "admin_pct": 52.1,
-        "edu_pct": 37.0,
-        "third_pct": 10.9
+        "total_days": 27.9,
+        "admin_pct": 51.6,
+        "edu_pct": 37.6,
+        "third_pct": 10.8
       },
       "timeline": {
         "nodes": [
@@ -3000,18 +3000,18 @@
           },
           {
             "from_t": "2026-10-16 20:43",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792154580.0,
-            "to_ts": 1793037198.633075,
-            "days": 10.2,
+            "to_ts": 1793062086.44722,
+            "days": 10.5,
             "role": "edu",
             "open": true,
-            "label": "至今 10.2 天"
+            "label": "至今 10.5 天"
           }
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -3043,11 +3043,11 @@
       "colleague_total": 8.0,
       "time_share": {
         "admin_days": 24.3,
-        "edu_days": 13.2,
+        "edu_days": 13.5,
         "third_days": 0.0,
-        "total_days": 37.5,
-        "admin_pct": 64.8,
-        "edu_pct": 35.2,
+        "total_days": 37.8,
+        "admin_pct": 64.3,
+        "edu_pct": 35.7,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3276,18 +3276,18 @@
           },
           {
             "from_t": "2026-10-21 21:50",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792590600.0,
-            "to_ts": 1793037198.633075,
-            "days": 5.2,
+            "to_ts": 1793062086.44722,
+            "days": 5.5,
             "role": "edu",
             "open": true,
-            "label": "至今 5.2 天"
+            "label": "至今 5.5 天"
           }
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -3319,12 +3319,12 @@
       "colleague_total": 7.0,
       "time_share": {
         "admin_days": 21.8,
-        "edu_days": 10.2,
+        "edu_days": 10.5,
         "third_days": 9.1,
-        "total_days": 41.1,
-        "admin_pct": 53.1,
-        "edu_pct": 24.8,
-        "third_pct": 22.1
+        "total_days": 41.4,
+        "admin_pct": 52.6,
+        "edu_pct": 25.4,
+        "third_pct": 22.0
       },
       "timeline": {
         "nodes": [
@@ -3418,18 +3418,18 @@
           },
           {
             "from_t": "2026-10-23 20:31",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792758660.0,
-            "to_ts": 1793037198.633075,
-            "days": 3.2,
+            "to_ts": 1793062086.44722,
+            "days": 3.5,
             "role": "edu",
             "open": true,
-            "label": "至今 3.2 天"
+            "label": "至今 3.5 天"
           }
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -3461,11 +3461,11 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 32.2,
-        "edu_days": 3.3,
+        "edu_days": 3.6,
         "third_days": 0.0,
-        "total_days": 35.5,
-        "admin_pct": 90.7,
-        "edu_pct": 9.3,
+        "total_days": 35.8,
+        "admin_pct": 89.9,
+        "edu_pct": 10.1,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3542,18 +3542,18 @@
           },
           {
             "from_t": "2026-10-23 17:55",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792749300.0,
-            "to_ts": 1793037198.633075,
-            "days": 3.3,
+            "to_ts": 1793062086.44722,
+            "days": 3.6,
             "role": "edu",
             "open": true,
-            "label": "至今 3.3 天"
+            "label": "至今 3.6 天"
           }
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     },
@@ -3585,12 +3585,12 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 0.0,
-        "edu_days": 3.5,
+        "edu_days": 3.8,
         "third_days": 28.8,
-        "total_days": 32.3,
+        "total_days": 32.6,
         "admin_pct": 0.0,
-        "edu_pct": 10.8,
-        "third_pct": 89.2
+        "edu_pct": 11.7,
+        "third_pct": 88.3
       },
       "timeline": {
         "nodes": [
@@ -3654,18 +3654,18 @@
           },
           {
             "from_t": "2026-10-23 12:50",
-            "to_t": "2026-10-27 01:53",
+            "to_t": "2026-10-27 08:48",
             "from_ts": 1792731000.0,
-            "to_ts": 1793037198.633075,
-            "days": 3.5,
+            "to_ts": 1793062086.44722,
+            "days": 3.8,
             "role": "edu",
             "open": true,
-            "label": "至今 3.5 天"
+            "label": "至今 3.8 天"
           }
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1793037198.633075
+          "max_ts": 1793062086.44722
         }
       }
     }
