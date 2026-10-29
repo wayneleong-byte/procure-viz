@@ -2,18 +2,18 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-10-28 08:41",
-    "source_generated_at": "2026-10-28 08:38",
-    "today": "2026-10-28",
+    "generated_at": "2026-10-29 08:38",
+    "source_generated_at": "2026-10-29 08:34",
+    "today": "2026-10-29",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
-    "incomplete_count": 27,
-    "completed_count": 14,
+    "incomplete_count": 26,
+    "completed_count": 15,
     "overview_count": 41,
-    "email_count": 135,
-    "email_on_hours": 75,
-    "email_off_hours": 60,
-    "progress_linked_count": 44,
+    "email_count": 138,
+    "email_on_hours": 76,
+    "email_off_hours": 62,
+    "progress_linked_count": 45,
     "status_order": [
       "已提交待回覆",
       "報價進行中",
@@ -22,11 +22,11 @@
       "行政部已回覆待同事重交"
     ],
     "status_counts": {
-      "已提交待回覆": 19,
+      "已提交待回覆": 20,
       "報價進行中": 2,
       "行政部與甲方跟進中": 1,
       "待對方補充資料後交行政": 1,
-      "行政部已回覆待同事重交": 4
+      "行政部已回覆待同事重交": 2
     },
     "submitters": [
       "Candy Fok",
@@ -69,8 +69,8 @@
       "first_submit": "2026-09-24 12:01",
       "status_since": "2026-09-24 12:01",
       "completed_at": "",
-      "days_in_status": 34,
-      "days_since_first_submit": 34,
+      "days_in_status": 35,
+      "days_since_first_submit": 35,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -82,10 +82,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 33.9,
+        "admin_days": 34.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 33.9,
+        "total_days": 34.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -113,7 +113,7 @@
             "who": "Sam Lei",
             "round": null,
             "secondary": true,
-            "closed": false
+            "closed": true
           },
           {
             "t": "2026-10-14 14:49",
@@ -125,7 +125,7 @@
             "who": "Sam Lei",
             "round": null,
             "secondary": true,
-            "closed": false
+            "closed": true
           },
           {
             "t": "2026-10-22 11:33",
@@ -137,24 +137,24 @@
             "who": "Sam Lei",
             "round": null,
             "secondary": true,
-            "closed": false
+            "closed": true
           }
         ],
         "gaps": [
           {
             "from_t": "2026-09-24 12:01",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1790222460.0,
-            "to_ts": 1793148110.408984,
-            "days": 33.9,
+            "to_ts": 1793234319.279009,
+            "days": 34.9,
             "role": "admin",
             "open": true,
-            "label": "至今 33.9 天"
+            "label": "至今 34.9 天"
           }
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -172,8 +172,8 @@
       "first_submit": "2026-09-29 10:49",
       "status_since": "2026-09-29 10:49",
       "completed_at": "",
-      "days_in_status": 29,
-      "days_since_first_submit": 29,
+      "days_in_status": 30,
+      "days_since_first_submit": 30,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -185,10 +185,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 28.9,
+        "admin_days": 29.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 28.9,
+        "total_days": 29.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -234,18 +234,18 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1790650140.0,
-            "to_ts": 1793148110.408984,
-            "days": 28.9,
+            "to_ts": 1793234319.279009,
+            "days": 29.9,
             "role": "admin",
             "open": true,
-            "label": "至今 28.9 天"
+            "label": "至今 29.9 天"
           }
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -263,8 +263,8 @@
       "first_submit": "2026-09-29 18:53",
       "status_since": "2026-09-29 18:53",
       "completed_at": "",
-      "days_in_status": 29,
-      "days_since_first_submit": 29,
+      "days_in_status": 30,
+      "days_since_first_submit": 30,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -276,10 +276,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 28.6,
+        "admin_days": 29.6,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 28.6,
+        "total_days": 29.6,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -332,23 +332,35 @@
             "round": null,
             "secondary": true,
             "closed": false
+          },
+          {
+            "t": "2026-10-28 18:12",
+            "ts": 1793182320.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
+            "who": "Nicole Wong",
+            "round": null,
+            "secondary": true,
+            "closed": false
           }
         ],
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1790679180.0,
-            "to_ts": 1793148110.408984,
-            "days": 28.6,
+            "to_ts": 1793234319.279009,
+            "days": 29.6,
             "role": "admin",
             "open": true,
-            "label": "至今 28.6 天"
+            "label": "至今 29.6 天"
           }
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -366,8 +378,8 @@
       "first_submit": "2026-09-30 11:12",
       "status_since": "2026-09-30 11:12",
       "completed_at": "",
-      "days_in_status": 28,
-      "days_since_first_submit": 28,
+      "days_in_status": 29,
+      "days_since_first_submit": 29,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -379,10 +391,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 27.9,
+        "admin_days": 28.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 27.9,
+        "total_days": 28.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -416,18 +428,18 @@
         "gaps": [
           {
             "from_t": "2026-09-30 11:12",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1790737920.0,
-            "to_ts": 1793148110.408984,
-            "days": 27.9,
+            "to_ts": 1793234319.279009,
+            "days": 28.9,
             "role": "admin",
             "open": true,
-            "label": "至今 27.9 天"
+            "label": "至今 28.9 天"
           }
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -445,8 +457,8 @@
       "first_submit": "2026-09-14",
       "status_since": "2026-10-09 20:00",
       "completed_at": "",
-      "days_in_status": 19,
-      "days_since_first_submit": 44,
+      "days_in_status": 20,
+      "days_since_first_submit": 45,
       "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-07 17:55",
@@ -458,13 +470,13 @@
       "admin_total": 23,
       "colleague_total": 2.1,
       "time_share": {
-        "admin_days": 18.5,
+        "admin_days": 19.5,
         "edu_days": 0.0,
         "third_days": 25.8,
-        "total_days": 44.3,
-        "admin_pct": 41.8,
+        "total_days": 45.3,
+        "admin_pct": 43.0,
         "edu_pct": 0.0,
-        "third_pct": 58.2
+        "third_pct": 57.0
       },
       "timeline": {
         "nodes": [
@@ -525,18 +537,18 @@
           },
           {
             "from_t": "2026-10-09 20:00",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1791547200.0,
-            "to_ts": 1793148110.408984,
-            "days": 18.5,
+            "to_ts": 1793234319.279009,
+            "days": 19.5,
             "role": "admin",
             "open": true,
-            "label": "至今 18.5 天"
+            "label": "至今 19.5 天"
           }
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -554,8 +566,8 @@
       "first_submit": "2026-10-12 11:52",
       "status_since": "2026-10-12 11:52",
       "completed_at": "",
-      "days_in_status": 16,
-      "days_since_first_submit": 16,
+      "days_in_status": 17,
+      "days_since_first_submit": 17,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -567,10 +579,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 15.9,
+        "admin_days": 16.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 15.9,
+        "total_days": 16.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -604,18 +616,18 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1791777120.0,
-            "to_ts": 1793148110.408984,
-            "days": 15.9,
+            "to_ts": 1793234319.279009,
+            "days": 16.9,
             "role": "admin",
             "open": true,
-            "label": "至今 15.9 天"
+            "label": "至今 16.9 天"
           }
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -633,8 +645,8 @@
       "first_submit": "2026-07-23",
       "status_since": "2026-10-15 17:31",
       "completed_at": "",
-      "days_in_status": 13,
-      "days_since_first_submit": 97,
+      "days_in_status": 14,
+      "days_since_first_submit": 98,
       "process_days": null,
       "current_round": 6,
       "last_reply": "2026-10-14 14:39",
@@ -646,13 +658,13 @@
       "admin_total": 13.1,
       "colleague_total": 4.4,
       "time_share": {
-        "admin_days": 80.1,
+        "admin_days": 81.1,
         "edu_days": 1.1,
         "third_days": 16.2,
-        "total_days": 97.4,
-        "admin_pct": 82.3,
+        "total_days": 98.4,
+        "admin_pct": 82.4,
         "edu_pct": 1.1,
-        "third_pct": 16.6
+        "third_pct": 16.5
       },
       "timeline": {
         "nodes": [
@@ -778,7 +790,7 @@
             "who": "Ryan Lei",
             "round": null,
             "secondary": true,
-            "closed": false
+            "closed": true
           }
         ],
         "gaps": [
@@ -854,169 +866,18 @@
           },
           {
             "from_t": "2026-10-15 17:31",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792056660.0,
-            "to_ts": 1793148110.408984,
-            "days": 12.6,
+            "to_ts": 1793234319.279009,
+            "days": 13.6,
             "role": "admin",
             "open": true,
-            "label": "至今 12.6 天"
+            "label": "至今 13.6 天"
           }
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1793148110.408984
-        }
-      }
-    },
-    {
-      "id": "PA-26-244(2)",
-      "stage": "Form 2",
-      "title": "為G13展品及智學園地採購光纖網路租用服務",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
-      "attr_label": "R3 · Form 2",
-      "submitter": "Sam Lei",
-      "follow_up": [
-        "Sam Lei"
-      ],
-      "first_submit": "2026-08-26",
-      "status_since": "2026-10-16 11:57",
-      "completed_at": "",
-      "days_in_status": 12,
-      "days_since_first_submit": 63,
-      "process_days": null,
-      "current_round": 3,
-      "last_reply": "2026-10-13 16:28",
-      "last_reply_summary": "須按附件修改（附件：PA-26-244.pdf）",
-      "last_resubmit": "2026-10-16 11:57",
-      "admin_clock_from": "",
-      "days_since_reply": "",
-      "n_rounds": 3,
-      "admin_total": 27,
-      "colleague_total": 23.8,
-      "time_share": {
-        "admin_days": 40.4,
-        "edu_days": 23.0,
-        "third_days": 0.0,
-        "total_days": 63.4,
-        "admin_pct": 63.7,
-        "edu_pct": 36.3,
-        "third_pct": 0.0
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-08-26",
-            "ts": 1787673600.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R1 提交",
-            "detail": "首次提交（Oscar 2026-10-14 提供）、第1次通知",
-            "who": "Sam Lei",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-09-17 19:02",
-            "ts": 1789642920.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須作出修正（第1次通知；原信不在匯出，僅見於第2次通知引用）",
-            "who": "Procure",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-08",
-            "ts": 1791388800.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R2 提交",
-            "detail": "第2次通知、同事重交（Oscar 2026-10-14 提供）",
-            "who": "Jane Leong",
-            "round": 2,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-13 16:28",
-            "ts": 1791880080.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R2 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-244.pdf）",
-            "who": "Procure",
-            "round": 2,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-16 11:33",
-            "ts": 1792121580.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R3 提交",
-            "detail": "[提交至行政採購文件]PA-26-244為G13展品及智學園地採購光纖網路租用服務（2026/12-2028/11）(第二次提交)",
-            "who": "Sam Lei",
-            "round": 3,
-            "secondary": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-08-26",
-            "to_t": "2026-09-17 19:02",
-            "from_ts": 1787673600.0,
-            "to_ts": 1789642920.0,
-            "days": 22.8,
-            "role": "admin",
-            "open": false,
-            "label": "22.8 天"
-          },
-          {
-            "from_t": "2026-09-17 19:02",
-            "to_t": "2026-10-08",
-            "from_ts": 1789642920.0,
-            "to_ts": 1791388800.0,
-            "days": 20.2,
-            "role": "edu",
-            "open": false,
-            "label": "20.2 天"
-          },
-          {
-            "from_t": "2026-10-08",
-            "to_t": "2026-10-13 16:28",
-            "from_ts": 1791388800.0,
-            "to_ts": 1791880080.0,
-            "days": 5.7,
-            "role": "admin",
-            "open": false,
-            "label": "5.7 天"
-          },
-          {
-            "from_t": "2026-10-13 16:28",
-            "to_t": "2026-10-16 11:33",
-            "from_ts": 1791880080.0,
-            "to_ts": 1792121580.0,
-            "days": 2.8,
-            "role": "edu",
-            "open": false,
-            "label": "2.8 天"
-          },
-          {
-            "from_t": "2026-10-16 11:33",
-            "to_t": "2026-10-28 08:41",
-            "from_ts": 1792121580.0,
-            "to_ts": 1793148110.408984,
-            "days": 11.9,
-            "role": "admin",
-            "open": true,
-            "label": "至今 11.9 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1787673600.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1034,8 +895,8 @@
       "first_submit": "2026-10-16",
       "status_since": "2026-10-16",
       "completed_at": "",
-      "days_in_status": 12,
-      "days_since_first_submit": 12,
+      "days_in_status": 13,
+      "days_since_first_submit": 13,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -1047,10 +908,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 12.4,
+        "admin_days": 13.4,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 12.4,
+        "total_days": 13.4,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1084,18 +945,18 @@
         "gaps": [
           {
             "from_t": "2026-10-16",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792080000.0,
-            "to_ts": 1793148110.408984,
-            "days": 12.4,
+            "to_ts": 1793234319.279009,
+            "days": 13.4,
             "role": "admin",
             "open": true,
-            "label": "至今 12.4 天"
+            "label": "至今 13.4 天"
           }
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1113,8 +974,8 @@
       "first_submit": "2026-09-25 00:03",
       "status_since": "2026-10-18 09:54",
       "completed_at": "",
-      "days_in_status": 10,
-      "days_since_first_submit": 33,
+      "days_in_status": 11,
+      "days_since_first_submit": 34,
       "process_days": null,
       "current_round": 5,
       "last_reply": "2026-09-25 00:03",
@@ -1126,12 +987,12 @@
       "admin_total": "",
       "colleague_total": 23.4,
       "time_share": {
-        "admin_days": 9.9,
+        "admin_days": 10.9,
         "edu_days": 23.4,
         "third_days": 0.0,
-        "total_days": 33.3,
-        "admin_pct": 29.7,
-        "edu_pct": 70.3,
+        "total_days": 34.3,
+        "admin_pct": 31.8,
+        "edu_pct": 68.2,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1195,18 +1056,18 @@
           },
           {
             "from_t": "2026-10-18 09:54",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792288440.0,
-            "to_ts": 1793148110.408984,
-            "days": 9.9,
+            "to_ts": 1793234319.279009,
+            "days": 10.9,
             "role": "admin",
             "open": true,
-            "label": "至今 9.9 天"
+            "label": "至今 10.9 天"
           }
         ],
         "span": {
           "min_ts": 1790265780.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1224,8 +1085,8 @@
       "first_submit": "2026-10-20 12:53",
       "status_since": "2026-10-20 12:53",
       "completed_at": "",
-      "days_in_status": 8,
-      "days_since_first_submit": 8,
+      "days_in_status": 9,
+      "days_since_first_submit": 9,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -1237,10 +1098,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 7.8,
+        "admin_days": 8.8,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 7.8,
+        "total_days": 8.8,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1274,18 +1135,18 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792471980.0,
-            "to_ts": 1793148110.408984,
-            "days": 7.8,
+            "to_ts": 1793234319.279009,
+            "days": 8.8,
             "role": "admin",
             "open": true,
-            "label": "至今 7.8 天"
+            "label": "至今 8.8 天"
           }
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1303,8 +1164,8 @@
       "first_submit": "2026-10-21 15:15",
       "status_since": "2026-10-21 15:15",
       "completed_at": "",
-      "days_in_status": 7,
-      "days_since_first_submit": 7,
+      "days_in_status": 8,
+      "days_since_first_submit": 8,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -1316,10 +1177,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 6.7,
+        "admin_days": 7.7,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 6.7,
+        "total_days": 7.7,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1341,18 +1202,18 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792566900.0,
-            "to_ts": 1793148110.408984,
-            "days": 6.7,
+            "to_ts": 1793234319.279009,
+            "days": 7.7,
             "role": "admin",
             "open": true,
-            "label": "至今 6.7 天"
+            "label": "至今 7.7 天"
           }
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1370,8 +1231,8 @@
       "first_submit": "2026-09-22 09:19",
       "status_since": "2026-10-23 10:17",
       "completed_at": "",
-      "days_in_status": 5,
-      "days_since_first_submit": 36,
+      "days_in_status": 6,
+      "days_since_first_submit": 37,
       "process_days": null,
       "current_round": 5,
       "last_reply": "2026-10-13 15:44",
@@ -1383,13 +1244,13 @@
       "admin_total": 15.0,
       "colleague_total": 5.2,
       "time_share": {
-        "admin_days": 22.1,
+        "admin_days": 23.1,
         "edu_days": 11.6,
         "third_days": 2.3,
-        "total_days": 36.0,
-        "admin_pct": 61.4,
-        "edu_pct": 32.2,
-        "third_pct": 6.4
+        "total_days": 37.0,
+        "admin_pct": 62.4,
+        "edu_pct": 31.4,
+        "third_pct": 6.2
       },
       "timeline": {
         "nodes": [
@@ -1626,18 +1487,18 @@
           },
           {
             "from_t": "2026-10-22 10:06",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792634760.0,
-            "to_ts": 1793148110.408984,
-            "days": 5.9,
+            "to_ts": 1793234319.279009,
+            "days": 6.9,
             "role": "admin",
             "open": true,
-            "label": "至今 5.9 天"
+            "label": "至今 6.9 天"
           }
         ],
         "span": {
           "min_ts": 1788941520.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1655,8 +1516,8 @@
       "first_submit": "2026-10-08",
       "status_since": "2026-10-24 19:11",
       "completed_at": "",
-      "days_in_status": 4,
-      "days_since_first_submit": 20,
+      "days_in_status": 5,
+      "days_since_first_submit": 21,
       "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 20:28",
@@ -1668,12 +1529,12 @@
       "admin_total": 15,
       "colleague_total": 0.9,
       "time_share": {
-        "admin_days": 19.5,
+        "admin_days": 20.5,
         "edu_days": 0.9,
         "third_days": 0.0,
-        "total_days": 20.4,
-        "admin_pct": 95.6,
-        "edu_pct": 4.4,
+        "total_days": 21.4,
+        "admin_pct": 95.8,
+        "edu_pct": 4.2,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1735,18 +1596,18 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792840260.0,
-            "to_ts": 1793148110.408984,
-            "days": 3.6,
+            "to_ts": 1793234319.279009,
+            "days": 4.6,
             "role": "admin",
             "open": true,
-            "label": "至今 3.6 天"
+            "label": "至今 4.6 天"
           }
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1764,8 +1625,8 @@
       "first_submit": "2026-09-29 18:57",
       "status_since": "2026-10-26 16:07",
       "completed_at": "",
-      "days_in_status": 2,
-      "days_since_first_submit": 29,
+      "days_in_status": 3,
+      "days_since_first_submit": 30,
       "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 11:54",
@@ -1777,13 +1638,13 @@
       "admin_total": 23.7,
       "colleague_total": 3.2,
       "time_share": {
-        "admin_days": 1.7,
+        "admin_days": 2.7,
         "edu_days": 0.0,
         "third_days": 26.9,
-        "total_days": 28.6,
-        "admin_pct": 5.9,
+        "total_days": 29.6,
+        "admin_pct": 9.1,
         "edu_pct": 0.0,
-        "third_pct": 94.1
+        "third_pct": 90.9
       },
       "timeline": {
         "nodes": [
@@ -1880,18 +1741,18 @@
           },
           {
             "from_t": "2026-10-26 16:07",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1793002020.0,
-            "to_ts": 1793148110.408984,
-            "days": 1.7,
+            "to_ts": 1793234319.279009,
+            "days": 2.7,
             "role": "admin",
             "open": true,
-            "label": "至今 1.7 天"
+            "label": "至今 2.7 天"
           }
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -1909,8 +1770,8 @@
       "first_submit": "2026-09-08",
       "status_since": "2026-10-27 11:58",
       "completed_at": "",
-      "days_in_status": 1,
-      "days_since_first_submit": 50,
+      "days_in_status": 2,
+      "days_since_first_submit": 51,
       "process_days": null,
       "current_round": 4,
       "last_reply": "2026-10-27 11:35",
@@ -1922,10 +1783,10 @@
       "admin_total": 41.6,
       "colleague_total": 0.4,
       "time_share": {
-        "admin_days": 49.9,
+        "admin_days": 50.9,
         "edu_days": 0.4,
         "third_days": 0.0,
-        "total_days": 50.3,
+        "total_days": 51.3,
         "admin_pct": 99.2,
         "edu_pct": 0.8,
         "third_pct": 0.0
@@ -2130,18 +1991,18 @@
           },
           {
             "from_t": "2026-10-27 11:58",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1793073480.0,
-            "to_ts": 1793148110.408984,
-            "days": 0.9,
+            "to_ts": 1793234319.279009,
+            "days": 1.9,
             "role": "admin",
             "open": true,
-            "label": "至今 0.9 天"
+            "label": "至今 1.9 天"
           }
         ],
         "span": {
           "min_ts": 1788796800.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -2159,8 +2020,8 @@
       "first_submit": "2026-09-21 12:03",
       "status_since": "2026-10-27 16:35",
       "completed_at": "",
-      "days_in_status": 1,
-      "days_since_first_submit": 37,
+      "days_in_status": 2,
+      "days_since_first_submit": 38,
       "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 17:55",
@@ -2172,12 +2033,12 @@
       "admin_total": 32.2,
       "colleague_total": 3.9,
       "time_share": {
-        "admin_days": 32.9,
+        "admin_days": 33.9,
         "edu_days": 3.9,
         "third_days": 0.0,
-        "total_days": 36.8,
-        "admin_pct": 89.4,
-        "edu_pct": 10.6,
+        "total_days": 37.8,
+        "admin_pct": 89.7,
+        "edu_pct": 10.3,
         "third_pct": 0.0
       },
       "timeline": {
@@ -2275,18 +2136,18 @@
           },
           {
             "from_t": "2026-10-27 16:35",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1793090100.0,
-            "to_ts": 1793148110.408984,
-            "days": 0.7,
+            "to_ts": 1793234319.279009,
+            "days": 1.7,
             "role": "admin",
             "open": true,
-            "label": "至今 0.7 天"
+            "label": "至今 1.7 天"
           }
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -2304,8 +2165,8 @@
       "first_submit": "2026-09-24 17:02",
       "status_since": "2026-10-27 11:04",
       "completed_at": "",
-      "days_in_status": 1,
-      "days_since_first_submit": 34,
+      "days_in_status": 2,
+      "days_since_first_submit": 35,
       "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 12:50",
@@ -2317,13 +2178,13 @@
       "admin_total": 28.8,
       "colleague_total": 3.9,
       "time_share": {
-        "admin_days": 0.9,
+        "admin_days": 1.9,
         "edu_days": 0.0,
         "third_days": 32.7,
-        "total_days": 33.6,
-        "admin_pct": 2.7,
+        "total_days": 34.6,
+        "admin_pct": 5.5,
         "edu_pct": 0.0,
-        "third_pct": 97.3
+        "third_pct": 94.5
       },
       "timeline": {
         "nodes": [
@@ -2408,18 +2269,18 @@
           },
           {
             "from_t": "2026-10-27 11:04",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1793070240.0,
-            "to_ts": 1793148110.408984,
-            "days": 0.9,
+            "to_ts": 1793234319.279009,
+            "days": 1.9,
             "role": "admin",
             "open": true,
-            "label": "至今 0.9 天"
+            "label": "至今 1.9 天"
           }
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -2437,8 +2298,8 @@
       "first_submit": "2026-10-27 15:56",
       "status_since": "2026-10-27 15:56",
       "completed_at": "",
-      "days_in_status": 1,
-      "days_since_first_submit": 1,
+      "days_in_status": 2,
+      "days_since_first_submit": 2,
       "process_days": null,
       "current_round": 1,
       "last_reply": "",
@@ -2450,10 +2311,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 0.7,
+        "admin_days": 1.7,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 0.7,
+        "total_days": 1.7,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -2475,9 +2336,151 @@
         "gaps": [
           {
             "from_t": "2026-10-27 15:56",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1793087760.0,
-            "to_ts": 1793148110.408984,
+            "to_ts": 1793234319.279009,
+            "days": 1.7,
+            "role": "admin",
+            "open": true,
+            "label": "至今 1.7 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1793087760.0,
+          "max_ts": 1793234319.279009
+        }
+      }
+    },
+    {
+      "id": "PA-26-270",
+      "stage": "Form 1",
+      "title": "為澳科館微定位導覽系統取得保養服務（2026-2029）",
+      "status": "已提交待回覆",
+      "status_group": "awaiting_admin",
+      "attr_label": "R3 · Form 1",
+      "submitter": "Sam Lei",
+      "follow_up": [
+        "Sam Lei"
+      ],
+      "first_submit": "2026-09-29 10:48",
+      "status_since": "2026-10-28 16:02",
+      "completed_at": "",
+      "days_in_status": 1,
+      "days_since_first_submit": 30,
+      "process_days": null,
+      "current_round": 3,
+      "last_reply": "2026-10-16 20:43",
+      "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
+      "last_resubmit": "2026-10-28 16:02",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 14.4,
+      "colleague_total": 26.6,
+      "time_share": {
+        "admin_days": 15.1,
+        "edu_days": 0.0,
+        "third_days": 14.8,
+        "total_days": 29.9,
+        "admin_pct": 50.5,
+        "edu_pct": 0.0,
+        "third_pct": 49.5
+      },
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-29 10:48",
+            "ts": 1790650080.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "[提交至行政採購文件]PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）(第一次提交)",
+            "who": "Sam Lei",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-12 09:48",
+            "ts": 1791769680.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢: PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）",
+            "who": "Sam Lei",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-13 21:08",
+            "ts": 1791896880.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-270_第一次修改.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-16 20:43",
+            "ts": 1792154580.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
+            "detail": "",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-28 16:02",
+            "ts": 1793174520.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件]PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）(第二次提交)",
+            "who": "Sam Lei",
+            "round": 3,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-29 10:48",
+            "to_t": "2026-10-13 21:08",
+            "from_ts": 1790650080.0,
+            "to_ts": 1791896880.0,
+            "days": 14.4,
+            "role": "admin",
+            "open": false,
+            "label": "14.4 天"
+          },
+          {
+            "from_t": "2026-10-13 21:08",
+            "to_t": "2026-10-16 20:43",
+            "from_ts": 1791896880.0,
+            "to_ts": 1792154580.0,
+            "days": 3.0,
+            "role": "third",
+            "open": false,
+            "label": "3.0 天"
+          },
+          {
+            "from_t": "2026-10-16 20:43",
+            "to_t": "2026-10-28 16:02",
+            "from_ts": 1792154580.0,
+            "to_ts": 1793174520.0,
+            "days": 11.8,
+            "role": "third",
+            "open": false,
+            "label": "11.8 天"
+          },
+          {
+            "from_t": "2026-10-28 16:02",
+            "to_t": "2026-10-29 08:38",
+            "from_ts": 1793174520.0,
+            "to_ts": 1793234319.279009,
             "days": 0.7,
             "role": "admin",
             "open": true,
@@ -2485,8 +2488,159 @@
           }
         ],
         "span": {
-          "min_ts": 1793087760.0,
-          "max_ts": 1793148110.408984
+          "min_ts": 1790650080.0,
+          "max_ts": 1793234319.279009
+        }
+      }
+    },
+    {
+      "id": "PP-26-068-EED",
+      "stage": "Form 1",
+      "title": "關於聯合主辦“國際青少年創科教育大賽（澳門區）2027”",
+      "status": "已提交待回覆",
+      "status_group": "awaiting_admin",
+      "attr_label": "R3 · Form 1",
+      "submitter": "Lam Chan",
+      "follow_up": [
+        "Lam Chan"
+      ],
+      "first_submit": "2026-09-29 16:24",
+      "status_since": "2026-10-28 15:55",
+      "completed_at": "",
+      "days_in_status": 1,
+      "days_since_first_submit": 30,
+      "process_days": null,
+      "current_round": 3,
+      "last_reply": "2026-10-27 19:45",
+      "last_reply_summary": "須按附件修改（附件：PP-26-068-EED_第2次修改.pdf）",
+      "last_resubmit": "2026-10-28 15:55",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 22.5,
+      "colleague_total": 6.4,
+      "time_share": {
+        "admin_days": 23.2,
+        "edu_days": 6.4,
+        "third_days": 0.0,
+        "total_days": 29.6,
+        "admin_pct": 78.4,
+        "edu_pct": 21.6,
+        "third_pct": 0.0
+      },
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-29 16:24",
+            "ts": 1790670240.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "[提交至行政採購文件] 有關PP-26-068-EED  關於聯合主辦“國際青少年創科教育大賽（澳門區）2027” 首次提交",
+            "who": "Lam Chan",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-15 19:58",
+            "ts": 1792065480.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須按附件修改（附件：PP-26-068-EED.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-21 09:58",
+            "ts": 1792547880.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "[提交至行政採購文件] 有關PP-26-068-EED 文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
+            "who": "Lam Chan",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-27 19:45",
+            "ts": 1793101500.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PP-26-068-EED_第2次修改.pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-28 15:55",
+            "ts": 1793174100.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件] 有關PP-26-068-EED 文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
+            "who": "Lam Chan",
+            "round": 3,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-29 16:24",
+            "to_t": "2026-10-15 19:58",
+            "from_ts": 1790670240.0,
+            "to_ts": 1792065480.0,
+            "days": 16.1,
+            "role": "admin",
+            "open": false,
+            "label": "16.1 天"
+          },
+          {
+            "from_t": "2026-10-15 19:58",
+            "to_t": "2026-10-21 09:58",
+            "from_ts": 1792065480.0,
+            "to_ts": 1792547880.0,
+            "days": 5.6,
+            "role": "edu",
+            "open": false,
+            "label": "5.6 天"
+          },
+          {
+            "from_t": "2026-10-21 09:58",
+            "to_t": "2026-10-27 19:45",
+            "from_ts": 1792547880.0,
+            "to_ts": 1793101500.0,
+            "days": 6.4,
+            "role": "admin",
+            "open": false,
+            "label": "6.4 天"
+          },
+          {
+            "from_t": "2026-10-27 19:45",
+            "to_t": "2026-10-28 15:55",
+            "from_ts": 1793101500.0,
+            "to_ts": 1793174100.0,
+            "days": 0.8,
+            "role": "edu",
+            "open": false,
+            "label": "0.8 天"
+          },
+          {
+            "from_t": "2026-10-28 15:55",
+            "to_t": "2026-10-29 08:38",
+            "from_ts": 1793174100.0,
+            "to_ts": 1793234319.279009,
+            "days": 0.7,
+            "role": "admin",
+            "open": true,
+            "label": "至今 0.7 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1790670240.0,
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -2504,8 +2658,8 @@
       "first_submit": "2026-07-14",
       "status_since": "2026-09-25 10:41",
       "completed_at": "",
-      "days_in_status": 33,
-      "days_since_first_submit": 106,
+      "days_in_status": 34,
+      "days_since_first_submit": 107,
       "process_days": null,
       "current_round": 6,
       "last_reply": "2026-09-25 10:41",
@@ -2519,11 +2673,11 @@
       "time_share": {
         "admin_days": 0.7,
         "edu_days": 26.0,
-        "third_days": 79.6,
-        "total_days": 106.3,
+        "third_days": 80.6,
+        "total_days": 107.3,
         "admin_pct": 0.7,
-        "edu_pct": 24.5,
-        "third_pct": 74.8
+        "edu_pct": 24.2,
+        "third_pct": 75.1
       },
       "timeline": {
         "nodes": [
@@ -2638,18 +2792,18 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792548480.0,
-            "to_ts": 1793148110.408984,
-            "days": 6.9,
+            "to_ts": 1793234319.279009,
+            "days": 7.9,
             "role": "third",
             "open": true,
-            "label": "至今 6.9 天"
+            "label": "至今 7.9 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -2667,8 +2821,8 @@
       "first_submit": "2026-08-17",
       "status_since": "2026-10-08 21:26",
       "completed_at": "",
-      "days_in_status": 20,
-      "days_since_first_submit": 72,
+      "days_in_status": 21,
+      "days_since_first_submit": 73,
       "process_days": null,
       "current_round": 5,
       "last_reply": "2026-10-08 21:26",
@@ -2682,11 +2836,11 @@
       "time_share": {
         "admin_days": 52.8,
         "edu_days": 1.0,
-        "third_days": 18.6,
-        "total_days": 72.4,
-        "admin_pct": 72.9,
+        "third_days": 19.6,
+        "total_days": 73.4,
+        "admin_pct": 71.9,
         "edu_pct": 1.4,
-        "third_pct": 25.7
+        "third_pct": 26.7
       },
       "timeline": {
         "nodes": [
@@ -2813,18 +2967,18 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1791542460.0,
-            "to_ts": 1793148110.408984,
-            "days": 18.6,
+            "to_ts": 1793234319.279009,
+            "days": 19.6,
             "role": "third",
             "open": true,
-            "label": "至今 18.6 天"
+            "label": "至今 19.6 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -2842,23 +2996,23 @@
       "first_submit": "2026-08-17",
       "status_since": "2026-10-22",
       "completed_at": "",
-      "days_in_status": 6,
-      "days_since_first_submit": 72,
+      "days_in_status": 7,
+      "days_since_first_submit": 73,
       "process_days": null,
       "current_round": 1,
       "last_reply": "2026-10-22",
       "last_reply_summary": "行政部收到第三方回饋",
       "last_resubmit": "",
       "admin_clock_from": "2026-10-22",
-      "days_since_reply": 6,
+      "days_since_reply": 7,
       "n_rounds": 1,
       "admin_total": 21,
       "colleague_total": "",
       "time_share": {
         "admin_days": 0.0,
         "edu_days": 0.0,
-        "third_days": 72.4,
-        "total_days": 72.4,
+        "third_days": 73.4,
+        "total_days": 73.4,
         "admin_pct": 0.0,
         "edu_pct": 0.0,
         "third_pct": 100.0
@@ -3006,18 +3160,18 @@
           },
           {
             "from_t": "2026-10-22",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792598400.0,
-            "to_ts": 1793148110.408984,
-            "days": 6.4,
+            "to_ts": 1793234319.279009,
+            "days": 7.4,
             "role": "third",
             "open": true,
-            "label": "至今 6.4 天"
+            "label": "至今 7.4 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -3035,8 +3189,8 @@
       "first_submit": "2026-07-14",
       "status_since": "2026-10-22 10:59",
       "completed_at": "",
-      "days_in_status": 6,
-      "days_since_first_submit": 106,
+      "days_in_status": 7,
+      "days_since_first_submit": 107,
       "process_days": null,
       "current_round": 1,
       "last_reply": "2026-10-22 10:59",
@@ -3050,11 +3204,11 @@
       "time_share": {
         "admin_days": 45.0,
         "edu_days": 0.0,
-        "third_days": 61.3,
-        "total_days": 106.3,
-        "admin_pct": 42.3,
+        "third_days": 62.3,
+        "total_days": 107.3,
+        "admin_pct": 41.9,
         "edu_pct": 0.0,
-        "third_pct": 57.7
+        "third_pct": 58.1
       },
       "timeline": {
         "nodes": [
@@ -3169,139 +3323,18 @@
           },
           {
             "from_t": "2026-10-22 10:59",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792637940.0,
-            "to_ts": 1793148110.408984,
-            "days": 5.9,
+            "to_ts": 1793234319.279009,
+            "days": 6.9,
             "role": "third",
             "open": true,
-            "label": "至今 5.9 天"
+            "label": "至今 6.9 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793148110.408984
-        }
-      }
-    },
-    {
-      "id": "PA-26-270",
-      "stage": "Form 1",
-      "title": "為澳科館微定位導覽系統取得保養服務（2026-2029）",
-      "status": "行政部已回覆待同事重交",
-      "status_group": "pending_resubmit",
-      "attr_label": "R2 · Form 1",
-      "submitter": "Sam Lei",
-      "follow_up": [
-        "Sam Lei"
-      ],
-      "first_submit": "2026-09-29 10:48",
-      "status_since": "2026-10-16 20:43",
-      "completed_at": "",
-      "days_in_status": 12,
-      "days_since_first_submit": 29,
-      "process_days": null,
-      "current_round": 2,
-      "last_reply": "2026-10-16 20:43",
-      "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
-      "last_resubmit": "",
-      "admin_clock_from": "",
-      "days_since_reply": 12,
-      "n_rounds": 2,
-      "admin_total": 14.4,
-      "colleague_total": "",
-      "time_share": {
-        "admin_days": 14.4,
-        "edu_days": 11.5,
-        "third_days": 3.0,
-        "total_days": 28.9,
-        "admin_pct": 49.8,
-        "edu_pct": 39.8,
-        "third_pct": 10.4
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-09-29 10:48",
-            "ts": 1790650080.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R1 提交",
-            "detail": "[提交至行政採購文件]PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）(第一次提交)",
-            "who": "Sam Lei",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-12 09:48",
-            "ts": 1791769680.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢: PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）",
-            "who": "Sam Lei",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-10-13 21:08",
-            "ts": 1791896880.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-270_第一次修改.pdf）",
-            "who": "Procure",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-16 20:43",
-            "ts": 1792154580.0,
-            "kind": "third_party",
-            "role": "third",
-            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：博維資訊系統有限公司、利達通黃頁有限公司、正思科技有限公司；此外，有關資訊組因應《網絡安全法》為PA-26-270提供之意見請詳見附件",
-            "detail": "",
-            "who": "Procure",
-            "round": 2,
-            "secondary": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-09-29 10:48",
-            "to_t": "2026-10-13 21:08",
-            "from_ts": 1790650080.0,
-            "to_ts": 1791896880.0,
-            "days": 14.4,
-            "role": "admin",
-            "open": false,
-            "label": "14.4 天"
-          },
-          {
-            "from_t": "2026-10-13 21:08",
-            "to_t": "2026-10-16 20:43",
-            "from_ts": 1791896880.0,
-            "to_ts": 1792154580.0,
-            "days": 3.0,
-            "role": "third",
-            "open": false,
-            "label": "3.0 天"
-          },
-          {
-            "from_t": "2026-10-16 20:43",
-            "to_t": "2026-10-28 08:41",
-            "from_ts": 1792154580.0,
-            "to_ts": 1793148110.408984,
-            "days": 11.5,
-            "role": "edu",
-            "open": true,
-            "label": "至今 11.5 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1790650080.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -3319,25 +3352,25 @@
       "first_submit": "2026-09-19 12:21",
       "status_since": "2026-10-21 21:50",
       "completed_at": "",
-      "days_in_status": 7,
-      "days_since_first_submit": 39,
+      "days_in_status": 8,
+      "days_since_first_submit": 40,
       "process_days": null,
       "current_round": 4,
       "last_reply": "2026-10-21 21:50",
       "last_reply_summary": "須按附件修改（附件：PA-26-132(2)_第四次修改.pdf）",
       "last_resubmit": "2026-10-12 17:19",
       "admin_clock_from": "",
-      "days_since_reply": 7,
+      "days_since_reply": 8,
       "n_rounds": 4,
       "admin_total": 14.1,
       "colleague_total": 8.0,
       "time_share": {
         "admin_days": 24.3,
-        "edu_days": 14.5,
+        "edu_days": 15.5,
         "third_days": 0.0,
-        "total_days": 38.8,
-        "admin_pct": 62.6,
-        "edu_pct": 37.4,
+        "total_days": 39.8,
+        "admin_pct": 61.1,
+        "edu_pct": 38.9,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3566,18 +3599,18 @@
           },
           {
             "from_t": "2026-10-21 21:50",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792590600.0,
-            "to_ts": 1793148110.408984,
-            "days": 6.5,
+            "to_ts": 1793234319.279009,
+            "days": 7.5,
             "role": "edu",
             "open": true,
-            "label": "至今 6.5 天"
+            "label": "至今 7.5 天"
           }
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     },
@@ -3595,26 +3628,26 @@
       "first_submit": "2026-09-16",
       "status_since": "2026-10-23 20:31",
       "completed_at": "",
-      "days_in_status": 5,
-      "days_since_first_submit": 42,
+      "days_in_status": 6,
+      "days_since_first_submit": 43,
       "process_days": null,
       "current_round": 2,
       "last_reply": "2026-10-23 20:31",
       "last_reply_summary": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
       "last_resubmit": "2026-10-14 17:22",
       "admin_clock_from": "",
-      "days_since_reply": 5,
+      "days_since_reply": 6,
       "n_rounds": 2,
       "admin_total": 30.1,
       "colleague_total": 7.0,
       "time_share": {
         "admin_days": 21.8,
-        "edu_days": 11.5,
+        "edu_days": 12.5,
         "third_days": 9.1,
-        "total_days": 42.4,
-        "admin_pct": 51.4,
-        "edu_pct": 27.1,
-        "third_pct": 21.5
+        "total_days": 43.4,
+        "admin_pct": 50.2,
+        "edu_pct": 28.8,
+        "third_pct": 21.0
       },
       "timeline": {
         "nodes": [
@@ -3708,153 +3741,185 @@
           },
           {
             "from_t": "2026-10-23 20:31",
-            "to_t": "2026-10-28 08:41",
+            "to_t": "2026-10-29 08:38",
             "from_ts": 1792758660.0,
-            "to_ts": 1793148110.408984,
-            "days": 4.5,
+            "to_ts": 1793234319.279009,
+            "days": 5.5,
             "role": "edu",
             "open": true,
-            "label": "至今 4.5 天"
+            "label": "至今 5.5 天"
           }
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1793148110.408984
-        }
-      }
-    },
-    {
-      "id": "PP-26-068-EED",
-      "stage": "Form 1",
-      "title": "關於聯合主辦“國際青少年創科教育大賽（澳門區）2027”",
-      "status": "行政部已回覆待同事重交",
-      "status_group": "pending_resubmit",
-      "attr_label": "R2 · Form 1",
-      "submitter": "Lam Chan",
-      "follow_up": [
-        "Lam Chan"
-      ],
-      "first_submit": "2026-09-29 16:24",
-      "status_since": "2026-10-27 19:45",
-      "completed_at": "",
-      "days_in_status": 1,
-      "days_since_first_submit": 29,
-      "process_days": null,
-      "current_round": 2,
-      "last_reply": "2026-10-27 19:45",
-      "last_reply_summary": "須按附件修改（附件：PP-26-068-EED_第2次修改.pdf）",
-      "last_resubmit": "2026-10-21 09:58",
-      "admin_clock_from": "",
-      "days_since_reply": 1,
-      "n_rounds": 2,
-      "admin_total": 22.5,
-      "colleague_total": 5.6,
-      "time_share": {
-        "admin_days": 22.5,
-        "edu_days": 6.1,
-        "third_days": 0.0,
-        "total_days": 28.6,
-        "admin_pct": 78.7,
-        "edu_pct": 21.3,
-        "third_pct": 0.0
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-09-29 16:24",
-            "ts": 1790670240.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R1 提交",
-            "detail": "[提交至行政採購文件] 有關PP-26-068-EED  關於聯合主辦“國際青少年創科教育大賽（澳門區）2027” 首次提交",
-            "who": "Lam Chan",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-15 19:58",
-            "ts": 1792065480.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須按附件修改（附件：PP-26-068-EED.pdf）",
-            "who": "Procure",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-21 09:58",
-            "ts": 1792547880.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R2 提交",
-            "detail": "[提交至行政採購文件] 有關PP-26-068-EED 文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
-            "who": "Lam Chan",
-            "round": 2,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-27 19:45",
-            "ts": 1793101500.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R2 行政回覆",
-            "detail": "須按附件修改（附件：PP-26-068-EED_第2次修改.pdf）",
-            "who": "Procure",
-            "round": 2,
-            "secondary": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-09-29 16:24",
-            "to_t": "2026-10-15 19:58",
-            "from_ts": 1790670240.0,
-            "to_ts": 1792065480.0,
-            "days": 16.1,
-            "role": "admin",
-            "open": false,
-            "label": "16.1 天"
-          },
-          {
-            "from_t": "2026-10-15 19:58",
-            "to_t": "2026-10-21 09:58",
-            "from_ts": 1792065480.0,
-            "to_ts": 1792547880.0,
-            "days": 5.6,
-            "role": "edu",
-            "open": false,
-            "label": "5.6 天"
-          },
-          {
-            "from_t": "2026-10-21 09:58",
-            "to_t": "2026-10-27 19:45",
-            "from_ts": 1792547880.0,
-            "to_ts": 1793101500.0,
-            "days": 6.4,
-            "role": "admin",
-            "open": false,
-            "label": "6.4 天"
-          },
-          {
-            "from_t": "2026-10-27 19:45",
-            "to_t": "2026-10-28 08:41",
-            "from_ts": 1793101500.0,
-            "to_ts": 1793148110.408984,
-            "days": 0.5,
-            "role": "edu",
-            "open": true,
-            "label": "至今 0.5 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1790670240.0,
-          "max_ts": 1793148110.408984
+          "max_ts": 1793234319.279009
         }
       }
     }
   ],
   "completed_documents": [
+    {
+      "id": "PA-26-244(2)",
+      "stage": "Form 2",
+      "title": "為G13展品及智學園地採購光纖網路租用服務",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R3 · Form 2",
+      "submitter": "Sam Lei",
+      "follow_up": [
+        "Sam Lei"
+      ],
+      "first_submit": "2026-08-26",
+      "status_since": "2026-10-28 20:56",
+      "completed_at": "2026-10-28 20:56",
+      "days_in_status": 1,
+      "days_since_first_submit": 64,
+      "process_days": 63.9,
+      "current_round": 3,
+      "last_reply": "2026-10-28 20:56",
+      "last_reply_summary": "開支許可申請書及判給通知已獲上級批示（批示見附件）",
+      "last_resubmit": "2026-10-16 11:57",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 39.4,
+      "colleague_total": 23.8,
+      "time_share": {
+        "admin_days": 40.9,
+        "edu_days": 23.0,
+        "third_days": 0.0,
+        "total_days": 63.9,
+        "admin_pct": 64.0,
+        "edu_pct": 36.0,
+        "third_pct": 0.0
+      },
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-08-26",
+            "ts": 1787673600.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "首次提交（Oscar 2026-10-14 提供）、第1次通知",
+            "who": "Sam Lei",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-17 19:02",
+            "ts": 1789642920.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須作出修正（第1次通知；原信不在匯出，僅見於第2次通知引用）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-08",
+            "ts": 1791388800.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "第2次通知、同事重交（Oscar 2026-10-14 提供）",
+            "who": "Jane Leong",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-13 16:28",
+            "ts": 1791880080.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R2 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-244.pdf）",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-16 11:33",
+            "ts": 1792121580.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件]PA-26-244為G13展品及智學園地採購光纖網路租用服務（2026/12-2028/11）(第二次提交)",
+            "who": "Sam Lei",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-28 20:56",
+            "ts": 1793192160.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆",
+            "detail": "開支許可申請書及判給通知已獲上級批示（批示見附件）",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-08-26",
+            "to_t": "2026-09-17 19:02",
+            "from_ts": 1787673600.0,
+            "to_ts": 1789642920.0,
+            "days": 22.8,
+            "role": "admin",
+            "open": false,
+            "label": "22.8 天"
+          },
+          {
+            "from_t": "2026-09-17 19:02",
+            "to_t": "2026-10-08",
+            "from_ts": 1789642920.0,
+            "to_ts": 1791388800.0,
+            "days": 20.2,
+            "role": "edu",
+            "open": false,
+            "label": "20.2 天"
+          },
+          {
+            "from_t": "2026-10-08",
+            "to_t": "2026-10-13 16:28",
+            "from_ts": 1791388800.0,
+            "to_ts": 1791880080.0,
+            "days": 5.7,
+            "role": "admin",
+            "open": false,
+            "label": "5.7 天"
+          },
+          {
+            "from_t": "2026-10-13 16:28",
+            "to_t": "2026-10-16 11:33",
+            "from_ts": 1791880080.0,
+            "to_ts": 1792121580.0,
+            "days": 2.8,
+            "role": "edu",
+            "open": false,
+            "label": "2.8 天"
+          },
+          {
+            "from_t": "2026-10-16 11:33",
+            "to_t": "2026-10-28 20:56",
+            "from_ts": 1792121580.0,
+            "to_ts": 1793192160.0,
+            "days": 12.4,
+            "role": "admin",
+            "open": false,
+            "label": "12.4 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1787673600.0,
+          "max_ts": 1793192160.0
+        }
+      }
+    },
     {
       "id": "PA-26-120(2)",
       "stage": "Form 2",
@@ -3869,8 +3934,8 @@
       "first_submit": "2026-10-07 16:26",
       "status_since": "2026-10-26 20:07",
       "completed_at": "2026-10-26 20:07",
-      "days_in_status": 2,
-      "days_since_first_submit": 21,
+      "days_in_status": 3,
+      "days_since_first_submit": 22,
       "process_days": 19.2,
       "current_round": 3,
       "last_reply": "2026-10-26 20:07",
@@ -4031,8 +4096,8 @@
       "first_submit": "2026-06-26",
       "status_since": "2026-10-21 17:25",
       "completed_at": "2026-10-21 17:25",
-      "days_in_status": 7,
-      "days_since_first_submit": 124,
+      "days_in_status": 8,
+      "days_since_first_submit": 125,
       "process_days": 117.7,
       "current_round": 6,
       "last_reply": "2026-10-21 17:25",
@@ -4310,8 +4375,8 @@
       "first_submit": "2026-08-12",
       "status_since": "2026-10-21 17:20",
       "completed_at": "2026-10-21 17:20",
-      "days_in_status": 7,
-      "days_since_first_submit": 77,
+      "days_in_status": 8,
+      "days_since_first_submit": 78,
       "process_days": 70.7,
       "current_round": 6,
       "last_reply": "2026-10-21 17:20",
@@ -4559,8 +4624,8 @@
       "first_submit": "2026-08-24",
       "status_since": "2026-10-21 17:08",
       "completed_at": "2026-10-21 17:08",
-      "days_in_status": 7,
-      "days_since_first_submit": 65,
+      "days_in_status": 8,
+      "days_since_first_submit": 66,
       "process_days": 58.7,
       "current_round": 4,
       "last_reply": "2026-10-21 17:08",
@@ -4745,8 +4810,8 @@
       "first_submit": "2026-09-08",
       "status_since": "2026-10-21 16:52",
       "completed_at": "2026-10-21 16:52",
-      "days_in_status": 7,
-      "days_since_first_submit": 50,
+      "days_in_status": 8,
+      "days_since_first_submit": 51,
       "process_days": 43.7,
       "current_round": 5,
       "last_reply": "2026-10-21 16:52",
@@ -4991,8 +5056,8 @@
       "first_submit": "2026-07-16",
       "status_since": "2026-10-17",
       "completed_at": "2026-10-17",
-      "days_in_status": 11,
-      "days_since_first_submit": 104,
+      "days_in_status": 12,
+      "days_since_first_submit": 105,
       "process_days": 93,
       "current_round": 5,
       "last_reply": "2026-10-16 14:44",
@@ -5216,8 +5281,8 @@
       "first_submit": "2026-09-29 16:23",
       "status_since": "2026-10-16 17:31",
       "completed_at": "2026-10-16 17:31",
-      "days_in_status": 12,
-      "days_since_first_submit": 29,
+      "days_in_status": 13,
+      "days_since_first_submit": 30,
       "process_days": 17,
       "current_round": 3,
       "last_reply": "2026-10-16 17:31",
@@ -5378,8 +5443,8 @@
       "first_submit": "2026-09-10",
       "status_since": "2026-10-09 15:40",
       "completed_at": "2026-10-09 15:40",
-      "days_in_status": 19,
-      "days_since_first_submit": 48,
+      "days_in_status": 20,
+      "days_since_first_submit": 49,
       "process_days": 29.7,
       "current_round": 4,
       "last_reply": "2026-10-09 15:40",
@@ -5597,8 +5662,8 @@
       "first_submit": "2026-09-10",
       "status_since": "2026-10-08 16:00",
       "completed_at": "2026-10-08 16:00",
-      "days_in_status": 20,
-      "days_since_first_submit": 48,
+      "days_in_status": 21,
+      "days_since_first_submit": 49,
       "process_days": 28.7,
       "current_round": 3,
       "last_reply": "2026-10-08 16:00",
@@ -5762,8 +5827,8 @@
       "first_submit": "2026-08-19",
       "status_since": "2026-10-06 18:56",
       "completed_at": "2026-10-06 18:56",
-      "days_in_status": 22,
-      "days_since_first_submit": 70,
+      "days_in_status": 23,
+      "days_since_first_submit": 71,
       "process_days": 48.8,
       "current_round": 6,
       "last_reply": "2026-10-06 18:56",
@@ -5861,8 +5926,8 @@
       "first_submit": "2026-09-07",
       "status_since": "2026-10-05 17:28",
       "completed_at": "2026-10-05 17:28",
-      "days_in_status": 23,
-      "days_since_first_submit": 51,
+      "days_in_status": 24,
+      "days_since_first_submit": 52,
       "process_days": 28.7,
       "current_round": 4,
       "last_reply": "2026-10-05 17:28",
@@ -6065,8 +6130,8 @@
       "first_submit": "2026-08-03",
       "status_since": "2026-09-22 17:53",
       "completed_at": "2026-09-22 17:53",
-      "days_in_status": 36,
-      "days_since_first_submit": 86,
+      "days_in_status": 37,
+      "days_since_first_submit": 87,
       "process_days": 50.7,
       "current_round": 5,
       "last_reply": "2026-09-22 17:53",
@@ -6164,8 +6229,8 @@
       "first_submit": "2026-07-23",
       "status_since": "2026-09-18 17:57",
       "completed_at": "2026-09-18 17:57",
-      "days_in_status": 40,
-      "days_since_first_submit": 97,
+      "days_in_status": 41,
+      "days_since_first_submit": 98,
       "process_days": 57.7,
       "current_round": 1,
       "last_reply": "2026-09-18 17:57",
@@ -6242,8 +6307,8 @@
       "first_submit": "2026-08-01",
       "status_since": "2026-09-18 10:35",
       "completed_at": "2026-09-18 10:35",
-      "days_in_status": 40,
-      "days_since_first_submit": 88,
+      "days_in_status": 41,
+      "days_since_first_submit": 89,
       "process_days": 48.4,
       "current_round": 1,
       "last_reply": "2026-09-18 10:35",
@@ -6308,6 +6373,54 @@
     }
   ],
   "emails": [
+    {
+      "t": "2026-10-28 20:56:58",
+      "ts": 1793192218.0,
+      "iso": "2026-10-28T20:56:58+08:00",
+      "role": "admin",
+      "folder": "04 Procure",
+      "kind": "approval",
+      "kind_label": "批准／通過",
+      "pa": "PA-26-244(2)",
+      "stage": "Form 2",
+      "subject": "有關PA-26-244「為G13展品及智學園地採購光纖網路租用服務 (2026/12-2028/11)」之審批 - 開支許可申請書及判給通知",
+      "from": "Procure",
+      "from_addr": "procure@msc.org.mo",
+      "off_hours": true,
+      "weekday": 2
+    },
+    {
+      "t": "2026-10-28 18:56:48",
+      "ts": 1793185008.0,
+      "iso": "2026-10-28T18:56:48+08:00",
+      "role": "admin",
+      "folder": "04 Procure",
+      "kind": "other",
+      "kind_label": "其他",
+      "pa": "PA-26-273",
+      "stage": "Form 1",
+      "subject": "有關PA-26-273 先上呈Memo予權限機關審閱的事宜",
+      "from": "Procure",
+      "from_addr": "procure@msc.org.mo",
+      "off_hours": true,
+      "weekday": 2
+    },
+    {
+      "t": "2026-10-28 18:27:09",
+      "ts": 1793183229.0,
+      "iso": "2026-10-28T18:27:09+08:00",
+      "role": "admin",
+      "folder": "04 Procure",
+      "kind": "other",
+      "kind_label": "其他",
+      "pa": "PA-26-194",
+      "stage": "Form 1",
+      "subject": "有關PA-26-194 文件未有獲權限機關批示",
+      "from": "Procure",
+      "from_addr": "procure@msc.org.mo",
+      "off_hours": false,
+      "weekday": 2
+    },
     {
       "t": "2026-10-27 19:45:01",
       "ts": 1793101501.0,
@@ -8470,14 +8583,14 @@
     }
   ],
   "email_stats": {
-    "total": 135,
-    "on_hours": 75,
-    "off_hours": 60,
+    "total": 138,
+    "on_hours": 76,
+    "off_hours": 62,
     "unknown": 0,
     "admin": {
-      "on": 75,
-      "off": 60,
-      "total": 135
+      "on": 76,
+      "off": 62,
+      "total": 138
     },
     "edu": {
       "on": 0,
@@ -8485,15 +8598,15 @@
       "total": 0
     },
     "by_stage": {
-      "Form 1": {
-        "on": 45,
-        "off": 38,
-        "total": 83
-      },
       "Form 2": {
         "on": 21,
-        "off": 17,
-        "total": 38
+        "off": 18,
+        "total": 39
+      },
+      "Form 1": {
+        "on": 46,
+        "off": 39,
+        "total": 85
       },
       "無編號": {
         "on": 9,
@@ -8502,29 +8615,29 @@
       }
     },
     "by_kind": {
+      "批准／通過": {
+        "on": 17,
+        "off": 7,
+        "total": 24,
+        "kind": "approval"
+      },
+      "其他": {
+        "on": 5,
+        "off": 6,
+        "total": 11,
+        "kind": "other"
+      },
       "修改回覆": {
         "on": 44,
         "off": 41,
         "total": 85,
         "kind": "revision"
       },
-      "批准／通過": {
-        "on": 17,
-        "off": 6,
-        "total": 23,
-        "kind": "approval"
-      },
       "通知": {
         "on": 7,
         "off": 0,
         "total": 7,
         "kind": "notice"
-      },
-      "其他": {
-        "on": 4,
-        "off": 5,
-        "total": 9,
-        "kind": "other"
       },
       "資訊": {
         "on": 3,
@@ -8799,20 +8912,20 @@
       {
         "i": 36,
         "label": "18:00",
-        "total": 4,
+        "total": 5,
         "by_type": {
-          "Form 1": 3,
+          "Form 1": 4,
           "Form 2": 1
         }
       },
       {
         "i": 37,
         "label": "18:30",
-        "total": 5,
+        "total": 6,
         "by_type": {
+          "Form 1": 3,
           "Form 2": 2,
-          "無編號": 1,
-          "Form 1": 2
+          "無編號": 1
         }
       },
       {
@@ -8845,10 +8958,10 @@
       {
         "i": 41,
         "label": "20:30",
-        "total": 7,
+        "total": 8,
         "by_type": {
-          "Form 1": 5,
-          "Form 2": 2
+          "Form 2": 3,
+          "Form 1": 5
         }
       },
       {
@@ -8910,7 +9023,7 @@
       "label": "17:30",
       "total": 12
     },
-    "analysis": "共收錄 135 封相關電郵。辦公時間定義為平日 09:00–18:30（Asia/Macau）；平日此時段以外及週末計入非辦公時間。\n整體：辦公時間 75 封（55.6%）、非辦公時間 60 封（44.4%）。\n按文件類型：Form 1 83 封（辦公時間 54.2%／非辦公時間 45.8%）；Form 2 38 封（辦公時間 55.3%／非辦公時間 44.7%）；無編號 14 封（辦公時間 64.3%／非辦公時間 35.7%）。\n半小時時段高峰：17:30 起共 12 封。\n【連續寄出情況】\n· 2026-09-22 12:47:27–2026-09-22 12:48:04（2 封，跨 37s）：PA-26-132(2)「RE: 有關PA-26-132(2)文件須作出修正的地方」；PA-26-203(2)「有關PA-26-203(2)文件須作出修正的地方 (為第」\n· 2026-10-08 19:24:59–2026-10-08 19:25:43（2 封，跨 44s）：PA-26-258「PA-26-258已向供應商發出報價邀請之通知」；PA-26-122「PA-26-122已向供應商發出報價邀請之通知」\n· 2026-10-13 21:07:51–2026-10-13 21:08:51（3 封，跨 60s）：PA-26-285「有關PA-26-285文件須作出修正的地方（為第2次通知」；PA-26-270「有關PA-26-270文件須作出修正的地方（為第1次通知」；PA-26-152(2)「有關PA-26-152(2)「為展覽中心G01展覽及展品」\n· 2026-10-21 17:19:43–2026-10-21 17:20:22（2 封，跨 39s）：PA-26-257「PA-26-257 已向供應商發出報價邀請之通知」；PA-26-222(2)「有關PA-26-222(2)「為科學館人員申請Fab A」",
+    "analysis": "共收錄 138 封相關電郵。辦公時間定義為平日 09:00–18:30（Asia/Macau）；平日此時段以外及週末計入非辦公時間。\n整體：辦公時間 76 封（55.1%）、非辦公時間 62 封（44.9%）。\n按文件類型：Form 1 85 封（辦公時間 54.1%／非辦公時間 45.9%）；Form 2 39 封（辦公時間 53.8%／非辦公時間 46.2%）；無編號 14 封（辦公時間 64.3%／非辦公時間 35.7%）。\n半小時時段高峰：17:30 起共 12 封。\n【連續寄出情況】\n· 2026-09-22 12:47:27–2026-09-22 12:48:04（2 封，跨 37s）：PA-26-132(2)「RE: 有關PA-26-132(2)文件須作出修正的地方」；PA-26-203(2)「有關PA-26-203(2)文件須作出修正的地方 (為第」\n· 2026-10-08 19:24:59–2026-10-08 19:25:43（2 封，跨 44s）：PA-26-258「PA-26-258已向供應商發出報價邀請之通知」；PA-26-122「PA-26-122已向供應商發出報價邀請之通知」\n· 2026-10-13 21:07:51–2026-10-13 21:08:51（3 封，跨 60s）：PA-26-285「有關PA-26-285文件須作出修正的地方（為第2次通知」；PA-26-270「有關PA-26-270文件須作出修正的地方（為第1次通知」；PA-26-152(2)「有關PA-26-152(2)「為展覽中心G01展覽及展品」\n· 2026-10-21 17:19:43–2026-10-21 17:20:22（2 封，跨 39s）：PA-26-257「PA-26-257 已向供應商發出報價邀請之通知」；PA-26-222(2)「有關PA-26-222(2)「為科學館人員申請Fab A」",
     "work_hours": "09:00–18:30",
     "off_hours_def": "18:31–08:59（平日）及週末"
   },
@@ -8921,7 +9034,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢：PA-26-132　為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 104
+      "days": 105
     },
     {
       "pa": "PA-26-135",
@@ -8929,7 +9042,7 @@
       "from": "LamChan",
       "subject": "文件進度查詢: PA-26-135",
       "closed": true,
-      "days": 96
+      "days": 97
     },
     {
       "pa": "PA-26-220",
@@ -8937,7 +9050,7 @@
       "from": "Yan Wong",
       "subject": "文件進度查詢: PA-26-220",
       "closed": true,
-      "days": 63
+      "days": 64
     },
     {
       "pa": "PA-26-132(2)",
@@ -8945,7 +9058,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 55
+      "days": 56
     },
     {
       "pa": "PA-26-132(2)",
@@ -8953,7 +9066,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 49
+      "days": 50
     },
     {
       "pa": "PA-26-242",
@@ -8961,7 +9074,7 @@
       "from": "Nettie Si",
       "subject": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 49
+      "days": 50
     },
     {
       "pa": "PA-26-132(2)",
@@ -8969,7 +9082,7 @@
       "from": "Keira Wan",
       "subject": "回覆: 文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 47
+      "days": 48
     },
     {
       "pa": "PA-26-242",
@@ -8977,7 +9090,7 @@
       "from": "Nettie Si",
       "subject": "第2次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 46
+      "days": 47
     },
     {
       "pa": "PA-26-242",
@@ -8985,7 +9098,7 @@
       "from": "Nettie Si",
       "subject": "第3次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 42
+      "days": 43
     },
     {
       "pa": "PA-26-255",
@@ -8993,7 +9106,7 @@
       "from": "Fong Ng",
       "subject": "文件進度查詢【第一次】：PA-26-255 赴北京參加網絡安全培訓",
       "closed": true,
-      "days": 42
+      "days": 43
     },
     {
       "pa": "PA-26-132(2)",
@@ -9001,7 +9114,7 @@
       "from": "Keira Wan",
       "subject": "回覆: 文件進度查詢：PA-26-132/2 (2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "closed": true,
-      "days": 40
+      "days": 41
     },
     {
       "pa": "PA-26-242",
@@ -9009,7 +9122,7 @@
       "from": "Nettie Si",
       "subject": "第4次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
       "closed": true,
-      "days": 40
+      "days": 41
     },
     {
       "pa": "PA-26-272",
@@ -9017,7 +9130,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-272 為2027澳門北斗航天大賽採購承辦賽事服務",
       "closed": true,
-      "days": 28
+      "days": 29
     },
     {
       "pa": "PA-26-132(2)",
@@ -9025,7 +9138,7 @@
       "from": "Keira Wan",
       "subject": "文件進度查詢 [第1次]：PA-26-132(2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）(為第1次通知EDU需要作出文件修改)",
       "closed": true,
-      "days": 23
+      "days": 24
     },
     {
       "pa": "PA-26-242",
@@ -9033,7 +9146,7 @@
       "from": "Nettie Si",
       "subject": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）- 為第1次通知EDU需要作出文件修改",
       "closed": true,
-      "days": 23
+      "days": 24
     },
     {
       "pa": "PA-26-255",
@@ -9041,7 +9154,7 @@
       "from": "Fong Ng",
       "subject": "文件進度查詢【第二次】：PA-26-255 赴北京參加網絡安全培訓",
       "closed": true,
-      "days": 23
+      "days": 24
     },
     {
       "pa": "PA-26-220",
@@ -9049,7 +9162,7 @@
       "from": "Yan Wong",
       "subject": "文件進度查詢：PA-26-220 為澳門科學館各部門訂購實體參考書籍及2027年實體期刊",
       "closed": true,
-      "days": 23
+      "days": 24
     },
     {
       "pa": "PA-26-194",
@@ -9057,7 +9170,7 @@
       "from": "Ryan Lei",
       "subject": "文件進度查詢：PA-26-194為澳門科學館採購智能機器人及AI交互設備 (完成第2次修改)",
       "closed": true,
-      "days": 22
+      "days": 23
     },
     {
       "pa": "PA-26-194",
@@ -9065,7 +9178,7 @@
       "from": "Ryan Lei",
       "subject": "文件進度查詢：PA-26-194為澳門科學館採購智能機器人及AI交互設備 (完成第2次修改)",
       "closed": true,
-      "days": 22
+      "days": 23
     },
     {
       "pa": "建議書-2027年度科普劇場運作建議",
@@ -9073,7 +9186,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
-      "days": 22
+      "days": 23
     },
     {
       "pa": "PA-26-280",
@@ -9081,15 +9194,15 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢: PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "closed": true,
-      "days": 22
+      "days": 23
     },
     {
       "pa": "PA-26-273",
       "t": "2026-10-06 19:46",
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-273 採購仿生機械手及相關演示化、展品化之服務",
-      "closed": false,
-      "days": 22
+      "closed": true,
+      "days": 23
     },
     {
       "pa": "科學館與蔚來簽署第二次補充合作協議",
@@ -9097,7 +9210,7 @@
       "from": "Ryan Lei",
       "subject": "文件進度查詢：科學館與蔚來簽署第二次補充合作協議",
       "closed": true,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "PA-26-279",
@@ -9105,7 +9218,7 @@
       "from": "Thomas Tai",
       "subject": "文件進度查詢：PA-26-279-為“青年科技村”學員採購人工智能範疇培訓課程（2026/2027年度）",
       "closed": true,
-      "days": 18
+      "days": 19
     },
     {
       "pa": "PA-26-272",
@@ -9113,7 +9226,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-272 為2027澳門北斗航天大賽採購承辦賽事服務",
       "closed": true,
-      "days": 17
+      "days": 18
     },
     {
       "pa": "PA-26-270",
@@ -9121,7 +9234,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-270 為澳科館微定位導覽系統取得保養服務（2026-2029）",
       "closed": true,
-      "days": 16
+      "days": 17
     },
     {
       "pa": "PA-26-271",
@@ -9129,7 +9242,7 @@
       "from": "Sam Lei",
       "subject": "文件進度查詢: PA-26-271 為擴增實境網上瀏覽平台系統取得保養服務（2027-2030年）",
       "closed": false,
-      "days": 16
+      "days": 17
     },
     {
       "pa": "PA-26-280",
@@ -9137,7 +9250,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢: PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "closed": true,
-      "days": 15
+      "days": 16
     },
     {
       "pa": "建議書-2027年度科普劇場運作建議",
@@ -9145,15 +9258,15 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
-      "days": 15
+      "days": 16
     },
     {
       "pa": "PA-26-273",
       "t": "2026-10-14 14:49",
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-273 採購仿生機械手及相關演示化、展品化之服務",
-      "closed": false,
-      "days": 14
+      "closed": true,
+      "days": 15
     },
     {
       "pa": "AI 工具報銷預計申請表（2026年7月至12月）",
@@ -9161,7 +9274,7 @@
       "from": "Silvia Lio",
       "subject": "文件進度查詢：（無編號）2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
       "closed": true,
-      "days": 12
+      "days": 13
     },
     {
       "pa": "PA-26-279",
@@ -9169,7 +9282,7 @@
       "from": "Thomas Tai",
       "subject": "Re: 文件進度查詢：PA-26-279-為“青年科技村”學員採購人工智能範疇培訓課程（2026/2027年度）",
       "closed": true,
-      "days": 11
+      "days": 12
     },
     {
       "pa": "PA-26-272",
@@ -9177,7 +9290,7 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-272 為2027澳門北斗航天大賽採購承辦賽事服務",
       "closed": true,
-      "days": 9
+      "days": 10
     },
     {
       "pa": "PA-26-280",
@@ -9185,7 +9298,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢: PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "closed": true,
-      "days": 7
+      "days": 8
     },
     {
       "pa": "建議書-2027年度科普劇場運作建議",
@@ -9193,7 +9306,7 @@
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
-      "days": 7
+      "days": 8
     },
     {
       "pa": "PA-26-286",
@@ -9201,7 +9314,7 @@
       "from": "Lam Chan",
       "subject": "文件進度查詢【第二次】：PA-26-286 為“國際青少年創科教育大賽（澳門區）2027”採購承辦賽事服務",
       "closed": false,
-      "days": 7
+      "days": 8
     },
     {
       "pa": "PA-26-221",
@@ -9209,7 +9322,7 @@
       "from": "Yan Wong",
       "subject": "文件進度查詢：PA-26-221 為澳門科學館2台電子書借閱機取得系統維護服務續期二年（2027-2028）",
       "closed": false,
-      "days": 7
+      "days": 8
     },
     {
       "pa": "PA-26-255",
@@ -9217,7 +9330,7 @@
       "from": "Fong Ng",
       "subject": "文件進度查詢【第一次】：PA-26-255 赴北京參加網絡安全培訓 (為第1次通知EDU需要作出文件修改)",
       "closed": true,
-      "days": 6
+      "days": 7
     },
     {
       "pa": "PA-26-271",
@@ -9225,15 +9338,15 @@
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-271 為擴增實境網上瀏覽平台系統取得保養服務（2027-2030年）",
       "closed": false,
-      "days": 6
+      "days": 7
     },
     {
       "pa": "PA-26-273",
       "t": "2026-10-22 11:33",
       "from": "Sam Lei",
       "subject": "RE: 文件進度查詢: PA-26-273 採購仿生機械手及相關演示化、展品化之服務",
-      "closed": false,
-      "days": 6
+      "closed": true,
+      "days": 7
     },
     {
       "pa": "PA-26-165",
@@ -9241,7 +9354,7 @@
       "from": "Carlos Nip",
       "subject": "文件進度查詢：PA-26-165 為“幸以橋樑度春秋──茅以升生平事蹟展”提供航拍服務",
       "closed": true,
-      "days": 5
+      "days": 6
     },
     {
       "pa": "PA-26-302",
@@ -9249,21 +9362,29 @@
       "from": "Siky Lam",
       "subject": "文件進度查詢： PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
       "closed": true,
-      "days": 4
+      "days": 5
     },
     {
       "pa": "PA-26-194",
       "t": "2026-10-26 09:08",
       "from": "Ryan Lei",
       "subject": "文件進度查詢：PA-26-194為澳門科學館採購智能機器人及AI交互設備 (完成第4次修改)",
-      "closed": false,
-      "days": 2
+      "closed": true,
+      "days": 3
     },
     {
       "pa": "PA-26-304",
       "t": "2026-10-27 11:06",
       "from": "Siky Lam",
       "subject": "文件進度查詢： PA-26-304為澳門科學館“青年科技村”科創人才培養計劃二級及三級學員赴香港參加“2026/27年度港澳中學化妝品配方比賽”之化妝品配方工作坊",
+      "closed": false,
+      "days": 2
+    },
+    {
+      "pa": "建議書-2027年度科普劇場運作建議",
+      "t": "2026-10-28 18:12",
+      "from": "Nicole Wong",
+      "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
       "closed": false,
       "days": 1
     }
