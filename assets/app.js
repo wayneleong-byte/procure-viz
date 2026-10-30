@@ -21,11 +21,16 @@
   };
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
-  /** Oscar：指定用黑色時間比例（數據不足／特殊跟進）。其餘已完成預設三色。 */
+  /** Oscar：指定用黑色時間比例（數據不足／特殊跟進） */
   const FORCE_BLACK_SHARE = new Set([
     "PA-26-135",
     "PA-26-220",
     "科學館與蔚來簽署第二次補充合作協議",
+  ]);
+  /** Oscar：已完成但仍顯示行政／EDU／第三方三色（資料完整） */
+  const FULL_COLOR_SHARE = new Set([
+    "PA-26-120(2)",
+    "PA-26-199(2)",
   ]);
 
   /** Shared doc-list filters (PA text + submitter). */
@@ -537,8 +542,13 @@
   }
 
   function forceBlackShare(d) {
-    // Oscar 2026-10-30：已完成預設三色；僅 FORCE_BLACK_SHARE（數據不足）全黑
-    return FORCE_BLACK_SHARE.has(String(d.id || ""));
+    const id = String(d.id || "");
+    if (FORCE_BLACK_SHARE.has(id)) return true;
+    // completed: whitelist keeps RGB; all other completed → black
+    if (d.status_group === "completed" || d.status === "完成") {
+      return !FULL_COLOR_SHARE.has(id);
+    }
+    return false;
   }
 
   function docShareHtml(d, { compact = false } = {}) {
@@ -775,7 +785,7 @@
           d.process_days != null && d.process_days !== ""
             ? d.process_days
             : ts.total_days;
-        const fullColor = !forceBlackShare(d);
+        const fullColor = FULL_COLOR_SHARE.has(String(d.id || ""));
         const shareDetail = fullColor
           ? `<div class="doc-meta-line share-detail">
               時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
