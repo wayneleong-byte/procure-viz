@@ -212,6 +212,17 @@ def resolve_first_submit(doc: dict) -> tuple[str, bool]:
 def resolve_completed_at(doc: dict) -> str:
     """Best-effort completion / last-event timestamp for closed docs."""
     candidates: list[tuple[float, str]] = []
+    ms = doc.get("manual_status") or {}
+    if isinstance(ms, dict):
+        # Prefer full confirmed_at; date-only counts as that calendar day.
+        for key in ("confirmed_at", "date"):
+            raw = ms.get(key) or ""
+            if not raw:
+                continue
+            dt = parse_dt(raw)
+            if dt:
+                candidates.append((dt.timestamp(), str(raw).strip()))
+                break  # confirmed_at wins over date when both present
     for raw in (doc.get("last_resubmit"), doc.get("last_reply")):
         if not raw:
             continue

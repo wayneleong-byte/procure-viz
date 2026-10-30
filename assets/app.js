@@ -84,6 +84,14 @@
     $$(".panel").forEach((p) => p.classList.remove("active"));
     const panel = $(`#panel-${tabId}`);
     if (panel) panel.classList.add("active");
+    if (tabId === "completed") {
+      const st = (DOC_FILTER.status || "").trim();
+      if (st && st !== "完成") {
+        DOC_FILTER.status = "";
+        syncDocFilterInputs();
+        renderAllLists();
+      }
+    }
     if (tabId === "email") {
       requestAnimationFrame(() => renderEmailCharts());
     }
@@ -726,12 +734,41 @@
     });
   }
 
+  function matchCompletedDocFilter(d) {
+    const paQ = (DOC_FILTER.pa || "").trim().toLowerCase();
+    const subQ = (DOC_FILTER.submitter || "").trim();
+    const stQ = (DOC_FILTER.status || "").trim();
+    if (paQ) {
+      const id = String(d.id || "").toLowerCase();
+      if (!id.includes(paQ)) return false;
+    }
+    if (subQ) {
+      if ((d.submitter || "").trim() !== subQ) return false;
+    }
+    // Completed tab: ignore non-「完成」status filters (they would hide every row)
+    if (stQ && stQ !== "完成") return true;
+    if (stQ === "完成" && (d.status || "").trim() !== stQ) return false;
+    return true;
+  }
+
   function renderCompletedList() {
     const list = $("#list-completed");
     if (!list) return;
-    const all = DATA.completed_documents || [];
-    const docs = all.filter(matchDocFilter);
-    setFilterCount("completed", docs.length, all.length);
+    const sorter =
+      DOC_FILTER.sort === "first_submit"
+        ? (a, b) => cmpFirstSubmit(a, b)
+        : (a, b) => cmpPa(a.id, b.id);
+    const all = (DATA.completed_documents || []).slice().sort(sorter);
+    const docs = all.filter(matchCompletedDocFilter);
+    const stQ = (DOC_FILTER.status || "").trim();
+    const statusActive = stQ === "完成";
+    const filtered = !!(DOC_FILTER.pa || DOC_FILTER.submitter || statusActive);
+    const countEl = $(`.doc-filter-count[data-scope="completed"]`);
+    if (countEl) {
+      countEl.textContent = filtered
+        ? `顯示 ${docs.length}／${all.length}`
+        : `共 ${all.length} 份`;
+    }
     if (!all.length) {
       list.innerHTML = `<div class="empty">目前沒有已完成文件記錄</div>`;
       return;
@@ -782,6 +819,11 @@
             ${
               d.last_reply_summary
                 ? `<div class="doc-meta-line">最近回覆摘要：${esc(d.last_reply_summary)}</div>`
+                : ""
+            }
+            ${
+              /採購失敗|未能[^。；\n]{0,20}判給/.test(String(d.last_reply_summary || ""))
+                ? `<div class="doc-meta-line" style="color:#fbbf24;font-weight:600">⚠ 採購失敗／未能判給（已完成分類；須另開新文件）</div>`
                 : ""
             }
             <div class="legend" style="margin:12px 0 10px">

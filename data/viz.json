@@ -2,7 +2,7 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-10-30 11:47",
+    "generated_at": "2026-10-30 11:58",
     "source_generated_at": "2026-10-30 11:44",
     "today": "2026-10-30",
     "timezone": "Asia/Macau",
@@ -143,9 +143,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1790650140.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 31.0,
             "role": "admin",
             "open": true,
@@ -154,7 +154,7 @@
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -258,9 +258,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1790679180.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 30.7,
             "role": "admin",
             "open": true,
@@ -269,7 +269,7 @@
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -349,9 +349,9 @@
         "gaps": [
           {
             "from_t": "2026-09-30 11:12",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1790737920.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 30.0,
             "role": "admin",
             "open": true,
@@ -360,7 +360,7 @@
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -428,9 +428,9 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1791777120.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 18.0,
             "role": "admin",
             "open": true,
@@ -439,7 +439,7 @@
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -507,9 +507,9 @@
         "gaps": [
           {
             "from_t": "2026-10-16",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792080000.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 14.5,
             "role": "admin",
             "open": true,
@@ -518,7 +518,7 @@
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -586,9 +586,9 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792471980.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 10.0,
             "role": "admin",
             "open": true,
@@ -597,7 +597,7 @@
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -653,9 +653,9 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792566900.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 8.9,
             "role": "admin",
             "open": true,
@@ -664,7 +664,7 @@
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -762,9 +762,9 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792840260.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 5.7,
             "role": "admin",
             "open": true,
@@ -773,7 +773,7 @@
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -907,9 +907,9 @@
           },
           {
             "from_t": "2026-10-26 16:07",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793002020.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 3.8,
             "role": "admin",
             "open": true,
@@ -918,7 +918,7 @@
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -1157,9 +1157,9 @@
           },
           {
             "from_t": "2026-10-27 11:58",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793073480.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 3.0,
             "role": "admin",
             "open": true,
@@ -1168,7 +1168,7 @@
         ],
         "span": {
           "min_ts": 1788796800.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -1302,9 +1302,9 @@
           },
           {
             "from_t": "2026-10-27 16:35",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793090100.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 2.8,
             "role": "admin",
             "open": true,
@@ -1313,7 +1313,7 @@
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -1435,9 +1435,9 @@
           },
           {
             "from_t": "2026-10-27 11:04",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793070240.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 3.0,
             "role": "admin",
             "open": true,
@@ -1446,7 +1446,7 @@
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -1502,9 +1502,9 @@
         "gaps": [
           {
             "from_t": "2026-10-27 15:56",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793087760.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 2.8,
             "role": "admin",
             "open": true,
@@ -1513,7 +1513,7 @@
         ],
         "span": {
           "min_ts": 1793087760.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -1644,9 +1644,9 @@
           },
           {
             "from_t": "2026-10-28 16:02",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793174520.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 1.8,
             "role": "admin",
             "open": true,
@@ -1655,7 +1655,7 @@
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -1795,9 +1795,9 @@
           },
           {
             "from_t": "2026-10-28 15:55",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793174100.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 1.8,
             "role": "admin",
             "open": true,
@@ -1806,7 +1806,7 @@
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -2092,9 +2092,9 @@
           },
           {
             "from_t": "2026-10-29 11:28",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793244480.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 1.0,
             "role": "admin",
             "open": true,
@@ -2103,7 +2103,7 @@
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -2255,9 +2255,9 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792548480.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 9.1,
             "role": "third",
             "open": true,
@@ -2266,7 +2266,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -2430,9 +2430,9 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1791542460.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 20.7,
             "role": "third",
             "open": true,
@@ -2441,7 +2441,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -2474,8 +2474,8 @@
       "time_share": {
         "admin_days": 0.0,
         "edu_days": 0.0,
-        "third_days": 74.4,
-        "total_days": 74.4,
+        "third_days": 74.5,
+        "total_days": 74.5,
         "admin_pct": 0.0,
         "edu_pct": 0.0,
         "third_pct": 100.0
@@ -2644,18 +2644,18 @@
           },
           {
             "from_t": "2026-10-29 22:46",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793285160.0,
-            "to_ts": 1793332033.117382,
-            "days": 0.5,
+            "to_ts": 1793332688.863541,
+            "days": 0.6,
             "role": "third",
             "open": true,
-            "label": "至今 0.5 天"
+            "label": "至今 0.6 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -2807,9 +2807,9 @@
           },
           {
             "from_t": "2026-10-22 10:59",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792637940.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 8.0,
             "role": "third",
             "open": true,
@@ -2818,7 +2818,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -2949,9 +2949,9 @@
           },
           {
             "from_t": "2026-10-23 20:31",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1792758660.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 6.6,
             "role": "edu",
             "open": true,
@@ -2960,7 +2960,7 @@
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -3220,9 +3220,9 @@
           },
           {
             "from_t": "2026-10-28 18:27",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793183220.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 1.7,
             "role": "edu",
             "open": true,
@@ -3231,7 +3231,7 @@
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -3344,9 +3344,9 @@
           },
           {
             "from_t": "2026-10-28 18:56",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793184960.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 1.7,
             "role": "edu",
             "open": true,
@@ -3355,7 +3355,7 @@
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     },
@@ -3474,9 +3474,9 @@
           },
           {
             "from_t": "2026-10-29 14:39",
-            "to_t": "2026-10-30 11:47",
+            "to_t": "2026-10-30 11:58",
             "from_ts": 1793255940.0,
-            "to_ts": 1793332033.117382,
+            "to_ts": 1793332688.863541,
             "days": 0.9,
             "role": "edu",
             "open": true,
@@ -3485,12 +3485,409 @@
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1793332033.117382
+          "max_ts": 1793332688.863541
         }
       }
     }
   ],
   "completed_documents": [
+    {
+      "id": "PA-26-242",
+      "stage": "Form 1",
+      "title": "為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R5 · Form 1",
+      "submitter": "Nettie Si",
+      "follow_up": [
+        "Nettie Si"
+      ],
+      "first_submit": "2026-09-22 09:19",
+      "status_since": "2026-10-30 11:43",
+      "completed_at": "2026-10-30 11:43",
+      "days_in_status": 0,
+      "days_since_first_submit": 38,
+      "process_days": 38.1,
+      "current_round": 5,
+      "last_reply": "2026-10-13 15:44",
+      "last_reply_summary": "【採購失敗】未能作出判給（供應商報價不符最低技術要求／價格不合理）；須另開新文件",
+      "last_resubmit": "2026-10-23 10:17",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 5,
+      "admin_total": 15.0,
+      "colleague_total": 5.2,
+      "time_share": {
+        "admin_days": 1.2,
+        "edu_days": 9.8,
+        "third_days": 20.1,
+        "total_days": 31.1,
+        "admin_pct": 3.9,
+        "edu_pct": 31.5,
+        "third_pct": 64.6
+      },
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-09 16:12",
+            "ts": 1788941520.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-12 10:17",
+            "ts": 1789179420.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "第2次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-16 16:09",
+            "ts": 1789546140.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "第3次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-18 18:23",
+            "ts": 1789726980.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "第4次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-09-22 09:19",
+            "ts": 1790039940.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-22 09:19",
+            "ts": 1790039940.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "[09-22 09:19] 須按附件修改（信中提及附件，但此信未附PDF）；[09-22 09:25] 須按附件修改（附件：PA-26-242_第一次修改.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-22 09:25",
+            "ts": 1790040300.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆（追加）",
+            "detail": "",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-24 13:09",
+            "ts": 1790226540.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：地域電腦有限公司、金達資訊科技有限公司、華特工程(澳門)有限公司",
+            "detail": "",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-24 16:02",
+            "ts": 1790236920.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-242文件須作出修正的地方（為第1次通知EDU需要作出文件修改）",
+            "who": "Nettie Si",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-05 13:56",
+            "ts": 1791179760.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）- 為第1次通知EDU需要作出文件修改",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-09 15:43",
+            "ts": 1791531780.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "【採購失敗】未能作出判給（供應商報價不符最低技術要求／價格不合理）；須另開新文件",
+            "detail": "",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-12 10:57",
+            "ts": 1791773820.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R4 提交",
+            "detail": "[提交至行政採購文件] PA-26-242 為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）",
+            "who": "Nettie Si",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-13 15:44",
+            "ts": 1791877440.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R3 行政回覆（追加）",
+            "detail": "",
+            "who": "Procure",
+            "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-22 10:06",
+            "ts": 1792634760.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R5 提交",
+            "detail": "[提交至行政採購文件] PA-26-242 為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）- 10月13日已交（為第3次通知EDU需要作出文件修改）",
+            "who": "Nettie Si",
+            "round": 5,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-23 10:17",
+            "ts": 1792721820.0,
+            "kind": "completed",
+            "role": "edu",
+            "label": "完成",
+            "detail": "",
+            "who": "",
+            "round": null,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-22 09:19",
+            "to_t": "2026-09-22 09:25",
+            "from_ts": 1790039940.0,
+            "to_ts": 1790040300.0,
+            "days": 0.0,
+            "role": "admin",
+            "open": false,
+            "label": "0.0 天"
+          },
+          {
+            "from_t": "2026-09-22 09:25",
+            "to_t": "2026-09-24 13:09",
+            "from_ts": 1790040300.0,
+            "to_ts": 1790226540.0,
+            "days": 2.2,
+            "role": "third",
+            "open": false,
+            "label": "2.2 天"
+          },
+          {
+            "from_t": "2026-09-24 13:09",
+            "to_t": "2026-09-24 16:02",
+            "from_ts": 1790226540.0,
+            "to_ts": 1790236920.0,
+            "days": 0.1,
+            "role": "third",
+            "open": false,
+            "label": "0.1 天"
+          },
+          {
+            "from_t": "2026-09-24 16:02",
+            "to_t": "2026-10-09 15:43",
+            "from_ts": 1790236920.0,
+            "to_ts": 1791531780.0,
+            "days": 15.0,
+            "role": "third",
+            "open": false,
+            "label": "15.0 天"
+          },
+          {
+            "from_t": "2026-10-09 15:43",
+            "to_t": "2026-10-12 10:57",
+            "from_ts": 1791531780.0,
+            "to_ts": 1791773820.0,
+            "days": 2.8,
+            "role": "third",
+            "open": false,
+            "label": "2.8 天"
+          },
+          {
+            "from_t": "2026-10-12 10:57",
+            "to_t": "2026-10-13 15:44",
+            "from_ts": 1791773820.0,
+            "to_ts": 1791877440.0,
+            "days": 1.2,
+            "role": "admin",
+            "open": false,
+            "label": "1.2 天"
+          },
+          {
+            "from_t": "2026-10-13 15:44",
+            "to_t": "2026-10-22 10:06",
+            "from_ts": 1791877440.0,
+            "to_ts": 1792634760.0,
+            "days": 8.8,
+            "role": "edu",
+            "open": false,
+            "label": "8.8 天"
+          },
+          {
+            "from_t": "2026-10-22 10:06",
+            "to_t": "2026-10-23 10:17",
+            "from_ts": 1792634760.0,
+            "to_ts": 1792721820.0,
+            "days": 1.0,
+            "role": "edu",
+            "open": false,
+            "label": "1.0 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1788941520.0,
+          "max_ts": 1792721820.0
+        }
+      }
+    },
+    {
+      "id": "AI 工具報銷預計申請表（2026年7月至12月）",
+      "stage": "不適用（無編號）",
+      "title": "2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
+      "status": "完成",
+      "status_group": "completed",
+      "attr_label": "R5 · 無編號",
+      "submitter": "Silvia Lio",
+      "follow_up": [
+        "Silvia Lio"
+      ],
+      "first_submit": "2026-09-25 00:03",
+      "status_since": "2026-10-29 17:33",
+      "completed_at": "2026-10-29 17:33",
+      "days_in_status": 1,
+      "days_since_first_submit": 35,
+      "process_days": 34.7,
+      "current_round": 5,
+      "last_reply": "2026-09-25 00:03",
+      "last_reply_summary": "須按附件修改（附件：教育部_2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表.pdf）",
+      "last_resubmit": "2026-10-18 09:54",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 2,
+      "admin_total": "",
+      "colleague_total": 23.4,
+      "time_share": {
+        "admin_days": 0.0,
+        "edu_days": 23.4,
+        "third_days": 0.0,
+        "total_days": 23.4,
+        "admin_pct": 0.0,
+        "edu_pct": 100.0,
+        "third_pct": 0.0
+      },
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-09-25 00:03",
+            "ts": 1790265780.0,
+            "kind": "first_submit",
+            "role": "edu",
+            "label": "紀錄起點（缺首次提交時間）",
+            "detail": "",
+            "who": "Silvia Lio",
+            "round": null,
+            "secondary": false
+          },
+          {
+            "t": "2026-09-25 00:03",
+            "ts": 1790265780.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R4 行政回覆",
+            "detail": "須按附件修改（附件：教育部_2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表.pdf）",
+            "who": "Procure",
+            "round": 4,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-16 17:48",
+            "ts": 1792144080.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：（無編號）2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
+            "who": "Silvia Lio",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-18 09:54",
+            "ts": 1792288440.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R5 提交",
+            "detail": "[提交至行政採購文件]2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表（為第4次通知EDU需要作出文件修改）",
+            "who": "Silvia Lio",
+            "round": 5,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-09-25 00:03",
+            "to_t": "2026-10-18 09:54",
+            "from_ts": 1790265780.0,
+            "to_ts": 1792288440.0,
+            "days": 23.4,
+            "role": "edu",
+            "open": false,
+            "label": "23.4 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1790265780.0,
+          "max_ts": 1792288440.0
+        }
+      }
+    },
     {
       "id": "PA-26-244(2)",
       "stage": "Form 2",
@@ -3812,302 +4209,6 @@
         "span": {
           "min_ts": 1791361560.0,
           "max_ts": 1793016420.0
-        }
-      }
-    },
-    {
-      "id": "PA-26-242",
-      "stage": "Form 1",
-      "title": "為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）",
-      "status": "完成",
-      "status_group": "completed",
-      "attr_label": "R5 · Form 1",
-      "submitter": "Nettie Si",
-      "follow_up": [
-        "Nettie Si"
-      ],
-      "first_submit": "2026-09-22 09:19",
-      "status_since": "2026-10-23 10:17",
-      "completed_at": "2026-10-23 10:17",
-      "days_in_status": 7,
-      "days_since_first_submit": 38,
-      "process_days": 31,
-      "current_round": 5,
-      "last_reply": "2026-10-13 15:44",
-      "last_reply_summary": "【採購失敗】未能作出判給（供應商報價不符最低技術要求／價格不合理）；須另開新文件",
-      "last_resubmit": "2026-10-23 10:17",
-      "admin_clock_from": "",
-      "days_since_reply": "",
-      "n_rounds": 5,
-      "admin_total": 15.0,
-      "colleague_total": 5.2,
-      "time_share": {
-        "admin_days": 1.2,
-        "edu_days": 9.8,
-        "third_days": 20.1,
-        "total_days": 31.1,
-        "admin_pct": 3.9,
-        "edu_pct": 31.5,
-        "third_pct": 64.6
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-09-09 16:12",
-            "ts": 1788941520.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
-            "who": "Nettie Si",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-09-12 10:17",
-            "ts": 1789179420.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "第2次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
-            "who": "Nettie Si",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-09-16 16:09",
-            "ts": 1789546140.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "第3次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
-            "who": "Nettie Si",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-09-18 18:23",
-            "ts": 1789726980.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "第4次文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）",
-            "who": "Nettie Si",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-09-22 09:19",
-            "ts": 1790039940.0,
-            "kind": "first_submit",
-            "role": "edu",
-            "label": "紀錄起點（缺首次提交時間）",
-            "detail": "",
-            "who": "Nettie Si",
-            "round": null,
-            "secondary": false
-          },
-          {
-            "t": "2026-09-22 09:19",
-            "ts": 1790039940.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "[09-22 09:19] 須按附件修改（信中提及附件，但此信未附PDF）；[09-22 09:25] 須按附件修改（附件：PA-26-242_第一次修改.pdf）",
-            "who": "Procure",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-09-22 09:25",
-            "ts": 1790040300.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆（追加）",
-            "detail": "",
-            "who": "Procure",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-09-24 13:09",
-            "ts": 1790226540.0,
-            "kind": "third_party",
-            "role": "third",
-            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：地域電腦有限公司、金達資訊科技有限公司、華特工程(澳門)有限公司",
-            "detail": "",
-            "who": "Procure",
-            "round": 2,
-            "secondary": false
-          },
-          {
-            "t": "2026-09-24 16:02",
-            "ts": 1790236920.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R3 提交",
-            "detail": "[提交至行政採購文件] 有關PA-26-242文件須作出修正的地方（為第1次通知EDU需要作出文件修改）",
-            "who": "Nettie Si",
-            "round": 3,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-05 13:56",
-            "ts": 1791179760.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢：PA-26-242 為澳門科學館採購Adobe Firefly及Canva軟件（2026）- 為第1次通知EDU需要作出文件修改",
-            "who": "Nettie Si",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-10-09 15:43",
-            "ts": 1791531780.0,
-            "kind": "third_party",
-            "role": "third",
-            "label": "【採購失敗】未能作出判給（供應商報價不符最低技術要求／價格不合理）；須另開新文件",
-            "detail": "",
-            "who": "Procure",
-            "round": 3,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-12 10:57",
-            "ts": 1791773820.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R4 提交",
-            "detail": "[提交至行政採購文件] PA-26-242 為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）",
-            "who": "Nettie Si",
-            "round": 4,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-13 15:44",
-            "ts": 1791877440.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R3 行政回覆（追加）",
-            "detail": "",
-            "who": "Procure",
-            "round": 3,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-22 10:06",
-            "ts": 1792634760.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R5 提交",
-            "detail": "[提交至行政採購文件] PA-26-242 為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）- 10月13日已交（為第3次通知EDU需要作出文件修改）",
-            "who": "Nettie Si",
-            "round": 5,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-23 10:17",
-            "ts": 1792721820.0,
-            "kind": "completed",
-            "role": "edu",
-            "label": "完成",
-            "detail": "",
-            "who": "",
-            "round": null,
-            "secondary": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-09-22 09:19",
-            "to_t": "2026-09-22 09:25",
-            "from_ts": 1790039940.0,
-            "to_ts": 1790040300.0,
-            "days": 0.0,
-            "role": "admin",
-            "open": false,
-            "label": "0.0 天"
-          },
-          {
-            "from_t": "2026-09-22 09:25",
-            "to_t": "2026-09-24 13:09",
-            "from_ts": 1790040300.0,
-            "to_ts": 1790226540.0,
-            "days": 2.2,
-            "role": "third",
-            "open": false,
-            "label": "2.2 天"
-          },
-          {
-            "from_t": "2026-09-24 13:09",
-            "to_t": "2026-09-24 16:02",
-            "from_ts": 1790226540.0,
-            "to_ts": 1790236920.0,
-            "days": 0.1,
-            "role": "third",
-            "open": false,
-            "label": "0.1 天"
-          },
-          {
-            "from_t": "2026-09-24 16:02",
-            "to_t": "2026-10-09 15:43",
-            "from_ts": 1790236920.0,
-            "to_ts": 1791531780.0,
-            "days": 15.0,
-            "role": "third",
-            "open": false,
-            "label": "15.0 天"
-          },
-          {
-            "from_t": "2026-10-09 15:43",
-            "to_t": "2026-10-12 10:57",
-            "from_ts": 1791531780.0,
-            "to_ts": 1791773820.0,
-            "days": 2.8,
-            "role": "third",
-            "open": false,
-            "label": "2.8 天"
-          },
-          {
-            "from_t": "2026-10-12 10:57",
-            "to_t": "2026-10-13 15:44",
-            "from_ts": 1791773820.0,
-            "to_ts": 1791877440.0,
-            "days": 1.2,
-            "role": "admin",
-            "open": false,
-            "label": "1.2 天"
-          },
-          {
-            "from_t": "2026-10-13 15:44",
-            "to_t": "2026-10-22 10:06",
-            "from_ts": 1791877440.0,
-            "to_ts": 1792634760.0,
-            "days": 8.8,
-            "role": "edu",
-            "open": false,
-            "label": "8.8 天"
-          },
-          {
-            "from_t": "2026-10-22 10:06",
-            "to_t": "2026-10-23 10:17",
-            "from_ts": 1792634760.0,
-            "to_ts": 1792721820.0,
-            "days": 1.0,
-            "role": "edu",
-            "open": false,
-            "label": "1.0 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1788941520.0,
-          "max_ts": 1792721820.0
         }
       }
     },
@@ -5068,107 +5169,6 @@
         "span": {
           "min_ts": 1788796800.0,
           "max_ts": 1792572720.0
-        }
-      }
-    },
-    {
-      "id": "AI 工具報銷預計申請表（2026年7月至12月）",
-      "stage": "不適用（無編號）",
-      "title": "2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
-      "status": "完成",
-      "status_group": "completed",
-      "attr_label": "R5 · 無編號",
-      "submitter": "Silvia Lio",
-      "follow_up": [
-        "Silvia Lio"
-      ],
-      "first_submit": "2026-09-25 00:03",
-      "status_since": "2026-10-18 09:54",
-      "completed_at": "2026-10-18 09:54",
-      "days_in_status": 12,
-      "days_since_first_submit": 35,
-      "process_days": 23.4,
-      "current_round": 5,
-      "last_reply": "2026-09-25 00:03",
-      "last_reply_summary": "須按附件修改（附件：教育部_2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表.pdf）",
-      "last_resubmit": "2026-10-18 09:54",
-      "admin_clock_from": "",
-      "days_since_reply": "",
-      "n_rounds": 2,
-      "admin_total": "",
-      "colleague_total": 23.4,
-      "time_share": {
-        "admin_days": 0.0,
-        "edu_days": 23.4,
-        "third_days": 0.0,
-        "total_days": 23.4,
-        "admin_pct": 0.0,
-        "edu_pct": 100.0,
-        "third_pct": 0.0
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-09-25 00:03",
-            "ts": 1790265780.0,
-            "kind": "first_submit",
-            "role": "edu",
-            "label": "紀錄起點（缺首次提交時間）",
-            "detail": "",
-            "who": "Silvia Lio",
-            "round": null,
-            "secondary": false
-          },
-          {
-            "t": "2026-09-25 00:03",
-            "ts": 1790265780.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R4 行政回覆",
-            "detail": "須按附件修改（附件：教育部_2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表.pdf）",
-            "who": "Procure",
-            "round": 4,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-16 17:48",
-            "ts": 1792144080.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢：（無編號）2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
-            "who": "Silvia Lio",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-10-18 09:54",
-            "ts": 1792288440.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R5 提交",
-            "detail": "[提交至行政採購文件]2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表（為第4次通知EDU需要作出文件修改）",
-            "who": "Silvia Lio",
-            "round": 5,
-            "secondary": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-09-25 00:03",
-            "to_t": "2026-10-18 09:54",
-            "from_ts": 1790265780.0,
-            "to_ts": 1792288440.0,
-            "days": 23.4,
-            "role": "edu",
-            "open": false,
-            "label": "23.4 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1790265780.0,
-          "max_ts": 1792288440.0
         }
       }
     },
