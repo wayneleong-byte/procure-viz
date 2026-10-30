@@ -27,6 +27,11 @@
     "PA-26-220",
     "科學館與蔚來簽署第二次補充合作協議",
   ]);
+  /** Oscar：已完成但仍顯示行政／EDU／第三方三色（資料完整） */
+  const FULL_COLOR_SHARE = new Set([
+    "PA-26-120(2)",
+    "PA-26-199(2)",
+  ]);
 
   /** Shared doc-list filters (PA text + submitter). */
   const DOC_FILTER = { pa: "", submitter: "", status: "", sort: "pa" };
@@ -179,7 +184,7 @@
     html += `<section id="panel-completed" class="panel" role="tabpanel">
       <div class="card" style="margin-bottom:10px">
         <h2 class="card-title">已完成文件流程時間記錄</h2>
-        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱 · 時間比例。資料完整者（目前 PA-26-120(2)）顯示行政／EDU／第三方三色；其餘已完成因數據不足顯示黑色比例條。點擊列展開流程時間線（已完成唔再延伸至今日）。</p>
+        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱 · 時間比例。資料完整者（目前 PA-26-120(2)、PA-26-199(2)）顯示行政／EDU／第三方三色；其餘已完成因數據不足顯示黑色比例條。點擊列展開流程時間線（已完成唔再延伸至今日）。</p>
         ${docFilterToolbar("completed")}
         <div class="list-head completed-head">
           <span>文件編號</span><span>文件總天數</span><span>屬性</span><span>文件名稱</span><span>時間比例</span><span></span>
@@ -531,9 +536,9 @@
   function forceBlackShare(d) {
     const id = String(d.id || "");
     if (FORCE_BLACK_SHARE.has(id)) return true;
-    // completed: only PA-26-120(2) keeps RGB; all other completed → black
+    // completed: whitelist keeps RGB; all other completed → black
     if (d.status_group === "completed" || d.status === "完成") {
-      return id !== "PA-26-120(2)";
+      return !FULL_COLOR_SHARE.has(id);
     }
     return false;
   }
@@ -743,7 +748,7 @@
           d.process_days != null && d.process_days !== ""
             ? d.process_days
             : ts.total_days;
-        const fullColor = String(d.id || "") === "PA-26-120(2)";
+        const fullColor = FULL_COLOR_SHARE.has(String(d.id || ""));
         const shareDetail = fullColor
           ? `<div class="doc-meta-line share-detail">
               時間比例：行政部 ${esc(fmtDays(ts.admin_pct))}%（${esc(fmtDays(ts.admin_days))} 天）
