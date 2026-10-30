@@ -31,6 +31,7 @@
   const FULL_COLOR_SHARE = new Set([
     "PA-26-120(2)",
     "PA-26-199(2)",
+    "PA-26-242",
   ]);
 
   /** Shared doc-list filters (PA text + submitter). */
@@ -192,7 +193,7 @@
     html += `<section id="panel-completed" class="panel" role="tabpanel">
       <div class="card" style="margin-bottom:10px">
         <h2 class="card-title">已完成文件流程時間記錄</h2>
-        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱 · 時間比例。資料完整者（目前 PA-26-120(2)、PA-26-199(2)）顯示行政／EDU／第三方三色；其餘已完成因數據不足顯示黑色比例條。點擊列展開流程時間線（已完成唔再延伸至今日）。</p>
+        <p class="card-hint">未展開：編號 · 文件總天數（首次／紀錄起點→完成）· 屬性 · 文件名稱 · 時間比例。資料完整者（目前 PA-26-120(2)、PA-26-199(2)、PA-26-242）顯示行政／EDU／第三方三色；其餘已完成因數據不足顯示黑色比例條。點擊列展開流程時間線（已完成唔再延伸至今日）。</p>
         ${docFilterToolbar("completed")}
         <div class="list-head completed-head">
           <span>文件編號</span><span>文件總天數</span><span>屬性</span><span>文件名稱</span><span>時間比例</span><span></span>
