@@ -2,8 +2,8 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-04 11:14",
-    "source_generated_at": "2026-11-04 08:46",
+    "generated_at": "2026-11-04 11:18",
+    "source_generated_at": "2026-11-04 11:15",
     "today": "2026-11-04",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
@@ -144,9 +144,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1790650140.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 36.0,
             "role": "admin",
             "open": true,
@@ -155,7 +155,7 @@
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -264,9 +264,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1790679180.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 35.7,
             "role": "admin",
             "open": true,
@@ -275,7 +275,7 @@
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -360,9 +360,9 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1791777120.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 23.0,
             "role": "admin",
             "open": true,
@@ -371,7 +371,7 @@
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -444,9 +444,9 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1792471980.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 14.9,
             "role": "admin",
             "open": true,
@@ -455,7 +455,7 @@
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -528,9 +528,9 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1792566900.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 13.8,
             "role": "admin",
             "open": true,
@@ -539,7 +539,7 @@
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -678,9 +678,9 @@
           },
           {
             "from_t": "2026-10-26 16:07",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793002020.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 8.8,
             "role": "admin",
             "open": true,
@@ -689,7 +689,7 @@
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -816,9 +816,9 @@
           },
           {
             "from_t": "2026-10-27 11:04",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793070240.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 8.0,
             "role": "admin",
             "open": true,
@@ -827,7 +827,7 @@
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -888,9 +888,9 @@
         "gaps": [
           {
             "from_t": "2026-10-27 15:56",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793087760.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 7.8,
             "role": "admin",
             "open": true,
@@ -899,7 +899,7 @@
         ],
         "span": {
           "min_ts": 1793087760.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -1044,9 +1044,9 @@
           },
           {
             "from_t": "2026-10-28 15:55",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793174100.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 6.8,
             "role": "admin",
             "open": true,
@@ -1055,7 +1055,7 @@
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -1346,9 +1346,9 @@
           },
           {
             "from_t": "2026-10-29 11:28",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793244480.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 6.0,
             "role": "admin",
             "open": true,
@@ -1357,7 +1357,7 @@
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -1514,9 +1514,9 @@
           },
           {
             "from_t": "2026-10-31 10:10",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793412600.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 4.0,
             "role": "admin",
             "open": true,
@@ -1525,7 +1525,7 @@
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -1586,9 +1586,9 @@
         "gaps": [
           {
             "from_t": "2026-10-31 10:08",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793412480.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 4.0,
             "role": "admin",
             "open": true,
@@ -1597,7 +1597,7 @@
         ],
         "span": {
           "min_ts": 1793412480.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -1901,9 +1901,9 @@
           },
           {
             "from_t": "2026-11-03 10:48",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793674080.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 1.0,
             "role": "admin",
             "open": true,
@@ -1912,7 +1912,7 @@
         ],
         "span": {
           "min_ts": 1782403200.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2057,9 +2057,9 @@
           },
           {
             "from_t": "2026-11-03 14:31",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793687460.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 0.9,
             "role": "admin",
             "open": true,
@@ -2068,7 +2068,7 @@
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2171,9 +2171,9 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1792840260.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 10.7,
             "role": "admin",
             "open": true,
@@ -2182,7 +2182,7 @@
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2243,9 +2243,9 @@
         "gaps": [
           {
             "from_t": "2026-11-03 10:59",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793674740.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 1.0,
             "role": "admin",
             "open": true,
@@ -2254,7 +2254,7 @@
         ],
         "span": {
           "min_ts": 1793674740.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2411,9 +2411,9 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1792548480.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 14.0,
             "role": "third",
             "open": true,
@@ -2422,7 +2422,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2591,9 +2591,9 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1791542460.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 25.7,
             "role": "third",
             "open": true,
@@ -2602,7 +2602,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2810,9 +2810,9 @@
           },
           {
             "from_t": "2026-10-29 22:46",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793285160.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 5.5,
             "role": "third",
             "open": true,
@@ -2821,7 +2821,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -2990,9 +2990,9 @@
           },
           {
             "from_t": "2026-10-22 10:59",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1792637940.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 13.0,
             "role": "third",
             "open": true,
@@ -3001,7 +3001,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -3158,9 +3158,9 @@
           },
           {
             "from_t": "2026-10-30 22:22",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793370120.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 4.5,
             "role": "edu",
             "open": true,
@@ -3169,7 +3169,7 @@
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -3329,9 +3329,9 @@
           },
           {
             "from_t": "2026-10-30 22:23",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793370180.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 4.5,
             "role": "edu",
             "open": true,
@@ -3340,7 +3340,7 @@
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -3626,9 +3626,9 @@
           },
           {
             "from_t": "2026-11-03 16:45",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793695500.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 0.8,
             "role": "edu",
             "open": true,
@@ -3637,7 +3637,7 @@
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -3776,9 +3776,9 @@
           },
           {
             "from_t": "2026-11-03 16:43",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793695380.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 0.8,
             "role": "edu",
             "open": true,
@@ -3787,7 +3787,7 @@
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -3824,11 +3824,11 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 34.2,
-        "edu_days": 0.8,
+        "edu_days": 0.9,
         "third_days": 0.0,
-        "total_days": 35.0,
-        "admin_pct": 97.7,
-        "edu_pct": 2.3,
+        "total_days": 35.1,
+        "admin_pct": 97.4,
+        "edu_pct": 2.6,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3893,18 +3893,18 @@
           },
           {
             "from_t": "2026-11-03 14:53",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793688780.0,
-            "to_ts": 1793762091.857071,
-            "days": 0.8,
+            "to_ts": 1793762297.763582,
+            "days": 0.9,
             "role": "edu",
             "open": true,
-            "label": "至今 0.8 天"
+            "label": "至今 0.9 天"
           }
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -3919,7 +3919,7 @@
       "title": "為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
       "status": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
-      "attr_label": "R1 · Form 1",
+      "attr_label": "R2 · Form 1",
       "submitter": "Siky Lam",
       "follow_up": [
         "Siky Lam"
@@ -3930,22 +3930,22 @@
       "days_in_status": 1,
       "days_since_first_submit": 19,
       "process_days": null,
-      "current_round": 1,
+      "current_round": 2,
       "last_reply": "2026-11-03 19:54",
       "last_reply_summary": "須按附件修改（附件：PA-26-302_第一次修改.pdf）",
-      "last_resubmit": "",
+      "last_resubmit": "2026-10-25 10:45",
       "admin_clock_from": "",
       "days_since_reply": 1,
-      "n_rounds": 1,
+      "n_rounds": 2,
       "admin_total": 18,
       "colleague_total": "",
       "time_share": {
-        "admin_days": 18.8,
-        "edu_days": 0.6,
+        "admin_days": 14.3,
+        "edu_days": 5.1,
         "third_days": 0.0,
         "total_days": 19.4,
-        "admin_pct": 96.9,
-        "edu_pct": 3.1,
+        "admin_pct": 73.7,
+        "edu_pct": 26.3,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3956,9 +3956,20 @@
             "kind": "submission",
             "role": "edu",
             "label": "R1 提交",
-            "detail": "[提交至行政採購文件] 有關PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
+            "detail": "第1次通知、附件「第一次修改」",
             "who": "Siky Lam",
             "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-20 12:51",
+            "ts": 1792471860.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "[提交至行政採購文件] 有關PA-26-302為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
+            "who": "Siky Lam",
+            "round": 2,
             "secondary": false
           },
           {
@@ -3988,19 +3999,29 @@
         "gaps": [
           {
             "from_t": "2026-10-16",
-            "to_t": "2026-11-03 19:54",
+            "to_t": "2026-10-20 12:51",
             "from_ts": 1792080000.0,
+            "to_ts": 1792471860.0,
+            "days": 4.5,
+            "role": "edu",
+            "open": false,
+            "label": "4.5 天"
+          },
+          {
+            "from_t": "2026-10-20 12:51",
+            "to_t": "2026-11-03 19:54",
+            "from_ts": 1792471860.0,
             "to_ts": 1793706840.0,
-            "days": 18.8,
+            "days": 14.3,
             "role": "admin",
             "open": false,
-            "label": "18.8 天"
+            "label": "14.3 天"
           },
           {
             "from_t": "2026-11-03 19:54",
-            "to_t": "2026-11-04 11:14",
+            "to_t": "2026-11-04 11:18",
             "from_ts": 1793706840.0,
-            "to_ts": 1793762091.857071,
+            "to_ts": 1793762297.763582,
             "days": 0.6,
             "role": "edu",
             "open": true,
@@ -4009,7 +4030,7 @@
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1793762091.857071
+          "max_ts": 1793762297.763582
         }
       },
       "awarded_supplier": null,
@@ -4581,7 +4602,7 @@
           "max_ts": 1792721820.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "（未能判給）",
       "budget_amount": null,
       "award_amount": null,
       "award_date": null,
@@ -4687,7 +4708,7 @@
           "max_ts": 1792288440.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "（不適用）",
       "budget_amount": null,
       "award_amount": null,
       "award_date": null,
@@ -4854,9 +4875,9 @@
           "max_ts": 1793192160.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "澳門電訊股份有限公司",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 45600.0,
       "award_date": null,
       "award_sort_date": "2026-10-28 20:56"
     },
@@ -5021,9 +5042,9 @@
           "max_ts": 1793016420.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "卓科數碼系統通訊有限公司",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 80000.0,
       "award_date": null,
       "award_sort_date": "2026-10-26 20:07"
     },
@@ -5275,9 +5296,9 @@
           "max_ts": 1792574400.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "Fab Foundation",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 103750.0,
       "award_date": null,
       "award_sort_date": "2026-10-21 17:20"
     },
@@ -5466,9 +5487,9 @@
           "max_ts": 1792573680.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "萬利電腦數控系統有限公司",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 68500.0,
       "award_date": null,
       "award_sort_date": "2026-10-21 17:08"
     },
@@ -5947,7 +5968,7 @@
           "max_ts": 1792166400.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "（不適用）",
       "budget_amount": null,
       "award_amount": null,
       "award_date": null,
@@ -6338,9 +6359,9 @@
           "max_ts": 1791531600.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "澳門資優教育協會",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 799670.0,
       "award_date": null,
       "award_sort_date": "2026-10-09 15:40"
     },
@@ -6508,9 +6529,9 @@
           "max_ts": 1791446400.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "澳門混合現實科技有限公司",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 481407.0,
       "award_date": null,
       "award_sort_date": "2026-10-08 16:00"
     },
@@ -6612,7 +6633,7 @@
           "max_ts": 1791284160.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "（不適用）",
       "budget_amount": null,
       "award_amount": null,
       "award_date": null,
@@ -6821,7 +6842,7 @@
           "max_ts": 1791192480.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "（不適用）",
       "budget_amount": null,
       "award_amount": null,
       "award_date": null,
@@ -7073,9 +7094,9 @@
           "max_ts": 1790070780.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "澳門科技大學",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 312475.0,
       "award_date": null,
       "award_sort_date": "2026-09-22 17:53"
     },
@@ -7239,9 +7260,9 @@
           "max_ts": 1789698900.0
         }
       },
-      "awarded_supplier": null,
+      "awarded_supplier": "三井住友海上火災保險(香港)有限公司",
       "budget_amount": null,
-      "award_amount": null,
+      "award_amount": 4000.0,
       "award_date": null,
       "award_sort_date": "2026-09-18 10:35"
     }
