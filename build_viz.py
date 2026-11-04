@@ -126,6 +126,137 @@ def role_of_email(e: dict) -> str:
     return "edu"
 
 
+
+# Optional award / budget fields (Sheet columns still being added by 文件日數).
+# English keys are canonical in viz.json; Chinese aliases match Sheet headers when present.
+AWARD_SUPPLIER_KEYS = (
+    "awarded_supplier",
+    "獲判給的供應商",
+    "最後獲判給的供應商",
+    "判給供應商",
+    "獲判給供應商",
+)
+BUDGET_AMOUNT_KEYS = (
+    "budget_amount",
+    "預算金額",
+    "該次採購的預算金額",
+    "採購預算金額",
+)
+AWARD_AMOUNT_KEYS = (
+    "award_amount",
+    "最終判給金額",
+    "判給金額",
+)
+AWARD_DATE_KEYS = (
+    "award_date",
+    "判給日期",
+    "獲判給日期",
+    "最後獲判給日期",
+)
+
+
+def _blank_to_none(v):
+    if v is None:
+        return None
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        return v
+    s = str(v).strip()
+    if not s or s.lower() in {"null", "none", "n/a", "-", "—", "待補"}:
+        return None
+    return s
+
+
+def pick_first(sources: list, keys: tuple):
+    """Return first non-empty value among sources for any alias key (exact then strip-match)."""
+    for src in sources:
+        if not isinstance(src, dict):
+            continue
+        for k in keys:
+            if k in src:
+                val = _blank_to_none(src.get(k))
+                if val is not None:
+                    return val
+        # header may have trailing spaces / fullwidth variants
+        norm = {str(hk).strip(): hv for hk, hv in src.items()}
+        for k in keys:
+            if k in norm:
+                val = _blank_to_none(norm.get(k))
+                if val is not None:
+                    return val
+    return None
+
+
+def normalize_amount(v):
+    """Keep numeric amounts as float when parseable; else trimmed string; else None."""
+    v = _blank_to_none(v)
+    if v is None:
+        return None
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        return float(v)
+    s = str(v).strip().replace(",", "").replace("，", "")
+    # strip common currency prefixes
+    for prefix in ("MOP", "mop", "HKD", "hkd", "$", "＄", "澳門幣", "港幣"):
+        if s.startswith(prefix):
+            s = s[len(prefix):].strip()
+    try:
+        return float(s)
+    except ValueError:
+        return str(v).strip()
+
+
+def load_sheet_row_map() -> dict[str, dict]:
+    """Map 採購編號 → row dict from sheet_rows.json「文件總表」(header+rows). Missing file → {}."""
+    path = PROCURE / "sheet_rows.json"
+    if not path.exists():
+        return {}
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    table = raw.get("文件總表") or []
+    if not isinstance(table, list) or len(table) < 2:
+        return {}
+    headers = table[0]
+    if not isinstance(headers, list):
+        # already list of dicts
+        out = {}
+        for row in table:
+            if not isinstance(row, dict):
+                continue
+            pid = str(row.get("採購編號") or row.get("key") or row.get("id") or "").strip()
+            if pid:
+                out[pid] = row
+        return out
+    out: dict[str, dict] = {}
+    for row in table[1:]:
+        if not isinstance(row, list):
+            continue
+        m = {str(headers[i]).strip(): row[i] if i < len(row) else None for i in range(len(headers))}
+        pid = str(m.get("採購編號") or "").strip()
+        if pid:
+            out[pid] = m
+    return out
+
+
+def extract_award_fields(doc: dict, sheet_row: dict | None = None) -> dict:
+    """Extensible award schema for viz. Missing Sheet columns → null (no crash)."""
+    nested = doc.get("award") if isinstance(doc.get("award"), dict) else {}
+    sources = [doc, nested, sheet_row or {}]
+    supplier = pick_first(sources, AWARD_SUPPLIER_KEYS)
+    if isinstance(supplier, (int, float)):
+        supplier = str(supplier)
+    budget = normalize_amount(pick_first(sources, BUDGET_AMOUNT_KEYS))
+    award_amt = normalize_amount(pick_first(sources, AWARD_AMOUNT_KEYS))
+    award_date = pick_first(sources, AWARD_DATE_KEYS)
+    if award_date is not None:
+        award_date = str(award_date).strip()
+    return {
+        "awarded_supplier": supplier,  # 獲判給的供應商
+        "budget_amount": budget,  # 該次採購的預算金額
+        "award_amount": award_amt,  # 最終判給金額
+        "award_date": award_date,  # 獲判給／判給日期（缺則 UI 用 completed_at 排序）
+    }
+
 def to_float(v):
     if v is None or v == "":
         return None
@@ -900,6 +1031,7 @@ def main() -> None:
     completed = [d for d in docs_all if (d.get("status") or "") == "完成"]
     progress = ds.get("progress_inquiries") or []
     emails = ds.get("emails") or []
+    sheet_by_id = load_sheet_row_map()
 
     def doc_sort(d):
         status = d.get("status") or ""
@@ -939,8 +1071,12 @@ def main() -> None:
                     )
             if process_days is not None and float(process_days).is_integer():
                 process_days = int(process_days)
+        pid = d.get("key") or d.get("doc_id") or ""
+        award = extract_award_fields(d, sheet_by_id.get(str(pid)))
+        # Sort helper: explicit award_date, else completed_at for closed docs
+        award_sort = award.get("award_date") or (completed_at if closed else "") or ""
         return {
-            "id": d.get("key") or d.get("doc_id"),
+            "id": pid,
             "stage": d.get("stage") or "",
             "title": d.get("title") or "",
             "status": d.get("status") or "",
@@ -969,6 +1105,12 @@ def main() -> None:
             "colleague_total": d.get("colleague_total"),
             "time_share": time_share,
             "timeline": timeline,
+            # Award / budget (Sheet columns optional; null → UI shows 待補)
+            "awarded_supplier": award.get("awarded_supplier"),
+            "budget_amount": award.get("budget_amount"),
+            "award_amount": award.get("award_amount"),
+            "award_date": award.get("award_date"),
+            "award_sort_date": award_sort or None,
         }
 
     viz_docs = [build_doc_viz(d, closed=False) for d in incomplete_sorted]
@@ -1095,6 +1237,7 @@ def main() -> None:
                 "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
                 "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",
                 "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
+                "獲判給的供應商／預算金額／最終判給金額：Sheet 欄位就緒後自動帶入；未補顯示「待補」",
             ],
         },
         "documents": viz_docs,

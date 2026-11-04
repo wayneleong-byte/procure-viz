@@ -99,6 +99,9 @@
     if (tabId === "home") {
       requestAnimationFrame(() => renderHomeCharts());
     }
+    if (tabId === "supplier") {
+      renderSupplierSearch();
+    }
   }
 
   function buildTabs() {
@@ -117,6 +120,7 @@
     });
     const cc = (DATA.meta && DATA.meta.completed_count) ?? ((DATA.completed_documents || []).length);
     html += `<button type="button" class="tab" data-tab="completed" role="tab" aria-selected="false">已完成文件流程時間記錄<span class="tab-count">${cc}</span></button>`;
+    html += `<button type="button" class="tab" data-tab="supplier" role="tab" aria-selected="false">獲判給的供應商</button>`;
     html += `<button type="button" class="tab" data-tab="email" role="tab" aria-selected="false">行政部郵件時間段統計</button>`;
     nav.innerHTML = html;
     $$(".tab", nav).forEach((btn) => {
@@ -201,8 +205,29 @@
         <div class="doc-list" id="list-completed"></div>
       </div>
     </section>`;
+    html += `<section id="panel-supplier" class="panel" role="tabpanel">
+      <div class="card" style="margin-bottom:10px">
+        <h2 class="card-title">獲判給的供應商</h2>
+        <p class="card-hint">輸入供應商名稱（模糊／包含匹配）。結果顯示文件編號、預算金額、最終判給金額；以最近獲判給優先。欄位未補時顯示「待補」。</p>
+        <div class="toolbar supplier-toolbar">
+          <div class="filters">
+            <input type="search" id="supplier-q" placeholder="搜尋獲判給的供應商" aria-label="搜尋獲判給的供應商" autocomplete="off">
+          </div>
+        </div>
+        <div class="email-stats-line" id="supplier-count">輸入供應商名稱以查詢</div>
+        <div class="list-head supplier-head">
+          <span>文件編號</span><span>獲判給的供應商</span><span>預算金額</span><span>最終判給金額</span><span>獲判給日期</span>
+        </div>
+        <div class="doc-list flat" id="list-supplier"></div>
+      </div>
+    </section>`;
     wrap.innerHTML = html;
     wireDocFilters();
+    const sq = $("#supplier-q");
+    if (sq && !sq.dataset.bound) {
+      sq.dataset.bound = "1";
+      sq.addEventListener("input", renderSupplierSearch);
+    }
   }
 
   function renderMeta() {
@@ -887,6 +912,87 @@
           <span class="c-attr">${esc(d.attr_label || "—")}</span>
           <span class="c-title" title="${esc(d.title)}">${esc(d.title || "—")}</span>
           <span class="c-owner">${esc(ownerLabel(d))}</span>
+        </div>`;
+      })
+      .join("");
+  }
+
+
+  function pendingOr(v) {
+    if (v === null || v === undefined || v === "") return "待補";
+    return String(v);
+  }
+
+  function fmtMoney(v) {
+    if (v === null || v === undefined || v === "") return "待補";
+    if (typeof v === "number" && Number.isFinite(v)) {
+      try {
+        return v.toLocaleString("zh-Hant-MO", { maximumFractionDigits: 2 });
+      } catch (_) {
+        return String(v);
+      }
+    }
+    const s = String(v).trim();
+    return s || "待補";
+  }
+
+  function awardSortTs(d) {
+    const raw = d.award_sort_date || d.award_date || d.completed_at || "";
+    if (!raw) return 0;
+    const t = Date.parse(String(raw).replace(/ /g, "T"));
+    if (!Number.isNaN(t)) return t;
+    // date-only YYYY-MM-DD
+    const m = String(raw).match(/^(\d{4}-\d{2}-\d{2})/);
+    if (m) {
+      const t2 = Date.parse(m[1] + "T00:00:00");
+      return Number.isNaN(t2) ? 0 : t2;
+    }
+    return 0;
+  }
+
+  function renderSupplierSearch() {
+    const list = $("#list-supplier");
+    const countEl = $("#supplier-count");
+    if (!list) return;
+    const q = (($("#supplier-q") && $("#supplier-q").value) || "").trim().toLowerCase();
+    if (!q) {
+      if (countEl) countEl.textContent = "輸入供應商名稱以查詢";
+      list.innerHTML = `<div class="empty">請輸入供應商名稱（支援部分字詞匹配）</div>`;
+      return;
+    }
+    const pool = allDocs();
+    const matched = pool
+      .filter((d) => {
+        const name = String(d.awarded_supplier || "").trim().toLowerCase();
+        return name && name.includes(q);
+      })
+      .slice()
+      .sort((a, b) => {
+        const tb = awardSortTs(b);
+        const ta = awardSortTs(a);
+        if (tb !== ta) return tb - ta; // recent award first
+        // missing dates sink
+        if (!tb && !ta) return cmpPa(a.id, b.id);
+        return cmpPa(a.id, b.id);
+      });
+    if (countEl) {
+      countEl.textContent = matched.length
+        ? `顯示 ${matched.length} 筆（最近獲判給優先）`
+        : `沒有符合「${q}」的供應商記錄`;
+    }
+    if (!matched.length) {
+      list.innerHTML = `<div class="empty">沒有符合的獲判給供應商（欄位未補或名稱唔匹配）</div>`;
+      return;
+    }
+    list.innerHTML = matched
+      .map((d) => {
+        const dateDisp = pendingOr(d.award_date || d.completed_at || "");
+        return `<div class="overview-row supplier-row" data-id="${esc(d.id)}">
+          <span class="c-id">${esc(d.id || "—")}</span>
+          <span class="c-supplier" title="${esc(d.awarded_supplier || "")}">${esc(pendingOr(d.awarded_supplier))}</span>
+          <span class="c-budget">${esc(fmtMoney(d.budget_amount))}</span>
+          <span class="c-award">${esc(fmtMoney(d.award_amount))}</span>
+          <span class="c-adate">${esc(dateDisp === "待補" ? "待補" : dateDisp)}</span>
         </div>`;
       })
       .join("");

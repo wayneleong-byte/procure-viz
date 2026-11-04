@@ -2,7 +2,7 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-04 08:53",
+    "generated_at": "2026-11-04 11:14",
     "source_generated_at": "2026-11-04 08:46",
     "today": "2026-11-04",
     "timezone": "Asia/Macau",
@@ -51,7 +51,8 @@
       "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
       "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
       "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",
-      "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間"
+      "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
+      "獲判給的供應商／預算金額／最終判給金額：Sheet 欄位就緒後自動帶入；未補顯示「待補」"
     ]
   },
   "documents": [
@@ -82,10 +83,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 35.9,
+        "admin_days": 36.0,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 35.9,
+        "total_days": 36.0,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -143,20 +144,25 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1790650140.0,
-            "to_ts": 1793753634.231778,
-            "days": 35.9,
+            "to_ts": 1793762091.857071,
+            "days": 36.0,
             "role": "admin",
             "open": true,
-            "label": "至今 35.9 天"
+            "label": "至今 36.0 天"
           }
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "建議書-2027年度科普劇場運作建議",
@@ -185,10 +191,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 35.6,
+        "admin_days": 35.7,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 35.6,
+        "total_days": 35.7,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -258,20 +264,25 @@
         "gaps": [
           {
             "from_t": "2026-09-29 18:53",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1790679180.0,
-            "to_ts": 1793753634.231778,
-            "days": 35.6,
+            "to_ts": 1793762091.857071,
+            "days": 35.7,
             "role": "admin",
             "open": true,
-            "label": "至今 35.6 天"
+            "label": "至今 35.7 天"
           }
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-221",
@@ -300,10 +311,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 22.9,
+        "admin_days": 23.0,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 22.9,
+        "total_days": 23.0,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -349,20 +360,25 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1791777120.0,
-            "to_ts": 1793753634.231778,
-            "days": 22.9,
+            "to_ts": 1793762091.857071,
+            "days": 23.0,
             "role": "admin",
             "open": true,
-            "label": "至今 22.9 天"
+            "label": "至今 23.0 天"
           }
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-304",
@@ -391,10 +407,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 14.8,
+        "admin_days": 14.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 14.8,
+        "total_days": 14.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -428,20 +444,25 @@
         "gaps": [
           {
             "from_t": "2026-10-20 12:53",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1792471980.0,
-            "to_ts": 1793753634.231778,
-            "days": 14.8,
+            "to_ts": 1793762091.857071,
+            "days": 14.9,
             "role": "admin",
             "open": true,
-            "label": "至今 14.8 天"
+            "label": "至今 14.9 天"
           }
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-303",
@@ -470,10 +491,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 13.7,
+        "admin_days": 13.8,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 13.7,
+        "total_days": 13.8,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -507,20 +528,25 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1792566900.0,
-            "to_ts": 1793753634.231778,
-            "days": 13.7,
+            "to_ts": 1793762091.857071,
+            "days": 13.8,
             "role": "admin",
             "open": true,
-            "label": "至今 13.7 天"
+            "label": "至今 13.8 天"
           }
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-280",
@@ -549,13 +575,13 @@
       "admin_total": 23.7,
       "colleague_total": 3.2,
       "time_share": {
-        "admin_days": 8.7,
+        "admin_days": 8.8,
         "edu_days": 0.0,
         "third_days": 26.9,
-        "total_days": 35.6,
-        "admin_pct": 24.4,
+        "total_days": 35.7,
+        "admin_pct": 24.6,
         "edu_pct": 0.0,
-        "third_pct": 75.6
+        "third_pct": 75.4
       },
       "timeline": {
         "nodes": [
@@ -652,20 +678,25 @@
           },
           {
             "from_t": "2026-10-26 16:07",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793002020.0,
-            "to_ts": 1793753634.231778,
-            "days": 8.7,
+            "to_ts": 1793762091.857071,
+            "days": 8.8,
             "role": "admin",
             "open": true,
-            "label": "至今 8.7 天"
+            "label": "至今 8.8 天"
           }
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-279",
@@ -694,13 +725,13 @@
       "admin_total": 28.8,
       "colleague_total": 3.9,
       "time_share": {
-        "admin_days": 7.9,
+        "admin_days": 8.0,
         "edu_days": 0.0,
         "third_days": 32.7,
-        "total_days": 40.6,
-        "admin_pct": 19.5,
+        "total_days": 40.7,
+        "admin_pct": 19.7,
         "edu_pct": 0.0,
-        "third_pct": 80.5
+        "third_pct": 80.3
       },
       "timeline": {
         "nodes": [
@@ -785,20 +816,25 @@
           },
           {
             "from_t": "2026-10-27 11:04",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793070240.0,
-            "to_ts": 1793753634.231778,
-            "days": 7.9,
+            "to_ts": 1793762091.857071,
+            "days": 8.0,
             "role": "admin",
             "open": true,
-            "label": "至今 7.9 天"
+            "label": "至今 8.0 天"
           }
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-310",
@@ -827,10 +863,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 7.7,
+        "admin_days": 7.8,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 7.7,
+        "total_days": 7.8,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -852,20 +888,25 @@
         "gaps": [
           {
             "from_t": "2026-10-27 15:56",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793087760.0,
-            "to_ts": 1793753634.231778,
-            "days": 7.7,
+            "to_ts": 1793762091.857071,
+            "days": 7.8,
             "role": "admin",
             "open": true,
-            "label": "至今 7.7 天"
+            "label": "至今 7.8 天"
           }
         ],
         "span": {
           "min_ts": 1793087760.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PP-26-068-EED",
@@ -894,12 +935,12 @@
       "admin_total": 22.5,
       "colleague_total": 6.4,
       "time_share": {
-        "admin_days": 29.2,
+        "admin_days": 29.3,
         "edu_days": 6.4,
         "third_days": 0.0,
-        "total_days": 35.6,
-        "admin_pct": 82.0,
-        "edu_pct": 18.0,
+        "total_days": 35.7,
+        "admin_pct": 82.1,
+        "edu_pct": 17.9,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1003,20 +1044,25 @@
           },
           {
             "from_t": "2026-10-28 15:55",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793174100.0,
-            "to_ts": 1793753634.231778,
-            "days": 6.7,
+            "to_ts": 1793762091.857071,
+            "days": 6.8,
             "role": "admin",
             "open": true,
-            "label": "至今 6.7 天"
+            "label": "至今 6.8 天"
           }
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-132(2)",
@@ -1045,12 +1091,12 @@
       "admin_total": 14.1,
       "colleague_total": 15.6,
       "time_share": {
-        "admin_days": 30.2,
+        "admin_days": 30.3,
         "edu_days": 15.6,
         "third_days": 0.0,
-        "total_days": 45.8,
-        "admin_pct": 65.9,
-        "edu_pct": 34.1,
+        "total_days": 45.9,
+        "admin_pct": 66.0,
+        "edu_pct": 34.0,
         "third_pct": 0.0
       },
       "timeline": {
@@ -1300,20 +1346,25 @@
           },
           {
             "from_t": "2026-10-29 11:28",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793244480.0,
-            "to_ts": 1793753634.231778,
-            "days": 5.9,
+            "to_ts": 1793762091.857071,
+            "days": 6.0,
             "role": "admin",
             "open": true,
-            "label": "至今 5.9 天"
+            "label": "至今 6.0 天"
           }
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-165",
@@ -1342,13 +1393,13 @@
       "admin_total": 30.1,
       "colleague_total": 14.6,
       "time_share": {
-        "admin_days": 25.7,
+        "admin_days": 25.8,
         "edu_days": 7.0,
         "third_days": 16.7,
-        "total_days": 49.4,
-        "admin_pct": 52.0,
-        "edu_pct": 14.2,
-        "third_pct": 33.8
+        "total_days": 49.5,
+        "admin_pct": 52.2,
+        "edu_pct": 14.1,
+        "third_pct": 33.7
       },
       "timeline": {
         "nodes": [
@@ -1463,20 +1514,25 @@
           },
           {
             "from_t": "2026-10-31 10:10",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793412600.0,
-            "to_ts": 1793753634.231778,
-            "days": 3.9,
+            "to_ts": 1793762091.857071,
+            "days": 4.0,
             "role": "admin",
             "open": true,
-            "label": "至今 3.9 天"
+            "label": "至今 4.0 天"
           }
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-257(2)",
@@ -1505,10 +1561,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 3.9,
+        "admin_days": 4.0,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 3.9,
+        "total_days": 4.0,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1530,20 +1586,25 @@
         "gaps": [
           {
             "from_t": "2026-10-31 10:08",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793412480.0,
-            "to_ts": 1793753634.231778,
-            "days": 3.9,
+            "to_ts": 1793762091.857071,
+            "days": 4.0,
             "role": "admin",
             "open": true,
-            "label": "至今 3.9 天"
+            "label": "至今 4.0 天"
           }
         ],
         "span": {
           "min_ts": 1793412480.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-168",
@@ -1572,10 +1633,10 @@
       "admin_total": 24.4,
       "colleague_total": 18.4,
       "time_share": {
-        "admin_days": 25.3,
+        "admin_days": 25.4,
         "edu_days": 106.0,
         "third_days": 0.0,
-        "total_days": 131.3,
+        "total_days": 131.4,
         "admin_pct": 19.3,
         "edu_pct": 80.7,
         "third_pct": 0.0
@@ -1840,20 +1901,25 @@
           },
           {
             "from_t": "2026-11-03 10:48",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793674080.0,
-            "to_ts": 1793753634.231778,
-            "days": 0.9,
+            "to_ts": 1793762091.857071,
+            "days": 1.0,
             "role": "admin",
             "open": true,
-            "label": "至今 0.9 天"
+            "label": "至今 1.0 天"
           }
         ],
         "span": {
           "min_ts": 1782403200.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-248",
@@ -1882,13 +1948,13 @@
       "admin_total": 42.8,
       "colleague_total": 7.1,
       "time_share": {
-        "admin_days": 20.6,
+        "admin_days": 20.7,
         "edu_days": 5.0,
         "third_days": 25.8,
-        "total_days": 51.4,
-        "admin_pct": 40.1,
+        "total_days": 51.5,
+        "admin_pct": 40.2,
         "edu_pct": 9.7,
-        "third_pct": 50.2
+        "third_pct": 50.1
       },
       "timeline": {
         "nodes": [
@@ -1991,20 +2057,25 @@
           },
           {
             "from_t": "2026-11-03 14:31",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793687460.0,
-            "to_ts": 1793753634.231778,
-            "days": 0.8,
+            "to_ts": 1793762091.857071,
+            "days": 0.9,
             "role": "admin",
             "open": true,
-            "label": "至今 0.8 天"
+            "label": "至今 0.9 天"
           }
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-288",
@@ -2033,10 +2104,10 @@
       "admin_total": 15,
       "colleague_total": 0.9,
       "time_share": {
-        "admin_days": 26.5,
+        "admin_days": 26.6,
         "edu_days": 0.9,
         "third_days": 0.0,
-        "total_days": 27.4,
+        "total_days": 27.5,
         "admin_pct": 96.7,
         "edu_pct": 3.3,
         "third_pct": 0.0
@@ -2100,20 +2171,25 @@
           },
           {
             "from_t": "2026-10-24 19:11",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1792840260.0,
-            "to_ts": 1793753634.231778,
-            "days": 10.6,
+            "to_ts": 1793762091.857071,
+            "days": 10.7,
             "role": "admin",
             "open": true,
-            "label": "至今 10.6 天"
+            "label": "至今 10.7 天"
           }
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PP-26-084-EED",
@@ -2142,10 +2218,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 0.9,
+        "admin_days": 1.0,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 0.9,
+        "total_days": 1.0,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -2167,20 +2243,25 @@
         "gaps": [
           {
             "from_t": "2026-11-03 10:59",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793674740.0,
-            "to_ts": 1793753634.231778,
-            "days": 0.9,
+            "to_ts": 1793762091.857071,
+            "days": 1.0,
             "role": "admin",
             "open": true,
-            "label": "至今 0.9 天"
+            "label": "至今 1.0 天"
           }
         ],
         "span": {
           "min_ts": 1793674740.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-135",
@@ -2211,8 +2292,8 @@
       "time_share": {
         "admin_days": 0.7,
         "edu_days": 26.0,
-        "third_days": 86.6,
-        "total_days": 113.3,
+        "third_days": 86.7,
+        "total_days": 113.4,
         "admin_pct": 0.6,
         "edu_pct": 22.9,
         "third_pct": 76.5
@@ -2330,20 +2411,25 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1792548480.0,
-            "to_ts": 1793753634.231778,
-            "days": 13.9,
+            "to_ts": 1793762091.857071,
+            "days": 14.0,
             "role": "third",
             "open": true,
-            "label": "至今 13.9 天"
+            "label": "至今 14.0 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-220",
@@ -2374,11 +2460,11 @@
       "time_share": {
         "admin_days": 52.8,
         "edu_days": 1.0,
-        "third_days": 25.6,
-        "total_days": 79.4,
-        "admin_pct": 66.5,
+        "third_days": 25.7,
+        "total_days": 79.5,
+        "admin_pct": 66.4,
         "edu_pct": 1.3,
-        "third_pct": 32.2
+        "third_pct": 32.3
       },
       "timeline": {
         "nodes": [
@@ -2505,20 +2591,25 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1791542460.0,
-            "to_ts": 1793753634.231778,
-            "days": 25.6,
+            "to_ts": 1793762091.857071,
+            "days": 25.7,
             "role": "third",
             "open": true,
-            "label": "至今 25.6 天"
+            "label": "至今 25.7 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "「茅以升生平事迹展」赴澳门科学馆巡展协议",
@@ -2549,8 +2640,8 @@
       "time_share": {
         "admin_days": 0.0,
         "edu_days": 0.0,
-        "third_days": 79.3,
-        "total_days": 79.3,
+        "third_days": 79.4,
+        "total_days": 79.4,
         "admin_pct": 0.0,
         "edu_pct": 0.0,
         "third_pct": 100.0
@@ -2719,20 +2810,25 @@
           },
           {
             "from_t": "2026-10-29 22:46",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793285160.0,
-            "to_ts": 1793753634.231778,
-            "days": 5.4,
+            "to_ts": 1793762091.857071,
+            "days": 5.5,
             "role": "third",
             "open": true,
-            "label": "至今 5.4 天"
+            "label": "至今 5.5 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "科學館與蔚來簽署第二次補充合作協議",
@@ -2763,8 +2859,8 @@
       "time_share": {
         "admin_days": 45.0,
         "edu_days": 0.0,
-        "third_days": 68.3,
-        "total_days": 113.3,
+        "third_days": 68.4,
+        "total_days": 113.4,
         "admin_pct": 39.7,
         "edu_pct": 0.0,
         "third_pct": 60.3
@@ -2894,20 +2990,25 @@
           },
           {
             "from_t": "2026-10-22 10:59",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1792637940.0,
-            "to_ts": 1793753634.231778,
-            "days": 12.9,
+            "to_ts": 1793762091.857071,
+            "days": 13.0,
             "role": "third",
             "open": true,
-            "label": "至今 12.9 天"
+            "label": "至今 13.0 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-270",
@@ -2937,12 +3038,12 @@
       "colleague_total": 26.6,
       "time_share": {
         "admin_days": 16.7,
-        "edu_days": 4.4,
+        "edu_days": 4.5,
         "third_days": 14.8,
-        "total_days": 35.9,
-        "admin_pct": 46.5,
-        "edu_pct": 12.3,
-        "third_pct": 41.2
+        "total_days": 36.0,
+        "admin_pct": 46.4,
+        "edu_pct": 12.5,
+        "third_pct": 41.1
       },
       "timeline": {
         "nodes": [
@@ -3057,20 +3158,25 @@
           },
           {
             "from_t": "2026-10-30 22:22",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793370120.0,
-            "to_ts": 1793753634.231778,
-            "days": 4.4,
+            "to_ts": 1793762091.857071,
+            "days": 4.5,
             "role": "edu",
             "open": true,
-            "label": "至今 4.4 天"
+            "label": "至今 4.5 天"
           }
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-272",
@@ -3100,11 +3206,11 @@
       "colleague_total": 3.9,
       "time_share": {
         "admin_days": 35.4,
-        "edu_days": 8.3,
+        "edu_days": 8.4,
         "third_days": 0.0,
-        "total_days": 43.7,
-        "admin_pct": 81.0,
-        "edu_pct": 19.0,
+        "total_days": 43.8,
+        "admin_pct": 80.8,
+        "edu_pct": 19.2,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3223,20 +3329,25 @@
           },
           {
             "from_t": "2026-10-30 22:23",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793370180.0,
-            "to_ts": 1793753634.231778,
-            "days": 4.4,
+            "to_ts": 1793762091.857071,
+            "days": 4.5,
             "role": "edu",
             "open": true,
-            "label": "至今 4.4 天"
+            "label": "至今 4.5 天"
           }
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-194",
@@ -3266,11 +3377,11 @@
       "colleague_total": 4.4,
       "time_share": {
         "admin_days": 86.4,
-        "edu_days": 1.8,
+        "edu_days": 1.9,
         "third_days": 16.2,
-        "total_days": 104.4,
-        "admin_pct": 82.8,
-        "edu_pct": 1.7,
+        "total_days": 104.5,
+        "admin_pct": 82.7,
+        "edu_pct": 1.8,
         "third_pct": 15.5
       },
       "timeline": {
@@ -3515,20 +3626,25 @@
           },
           {
             "from_t": "2026-11-03 16:45",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793695500.0,
-            "to_ts": 1793753634.231778,
-            "days": 0.7,
+            "to_ts": 1793762091.857071,
+            "days": 0.8,
             "role": "edu",
             "open": true,
-            "label": "至今 0.7 天"
+            "label": "至今 0.8 天"
           }
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-273",
@@ -3558,11 +3674,11 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 40.2,
-        "edu_days": 0.7,
+        "edu_days": 0.8,
         "third_days": 0.0,
-        "total_days": 40.9,
-        "admin_pct": 98.3,
-        "edu_pct": 1.7,
+        "total_days": 41.0,
+        "admin_pct": 98.0,
+        "edu_pct": 2.0,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3660,20 +3776,25 @@
           },
           {
             "from_t": "2026-11-03 16:43",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793695380.0,
-            "to_ts": 1793753634.231778,
-            "days": 0.7,
+            "to_ts": 1793762091.857071,
+            "days": 0.8,
             "role": "edu",
             "open": true,
-            "label": "至今 0.7 天"
+            "label": "至今 0.8 天"
           }
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-286",
@@ -3772,9 +3893,9 @@
           },
           {
             "from_t": "2026-11-03 14:53",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793688780.0,
-            "to_ts": 1793753634.231778,
+            "to_ts": 1793762091.857071,
             "days": 0.8,
             "role": "edu",
             "open": true,
@@ -3783,9 +3904,14 @@
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     },
     {
       "id": "PA-26-302",
@@ -3815,11 +3941,11 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 18.8,
-        "edu_days": 0.5,
+        "edu_days": 0.6,
         "third_days": 0.0,
-        "total_days": 19.3,
-        "admin_pct": 97.4,
-        "edu_pct": 2.6,
+        "total_days": 19.4,
+        "admin_pct": 96.9,
+        "edu_pct": 3.1,
         "third_pct": 0.0
       },
       "timeline": {
@@ -3872,20 +3998,25 @@
           },
           {
             "from_t": "2026-11-03 19:54",
-            "to_t": "2026-11-04 08:53",
+            "to_t": "2026-11-04 11:14",
             "from_ts": 1793706840.0,
-            "to_ts": 1793753634.231778,
-            "days": 0.5,
+            "to_ts": 1793762091.857071,
+            "days": 0.6,
             "role": "edu",
             "open": true,
-            "label": "至今 0.5 天"
+            "label": "至今 0.6 天"
           }
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1793753634.231778
+          "max_ts": 1793762091.857071
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
     }
   ],
   "completed_documents": [
@@ -4148,7 +4279,12 @@
           "min_ts": 1788796800.0,
           "max_ts": 1793352420.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-30 17:27"
     },
     {
       "id": "PA-26-242",
@@ -4444,7 +4580,12 @@
           "min_ts": 1788941520.0,
           "max_ts": 1792721820.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-30 11:43"
     },
     {
       "id": "AI 工具報銷預計申請表（2026年7月至12月）",
@@ -4545,7 +4686,12 @@
           "min_ts": 1790265780.0,
           "max_ts": 1792288440.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-29 17:33"
     },
     {
       "id": "PA-26-244(2)",
@@ -4707,7 +4853,12 @@
           "min_ts": 1787673600.0,
           "max_ts": 1793192160.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-28 20:56"
     },
     {
       "id": "PA-26-120(2)",
@@ -4869,7 +5020,12 @@
           "min_ts": 1791361560.0,
           "max_ts": 1793016420.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-26 20:07"
     },
     {
       "id": "PA-26-222(2)",
@@ -5118,7 +5274,12 @@
           "min_ts": 1786464000.0,
           "max_ts": 1792574400.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-21 17:20"
     },
     {
       "id": "PA-26-047(2)",
@@ -5304,7 +5465,12 @@
           "min_ts": 1787500800.0,
           "max_ts": 1792573680.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-21 17:08"
     },
     {
       "id": "PA-26-257",
@@ -5550,7 +5716,12 @@
           "min_ts": 1788796800.0,
           "max_ts": 1792572720.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-21 16:52"
     },
     {
       "id": "合肥市科技馆与澳门科学馆合作意向书",
@@ -5775,7 +5946,12 @@
           "min_ts": 1784131200.0,
           "max_ts": 1792166400.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-17"
     },
     {
       "id": "PA-26-285",
@@ -5937,7 +6113,12 @@
           "min_ts": 1790670180.0,
           "max_ts": 1792143060.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-16 17:31"
     },
     {
       "id": "PA-26-192(2)",
@@ -6156,7 +6337,12 @@
           "min_ts": 1785746700.0,
           "max_ts": 1791531600.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-09 15:40"
     },
     {
       "id": "PA-26-203(2)",
@@ -6321,7 +6507,12 @@
           "min_ts": 1785550620.0,
           "max_ts": 1791446400.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-08 16:00"
     },
     {
       "id": "CA-26-015-EDU",
@@ -6420,7 +6611,12 @@
           "min_ts": 1787068800.0,
           "max_ts": 1791284160.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-06 18:56"
     },
     {
       "id": "PP-26-075-EED",
@@ -6624,7 +6820,12 @@
           "min_ts": 1788710400.0,
           "max_ts": 1791192480.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-10-05 17:28"
     },
     {
       "id": "PA-26-199(2)",
@@ -6871,7 +7072,12 @@
           "min_ts": 1785686400.0,
           "max_ts": 1790070780.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-09-22 17:53"
     },
     {
       "id": "PA-26-120",
@@ -6949,7 +7155,12 @@
           "min_ts": 1784736000.0,
           "max_ts": 1789725420.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-09-18 17:57"
     },
     {
       "id": "PA-26-213",
@@ -7027,7 +7238,12 @@
           "min_ts": 1785513600.0,
           "max_ts": 1789698900.0
         }
-      }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": "2026-09-18 10:35"
     }
   ],
   "emails": [

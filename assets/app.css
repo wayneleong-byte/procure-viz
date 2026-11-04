@@ -674,3 +674,46 @@ a { color: var(--accent); }
 
 /* Chart.js legend readability on big screens */
 .card canvas { max-width: 100%; }
+
+/* Supplier award search */
+.list-head.supplier-head {
+  grid-template-columns: minmax(120px, 1fr) minmax(160px, 1.6fr) minmax(110px, 1fr) minmax(110px, 1fr) minmax(120px, 1.1fr);
+}
+.supplier-toolbar .filters input[type="search"] {
+  min-width: min(100%, 360px);
+  width: min(100%, 420px);
+}
+.overview-row.supplier-row {
+  grid-template-columns: minmax(120px, 1fr) minmax(160px, 1.6fr) minmax(110px, 1fr) minmax(110px, 1fr) minmax(120px, 1.1fr);
+}
+.overview-row.supplier-row .c-supplier {
+  font-size: var(--fs-list);
+  font-weight: 650;
+  color: #fff;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.overview-row.supplier-row .c-budget,
+.overview-row.supplier-row .c-award,
+.overview-row.supplier-row .c-adate {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text);
+  font-size: clamp(.95rem, .88rem + .2vw, 1.05rem);
+}
+.overview-row.supplier-row .c-budget:is([data-pending]),
+.pending-val { color: var(--muted); font-weight: 600; }
+@media (max-width: 900px) {
+  .overview-row.supplier-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "id adate"
+      "supplier supplier"
+      "budget award";
+    row-gap: 8px;
+  }
+  .overview-row.supplier-row .c-id { grid-area: id; }
+  .overview-row.supplier-row .c-adate { grid-area: adate; justify-self: end; text-align: right; }
+  .overview-row.supplier-row .c-supplier { grid-area: supplier; white-space: normal; }
+  .overview-row.supplier-row .c-budget { grid-area: budget; }
+  .overview-row.supplier-row .c-award { grid-area: award; justify-self: end; text-align: right; }
+}
