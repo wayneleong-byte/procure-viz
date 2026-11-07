@@ -2,14 +2,14 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-05 08:45",
-    "source_generated_at": "2026-11-05 08:42",
-    "today": "2026-11-05",
+    "generated_at": "2026-11-07 19:40",
+    "source_generated_at": "partial: viz.json@2026-11-05 08:45 + procure_alignment_2026-11-07.json",
+    "today": "2026-11-07",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
-    "incomplete_count": 26,
+    "incomplete_count": 30,
     "completed_count": 17,
-    "overview_count": 43,
+    "overview_count": 47,
     "email_count": 154,
     "email_on_hours": 87,
     "email_off_hours": 67,
@@ -22,11 +22,11 @@
       "行政部已回覆待同事重交"
     ],
     "status_counts": {
-      "已提交待回覆": 14,
-      "報價進行中": 2,
+      "已提交待回覆": 10,
+      "報價進行中": 3,
       "行政部與甲方跟進中": 1,
       "待對方補充資料後交行政": 2,
-      "行政部已回覆待同事重交": 7
+      "行政部已回覆待同事重交": 14
     },
     "submitters": [
       "Candy Fok",
@@ -47,12 +47,19 @@
       "Yan Wong"
     ],
     "notes": [
+      "2026-11-07 部分重建：缺 /workspace/procure（dataset／sheet_rows／history）；以 viz.json + procure_alignment_2026-11-07.json 套用狀態。未重算 time_share／gaps／電郵統計。敏感報價／判給金額未改動。",
       "未完成＝目前狀態唔係「完成」；已完成見「已完成文件流程時間記錄」；總覽＝全部文件",
       "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
       "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
       "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",
       "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
-      "獲判給的供應商／預算金額／最終判給金額：Sheet 欄位就緒後自動帶入；未補顯示「待補」"
+      "獲判給的供應商／預算金額／最終判給金額：Sheet 欄位就緒後自動帶入；未補顯示「待補」",
+      "缺／待補：PA-26-316：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
+      "缺／待補：PA-26-287：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
+      "缺／待補：PA-26-260/2：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
+      "缺／待補：PA-26-194(1)：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
+      "缺／待補：PA-26-132：事件存在但唔喺 viz、亦無狀態映射 → 未建 stub（未獲權限機關批示；缺正式狀態映射，只記事件）",
+      "缺／待補：無 PA 事件只記：Re: 有關科學館與蔚來簽署第二次補充合作協議 - 提供律師意見2"
     ]
   },
   "documents": [
@@ -480,25 +487,25 @@
       "id": "PA-26-279",
       "stage": "Form 1",
       "title": "為“青年科技村”學員採購人工智能範疇培訓課程（2026/2027年度）",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
       "attr_label": "R2 · Form 1",
       "submitter": "Thomas Tai",
       "follow_up": [
         "Thomas Tai"
       ],
       "first_submit": "2026-09-24 17:02",
-      "status_since": "2026-10-27 11:04",
+      "status_since": "2026-11-06 22:04",
       "completed_at": "",
-      "days_in_status": 9,
+      "days_in_status": 1,
       "days_since_first_submit": 42,
       "process_days": null,
       "current_round": 2,
-      "last_reply": "2026-10-23 12:50",
-      "last_reply_summary": "須按附件修改（附件：PA-26-279_第1次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：城易智慧城市科技有限公司、澳門混合現實科技有限公司、寶豐策劃有限公司",
+      "last_reply": "2026-11-06 22:04",
+      "last_reply_summary": "有關PA-26-279 文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
       "last_resubmit": "2026-10-27 11:04",
       "admin_clock_from": "",
-      "days_since_reply": "",
+      "days_since_reply": 1,
       "n_rounds": 2,
       "admin_total": 28.8,
       "colleague_total": 3.9,
@@ -568,6 +575,17 @@
             "detail": "[提交至行政採購文件] 有關PA-26-279 文件須作出修正的地方及增加抽選之供應商事宜 (為第1次通知EDU需要作出文件修改)",
             "who": "Thomas Tai",
             "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-06 22:04",
+            "ts": 1793973840.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PA-26-279 文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
             "secondary": false
           }
         ],
@@ -661,6 +679,17 @@
             "who": "Nettie Si",
             "round": 1,
             "secondary": false
+          },
+          {
+            "t": "2026-11-05 10:36",
+            "ts": 1793846160.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：PA-26-310 為澳門科學館與IEEE合辦的AI主題課程活動提供輕食到會服務",
+            "who": "Nettie Si",
+            "round": null,
+            "secondary": true
           }
         ],
         "gaps": [
@@ -690,25 +719,25 @@
       "id": "PP-26-068-EED",
       "stage": "Form 1",
       "title": "關於聯合主辦“國際青少年創科教育大賽（澳門區）2027”",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
       "attr_label": "R3 · Form 1",
       "submitter": "Lam Chan",
       "follow_up": [
         "Lam Chan"
       ],
       "first_submit": "2026-09-29 16:24",
-      "status_since": "2026-10-28 15:55",
+      "status_since": "2026-11-06 22:04",
       "completed_at": "",
-      "days_in_status": 8,
+      "days_in_status": 1,
       "days_since_first_submit": 37,
       "process_days": null,
       "current_round": 3,
-      "last_reply": "2026-10-27 19:45",
-      "last_reply_summary": "須按附件修改（附件：PP-26-068-EED_第2次修改.pdf）",
+      "last_reply": "2026-11-06 22:04",
+      "last_reply_summary": "有關PP-26-068-EED文件須作出修正的地方 (為第3次通知EDU需要作出文件修改)",
       "last_resubmit": "2026-10-28 15:55",
       "admin_clock_from": "",
-      "days_since_reply": "",
+      "days_since_reply": 1,
       "n_rounds": 3,
       "admin_total": 22.5,
       "colleague_total": 6.4,
@@ -776,6 +805,17 @@
             "detail": "[提交至行政採購文件] 有關PP-26-068-EED 文件須作出修正的地方 (為第2次通知EDU需要作出文件修改)",
             "who": "Lam Chan",
             "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-06 22:04",
+            "ts": 1793973840.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PP-26-068-EED文件須作出修正的地方 (為第3次通知EDU需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
             "secondary": false
           }
         ],
@@ -1049,6 +1089,17 @@
             "who": "Keira Wan",
             "round": 5,
             "secondary": false
+          },
+          {
+            "t": "2026-11-06 15:48",
+            "ts": 1793951280.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "提交／事件",
+            "detail": "[提交至行政採購文件] 有關PA-26-132(2) 為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
+            "who": "Keira Wan",
+            "round": null,
+            "secondary": false
           }
         ],
         "gaps": [
@@ -1148,25 +1199,25 @@
       "id": "PA-26-165",
       "stage": "Form 1",
       "title": "為澳門科學館橋樑主題展覽提供航拍服務",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
       "attr_label": "R3 · Form 1",
       "submitter": "Carlos Nip",
       "follow_up": [
         "Carlos Nip"
       ],
       "first_submit": "2026-09-16",
-      "status_since": "2026-10-31 10:10",
+      "status_since": "2026-11-06 20:59",
       "completed_at": "",
-      "days_in_status": 5,
+      "days_in_status": 1,
       "days_since_first_submit": 50,
       "process_days": null,
       "current_round": 3,
-      "last_reply": "2026-10-23 20:31",
-      "last_reply_summary": "須按附件修改（附件：PA-26-165_第2次修改.pdf）；按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：永誠會展設備服務有限公司、曜洋廣告及製作有限公司、匯意設計有限公司",
+      "last_reply": "2026-11-06 20:59",
+      "last_reply_summary": "有關PA-26-165文件須作出修正的地方(為第3次通知EDU需要作出文件修改)",
       "last_resubmit": "2026-10-31 10:10",
       "admin_clock_from": "",
-      "days_since_reply": "",
+      "days_since_reply": 1,
       "n_rounds": 3,
       "admin_total": 30.1,
       "colleague_total": 14.6,
@@ -1247,6 +1298,17 @@
             "who": "Carlos Nip",
             "round": 3,
             "secondary": false
+          },
+          {
+            "t": "2026-11-06 20:59",
+            "ts": 1793969940.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PA-26-165文件須作出修正的地方(為第3次通知EDU需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
+            "secondary": false
           }
         ],
         "gaps": [
@@ -1316,25 +1378,25 @@
       "id": "PA-26-257(2)",
       "stage": "Form 2",
       "title": "為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
       "attr_label": "R1 · Form 2",
       "submitter": "Carlos Nip",
       "follow_up": [
         "Carlos Nip"
       ],
       "first_submit": "2026-10-31 10:08",
-      "status_since": "2026-10-31 10:08",
+      "status_since": "2026-11-05 23:15",
       "completed_at": "",
-      "days_in_status": 5,
+      "days_in_status": 2,
       "days_since_first_submit": 5,
       "process_days": null,
       "current_round": 1,
-      "last_reply": "",
-      "last_reply_summary": "",
+      "last_reply": "2026-11-05 23:15",
+      "last_reply_summary": "有關PA-26-257(2)文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
       "last_resubmit": "",
       "admin_clock_from": "",
-      "days_since_reply": "",
+      "days_since_reply": 2,
       "n_rounds": 1,
       "admin_total": "",
       "colleague_total": "",
@@ -1358,6 +1420,17 @@
             "detail": "[提交至行政採購文件]PA-26-257(2) 為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品 (第一次提交)",
             "who": "Carlos Nip",
             "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-05 23:15",
+            "ts": 1793891700.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PA-26-257(2)文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
             "secondary": false
           }
         ],
@@ -1931,25 +2004,25 @@
       "id": "PA-26-280",
       "stage": "Form 1",
       "title": "為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
+      "status": "報價進行中",
+      "status_group": "quotation",
       "attr_label": "R3 · Form 1",
       "submitter": "Nicole Wong",
       "follow_up": [
         "Nicole Wong"
       ],
       "first_submit": "2026-09-29 18:57",
-      "status_since": "2026-11-04 16:28",
+      "status_since": "2026-11-06 15:49",
       "completed_at": "",
       "days_in_status": 1,
       "days_since_first_submit": 37,
       "process_days": null,
       "current_round": 3,
-      "last_reply": "2026-11-04 11:44",
-      "last_reply_summary": "須按附件修改（附件：PA-26-280.pdf）",
+      "last_reply": "2026-11-06 15:49",
+      "last_reply_summary": "PA-26-280 已向供應商發出報價邀請之通知",
       "last_resubmit": "2026-11-04 16:28",
       "admin_clock_from": "",
-      "days_since_reply": "",
+      "days_since_reply": 1,
       "n_rounds": 3,
       "admin_total": 32.5,
       "colleague_total": 3.4,
@@ -2053,6 +2126,17 @@
             "detail": "[提交至行政採購文件]PA-26-280 為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務(為第2次通知EDU需要作出文件修改) (第三次提交)",
             "who": "Nicole Wong",
             "round": 3,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-06 15:49",
+            "ts": 1793951340.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "報價邀請",
+            "detail": "PA-26-280 已向供應商發出報價邀請之通知",
+            "who": "Procure",
+            "round": null,
             "secondary": false
           }
         ],
@@ -3667,6 +3751,17 @@
             "who": "Procure",
             "round": 1,
             "secondary": false
+          },
+          {
+            "t": "2026-11-06 15:20",
+            "ts": 1793949600.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PA-26-302文件須作出修正的地方 - 增加抽選之供應商事宜 (為第1次通知EDU需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
+            "secondary": false
           }
         ],
         "gaps": [
@@ -4100,6 +4195,17 @@
             "who": "Procure",
             "round": 1,
             "secondary": false
+          },
+          {
+            "t": "2026-11-06 16:49",
+            "ts": 1793954940.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "提交／事件",
+            "detail": "[提交至行政採購文件] 有關PA-26-304文件須作出修正的地方 (為第1次通知EDU需要作出文件修改)",
+            "who": "Siky Lam",
+            "round": null,
+            "secondary": false
           }
         ],
         "gaps": [
@@ -4128,6 +4234,206 @@
           "min_ts": 1792471980.0,
           "max_ts": 1793839528.567158
         }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
+    },
+    {
+      "id": "PA-26-316",
+      "stage": "Form 1",
+      "title": "引入租賃式AR導覽設備租用服務及導覽內容設置服務(2027-2030年)",
+      "status": "已提交待回覆",
+      "status_group": "awaiting_admin",
+      "attr_label": "待補",
+      "submitter": "Sam Lei",
+      "follow_up": [
+        "Sam Lei"
+      ],
+      "first_submit": "2026-11-05 12:16",
+      "status_since": "2026-11-05 12:16",
+      "completed_at": "",
+      "days_in_status": 2,
+      "days_since_first_submit": 2,
+      "process_days": null,
+      "current_round": null,
+      "last_reply": "",
+      "last_reply_summary": "[提交至行政採購文件]PA-26-316 引入租賃式AR導覽設備租用服務及導覽內容設置服務(2027-2030年)(第一次提交)",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": null,
+      "n_rounds": null,
+      "admin_total": null,
+      "colleague_total": null,
+      "time_share": null,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-11-05 12:16",
+            "ts": 1793852160.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "[提交至行政採購文件]PA-26-316 引入租賃式AR導覽設備租用服務及導覽內容設置服務(2027-2030年)(第一次提交)",
+            "who": "Sam Lei",
+            "round": 1,
+            "secondary": false
+          }
+        ],
+        "gaps": [],
+        "span": null
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
+    },
+    {
+      "id": "PA-26-287",
+      "stage": "Form 1",
+      "title": "PA-26-287（標題待補）",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
+      "attr_label": "待補",
+      "submitter": "待補",
+      "follow_up": [
+        "Procure"
+      ],
+      "first_submit": "",
+      "status_since": "2026-11-05 17:28",
+      "completed_at": "",
+      "days_in_status": 2,
+      "days_since_first_submit": null,
+      "process_days": null,
+      "current_round": null,
+      "last_reply": "2026-11-05 17:28",
+      "last_reply_summary": "有關PA-26-287文件須作出修正的地方(為第1次通知EXH需要作出文件修改)",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": 2,
+      "n_rounds": null,
+      "admin_total": null,
+      "colleague_total": null,
+      "time_share": null,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-11-05 17:28",
+            "ts": 1793870880.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PA-26-287文件須作出修正的地方(為第1次通知EXH需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
+            "secondary": false
+          }
+        ],
+        "gaps": [],
+        "span": null
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
+    },
+    {
+      "id": "PA-26-260/2",
+      "stage": "Form 1",
+      "title": "PA-26-260/2（標題待補）",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
+      "attr_label": "待補",
+      "submitter": "待補",
+      "follow_up": [
+        "Procure"
+      ],
+      "first_submit": "",
+      "status_since": "2026-11-05 19:06",
+      "completed_at": "",
+      "days_in_status": 2,
+      "days_since_first_submit": null,
+      "process_days": null,
+      "current_round": null,
+      "last_reply": "2026-11-05 19:06",
+      "last_reply_summary": "有關PA-26-260/2文件須作出修正的地方及增加抽選之供應商事宜 (為第1次通知EXH需要作出文件修改)",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": 2,
+      "n_rounds": null,
+      "admin_total": null,
+      "colleague_total": null,
+      "time_share": null,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-11-05 19:06",
+            "ts": 1793876760.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "有關PA-26-260/2文件須作出修正的地方及增加抽選之供應商事宜 (為第1次通知EXH需要作出文件修改)",
+            "who": "Procure",
+            "round": null,
+            "secondary": false
+          }
+        ],
+        "gaps": [],
+        "span": null
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null
+    },
+    {
+      "id": "PA-26-194(1)",
+      "stage": "Form 1",
+      "title": "PA-26-194(1)（標題待補）",
+      "status": "行政部已回覆待同事重交",
+      "status_group": "pending_resubmit",
+      "attr_label": "待補",
+      "submitter": "待補",
+      "follow_up": [
+        "Ryan Lei"
+      ],
+      "first_submit": "",
+      "status_since": "2026-11-06 14:04",
+      "completed_at": "",
+      "days_in_status": 1,
+      "days_since_first_submit": null,
+      "process_days": null,
+      "current_round": null,
+      "last_reply": "2026-11-06 14:04",
+      "last_reply_summary": "[提交至行政採購文件] 有關PA-26-194(1)文件須作出修正的地方 (為第5次通知EDU需要作出文件修改)",
+      "last_resubmit": "",
+      "admin_clock_from": "",
+      "days_since_reply": 1,
+      "n_rounds": null,
+      "admin_total": null,
+      "colleague_total": null,
+      "time_share": null,
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-11-06 14:04",
+            "ts": 1793945040.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "行政回覆（待重交）",
+            "detail": "[提交至行政採購文件] 有關PA-26-194(1)文件須作出修正的地方 (為第5次通知EDU需要作出文件修改)",
+            "who": "Ryan Lei",
+            "round": null,
+            "secondary": false
+          }
+        ],
+        "gaps": [],
+        "span": null
       },
       "awarded_supplier": null,
       "budget_amount": null,
