@@ -2,7 +2,7 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-07 19:40",
+    "generated_at": "2026-11-07 19:48",
     "source_generated_at": "partial: viz.json@2026-11-05 08:45 + procure_alignment_2026-11-07.json",
     "today": "2026-11-07",
     "timezone": "Asia/Macau",
@@ -57,9 +57,10 @@
       "缺／待補：PA-26-316：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
       "缺／待補：PA-26-287：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
       "缺／待補：PA-26-260/2：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
-      "缺／待補：PA-26-194(1)：新建 stub（缺完整 timeline／日數／輪次；標題由主旨截取）",
       "缺／待補：PA-26-132：事件存在但唔喺 viz、亦無狀態映射 → 未建 stub（未獲權限機關批示；缺正式狀態映射，只記事件）",
-      "缺／待補：無 PA 事件只記：Re: 有關科學館與蔚來簽署第二次補充合作協議 - 提供律師意見2"
+      "缺／待補：無 PA 事件只記：Re: 有關科學館與蔚來簽署第二次補充合作協議 - 提供律師意見2",
+      "PA-26-194(1) 標題由同號 PA-26-194 進度查詢主旨補上；該修正通知出現喺提交夾（非 04 Procure）。",
+      "PA-26-194(1)：仍缺完整 timeline／輪次（部分 stub）；標題已補"
     ]
   },
   "documents": [
@@ -4394,11 +4395,11 @@
     {
       "id": "PA-26-194(1)",
       "stage": "Form 1",
-      "title": "PA-26-194(1)（標題待補）",
+      "title": "為澳門科學館採購智能機器人及AI交互設備",
       "status": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
       "attr_label": "待補",
-      "submitter": "待補",
+      "submitter": "Ryan Lei",
       "follow_up": [
         "Ryan Lei"
       ],
