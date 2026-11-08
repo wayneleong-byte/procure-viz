@@ -21,11 +21,39 @@
       <h1>教育部工作文件進程<span class="dim">（不包括HR）</span></h1>
       <p class="sub" id="meta-line">載入中…</p>
     </div>
-    <div class="kpi-row" aria-label="總覽數字">
-      <div class="kpi glow"><b id="stat-total">—</b><span>未完成總數</span></div>
-      <div class="kpi"><b id="stat-emails">—</b><span>相關電郵</span></div>
-      <div class="kpi warn"><b id="stat-off">—</b><span>非辦公時間電郵</span></div>
+    <div class="kpi-deck" aria-label="總覽數字">
+      <article class="kpi-chip glow" data-kpi="total">
+        <div class="ring-3d" aria-hidden="true">
+          <svg class="ring-svg" viewBox="0 0 72 72">
+            <circle class="ring-track" cx="36" cy="36" r="28" />
+            <circle class="ring-fill" cx="36" cy="36" r="28" pathLength="100" />
+          </svg>
+          <div class="ring-core"><b id="stat-total">0</b></div>
+        </div>
+        <div class="kpi-copy"><span class="kpi-label">未完成總數</span><span class="kpi-pct" id="stat-total-pct">—</span></div>
+      </article>
+      <article class="kpi-chip" data-kpi="emails">
+        <div class="ring-3d" aria-hidden="true">
+          <svg class="ring-svg" viewBox="0 0 72 72">
+            <circle class="ring-track" cx="36" cy="36" r="28" />
+            <circle class="ring-fill" cx="36" cy="36" r="28" pathLength="100" />
+          </svg>
+          <div class="ring-core"><b id="stat-emails">0</b></div>
+        </div>
+        <div class="kpi-copy"><span class="kpi-label">相關電郵</span><span class="kpi-pct" id="stat-emails-pct">—</span></div>
+      </article>
+      <article class="kpi-chip warn" data-kpi="off">
+        <div class="ring-3d" aria-hidden="true">
+          <svg class="ring-svg" viewBox="0 0 72 72">
+            <circle class="ring-track" cx="36" cy="36" r="28" />
+            <circle class="ring-fill" cx="36" cy="36" r="28" pathLength="100" />
+          </svg>
+          <div class="ring-core"><b id="stat-off">0</b></div>
+        </div>
+        <div class="kpi-copy"><span class="kpi-label">非辦公時間電郵</span><span class="kpi-pct" id="stat-off-pct">—</span></div>
+      </article>
     </div>
+    <div class="status-share glass-float" id="status-share" aria-label="狀態占比"></div>
     <nav class="view-tabs" role="tablist" aria-label="視圖">
       <button type="button" class="vtab active" data-view="board" role="tab" aria-selected="true">看板室</button>
       <button type="button" class="vtab" data-view="overview" role="tab">總覽列表</button>
@@ -50,6 +78,10 @@
   <main>
     <section id="view-board" class="view active" role="tabpanel">
       <div class="stage-wrap">
+        <div class="stage-hall" aria-hidden="true">
+          <div class="stage-floor"></div>
+          <div class="stage-glow"></div>
+        </div>
         <div class="stage" id="kanban-stage" aria-label="狀態玻璃柱看板"></div>
       </div>
     </section>

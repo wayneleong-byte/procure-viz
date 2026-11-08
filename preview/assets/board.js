@@ -13,12 +13,16 @@
   ];
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
-
+  const FAN_DEG = [-18, -9, 0, 9, 18];
   const FILTER = { pa: "", q: "", submitter: "", status: "" };
+
+  const reduceMotion = () =>
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let DATA = null;
   let emailChart = null;
   let currentView = "board";
+  let kpiAnimated = false;
 
   function esc(s) {
     return String(s ?? "")
@@ -66,13 +70,115 @@
     return (DATA.documents || []).concat(DATA.completed_documents || []);
   }
 
+  function countUp(el, target, { duration = 700, suffix = "" } = {}) {
+    if (!el) return;
+    const end = Number(target) || 0;
+    if (reduceMotion()) {
+      el.textContent = `${end}${suffix}`;
+      return;
+    }
+    const start = performance.now();
+    const from = 0;
+    function frame(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = `${Math.round(from + (end - from) * eased)}${suffix}`;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function setRing(chip, pct) {
+    if (!chip) return;
+    const p = Math.max(0, Math.min(100, Number(pct) || 0));
+    chip.style.setProperty("--p", String(p));
+    requestAnimationFrame(() => chip.classList.add("is-ready"));
+  }
+
   function renderMeta() {
     const m = DATA.meta || {};
-    $("#stat-total").textContent = m.incomplete_count ?? "—";
-    $("#stat-emails").textContent = m.email_count ?? "—";
-    $("#stat-off").textContent = m.email_off_hours ?? "—";
+    const incomplete = Number(m.incomplete_count) || 0;
+    const emails = Number(m.email_count) || 0;
+    const off = Number(m.email_off_hours) || 0;
+    const overview = Number(m.overview_count) || incomplete + (Number(m.completed_count) || 0) || 1;
+    const emailDen = emails || 1;
+
     $("#meta-line").textContent =
       `最後更新：${m.generated_at || "—"}（${m.timezone || "Asia/Macau"}）· 資料 ${m.source_generated_at || ""}`;
+
+    const totalChip = $('.kpi-chip[data-kpi="total"]');
+    const emailChip = $('.kpi-chip[data-kpi="emails"]');
+    const offChip = $('.kpi-chip[data-kpi="off"]');
+
+    const totalPct = Math.round((incomplete / overview) * 1000) / 10;
+    const offPct = Math.round((off / emailDen) * 1000) / 10;
+
+    $("#stat-total-pct").textContent = `占總覽 ${totalPct}%`;
+    $("#stat-emails-pct").textContent = `辦公 ${m.email_on_hours ?? "—"} · 非辦公 ${off}`;
+    $("#stat-off-pct").textContent = `${offPct}% 非辦公`;
+
+    if (!kpiAnimated) {
+      countUp($("#stat-total"), incomplete);
+      countUp($("#stat-emails"), emails);
+      countUp($("#stat-off"), off);
+      setRing(totalChip, totalPct);
+      setRing(emailChip, Math.min(100, (emails / Math.max(emails, 160)) * 100));
+      setRing(offChip, offPct);
+      kpiAnimated = true;
+    } else {
+      $("#stat-total").textContent = String(incomplete);
+      $("#stat-emails").textContent = String(emails);
+      $("#stat-off").textContent = String(off);
+      setRing(totalChip, totalPct);
+      setRing(emailChip, Math.min(100, (emails / Math.max(emails, 160)) * 100));
+      setRing(offChip, offPct);
+    }
+
+    renderStatusShare();
+  }
+
+  function renderStatusShare() {
+    const box = $("#status-share");
+    if (!box) return;
+    const sc = (DATA.meta && DATA.meta.status_counts) || {};
+    const order = statusOrder();
+    const total = Number(DATA.meta && DATA.meta.incomplete_count) || order.reduce((a, s) => a + (sc[s] || 0), 0) || 1;
+    box.innerHTML = order
+      .map((st) => {
+        const n = sc[st] || 0;
+        const pct = Math.round((n / total) * 1000) / 10;
+        return `<div class="share-pill" data-pct="${pct}" style="--p:0%">
+          <div class="sp-name">${esc(st)}</div>
+          <div class="sp-row"><span class="sp-n" data-n="${n}">0</span><span class="sp-pct">0%</span></div>
+          <div class="share-bar-3d"><i></i></div>
+        </div>`;
+      })
+      .join("");
+
+    const pills = $$(".share-pill", box);
+    const run = () => {
+      pills.forEach((pill) => {
+        const pct = Number(pill.dataset.pct) || 0;
+        const n = Number($(".sp-n", pill).dataset.n) || 0;
+        pill.style.setProperty("--p", `${pct}%`);
+        countUp($(".sp-n", pill), n, { duration: 650 });
+        const pctEl = $(".sp-pct", pill);
+        if (reduceMotion()) {
+          pctEl.textContent = `${pct}%`;
+        } else {
+          const start = performance.now();
+          function frame(now) {
+            const t = Math.min(1, (now - start) / 650);
+            const eased = 1 - Math.pow(1 - t, 3);
+            pctEl.textContent = `${Math.round(pct * eased * 10) / 10}%`;
+            if (t < 1) requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(() => pill.classList.add("is-ready"));
+      });
+    };
+    requestAnimationFrame(run);
   }
 
   function fillFilterOptions() {
@@ -124,11 +230,12 @@
     el.textContent = filtered ? `顯示 ${shown}／${total}` : `共 ${total} 份未完成`;
   }
 
-  function cardHtml(d, delayMs) {
+  function cardHtml(d, delayMs, zPx) {
     const days = d.days_in_status;
     const rc = riskClass(days);
     const who = (d.submitter || "").trim() || "—";
-    return `<button type="button" class="doc-card ${rc}" data-id="${esc(d.id)}" style="animation-delay:${delayMs}ms">
+    return `<button type="button" class="doc-card ${rc}" data-id="${esc(d.id)}"
+      style="--delay:${delayMs}ms;--z:${zPx}px;--lift:0px">
       <div class="id">${esc(d.id)}</div>
       <div class="title" title="${esc(d.title || "")}">${esc(d.title || "")}</div>
       <div class="meta">
@@ -144,29 +251,44 @@
     const docs = DATA.documents || [];
     const filtered = docs.filter(matchDoc);
     updateFilterCount(filtered.length, docs.length);
+    const mid = (order.length - 1) / 2;
 
-    let pillarDelay = 0;
     stage.innerHTML = order
       .map((st, pi) => {
         const col = filtered.filter((d) => d.status === st);
         const allInStatus = docs.filter((d) => d.status === st).length;
-        pillarDelay = pi * 60;
-        let cardDelay = pillarDelay + 80;
+        const fan = FAN_DEG[pi] != null ? FAN_DEG[pi] : (pi - mid) * 9;
+        const pillarDelay = Math.min(pi * 55, 280);
         const cards =
           col.length === 0
             ? `<div class="pillar-empty">無符合文件</div>`
             : col
                 .map((d, i) => {
-                  const html = cardHtml(d, Math.min(cardDelay + i * 35, 480));
-                  return html;
+                  const delay = Math.min(pillarDelay + 90 + i * 32, 480);
+                  const z = 10 + (i % 5) * 6 + (i % 2) * 4;
+                  return cardHtml(d, delay, z);
                 })
                 .join("");
-        return `<div class="pillar" style="animation-delay:${pillarDelay}ms" data-status="${esc(st)}">
-          <div class="pillar-head">
-            <h3>${esc(st)}</h3>
-            <span class="pillar-count">${col.length}${FILTER.pa || FILTER.q || FILTER.submitter || FILTER.status ? `／${allInStatus}` : ""}</span>
+        const countLabel =
+          FILTER.pa || FILTER.q || FILTER.submitter || FILTER.status
+            ? `${col.length}／${allInStatus}`
+            : String(col.length);
+        return `<div class="pillar-slot" style="--fan:${fan}deg;--i:${pi};animation-delay:${pillarDelay}ms" data-status="${esc(st)}">
+          <div class="pillar-3d" style="animation-delay:${pillarDelay}ms">
+            <div class="face face-back" aria-hidden="true"></div>
+            <div class="face face-left" aria-hidden="true"></div>
+            <div class="face face-right" aria-hidden="true"></div>
+            <div class="face face-top" aria-hidden="true"></div>
+            <div class="face face-bottom" aria-hidden="true"></div>
+            <div class="face face-front">
+              <div class="pillar-head">
+                <h3>${esc(st)}</h3>
+                <span class="pillar-count">${esc(countLabel)}</span>
+              </div>
+              <div class="pillar-body">${cards}</div>
+            </div>
+            <div class="pillar-edge-glow" aria-hidden="true"></div>
           </div>
-          <div class="pillar-body">${cards}</div>
         </div>`;
       })
       .join("");
@@ -268,7 +390,6 @@
             <span>行政 ${ap}%</span><span>EDU ${ep}%</span><span>第三方 ${tp}%</span>
           </div>`
         : "";
-
     return share + html;
   }
 
@@ -402,10 +523,10 @@
     const off = es.off_hours ?? 0;
     const total = es.total || on + off;
     $("#email-kpis").innerHTML = `
-      <div class="kpi"><b>${total}</b><span>總電郵</span></div>
-      <div class="kpi glow"><b>${on}</b><span>辦公時間</span></div>
-      <div class="kpi warn"><b>${off}</b><span>非辦公時間</span></div>
-      <div class="kpi"><b>${total ? Math.round((off / total) * 1000) / 10 : 0}%</b><span>非辦公比例</span></div>`;
+      <div class="kpi-chip glow" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">總電郵</span><span class="kpi-pct">${total}</span></div></div>
+      <div class="kpi-chip" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">辦公時間</span><span class="kpi-pct">${on}</span></div></div>
+      <div class="kpi-chip warn" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">非辦公時間</span><span class="kpi-pct">${off}</span></div></div>
+      <div class="kpi-chip" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">非辦公比例</span><span class="kpi-pct">${total ? Math.round((off / total) * 1000) / 10 : 0}%</span></div></div>`;
     $("#email-analysis").textContent = es.analysis || "";
 
     if (typeof Chart !== "undefined") {
