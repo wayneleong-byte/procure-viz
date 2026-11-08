@@ -61,6 +61,14 @@ body {
 
 /* —— Top bar —— */
 .topbar { display: grid; gap: 14px; margin-bottom: 12px; }
+.brand .scheme-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px; border-radius: 999px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--cyan); background: var(--cyan-dim);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  margin-bottom: 8px;
+}
 .brand .preview-badge {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 4px 12px; border-radius: 999px;

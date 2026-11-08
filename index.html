@@ -3,100 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>教育部工作文件進程（不包括HR）</title>
+<title>教育部工作文件進程（不包括HR）｜方案2 玻璃看板室</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/app.css?v=202611050845">
+<link rel="stylesheet" href="./assets/board.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
-<div class="wrap">
-  <header class="top compact">
+<div class="ambient" aria-hidden="true"></div>
+<div class="grid-floor" aria-hidden="true"></div>
+
+<div class="app">
+  <header class="topbar">
     <div class="brand">
-      <h1>教育部工作文件進程（不包括HR）</h1>
+      <span class="scheme-badge">方案 2</span>
+      <h1>教育部工作文件進程<span class="dim">（不包括HR）</span></h1>
       <p class="sub" id="meta-line">載入中…</p>
     </div>
-    <div class="meta-chips" aria-label="總覽數字">
-      <div class="chip highlight"><b id="stat-total">—</b><span>未完成總數</span></div>
-      <div class="chip"><b id="stat-emails">—</b><span>相關電郵</span></div>
-      <div class="chip"><b id="stat-off">—</b><span>非辦公時間電郵</span></div>
+    <div class="kpi-deck" aria-label="總覽數字">
+      <article class="kpi-chip glow" data-kpi="total">
+        <div class="ring-3d" aria-hidden="true">
+          <svg class="ring-svg" viewBox="0 0 72 72">
+            <circle class="ring-track" cx="36" cy="36" r="28" />
+            <circle class="ring-fill" cx="36" cy="36" r="28" pathLength="100" />
+          </svg>
+          <div class="ring-core"><b id="stat-total">0</b></div>
+        </div>
+        <div class="kpi-copy"><span class="kpi-label">未完成總數</span><span class="kpi-pct" id="stat-total-pct">—</span></div>
+      </article>
+      <article class="kpi-chip" data-kpi="emails">
+        <div class="ring-3d" aria-hidden="true">
+          <svg class="ring-svg" viewBox="0 0 72 72">
+            <circle class="ring-track" cx="36" cy="36" r="28" />
+            <circle class="ring-fill" cx="36" cy="36" r="28" pathLength="100" />
+          </svg>
+          <div class="ring-core"><b id="stat-emails">0</b></div>
+        </div>
+        <div class="kpi-copy"><span class="kpi-label">相關電郵</span><span class="kpi-pct" id="stat-emails-pct">—</span></div>
+      </article>
+      <article class="kpi-chip warn" data-kpi="off">
+        <div class="ring-3d" aria-hidden="true">
+          <svg class="ring-svg" viewBox="0 0 72 72">
+            <circle class="ring-track" cx="36" cy="36" r="28" />
+            <circle class="ring-fill" cx="36" cy="36" r="28" pathLength="100" />
+          </svg>
+          <div class="ring-core"><b id="stat-off">0</b></div>
+        </div>
+        <div class="kpi-copy"><span class="kpi-label">非辦公時間電郵</span><span class="kpi-pct" id="stat-off-pct">—</span></div>
+      </article>
     </div>
+    <div class="status-share glass-float" id="status-share" aria-label="狀態占比"></div>
+    <nav class="view-tabs" role="tablist" aria-label="視圖">
+      <button type="button" class="vtab active" data-view="board" role="tab" aria-selected="true">看板室</button>
+      <button type="button" class="vtab" data-view="overview" role="tab">總覽列表</button>
+      <button type="button" class="vtab" data-view="completed" role="tab">已完成</button>
+      <button type="button" class="vtab" data-view="supplier" role="tab">供應商</button>
+      <button type="button" class="vtab" data-view="email" role="tab">電郵分析</button>
+      <a class="vtab linkish" href="./preview/">對照預覽 →</a>
+    </nav>
   </header>
 
-  <nav class="tabs" id="main-tabs" role="tablist" aria-label="分頁"></nav>
+  <div class="filter-drawer" id="filter-drawer">
+    <div class="filter-row">
+      <input type="search" id="f-pa" placeholder="搜尋文件編號" aria-label="搜尋文件編號">
+      <input type="search" id="f-q" placeholder="搜尋標題／同事" aria-label="搜尋標題或同事">
+      <select id="f-submitter" aria-label="負責同事"><option value="">全部負責同事</option></select>
+      <select id="f-status" aria-label="目前狀態"><option value="">全部狀態</option></select>
+      <button type="button" class="btn ghost" id="f-reset">清除篩選</button>
+      <span class="filter-count" id="filter-count"></span>
+    </div>
+  </div>
 
-  <!-- 首頁：一頁儀表板 -->
-  <section id="panel-home" class="panel active" role="tabpanel">
-    <div class="dash">
-      <div class="dash-kpis" id="status-cards" aria-label="各狀態數量"></div>
-      <div class="dash-charts">
-        <div class="card tight">
-          <h2 class="card-title">狀態分布</h2>
-          <div class="chart-box home-bar"><canvas id="chart-status" aria-label="狀態分布圖"></canvas></div>
+  <main>
+    <section id="view-board" class="view active" role="tabpanel">
+      <div class="stage-wrap">
+        <div class="stage-hall" aria-hidden="true">
+          <div class="stage-floor"></div>
+          <div class="stage-glow"></div>
         </div>
-        <div class="card tight email-preview" id="email-preview-card">
-          <div class="card-head-row">
-            <h2 class="card-title">電郵 · 辦公時間 vs 非辦公時間</h2>
-            <button type="button" class="btn linkish" id="btn-goto-email">詳細分析 →</button>
+        <div class="stage" id="kanban-stage" aria-label="狀態玻璃柱看板"></div>
+      </div>
+    </section>
+
+    <section id="view-overview" class="view" role="tabpanel" hidden>
+      <div class="glass-panel">
+        <h2>總覽列表</h2>
+        <p class="hint">未完成＋已完成；點列展開時間線。</p>
+        <div class="list-head ov"><span>編號</span><span>狀態</span><span>屬性</span><span>名稱</span><span>同事</span></div>
+        <div id="list-overview" class="flat-list"></div>
+      </div>
+    </section>
+
+    <section id="view-completed" class="view" role="tabpanel" hidden>
+      <div class="glass-panel">
+        <h2>已完成文件</h2>
+        <div class="list-head done"><span>編號</span><span>總天數</span><span>屬性</span><span>名稱</span><span>供應商</span></div>
+        <div id="list-completed" class="flat-list"></div>
+      </div>
+    </section>
+
+    <section id="view-supplier" class="view" role="tabpanel" hidden>
+      <div class="glass-panel">
+        <h2>獲判給的供應商</h2>
+        <input type="search" id="supplier-q" class="wide" placeholder="搜尋供應商名稱" aria-label="搜尋供應商">
+        <div class="filter-count" id="supplier-count">輸入供應商名稱以查詢</div>
+        <div class="list-head supplier"><span>編號</span><span>供應商</span><span>預算</span><span>判給金額</span><span>日期</span></div>
+        <div id="list-supplier" class="flat-list"></div>
+      </div>
+    </section>
+
+    <section id="view-email" class="view" role="tabpanel" hidden>
+      <div class="email-grid">
+        <div class="glass-panel">
+          <h2>電郵時段摘要</h2>
+          <p class="hint">辦公時間 09:00–18:30（Asia/Macau）；其餘及週末＝非辦公。</p>
+          <div class="email-kpis" id="email-kpis"></div>
+          <p class="analysis" id="email-analysis"></p>
+          <div class="chart-box"><canvas id="chart-email-donut" aria-label="辦公非辦公"></canvas></div>
+        </div>
+        <div class="glass-panel grow">
+          <h2>電郵列表</h2>
+          <div class="filter-row compact">
+            <label class="chk"><input type="checkbox" id="email-off-only"> 只睇非辦公時間</label>
+            <input type="search" id="email-q" placeholder="搜尋標題／寄件人／編號" aria-label="搜尋電郵">
           </div>
-          <div class="email-preview-row">
-            <div class="email-preview-stats" id="email-preview-stats"></div>
-            <div class="chart-box home-donut"><canvas id="chart-email-preview" aria-label="辦公非辦公預覽"></canvas></div>
-          </div>
-          <p class="card-hint tiny">辦公時間 09:00–18:30 · 非辦公時間其餘時段及週末（Asia/Macau）· 點狀態卡進入列表</p>
+          <div class="filter-count" id="email-count-view"></div>
+          <div id="email-list" class="email-list"></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <div id="status-panels"></div>
-
-  <section id="panel-email" class="panel" role="tabpanel">
-    <div class="card analysis-card tight">
-      <h2 class="card-title">電郵時段分析</h2>
-      <p id="email-analysis" class="analysis-text"></p>
-      <p class="card-hint tiny">辦公時間：平日 09:00–18:30（Asia/Macau）。非辦公時間：平日 18:31–08:59 及週末。</p>
-    </div>
-    <div class="charts-row">
-      <div class="card tight">
-        <h2 class="card-title">總表 · 辦公時間 vs 非辦公時間</h2>
-        <div class="chart-box"><canvas id="chart-email-total"></canvas></div>
-      </div>
-      <div class="card tight">
-        <h2 class="card-title">各類型文件</h2>
-        <div class="chart-box"><canvas id="chart-email-stage"></canvas></div>
-      </div>
-    </div>
-    <div class="card tight">
-      <h2 class="card-title">24 小時時段分布（每半小時）</h2>
-      <div class="hours-legend" aria-hidden="true">
-        <span class="hl-work"><i></i>辦公時間 09:00–18:30</span>
-        <span class="hl-off"><i></i>非辦公時間 18:31–08:59</span>
-        <span class="hl-note">週末全日計非辦公時間（本圖按鐘點合計，含平日＋週末發送）</span>
-      </div>
-      <div class="chart-box wide hourly-wrap">
-        <canvas id="chart-email-hourly"></canvas>
-      </div>
-    </div>
-    <div class="card tight">
-      <h2 class="card-title">電郵列表</h2>
-      <div class="toolbar">
-        <div class="legend">
-          <span><i class="swatch admin"></i>電郵</span>
-        </div>
-        <div class="filters">
-          <select id="filter-pa" aria-label="文件"></select>
-          <label class="chk"><input type="checkbox" id="filter-off"> 只睇非辦公時間</label>
-          <input type="search" id="filter-q" placeholder="搜尋標題／寄件人／編號" aria-label="搜尋">
-        </div>
-      </div>
-      <div class="email-stats-line"><span id="email-count-view">—</span></div>
-      <div id="email-list" class="email-list"></div>
-    </div>
-  </section>
-
+    </section>
+  </main>
 </div>
-<script src="./assets/app.js?v=202611050845"></script>
+
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<aside class="detail-drawer" id="detail-drawer" aria-hidden="true">
+  <header class="detail-head">
+    <button type="button" class="btn ghost" id="detail-close" aria-label="關閉">✕</button>
+    <div>
+      <div class="detail-id" id="detail-id"></div>
+      <h2 id="detail-title"></h2>
+    </div>
+  </header>
+  <div class="detail-meta" id="detail-meta"></div>
+  <div class="detail-body" id="detail-body"></div>
+</aside>
+
+<script src="./assets/board.js"></script>
 </body>
 </html>

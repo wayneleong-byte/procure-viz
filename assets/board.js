@@ -654,7 +654,10 @@
     wireChrome();
     wireFilters();
     try {
-      const res = await fetch("../data/viz.json", { cache: "no-store" });
+      const vizUrl = location.pathname.includes("/preview")
+        ? "../data/viz.json"
+        : "./data/viz.json";
+      const res = await fetch(vizUrl, { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       DATA = await res.json();
     } catch (err) {
