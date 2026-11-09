@@ -5,10 +5,10 @@
   const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
 
   const STATUS_ORDER = [
-    "已提交待回覆",
-    "報價進行中",
     "行政部與甲方跟進中",
     "待對方補充資料後交行政",
+    "已提交待回覆",
+    "報價進行中",
     "行政部已回覆待同事重交",
   ];
 
