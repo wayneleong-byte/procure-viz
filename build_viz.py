@@ -25,12 +25,12 @@ WORK_END = 18 * 60 + 30
 ADMIN_FOLDERS = {"04 Procure"}
 EDU_FOLDERS = {"000[提交至行政採購文件]", "000 文件進度查詢"}
 
-# Fixed display order for home + tabs
+# Fixed display order for glass columns, home, and tabs (left → right)
 STATUS_ORDER = [
-    "已提交待回覆",
-    "報價進行中",
     "行政部與甲方跟進中",
     "待對方補充資料後交行政",
+    "已提交待回覆",
+    "報價進行中",
     "行政部已回覆待同事重交",
 ]
 
