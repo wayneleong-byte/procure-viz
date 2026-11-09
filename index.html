@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/board.css?v=202611091102">
+<link rel="stylesheet" href="./assets/board.css?v=202611091556">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
@@ -119,6 +119,12 @@
           <h2>電郵時段摘要</h2>
           <p class="hint">辦公時間 09:00–18:30（Asia/Macau）；其餘及週末＝非辦公。</p>
           <div class="email-kpis" id="email-kpis"></div>
+          <div class="weekday-block" id="weekday-block">
+            <h3 class="weekday-title">星期一至星期五比率</h3>
+            <p class="weekday-summary" id="weekday-summary"></p>
+            <div class="weekday-chips" id="weekday-chips"></div>
+            <div class="weekday-bars" id="weekday-bars" aria-hidden="true"></div>
+          </div>
           <p class="analysis" id="email-analysis"></p>
           <div class="chart-box"><canvas id="chart-email-donut" aria-label="辦公非辦公"></canvas></div>
         </div>
@@ -149,6 +155,6 @@
   <div class="detail-body" id="detail-body"></div>
 </aside>
 
-<script src="./assets/board.js?v=202611091102"></script>
+<script src="./assets/board.js?v=202611091556"></script>
 </body>
 </html>

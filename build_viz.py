@@ -977,6 +977,69 @@ def build_email_stats(email_events: list[dict]) -> dict:
     def pct(n, d):
         return round(100.0 * n / d, 1) if d else 0.0
 
+    # Weekday distribution (0=Mon … 6=Sun); pct vs all admin emails
+    WEEKDAY_ZH = [
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+        "星期日",
+    ]
+    WEEKDAY_CODE = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+    by_weekday = {}
+    for i, label in enumerate(WEEKDAY_ZH):
+        by_weekday[label] = {
+            "code": WEEKDAY_CODE[i],
+            "weekday": i,
+            "count": 0,
+            "pct": 0.0,
+            "on": 0,
+            "off": 0,
+        }
+    unk_wd = 0
+    for e in email_events:
+        wd = e.get("weekday")
+        if wd is None or not isinstance(wd, int) or wd < 0 or wd > 6:
+            unk_wd += 1
+            continue
+        label = WEEKDAY_ZH[wd]
+        by_weekday[label]["count"] += 1
+        if e.get("off_hours") is True:
+            by_weekday[label]["off"] += 1
+        elif e.get("off_hours") is False:
+            by_weekday[label]["on"] += 1
+    for label, v in by_weekday.items():
+        v["pct"] = pct(v["count"], total)
+
+    weekday_labels = WEEKDAY_ZH[:5]
+    weekday_count = sum(by_weekday[l]["count"] for l in weekday_labels)
+    weekend_count = by_weekday["星期六"]["count"] + by_weekday["星期日"]["count"]
+    weekday_weekdays = {
+        "count": weekday_count,
+        "pct": pct(weekday_count, total),
+        "weekend_count": weekend_count,
+        "weekend_pct": pct(weekend_count, total),
+        "by_day": [
+            {
+                "label": l,
+                "code": by_weekday[l]["code"],
+                "count": by_weekday[l]["count"],
+                "pct": by_weekday[l]["pct"],
+                "on": by_weekday[l]["on"],
+                "off": by_weekday[l]["off"],
+            }
+            for l in weekday_labels
+        ],
+        "summary": (
+            f"平日合計 {weekday_count} 封（{pct(weekday_count, total)}%）；"
+            f"週末合計 {weekend_count} 封（{pct(weekend_count, total)}%）。"
+            if total
+            else "平日合計 0 封；週末合計 0 封。"
+        ),
+    }
+
     lines = []
     lines.append(
         f"共收錄 {total} 封相關電郵。"
@@ -988,6 +1051,17 @@ def build_email_stats(email_events: list[dict]) -> dict:
             f"非辦公時間 {off_n} 封（{pct(off_n, total)}%）"
             + (f"、未能判定 {unk} 封。" if unk else "。")
         )
+    # 星期一至星期五比率（相對全部電郵）
+    wd_parts = [
+        f"{l} {by_weekday[l]['count']} 封（{by_weekday[l]['pct']}%）"
+        for l in weekday_labels
+    ]
+    lines.append(
+        "按星期："
+        + "；".join(wd_parts)
+        + f"；週末合計 {weekend_count} 封（{pct(weekend_count, total)}%）。"
+        f"平日合計 {weekday_count} 封（{pct(weekday_count, total)}%）。"
+    )
     if by_stage:
         parts = []
         for st, v in sorted(by_stage.items(), key=lambda x: -x[1]["total"]):
@@ -1010,6 +1084,8 @@ def build_email_stats(email_events: list[dict]) -> dict:
         "edu": on_off(edu),
         "by_stage": by_stage,
         "by_kind": by_kind,
+        "by_weekday": by_weekday,
+        "weekday_weekdays": weekday_weekdays,
         "half_hour": buckets,
         "type_keys": sorted(type_keys),
         "peak": {"label": peak["label"], "total": peak["total"]} if peak else None,

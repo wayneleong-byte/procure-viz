@@ -517,6 +517,73 @@
       .join("");
   }
 
+  function renderWeekdayRatio(es) {
+    const block = $("#weekday-block");
+    const chips = $("#weekday-chips");
+    const bars = $("#weekday-bars");
+    const summaryEl = $("#weekday-summary");
+    if (!block || !chips) return;
+    const ww = es.weekday_weekdays || {};
+    const byDay = ww.by_day || [];
+    const byWd = es.by_weekday || {};
+    const total = es.total || 0;
+    if (summaryEl) {
+      summaryEl.textContent =
+        ww.summary ||
+        (total
+          ? `平日合計 ${ww.count ?? 0} 封（${ww.pct ?? 0}%）；週末合計 ${ww.weekend_count ?? 0} 封（${ww.weekend_pct ?? 0}%）。`
+          : "");
+    }
+    const dayOrder = ["星期一", "星期二", "星期三", "星期四", "星期五"];
+    const rows =
+      byDay.length > 0
+        ? byDay
+        : dayOrder.map((label) => {
+            const v = byWd[label] || {};
+            return {
+              label,
+              count: v.count || 0,
+              pct: v.pct || 0,
+            };
+          });
+    const maxPct = Math.max(1, ...rows.map((r) => Number(r.pct) || 0));
+    chips.innerHTML = rows
+      .map(
+        (r) => `<div class="wd-chip" title="${esc(r.label)} ${r.count} 封">
+          <span class="wd-label">${esc(r.label)}</span>
+          <span class="wd-count">${r.count}</span>
+          <span class="wd-pct">${r.pct}%</span>
+        </div>`
+      )
+      .join("");
+    const sat = byWd["星期六"] || {};
+    const sun = byWd["星期日"] || {};
+    const weekendCount = ww.weekend_count ?? (sat.count || 0) + (sun.count || 0);
+    const weekendPct =
+      ww.weekend_pct != null
+        ? ww.weekend_pct
+        : total
+          ? Math.round((weekendCount / total) * 1000) / 10
+          : 0;
+    chips.innerHTML += `<div class="wd-chip weekend" title="週末 ${weekendCount} 封">
+          <span class="wd-label">週末</span>
+          <span class="wd-count">${weekendCount}</span>
+          <span class="wd-pct">${weekendPct}%</span>
+        </div>`;
+    if (bars) {
+      bars.innerHTML = rows
+        .map((r) => {
+          const w = Math.max(4, Math.round(((Number(r.pct) || 0) / maxPct) * 100));
+          return `<div class="wd-bar-row">
+            <span class="wd-bar-label">${esc(r.label.replace("星期", ""))}</span>
+            <div class="wd-bar-track"><div class="wd-bar-fill" style="width:${w}%"></div></div>
+            <span class="wd-bar-meta">${r.count} · ${r.pct}%</span>
+          </div>`;
+        })
+        .join("");
+    }
+  }
+
   function renderEmail() {
     const es = DATA.email_stats || {};
     const on = es.on_hours ?? 0;
@@ -527,6 +594,7 @@
       <div class="kpi-chip" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">辦公時間</span><span class="kpi-pct">${on}</span></div></div>
       <div class="kpi-chip warn" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">非辦公時間</span><span class="kpi-pct">${off}</span></div></div>
       <div class="kpi-chip" style="min-width:140px;padding:10px 14px"><div class="kpi-copy"><span class="kpi-label">非辦公比例</span><span class="kpi-pct">${total ? Math.round((off / total) * 1000) / 10 : 0}%</span></div></div>`;
+    renderWeekdayRatio(es);
     $("#email-analysis").textContent = es.analysis || "";
 
     if (typeof Chart !== "undefined") {
