@@ -2,14 +2,14 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-10 08:58",
-    "source_generated_at": "2026-11-10 08:54",
+    "generated_at": "2026-11-10 09:31",
+    "source_generated_at": "2026-11-10 09:27",
     "today": "2026-11-10",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
-    "incomplete_count": 28,
+    "incomplete_count": 27,
     "completed_count": 18,
-    "overview_count": 46,
+    "overview_count": 45,
     "email_count": 175,
     "email_on_hours": 98,
     "email_off_hours": 77,
@@ -24,7 +24,7 @@
     "status_counts": {
       "行政部與甲方跟進中": 0,
       "待對方補充資料後交行政": 2,
-      "已提交待回覆": 13,
+      "已提交待回覆": 12,
       "報價進行中": 2,
       "行政部已回覆待同事重交": 11
     },
@@ -151,9 +151,9 @@
           },
           {
             "from_t": "2026-11-03",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793635200.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 7.4,
             "role": "third",
             "open": true,
@@ -162,7 +162,7 @@
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -373,9 +373,9 @@
           },
           {
             "from_t": "2026-11-09",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794153600.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 1.4,
             "role": "third",
             "open": true,
@@ -384,7 +384,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -481,9 +481,9 @@
         "gaps": [
           {
             "from_t": "2026-09-29 10:49",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1790650140.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 41.9,
             "role": "admin",
             "open": true,
@@ -492,139 +492,7 @@
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1794272333.974929
-        }
-      },
-      "awarded_supplier": null,
-      "budget_amount": null,
-      "award_amount": null,
-      "award_date": null,
-      "award_sort_date": null
-    },
-    {
-      "id": "建議書-2027年度科普劇場運作建議",
-      "stage": "不適用（無編號）",
-      "title": "建議書《2027年度科普劇場運作建議》",
-      "status": "已提交待回覆",
-      "status_group": "awaiting_admin",
-      "attr_label": "R1 · 無編號",
-      "submitter": "Nicole Wong",
-      "follow_up": [
-        "Nicole Wong"
-      ],
-      "first_submit": "2026-09-29 18:53",
-      "status_since": "2026-09-29 18:53",
-      "completed_at": "",
-      "days_in_status": 42,
-      "days_since_first_submit": 42,
-      "process_days": null,
-      "current_round": 1,
-      "last_reply": "",
-      "last_reply_summary": "",
-      "last_resubmit": "",
-      "admin_clock_from": "",
-      "days_since_reply": "",
-      "n_rounds": 1,
-      "admin_total": "",
-      "colleague_total": "",
-      "time_share": {
-        "admin_days": 41.6,
-        "edu_days": 0.0,
-        "third_days": 0.0,
-        "total_days": 41.6,
-        "admin_pct": 100.0,
-        "edu_pct": 0.0,
-        "third_pct": 0.0
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-09-29 18:53",
-            "ts": 1790679180.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R1 提交",
-            "detail": "[提交至行政採購文件]建議書《2027年度科普劇場運作建議》",
-            "who": "Nicole Wong",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-06 10:36",
-            "ts": 1791254160.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-            "who": "Nicole Wong",
-            "round": null,
-            "secondary": true,
-            "closed": false
-          },
-          {
-            "t": "2026-10-13 18:45",
-            "ts": 1791888300.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-            "who": "Nicole Wong",
-            "round": null,
-            "secondary": true,
-            "closed": false
-          },
-          {
-            "t": "2026-10-21 09:35",
-            "ts": 1792546500.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-            "who": "Nicole Wong",
-            "round": null,
-            "secondary": true,
-            "closed": false
-          },
-          {
-            "t": "2026-10-28 18:12",
-            "ts": 1793182320.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-            "who": "Nicole Wong",
-            "round": null,
-            "secondary": true,
-            "closed": false
-          },
-          {
-            "t": "2026-11-04 11:45",
-            "ts": 1793763900.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-            "who": "Nicole Wong",
-            "round": null,
-            "secondary": true,
-            "closed": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-09-29 18:53",
-            "to_t": "2026-11-10 08:58",
-            "from_ts": 1790679180.0,
-            "to_ts": 1794272333.974929,
-            "days": 41.6,
-            "role": "admin",
-            "open": true,
-            "label": "至今 41.6 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1790679180.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -721,9 +589,9 @@
         "gaps": [
           {
             "from_t": "2026-10-12 11:52",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1791777120.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 28.9,
             "role": "admin",
             "open": true,
@@ -732,7 +600,7 @@
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -768,10 +636,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 19.7,
+        "admin_days": 19.8,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 19.7,
+        "total_days": 19.8,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -817,18 +685,18 @@
         "gaps": [
           {
             "from_t": "2026-10-21 15:15",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1792566900.0,
-            "to_ts": 1794272333.974929,
-            "days": 19.7,
+            "to_ts": 1794274279.41248,
+            "days": 19.8,
             "role": "admin",
             "open": true,
-            "label": "至今 19.7 天"
+            "label": "至今 19.8 天"
           }
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -1132,9 +1000,9 @@
           },
           {
             "from_t": "2026-11-03 10:48",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793674080.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 6.9,
             "role": "admin",
             "open": true,
@@ -1143,7 +1011,7 @@
         ],
         "span": {
           "min_ts": 1782403200.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -1288,9 +1156,9 @@
           },
           {
             "from_t": "2026-11-03 14:31",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793687460.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 6.8,
             "role": "admin",
             "open": true,
@@ -1299,7 +1167,7 @@
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -1311,7 +1179,7 @@
     {
       "id": "PP-26-084-EED",
       "stage": "Form 1",
-      "title": "未找到名稱",
+      "title": "關於聯合主辦「MYAIR2027澳門青少年人工智能及機械人大賽」",
       "status": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R1 · Form 1",
@@ -1360,9 +1228,9 @@
         "gaps": [
           {
             "from_t": "2026-11-03 10:59",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793674740.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 6.9,
             "role": "admin",
             "open": true,
@@ -1371,7 +1239,7 @@
         ],
         "span": {
           "min_ts": 1793674740.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -1552,9 +1420,9 @@
           },
           {
             "from_t": "2026-11-04 16:28",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793780880.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 5.7,
             "role": "admin",
             "open": true,
@@ -1563,7 +1431,7 @@
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -1624,9 +1492,9 @@
         "gaps": [
           {
             "from_t": "2026-11-05 12:16",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793852160.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 4.9,
             "role": "admin",
             "open": true,
@@ -1635,7 +1503,7 @@
         ],
         "span": {
           "min_ts": 1793852160.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -1896,9 +1764,9 @@
           },
           {
             "from_t": "2026-11-08 15:33",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794123180.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 1.7,
             "role": "admin",
             "open": true,
@@ -1907,7 +1775,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -2085,9 +1953,9 @@
           },
           {
             "from_t": "2026-11-09 18:30",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794220200.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.6,
             "role": "admin",
             "open": true,
@@ -2096,7 +1964,7 @@
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -2132,12 +2000,12 @@
       "admin_total": 35.4,
       "colleague_total": 13.6,
       "time_share": {
-        "admin_days": 36.1,
+        "admin_days": 36.2,
         "edu_days": 13.6,
         "third_days": 0.0,
-        "total_days": 49.7,
-        "admin_pct": 72.6,
-        "edu_pct": 27.4,
+        "total_days": 49.8,
+        "admin_pct": 72.7,
+        "edu_pct": 27.3,
         "third_pct": 0.0
       },
       "timeline": {
@@ -2277,18 +2145,18 @@
           },
           {
             "from_t": "2026-11-09 15:31",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794209460.0,
-            "to_ts": 1794272333.974929,
-            "days": 0.7,
+            "to_ts": 1794274279.41248,
+            "days": 0.8,
             "role": "admin",
             "open": true,
-            "label": "至今 0.7 天"
+            "label": "至今 0.8 天"
           }
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -2475,9 +2343,9 @@
           },
           {
             "from_t": "2026-11-09 20:59",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794229140.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.5,
             "role": "admin",
             "open": true,
@@ -2486,7 +2354,7 @@
         ],
         "span": {
           "min_ts": 1790670240.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -2655,9 +2523,9 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1792548480.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 20.0,
             "role": "third",
             "open": true,
@@ -2666,7 +2534,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -2835,9 +2703,9 @@
           },
           {
             "from_t": "2026-10-09 18:41",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1791542460.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 31.6,
             "role": "third",
             "open": true,
@@ -2846,7 +2714,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -2985,9 +2853,9 @@
           },
           {
             "from_t": "2026-11-03 16:43",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793695380.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 6.7,
             "role": "edu",
             "open": true,
@@ -2996,7 +2864,7 @@
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -3102,9 +2970,9 @@
           },
           {
             "from_t": "2026-11-03 14:53",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793688780.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 6.8,
             "role": "edu",
             "open": true,
@@ -3113,7 +2981,7 @@
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -3197,9 +3065,9 @@
         "gaps": [
           {
             "from_t": "2026-11-05 11:29",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793849340.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 4.9,
             "role": "edu",
             "open": true,
@@ -3208,7 +3076,7 @@
         ],
         "span": {
           "min_ts": 1784178120.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -3386,9 +3254,9 @@
           },
           {
             "from_t": "2026-11-06 20:59",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793969940.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 3.5,
             "role": "edu",
             "open": true,
@@ -3397,7 +3265,7 @@
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -3545,9 +3413,9 @@
           },
           {
             "from_t": "2026-11-06 22:04",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1793973840.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 3.5,
             "role": "edu",
             "open": true,
@@ -3556,7 +3424,7 @@
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -3856,9 +3724,9 @@
           },
           {
             "from_t": "2026-11-09 12:16",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794197760.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.9,
             "role": "edu",
             "open": true,
@@ -3867,7 +3735,7 @@
         ],
         "span": {
           "min_ts": 1788401520.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -4216,9 +4084,9 @@
           },
           {
             "from_t": "2026-11-09 19:21",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794223260.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.6,
             "role": "edu",
             "open": true,
@@ -4227,7 +4095,7 @@
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -4264,12 +4132,12 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 14.3,
-        "edu_days": 5.0,
+        "edu_days": 5.1,
         "third_days": 6.0,
-        "total_days": 25.3,
-        "admin_pct": 56.5,
-        "edu_pct": 19.8,
-        "third_pct": 23.7
+        "total_days": 25.4,
+        "admin_pct": 56.3,
+        "edu_pct": 20.1,
+        "third_pct": 23.6
       },
       "timeline": {
         "nodes": [
@@ -4384,18 +4252,18 @@
           },
           {
             "from_t": "2026-11-09 19:55",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794225300.0,
-            "to_ts": 1794272333.974929,
-            "days": 0.5,
+            "to_ts": 1794274279.41248,
+            "days": 0.6,
             "role": "edu",
             "open": true,
-            "label": "至今 0.5 天"
+            "label": "至今 0.6 天"
           }
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -4531,9 +4399,9 @@
           },
           {
             "from_t": "2026-11-09 19:10",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794222600.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.6,
             "role": "edu",
             "open": true,
@@ -4542,7 +4410,7 @@
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -4636,9 +4504,9 @@
           },
           {
             "from_t": "2026-11-09 18:20",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794219600.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.6,
             "role": "edu",
             "open": true,
@@ -4647,7 +4515,7 @@
         ],
         "span": {
           "min_ts": 1793087760.0,
-          "max_ts": 1794272333.974929
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -4657,9 +4525,9 @@
       "award_sort_date": null
     },
     {
-      "id": "建議書-澳門科學館科普劇場",
+      "id": "建議書-2027年度科普劇場運作建議",
       "stage": "不適用（無編號）",
-      "title": "建議書「2027年度「澳門科學館科普劇場」運作建議」",
+      "title": "建議書《2027年度科普劇場運作建議》",
       "status": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
       "attr_label": "R1 · 無編號",
@@ -4667,11 +4535,11 @@
       "follow_up": [
         "Nicole Wong"
       ],
-      "first_submit": "2026-11-09 11:51",
+      "first_submit": "2026-09-29 18:53",
       "status_since": "2026-11-09 11:51",
       "completed_at": "",
       "days_in_status": 1,
-      "days_since_first_submit": 1,
+      "days_since_first_submit": 42,
       "process_days": null,
       "current_round": 1,
       "last_reply": "2026-11-09 11:51",
@@ -4680,29 +4548,89 @@
       "admin_clock_from": "",
       "days_since_reply": 1,
       "n_rounds": 1,
-      "admin_total": "",
+      "admin_total": 40.7,
       "colleague_total": "",
       "time_share": {
-        "admin_days": 0.0,
+        "admin_days": 40.7,
         "edu_days": 0.9,
         "third_days": 0.0,
-        "total_days": 0.9,
-        "admin_pct": 0.0,
-        "edu_pct": 100.0,
+        "total_days": 41.6,
+        "admin_pct": 97.8,
+        "edu_pct": 2.2,
         "third_pct": 0.0
       },
       "timeline": {
         "nodes": [
           {
-            "t": "2026-11-09 11:51",
-            "ts": 1794196260.0,
-            "kind": "first_submit",
+            "t": "2026-09-29 18:53",
+            "ts": 1790679180.0,
+            "kind": "submission",
             "role": "edu",
-            "label": "紀錄起點（缺首次提交時間）",
-            "detail": "",
+            "label": "R1 提交",
+            "detail": "[提交至行政採購文件]建議書《2027年度科普劇場運作建議》",
+            "who": "Nicole Wong",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-06 10:36",
+            "ts": 1791254160.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
             "who": "Nicole Wong",
             "round": null,
-            "secondary": false
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-13 18:45",
+            "ts": 1791888300.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
+            "who": "Nicole Wong",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-21 09:35",
+            "ts": 1792546500.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
+            "who": "Nicole Wong",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-10-28 18:12",
+            "ts": 1793182320.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
+            "who": "Nicole Wong",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-11-04 11:45",
+            "ts": 1793763900.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
+            "who": "Nicole Wong",
+            "round": null,
+            "secondary": true,
+            "closed": true
           },
           {
             "t": "2026-11-09 11:51",
@@ -4718,10 +4646,20 @@
         ],
         "gaps": [
           {
+            "from_t": "2026-09-29 18:53",
+            "to_t": "2026-11-09 11:51",
+            "from_ts": 1790679180.0,
+            "to_ts": 1794196260.0,
+            "days": 40.7,
+            "role": "admin",
+            "open": false,
+            "label": "40.7 天"
+          },
+          {
             "from_t": "2026-11-09 11:51",
-            "to_t": "2026-11-10 08:58",
+            "to_t": "2026-11-10 09:31",
             "from_ts": 1794196260.0,
-            "to_ts": 1794272333.974929,
+            "to_ts": 1794274279.41248,
             "days": 0.9,
             "role": "edu",
             "open": true,
@@ -4729,8 +4667,8 @@
           }
         ],
         "span": {
-          "min_ts": 1794196260.0,
-          "max_ts": 1794272333.974929
+          "min_ts": 1790679180.0,
+          "max_ts": 1794274279.41248
         }
       },
       "awarded_supplier": null,
@@ -8208,7 +8146,7 @@
       "folder": "04 Procure",
       "kind": "revision",
       "kind_label": "修改回覆",
-      "pa": "建議書-澳門科學館科普劇場",
+      "pa": "建議書-2027年度科普劇場運作建議",
       "stage": "不適用（無編號）",
       "subject": "有關建議書「2027年度「澳門科學館科普劇場」運作建議」文件須作出修正的地方(為第1次通知EDU需要作出文件修改)",
       "from": "Procure",
@@ -11593,7 +11531,7 @@
       "t": "2026-10-06 10:36",
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-      "closed": false,
+      "closed": true,
       "days": 35
     },
     {
@@ -11665,7 +11603,7 @@
       "t": "2026-10-13 18:45",
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-      "closed": false,
+      "closed": true,
       "days": 28
     },
     {
@@ -11705,7 +11643,7 @@
       "t": "2026-10-21 09:35",
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-      "closed": false,
+      "closed": true,
       "days": 20
     },
     {
@@ -11785,7 +11723,7 @@
       "t": "2026-10-28 18:12",
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-      "closed": false,
+      "closed": true,
       "days": 13
     },
     {
@@ -11833,7 +11771,7 @@
       "t": "2026-11-04 11:45",
       "from": "Nicole Wong",
       "subject": "文件進度查詢:建議書《2027年度科普劇場運作建議》",
-      "closed": false,
+      "closed": true,
       "days": 6
     },
     {
