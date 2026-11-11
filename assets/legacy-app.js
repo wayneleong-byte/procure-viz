@@ -23,8 +23,6 @@
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
   /** Oscar：指定用黑色時間比例（數據不足／特殊跟進） */
   const FORCE_BLACK_SHARE = new Set([
-    "PA-26-135",
-    "PA-26-220",
     "科學館與蔚來簽署第二次補充合作協議",
   ]);
   /** Oscar：已完成但仍顯示行政／EDU／第三方三色（資料完整） */
