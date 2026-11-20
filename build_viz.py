@@ -25,19 +25,31 @@ WORK_END = 18 * 60 + 30
 ADMIN_FOLDERS = {"04 Procure"}
 EDU_FOLDERS = {"000[提交至行政採購文件]", "000 文件進度查詢"}
 
-# Fixed display order for glass columns, home, and tabs (left → right)
-# 總覽狀態列（左→右）；「已提交待回覆」必須在 7 欄正中間。
-# 用本機完整狀態名稱。舊欄「行政部與甲方跟進中」不在此列；
-# 若本機仍有該狀態文件，main() 會把該欄追加在「完成」之前並印出警告，不會丟棄。
-STATUS_ORDER = [
+# 總覽看板分欄（左→右，不含「完成」）。「已提交待回覆」為第 4 欄（6 欄裡靠中、維持提交前／後節奏）。
+# 「排期執委會中」與「排期董事會中」合成一欄。新狀態欄即使沒有文件也要顯示空欄。
+# 未列於對照表的未完成狀態會追加在六欄之後，不會丟棄文件。
+BOARD_COLUMNS = [
     "行政部已回覆待同事重交",
     "待對方補充資料後交行政",
     "報價進行中",
     "已提交待回覆",
-    "排期執委會中",
-    "排期董事會中",
-    "完成",
+    "排期執委會／董事會",
+    "已獲執委會／董事會通過，待同事提交",
 ]
+
+STATUS_TO_BOARD = {
+    "行政部已回覆待同事重交": "行政部已回覆待同事重交",
+    "待對方補充資料後交行政": "待對方補充資料後交行政",
+    "報價進行中": "報價進行中",
+    "已提交待回覆": "已提交待回覆",
+    "排期執委會中": "排期執委會／董事會",
+    "排期董事會中": "排期執委會／董事會",
+    "已獲執委會／董事會通過，待同事提交": "已獲執委會／董事會通過，待同事提交",
+}
+
+# Backward-compatible alias used in sorts; starts as the official 6 columns
+# and may gain unexpected incomplete statuses in main().
+STATUS_ORDER = list(BOARD_COLUMNS)
 
 STATUS_GROUP = {
     "已提交待回覆": "awaiting_admin",
@@ -47,6 +59,7 @@ STATUS_GROUP = {
     "行政部已回覆待同事重交": "pending_resubmit",
     "排期執委會中": "scheduled_exco",
     "排期董事會中": "scheduled_board",
+    "已獲執委會／董事會通過，待同事提交": "pending_after_approval",
     "完成": "completed",
 }
 
@@ -393,12 +406,22 @@ def resolve_completed_at(doc: dict) -> str:
     return candidates[-1][1]
 
 
+def board_column_of(status: str | None) -> str:
+    """Map a raw Sheet status to a board column. 完成 is not on the board."""
+    s = (status or "").strip()
+    if not s or s == "完成":
+        return ""
+    return STATUS_TO_BOARD.get(s, s)
+
+
 def status_anchor_date(doc: dict) -> str:
     """Date when current status started (for days_in_status)."""
     status = doc.get("status") or ""
     first, _ = resolve_first_submit(doc)
     if status == "完成":
         return resolve_completed_at(doc) or doc.get("last_reply") or first or ""
+    if status == "已獲執委會／董事會通過，待同事提交":
+        return doc.get("approved_date") or doc.get("last_reply") or first or ""
     if status == "行政部已回覆待同事重交":
         return doc.get("last_reply") or ""
     if status == "已提交待回覆":
@@ -423,7 +446,7 @@ def gap_role_between(prev: dict, nxt: dict | None, status: str, open_end: bool) 
     if open_end or nxt is None:
         if status == "已提交待回覆":
             return "admin"
-        if status == "行政部已回覆待同事重交":
+        if status in ("行政部已回覆待同事重交", "已獲執委會／董事會通過，待同事提交"):
             return "edu"
         if status in THIRD_STATUSES:
             return "third"
@@ -1213,24 +1236,25 @@ def main() -> None:
     emails = ds.get("emails") or []
     sheet_by_id = load_sheet_row_map()
 
-    # Keep every local status visible. Official 7-col order stays fixed;
-    # any leftover status (e.g. 行政部與甲方跟進中) is inserted before 完成.
-    present = {((d.get("status") or "").strip()) for d in docs_all if (d.get("status") or "").strip()}
-    extra = [s for s in sorted(present) if s not in STATUS_ORDER]
-    if extra:
-        insert_at = STATUS_ORDER.index("完成") if "完成" in STATUS_ORDER else len(STATUS_ORDER)
-        for s in extra:
-            STATUS_ORDER.insert(insert_at, s)
-            insert_at += 1
-            print(f"WARNING: unexpected status {s!r} kept in board (inserted before 完成)")
+    # Keep every incomplete local status visible. Official 6 columns stay first;
+    # unmapped leftover statuses (e.g. 行政部與甲方跟進中) are appended after them.
+    present = {((d.get("status") or "").strip()) for d in incomplete if (d.get("status") or "").strip()}
+    extra_cols = []
+    for s in sorted(present):
+        col = board_column_of(s)
+        if col and col not in STATUS_ORDER and col not in extra_cols:
+            extra_cols.append(col)
+    if extra_cols:
+        for col in extra_cols:
+            STATUS_ORDER.append(col)
+            print(f"WARNING: unexpected status column {col!r} kept on board (appended after official 6)")
 
     def doc_sort(d):
-        status = d.get("status") or ""
+        col = board_column_of(d.get("status") or "")
         try:
-            si = STATUS_ORDER.index(status)
+            si = STATUS_ORDER.index(col)
         except ValueError:
             si = 99
-        # within status: longer days_in_status first
         return (si, d.get("key") or "")
 
     incomplete_sorted = sorted(incomplete, key=doc_sort)
@@ -1271,6 +1295,7 @@ def main() -> None:
             "stage": d.get("stage") or "",
             "title": d.get("title") or "",
             "status": d.get("status") or "",
+            "board_column": "" if closed else board_column_of(d.get("status") or ""),
             "status_group": (
                 "completed" if closed else STATUS_GROUP.get(d.get("status") or "", "other")
             ),
@@ -1315,8 +1340,8 @@ def main() -> None:
     # Re-sort within each status by days_in_status desc
     viz_docs.sort(
         key=lambda d: (
-            STATUS_ORDER.index(d["status"])
-            if d["status"] in STATUS_ORDER
+            STATUS_ORDER.index(d.get("board_column") or "")
+            if (d.get("board_column") or "") in STATUS_ORDER
             else 99,
             -(d.get("days_in_status") if d.get("days_in_status") is not None else -1),
             d.get("id") or "",
@@ -1393,12 +1418,14 @@ def main() -> None:
         )
 
     status_counts = {s: 0 for s in STATUS_ORDER}
-    for d in viz_docs + viz_completed:
-        st = d["status"]
-        if st in status_counts:
-            status_counts[st] += 1
+    for d in viz_docs:
+        col = d.get("board_column") or d.get("status") or ""
+        if not col:
+            continue
+        if col in status_counts:
+            status_counts[col] += 1
         else:
-            status_counts[st] = status_counts.get(st, 0) + 1
+            status_counts[col] = status_counts.get(col, 0) + 1
 
     submitters = sorted(
         {
@@ -1429,8 +1456,9 @@ def main() -> None:
             "status_counts": status_counts,
             "submitters": submitters,
             "notes": [
-                "未完成＝目前狀態唔係「完成」；已完成見看板「完成」欄及「已完成」分頁（同一批文件）；總覽＝全部文件",
-                "總覽狀態列由左至右：待同事重交、待對方補充、報價進行中、已提交待回覆、排期執委會中、排期董事會中、完成；「已提交待回覆」在正中間",
+                "未完成＝目前狀態唔係「完成」；已完成只見「已完成」分頁及總覽列表，不在看板室狀態列",
+                "總覽看板六欄由左至右：待同事重交、待對方補充、報價進行中、已提交待回覆、排期執委會／董事會、已獲執委會／董事會通過待同事提交；第 4 欄為「已提交待回覆」",
+                "「排期執委會中」與「排期董事會中」合成「排期執委會／董事會」；卡片可顯示是執委會還是董事會",
                 "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
                 "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
                 "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",

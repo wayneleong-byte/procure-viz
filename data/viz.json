@@ -2,8 +2,8 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-20 11:57",
-    "source_generated_at": "2026-11-20 11:43",
+    "generated_at": "2026-11-20 12:11",
+    "source_generated_at": "2026-11-20 12:10",
     "today": "2026-11-20",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
@@ -19,18 +19,16 @@
       "待對方補充資料後交行政",
       "報價進行中",
       "已提交待回覆",
-      "排期執委會中",
-      "排期董事會中",
-      "完成"
+      "排期執委會／董事會",
+      "已獲執委會／董事會通過，待同事提交"
     ],
     "status_counts": {
-      "行政部已回覆待同事重交": 5,
-      "待對方補充資料後交行政": 0,
+      "行政部已回覆待同事重交": 4,
+      "待對方補充資料後交行政": 1,
       "報價進行中": 1,
       "已提交待回覆": 19,
-      "排期執委會中": 1,
-      "排期董事會中": 0,
-      "完成": 25
+      "排期執委會／董事會": 1,
+      "已獲執委會／董事會通過，待同事提交": 0
     },
     "submitters": [
       "Candy Fok",
@@ -53,8 +51,9 @@
       "Yan Wong"
     ],
     "notes": [
-      "未完成＝目前狀態唔係「完成」；已完成見看板「完成」欄及「已完成」分頁（同一批文件）；總覽＝全部文件",
-      "總覽狀態列由左至右：待同事重交、待對方補充、報價進行中、已提交待回覆、排期執委會中、排期董事會中、完成；「已提交待回覆」在正中間",
+      "未完成＝目前狀態唔係「完成」；已完成只見「已完成」分頁及總覽列表，不在看板室狀態列",
+      "總覽看板六欄由左至右：待同事重交、待對方補充、報價進行中、已提交待回覆、排期執委會／董事會、已獲執委會／董事會通過待同事提交；第 4 欄為「已提交待回覆」",
+      "「排期執委會中」與「排期董事會中」合成「排期執委會／董事會」；卡片可顯示是執委會還是董事會",
       "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
       "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
       "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",
@@ -69,6 +68,7 @@
       "stage": "Form 1",
       "title": "為擴增實境網上瀏覽平台系統取得保養服務（2027-2030年）",
       "status": "行政部已回覆待同事重交",
+      "board_column": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
       "attr_label": "R1 · Form 1",
       "submitter": "Sam Lei",
@@ -173,9 +173,9 @@
           },
           {
             "from_t": "2026-11-12 15:52",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794469920.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 7.8,
             "role": "edu",
             "open": true,
@@ -184,7 +184,7 @@
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -204,6 +204,7 @@
       "stage": "Form 1",
       "title": "解除擔保金申請書",
       "status": "行政部已回覆待同事重交",
+      "board_column": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
       "attr_label": "R1 · Form 1",
       "submitter": "Sam Lei",
@@ -262,9 +263,9 @@
         "gaps": [
           {
             "from_t": "2026-11-16 10:44",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794797040.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 4.1,
             "role": "edu",
             "open": true,
@@ -273,7 +274,7 @@
         ],
         "span": {
           "min_ts": 1794797040.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -293,6 +294,7 @@
       "stage": "Form 1",
       "title": "為澳科館微定位導覽系統取得保養服務（2026-2029）",
       "status": "行政部已回覆待同事重交",
+      "board_column": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
       "attr_label": "R4 · Form 1",
       "submitter": "Sam Lei",
@@ -499,9 +501,9 @@
           },
           {
             "from_t": "2026-11-19 20:48",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1795092480.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 0.6,
             "role": "edu",
             "open": true,
@@ -510,7 +512,7 @@
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -530,6 +532,7 @@
       "stage": "Form 1",
       "title": "為FABLAB購買桌上型多功能立體UV印刷機套裝",
       "status": "行政部已回覆待同事重交",
+      "board_column": "行政部已回覆待同事重交",
       "status_group": "pending_resubmit",
       "attr_label": "R2 · Form 1",
       "submitter": "David Chan",
@@ -553,12 +556,12 @@
       "colleague_total": 0.9,
       "time_share": {
         "admin_days": 3.3,
-        "edu_days": 1.7,
+        "edu_days": 1.8,
         "third_days": 1.9,
-        "total_days": 6.9,
-        "admin_pct": 47.9,
-        "edu_pct": 24.6,
-        "third_pct": 27.5
+        "total_days": 7.0,
+        "admin_pct": 47.2,
+        "edu_pct": 25.7,
+        "third_pct": 27.1
       },
       "timeline": {
         "nodes": [
@@ -640,18 +643,18 @@
           },
           {
             "from_t": "2026-11-19 15:38",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1795073880.0,
-            "to_ts": 1795147032.613905,
-            "days": 0.8,
+            "to_ts": 1795147899.607442,
+            "days": 0.9,
             "role": "edu",
             "open": true,
-            "label": "至今 0.8 天"
+            "label": "至今 0.9 天"
           }
         ],
         "span": {
           "min_ts": 1794553020.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -670,8 +673,9 @@
       "id": "科學館與蔚來簽署第二次補充合作協議",
       "stage": "不適用（無編號）",
       "title": "科學館與蔚來簽署第二次補充合作協議",
-      "status": "行政部已回覆待同事重交",
-      "status_group": "pending_resubmit",
+      "status": "待對方補充資料後交行政",
+      "board_column": "待對方補充資料後交行政",
+      "status_group": "awaiting_party",
       "attr_label": "R1 · 無編號",
       "submitter": "Ryan Lei",
       "follow_up": [
@@ -685,21 +689,21 @@
       "process_days": null,
       "current_round": 1,
       "last_reply": "2026-11-19 21:50",
-      "last_reply_summary": "行政交回完整修改稿 Word 版，請轉交蔚來並通知對方若修改須開啟追蹤修訂；待廣州蔚來簽署代表資料及蔚來意見後再轉律師（2026-11-19 21:50）",
+      "last_reply_summary": "Ryan 已於 2026-11-20 09:51 將 Word 版完整修改稿轉交蔚來（Ziqi LU／Ranee MIAO），並請對方修改須開啟追蹤修訂；待廣州蔚來簽署代表資料及蔚來意見後再轉律師（Oscar 2026-11-20 12:01 確認；09:51 信在 Inbox，未入表）",
       "last_resubmit": "",
       "admin_clock_from": "",
-      "days_since_reply": 1,
+      "days_since_reply": "",
       "n_rounds": 1,
       "admin_total": 45,
       "colleague_total": "",
       "time_share": {
-        "admin_days": 128.8,
-        "edu_days": 0.6,
-        "third_days": 0.0,
+        "admin_days": 45.0,
+        "edu_days": 0.0,
+        "third_days": 84.4,
         "total_days": 129.4,
-        "admin_pct": 99.5,
-        "edu_pct": 0.5,
-        "third_pct": 0.0
+        "admin_pct": 34.8,
+        "edu_pct": 0.0,
+        "third_pct": 65.2
       },
       "timeline": {
         "nodes": [
@@ -720,7 +724,7 @@
             "kind": "admin_reply",
             "role": "admin",
             "label": "R1 行政回覆",
-            "detail": "行政交回完整修改稿 Word 版，請轉交蔚來並通知對方若修改須開啟追蹤修訂；待廣州蔚來簽署代表資料及蔚來意見後再轉律師（2026-11-19 21:50）",
+            "detail": "Ryan 已於 2026-11-20 09:51 將 Word 版完整修改稿轉交蔚來（Ziqi LU／Ranee MIAO），並請對方修改須開啟追蹤修訂；待廣州蔚來簽署代表資料及蔚來意見後再轉律師（Oscar 2026-11-20 12:01 確認；09:51 信在 Inbox，未入表）",
             "who": "行政部",
             "round": 1,
             "secondary": false
@@ -844,7 +848,7 @@
             "from_ts": 1787846400.0,
             "to_ts": 1790776740.0,
             "days": 33.9,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "33.9 天"
           },
@@ -854,7 +858,7 @@
             "from_ts": 1790776740.0,
             "to_ts": 1791537000.0,
             "days": 8.8,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "8.8 天"
           },
@@ -864,7 +868,7 @@
             "from_ts": 1791537000.0,
             "to_ts": 1792637940.0,
             "days": 12.7,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "12.7 天"
           },
@@ -874,7 +878,7 @@
             "from_ts": 1792637940.0,
             "to_ts": 1793954040.0,
             "days": 15.2,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "15.2 天"
           },
@@ -884,7 +888,7 @@
             "from_ts": 1793954040.0,
             "to_ts": 1794153600.0,
             "days": 2.3,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "2.3 天"
           },
@@ -894,7 +898,7 @@
             "from_ts": 1794153600.0,
             "to_ts": 1794569820.0,
             "days": 4.8,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "4.8 天"
           },
@@ -904,24 +908,24 @@
             "from_ts": 1794569820.0,
             "to_ts": 1795096200.0,
             "days": 6.1,
-            "role": "admin",
+            "role": "third",
             "open": false,
             "label": "6.1 天"
           },
           {
             "from_t": "2026-11-19 21:50",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1795096200.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 0.6,
-            "role": "edu",
+            "role": "third",
             "open": true,
             "label": "至今 0.6 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -941,6 +945,7 @@
       "stage": "Form 1",
       "title": "2026/27 FIRST®️ LEGO®️ League澳門區賽事採購FLL Challenge培訓工作坊",
       "status": "報價進行中",
+      "board_column": "報價進行中",
       "status_group": "quotation",
       "attr_label": "R2 · Form 1",
       "submitter": "Yan Wong",
@@ -1117,9 +1122,9 @@
           },
           {
             "from_t": "2026-11-13 19:51",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794570660.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 6.7,
             "role": "third",
             "open": true,
@@ -1128,7 +1133,7 @@
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -1148,6 +1153,7 @@
       "stage": "Form 2",
       "title": "為澳門科學館購置館校合作課程配套工具及材料開支許可",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R6 · Form 2",
       "submitter": "Lam Chan",
@@ -1336,9 +1342,9 @@
           },
           {
             "from_t": "2026-10-21 10:08",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1792548480.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 30.1,
             "role": "admin",
             "open": true,
@@ -1347,7 +1353,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -1367,6 +1373,7 @@
       "stage": "Form 2",
       "title": "為澳門科學館各部門訂購實體參考書籍及2027年實體期刊",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R6 · Form 2",
       "submitter": "Yan Wong",
@@ -1588,9 +1595,9 @@
           },
           {
             "from_t": "2026-10-30 13:00",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1793336400.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 21.0,
             "role": "admin",
             "open": true,
@@ -1599,7 +1606,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -1619,6 +1626,7 @@
       "stage": "Form 1",
       "title": "關於聯合主辦「MYAIR2027澳門青少年人工智能及機械人大賽」",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R1 · Form 1",
       "submitter": "Fong Ng",
@@ -1641,10 +1649,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 17.0,
+        "admin_days": 17.1,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 17.0,
+        "total_days": 17.1,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -1690,18 +1698,18 @@
         "gaps": [
           {
             "from_t": "2026-11-03 10:59",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1793674740.0,
-            "to_ts": 1795147032.613905,
-            "days": 17.0,
+            "to_ts": 1795147899.607442,
+            "days": 17.1,
             "role": "admin",
             "open": true,
-            "label": "至今 17.0 天"
+            "label": "至今 17.1 天"
           }
         ],
         "span": {
           "min_ts": 1793674740.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -1721,6 +1729,7 @@
       "stage": "Form 1",
       "title": "引入租賃式AR導覽設備租用服務及導覽內容設置服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R1 · Form 1",
       "submitter": "Sam Lei",
@@ -1780,9 +1789,9 @@
         "gaps": [
           {
             "from_t": "2026-11-05 12:16",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1793852160.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 15.0,
             "role": "admin",
             "open": true,
@@ -1791,7 +1800,7 @@
         ],
         "span": {
           "min_ts": 1793852160.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -1811,6 +1820,7 @@
       "stage": "不適用（無編號）",
       "title": "「茅以升生平事迹展」赴澳门科学馆巡展协议",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R2 · 無編號",
       "submitter": "Guida Lai",
@@ -2058,9 +2068,9 @@
           },
           {
             "from_t": "2026-11-08 15:33",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794123180.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 11.9,
             "role": "admin",
             "open": true,
@@ -2069,7 +2079,7 @@
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -2089,6 +2099,7 @@
       "stage": "Form 1",
       "title": "為“青年科技村”學員採購人工智能範疇培訓課程（2026/2027年度）",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R3 · Form 1",
       "submitter": "Thomas Tai",
@@ -2244,9 +2255,9 @@
           },
           {
             "from_t": "2026-11-10 12:54",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794286440.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 10.0,
             "role": "admin",
             "open": true,
@@ -2255,7 +2266,7 @@
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -2275,6 +2286,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館“青年科技村”科創人才培養計劃二級及三級學員赴香港參加“2026/27年度港澳中學化妝品配方比賽”之化妝品配方工作坊",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R3 · Form 1",
       "submitter": "Siky Lam",
@@ -2430,9 +2442,9 @@
           },
           {
             "from_t": "2026-11-10 16:30",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794299400.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 9.8,
             "role": "admin",
             "open": true,
@@ -2441,7 +2453,7 @@
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -2461,6 +2473,7 @@
       "stage": "Form 2",
       "title": "為人工智能課程採購教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R2 · Form 2",
       "submitter": "Thomas Tai",
@@ -2562,9 +2575,9 @@
           },
           {
             "from_t": "2026-11-11 11:40",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794368400.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 9.0,
             "role": "admin",
             "open": true,
@@ -2573,7 +2586,7 @@
         ],
         "span": {
           "min_ts": 1793674080.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -2593,6 +2606,7 @@
       "stage": "Form 1",
       "title": "為“國際青少年創科教育大賽（澳門區）2027 ”採購承辦賽事服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R2 · Form 1",
       "submitter": "Lam Chan",
@@ -2718,9 +2732,9 @@
           },
           {
             "from_t": "2026-11-11 09:50",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794361800.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 9.1,
             "role": "admin",
             "open": true,
@@ -2729,7 +2743,7 @@
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -2749,6 +2763,7 @@
       "stage": "Form 1",
       "title": "為2027澳門北斗航天大賽採購承辦賽事服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R4 · Form 1",
       "submitter": "Sam Lei",
@@ -2958,9 +2973,9 @@
           },
           {
             "from_t": "2026-11-13 19:28",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794569280.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 6.7,
             "role": "admin",
             "open": true,
@@ -2969,7 +2984,7 @@
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -2989,6 +3004,7 @@
       "stage": "Form 1",
       "title": "採購仿生機械手及相關演示化、展品化之服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R4 · Form 1",
       "submitter": "Sam Lei",
@@ -3219,9 +3235,9 @@
           },
           {
             "from_t": "2026-11-13 19:29",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794569340.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 6.7,
             "role": "admin",
             "open": true,
@@ -3230,7 +3246,7 @@
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -3250,6 +3266,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館與IEEE合辦的AI主題課程活動提供輕食到會服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R3 · Form 1",
       "submitter": "Nettie Si",
@@ -3414,9 +3431,9 @@
           },
           {
             "from_t": "2026-11-13 21:17",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794575820.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 6.6,
             "role": "admin",
             "open": true,
@@ -3425,7 +3442,7 @@
         ],
         "span": {
           "min_ts": 1793087760.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -3445,6 +3462,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館2台電子書借閱機取得系統維護服務續期一年（2027）",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R2 · Form 1",
       "submitter": "Yan Wong",
@@ -3570,9 +3588,9 @@
           },
           {
             "from_t": "2026-11-17 17:04",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794906240.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 2.8,
             "role": "admin",
             "open": true,
@@ -3581,7 +3599,7 @@
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -3601,6 +3619,7 @@
       "stage": "Form 1",
       "title": "為2026年度澳門科學館志願者及導賞員交流活動暨年度聚餐提供自助餐晚宴餐飲服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R3 · Form 1",
       "submitter": "Nicole Wong",
@@ -3789,9 +3808,9 @@
           },
           {
             "from_t": "2026-11-06 15:49",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1793951340.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 13.8,
             "role": "admin",
             "open": true,
@@ -3800,7 +3819,7 @@
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -3820,6 +3839,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館採購無線導覽設備",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R3 · Form 1",
       "submitter": "Jane Leong",
@@ -3963,9 +3983,9 @@
           },
           {
             "from_t": "2026-11-17 16:17",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794903420.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 2.8,
             "role": "admin",
             "open": true,
@@ -3974,7 +3994,7 @@
         ],
         "span": {
           "min_ts": 1791388800.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -3994,6 +4014,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館租賃超微距影像採集儀器及系統培訓服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R1 · Form 1",
       "submitter": "Yan Wong",
@@ -4041,9 +4062,9 @@
         "gaps": [
           {
             "from_t": "2026-11-17 17:03",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794906180.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 2.8,
             "role": "admin",
             "open": true,
@@ -4052,7 +4073,7 @@
         ],
         "span": {
           "min_ts": 1794906180.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -4072,6 +4093,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館橋樑主題展覽提供航拍服務",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R5 · Form 1",
       "submitter": "Carlos Nip",
@@ -4094,10 +4116,10 @@
       "admin_total": 44.2,
       "colleague_total": 18.8,
       "time_share": {
-        "admin_days": 37.6,
+        "admin_days": 37.7,
         "edu_days": 11.2,
         "third_days": 16.7,
-        "total_days": 65.5,
+        "total_days": 65.6,
         "admin_pct": 57.4,
         "edu_pct": 17.1,
         "third_pct": 25.5
@@ -4299,18 +4321,18 @@
           },
           {
             "from_t": "2026-11-18 18:03",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794996180.0,
-            "to_ts": 1795147032.613905,
-            "days": 1.7,
+            "to_ts": 1795147899.607442,
+            "days": 1.8,
             "role": "admin",
             "open": true,
-            "label": "至今 1.7 天"
+            "label": "至今 1.8 天"
           }
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -4330,6 +4352,7 @@
       "stage": "Form 1",
       "title": "為全年各項比賽活動採購獎座、錦旗、獎牌等獎項用品(2027)",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R4 · Form 1",
       "submitter": "Lam Chan",
@@ -4352,13 +4375,13 @@
       "admin_total": 57.6,
       "colleague_total": 7.3,
       "time_share": {
-        "admin_days": 36.4,
+        "admin_days": 36.5,
         "edu_days": 5.2,
         "third_days": 25.8,
-        "total_days": 67.4,
-        "admin_pct": 54.0,
+        "total_days": 67.5,
+        "admin_pct": 54.1,
         "edu_pct": 7.7,
-        "third_pct": 38.3
+        "third_pct": 38.2
       },
       "timeline": {
         "nodes": [
@@ -4515,18 +4538,18 @@
           },
           {
             "from_t": "2026-11-18 15:40",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794987600.0,
-            "to_ts": 1795147032.613905,
-            "days": 1.8,
+            "to_ts": 1795147899.607442,
+            "days": 1.9,
             "role": "admin",
             "open": true,
-            "label": "至今 1.8 天"
+            "label": "至今 1.9 天"
           }
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -4546,6 +4569,7 @@
       "stage": "不適用（無編號）",
       "title": "[提交至行政採購文件] 第一次提交 PA-26-XXX 為澳門科學館採購本地生成式AI軟硬體整合平台及本地部署知識庫",
       "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
       "status_group": "awaiting_admin",
       "attr_label": "R1 · 無編號",
       "submitter": "Yan Wong",
@@ -4593,9 +4617,9 @@
         "gaps": [
           {
             "from_t": "2026-11-18 18:39",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794998340.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 1.7,
             "role": "admin",
             "open": true,
@@ -4604,7 +4628,7 @@
         ],
         "span": {
           "min_ts": 1794998340.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -4624,6 +4648,7 @@
       "stage": "不適用（無編號）",
       "title": "建議書《2027年度科普劇場運作建議》",
       "status": "排期執委會中",
+      "board_column": "排期執委會／董事會",
       "status_group": "scheduled_exco",
       "attr_label": "R2 · 無編號",
       "submitter": "Nicole Wong",
@@ -4815,9 +4840,9 @@
           },
           {
             "from_t": "2026-11-13 19:55",
-            "to_t": "2026-11-20 11:57",
+            "to_t": "2026-11-20 12:11",
             "from_ts": 1794570900.0,
-            "to_ts": 1795147032.613905,
+            "to_ts": 1795147899.607442,
             "days": 6.7,
             "role": "third",
             "open": true,
@@ -4826,7 +4851,7 @@
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1795147032.613905
+          "max_ts": 1795147899.607442
         }
       },
       "awarded_supplier": null,
@@ -4848,6 +4873,7 @@
       "stage": "Form 1",
       "title": "關於聯合主辦“國際青少年創科教育大賽（澳門區）2027”",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R5 · Form 1",
       "submitter": "Lam Chan",
@@ -5118,6 +5144,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館“青年科技村”科創人才培養計劃採購量子力學培訓課程（2026/2027學年）",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R4 · Form 1",
       "submitter": "Siky Lam",
@@ -5369,6 +5396,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館採購智能機器人及AI交互設備",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R8 · Form 1",
       "submitter": "Ryan Lei",
@@ -5788,6 +5816,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R1 · Form 1",
       "submitter": "Keira Keira",
@@ -5878,6 +5907,7 @@
       "stage": "Form 2",
       "title": "為澳門科學館團體預約系統進行系統漏洞修復與升級及取得寄存與維護保養支援服務（2027-2030年）",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R6 · Form 2",
       "submitter": "Keira Wan",
@@ -6227,6 +6257,7 @@
       "stage": "不適用（無編號）",
       "title": "NDT26-024「赴香港出席「阿里雲峰會香港2026」」之審批 - 澳門以外鄰近地區公幹申請表",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R1 · 無編號",
       "submitter": "ihvong",
@@ -6306,6 +6337,7 @@
       "stage": "Form 2",
       "title": "為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R2 · Form 2",
       "submitter": "Carlos Nip",
@@ -6416,6 +6448,7 @@
       "stage": "Form 1",
       "title": "赴北京參加網絡安全培訓",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R4 · Form 1",
       "submitter": "Fong Ng",
@@ -6709,6 +6742,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館採購Adobe Firefly Pro及Canva軟件（2026）",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R5 · Form 1",
       "submitter": "Nettie Si",
@@ -7058,6 +7092,7 @@
       "stage": "不適用（無編號）",
       "title": "2026年7月至12月員工個人AI工具使用費用報銷單據數量的預計申請表",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R5 · 無編號",
       "submitter": "Silvia Lio",
@@ -7191,6 +7226,7 @@
       "stage": "Form 2",
       "title": "為G13展品及智學園地採購光纖網路租用服務",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R3 · Form 2",
       "submitter": "Sam Lei",
@@ -7364,6 +7400,7 @@
       "stage": "Form 2",
       "title": "為澳門科學館人員提供大型語言模型（LLM）專業培訓課程",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R3 · Form 2",
       "submitter": "Candy Fok",
@@ -7537,6 +7574,7 @@
       "stage": "Form 1",
       "title": "為人工智能課程採購教學套件及用具(2026年度第二次)及為“青年科技村”課程採購套件",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R6 · Form 1",
       "submitter": "Thomas Tai",
@@ -7848,6 +7886,7 @@
       "stage": "Form 2",
       "title": "為科學館人員申請Fab Academy課程培訓費用（2027年度）",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R6 · Form 2",
       "submitter": "Thomas Tai",
@@ -8108,6 +8147,7 @@
       "stage": "Form 2",
       "title": "為申請成為Fab Academy Node購買CNC設備",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R4 · Form 2",
       "submitter": "David Chan",
@@ -8305,6 +8345,7 @@
       "stage": "Form 1",
       "title": "為“給航天員的一封信”學生徵文比賽採購評審服務及比賽獎品",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R5 · Form 1",
       "submitter": "Carlos Nip",
@@ -8583,6 +8624,7 @@
       "stage": "不適用（無編號）",
       "title": "合肥市科技馆与澳门科学馆合作意向书",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R5 · 無編號",
       "submitter": "Guida Lai",
@@ -8819,6 +8861,7 @@
       "stage": "Form 1",
       "title": "赴廣州神農草堂中醫藥博物館進行考察",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R3 · Form 1",
       "submitter": "Lam Chan",
@@ -9013,6 +9056,7 @@
       "stage": "Form 2",
       "title": "為2026/27 FIRST® LEGO® League澳門區賽事採購承辦服務",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R4 · Form 2",
       "submitter": "Carlos Nip",
@@ -9243,6 +9287,7 @@
       "stage": "Form 2",
       "title": "為澳門科學館“青年科技村”科創人才培養計劃採購數字孿生培訓課程及取得課程設備租用服務（2026/2027學年）",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R3 · Form 2",
       "submitter": "Siky Lam",
@@ -9419,6 +9464,7 @@
       "stage": "不適用（無編號）",
       "title": "有關於2027年1月舉辦「幸以橋樑度春秋——茅以升生平事迹展」",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R6 · 無編號",
       "submitter": "Guida Lai",
@@ -9529,6 +9575,7 @@
       "stage": "Form 1",
       "title": "關於2026年10月舉辦“神奇生物大發現”特展",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R4 · Form 1",
       "submitter": "Carlos Nip",
@@ -9744,6 +9791,7 @@
       "stage": "Form 2",
       "title": "為“青年科技村”科創人才培養計劃提供太空科學及人工智能醫學影像診斷課程編制及提供導師服務(2026/2027學年)",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R5 · Form 2",
       "submitter": "Siky Lam",
@@ -10002,6 +10050,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館人員提供大型語言模型（LLM）專業培訓課程",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R1 · Form 1",
       "submitter": "Candy Fok",
@@ -10112,6 +10161,7 @@
       "stage": "Form 1",
       "title": "為澳門科學館展示的標本採購保險(2026-2027年)",
       "status": "完成",
+      "board_column": "",
       "status_group": "completed",
       "attr_label": "R1 · Form 1",
       "submitter": "Guida Lai",

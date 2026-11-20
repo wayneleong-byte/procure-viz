@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/board.css?v=202611201157">
+<link rel="stylesheet" href="./assets/board.css?v=202611201213">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
@@ -93,13 +93,13 @@
         </button>
       </div>
       <p class="stage-nav-hint" id="stage-nav-hint"></p>
-      <p class="hint board-hint">狀態列由左至右共七欄，中間為「已提交待回覆」。完成欄與「已完成」分頁為同一批文件。欄位較窄時可用左右按鈕查看全部狀態。</p>
+      <p class="hint board-hint">狀態列由左至右共六欄，第 4 欄為「已提交待回覆」。已完成文件只在「已完成」分頁及總覽列表。窄屏一屏顯示 3 欄，可用左右按鈕移到上一組／下一組。</p>
     </section>
 
     <section id="view-overview" class="view" role="tabpanel" hidden>
       <div class="glass-panel">
         <h2>總覽列表</h2>
-        <p class="hint">未完成＋已完成，按文件編號｜第一次提交日期排序；點列展開時間線。已完成文件亦出現在看板室「完成」欄，並非消失。</p>
+        <p class="hint">未完成＋已完成，按文件編號｜第一次提交日期排序；點列展開時間線。已完成文件只在此列表及「已完成」分頁，不在看板室狀態列。</p>
         <div class="list-head ov"><span>編號</span><span>狀態</span><span>屬性</span><span>名稱</span><span>同事</span></div>
         <div id="list-overview" class="flat-list"></div>
       </div>
@@ -108,7 +108,7 @@
     <section id="view-completed" class="view" role="tabpanel" hidden>
       <div class="glass-panel">
         <h2>已完成文件</h2>
-        <p class="hint">與看板室「完成」欄為同一批文件，可在此按列表查看。</p>
+        <p class="hint">已完成文件只在此分頁及總覽列表查看，不在看板室狀態列。</p>
         <div class="list-head done"><span>編號</span><span>總天數</span><span>屬性</span><span>名稱</span><span>供應商</span></div>
         <div id="list-completed" class="flat-list"></div>
       </div>
@@ -166,6 +166,6 @@
   <div class="detail-body" id="detail-body"></div>
 </aside>
 
-<script src="./assets/board.js?v=202611201157"></script>
+<script src="./assets/board.js?v=202611201213"></script>
 </body>
 </html>

@@ -182,13 +182,13 @@ body {
 
 .status-share {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
   padding: 10px;
   border-radius: 16px;
 }
 @media (max-width: 1280px) {
-  .status-share { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .status-share { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
   .status-share { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -558,6 +558,17 @@ input.wide:focus {
   font-weight: 700; font-variant-numeric: tabular-nums;
   color: var(--risk, var(--slate));
 }
+.doc-card .meet-pill {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #dbeaf2;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+}
 .doc-card .sched {
   margin-top: 6px;
   font-size: 0.72rem;
@@ -615,12 +626,15 @@ input.wide:focus {
   font-size: 1.85rem;
   line-height: 1;
   padding: 0 0 3px;
+  transition: background 160ms var(--ease), border-color 160ms var(--ease), opacity 160ms var(--ease), transform 120ms var(--ease);
 }
 .stage-nav.prev { left: -2px; }
 .stage-nav.next { right: -2px; }
 .stage-nav:hover:not(:disabled) {
   border-color: rgba(56, 189, 248, 0.7);
+  background: linear-gradient(160deg, rgba(56,189,248,0.28), rgba(8,16,22,0.86));
 }
+.stage-nav:active:not(:disabled) { transform: scale(0.96); }
 .stage-nav:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 .stage-nav:disabled { opacity: 0.28; cursor: default; }
 .stage-nav-hint {
@@ -632,7 +646,7 @@ input.wide:focus {
   min-height: 1.2em;
 }
 
-/* When 6/7 columns cannot fit: keep a horizontal row, add buttons, flatten 3D so all columns can be reached. */
+/* Wide overflow only: keep boardroom column size, flatten 3D, add side buttons. Narrow (<1280) uses the 1279 block below. */
 .stage-wrap.board-scroll {
   perspective: none;
   padding: 12px 0 28px;
@@ -694,6 +708,7 @@ input.wide:focus {
   z-index: 4;
   pointer-events: none;
   opacity: 0;
+  transition: opacity 180ms var(--ease);
 }
 .stage-wrap.board-scroll::before {
   left: 22px;
@@ -714,31 +729,129 @@ input.wide:focus {
   .stage { transform: rotateX(8deg); gap: 10px; }
   .pillar-slot { transform: rotateY(calc(var(--fan) * 0.55)) translateZ(8px); }
 }
-/* 7 欄時不再直向堆疊：較窄螢幕改由 .board-scroll 左右移動，以保持「已提交待回覆」在同一橫排中間。 */
-@media (max-width: 820px) {
-  .stage-wrap:not(.board-scroll) { perspective: none; padding-bottom: 24px; }
-  .stage-wrap:not(.board-scroll) .stage {
-    flex-direction: column; align-items: stretch;
-    transform: none; gap: 16px;
+
+/* Scheme C: below 1280 always show 3 larger-type columns + side buttons. No vertical stack. */
+@media (max-width: 1279px) {
+  .stage-wrap {
+    perspective: none;
+    padding: 12px 0 28px;
+    min-height: calc(var(--pillar-h) + 56px);
   }
-  .stage-wrap:not(.board-scroll) .pillar-slot {
-    max-width: none; min-width: 0; height: auto; min-height: 280px;
+  .stage-hall,
+  .stage-floor,
+  .stage-glow { display: none; }
+
+  .stage-viewport,
+  .stage-wrap.board-scroll .stage-viewport {
+    transform-style: flat;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 0 8px;
+    margin: 0 22px;
+    container-type: inline-size;
+    container-name: board;
+  }
+  .stage-viewport::-webkit-scrollbar,
+  .stage-wrap.board-scroll .stage-viewport::-webkit-scrollbar { display: none; }
+
+  .stage,
+  .stage-wrap.board-scroll .stage {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
     transform: none;
+    gap: var(--board-gap, 14px);
+    width: max-content;
+    min-width: 100%;
+    min-height: var(--pillar-h);
   }
-  .stage-wrap:not(.board-scroll) .pillar-3d { transform: none; animation: none; opacity: 1; }
-  .stage-wrap:not(.board-scroll) .face-left,
-  .stage-wrap:not(.board-scroll) .face-right,
-  .stage-wrap:not(.board-scroll) .face-top,
-  .stage-wrap:not(.board-scroll) .face-bottom,
-  .stage-wrap:not(.board-scroll) .face-back,
-  .stage-wrap:not(.board-scroll) .pillar-edge-glow { display: none; }
-  .stage-wrap:not(.board-scroll) .face-front {
-    position: relative; transform: none; min-height: 280px;
-    max-height: 420px;
+
+  .pillar-slot,
+  .stage-wrap.board-scroll .pillar-slot {
+    --col-n: 3;
+    flex: 0 0 calc((100cqw - (var(--col-n) - 1) * var(--board-gap, 14px)) / var(--col-n));
+    max-width: none;
+    min-width: 0;
+    height: var(--pillar-h);
+    transform: none;
+    opacity: 1;
+    animation: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
-  .stage-wrap:not(.board-scroll) .stage-floor,
-  .stage-wrap:not(.board-scroll) .stage-glow { display: none; }
-  .stage-wrap:not(.board-scroll) .pillar-slot { opacity: 1; animation: none; }
+  .pillar-3d,
+  .stage-wrap.board-scroll .pillar-3d { transform: none; animation: none; opacity: 1; }
+  .face-left,
+  .face-right,
+  .face-top,
+  .face-bottom,
+  .face-back,
+  .pillar-edge-glow,
+  .stage-wrap.board-scroll .face-left,
+  .stage-wrap.board-scroll .face-right,
+  .stage-wrap.board-scroll .face-top,
+  .stage-wrap.board-scroll .face-bottom,
+  .stage-wrap.board-scroll .face-back,
+  .stage-wrap.board-scroll .pillar-edge-glow { display: none; }
+  .face-front,
+  .stage-wrap.board-scroll .face-front {
+    position: relative;
+    transform: none;
+    min-height: var(--pillar-h);
+    max-height: none;
+    height: 100%;
+  }
+
+  .stage-nav,
+  .stage-wrap.board-scroll .stage-nav { display: inline-flex; }
+  .stage-nav-hint,
+  .stage-wrap.board-scroll .stage-nav-hint { display: block; }
+
+  .stage-wrap::before,
+  .stage-wrap::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    bottom: 28px;
+    width: 46px;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 180ms var(--ease);
+  }
+  .stage-wrap::before {
+    left: 22px;
+    background: linear-gradient(90deg, var(--bg0), transparent);
+  }
+  .stage-wrap::after {
+    right: 22px;
+    background: linear-gradient(270deg, var(--bg0), transparent);
+  }
+  .stage-wrap.can-prev::before { opacity: 0.92; }
+  .stage-wrap.can-next::after { opacity: 0.92; }
+
+  /* Noticeably larger type on the 3-column board */
+  .pillar-head { padding: 16px 16px 12px; }
+  .pillar-head h3 { font-size: 1.15rem; line-height: 1.35; }
+  .pillar-count { font-size: 0.92rem; padding: 3px 11px; margin-top: 8px; }
+  .pillar-body { padding: 14px 12px 16px; gap: 12px; }
+  .pillar-empty { font-size: 0.98rem; }
+  .doc-card { padding: 13px 14px 13px 16px; border-radius: 14px; }
+  .doc-card .id { font-size: 1.05rem; }
+  .doc-card .title { font-size: 1rem; line-height: 1.4; }
+  .doc-card .meta { font-size: 0.88rem; margin-top: 10px; }
+  .doc-card .sched { font-size: 0.84rem; }
+  .doc-card .meet-pill { font-size: 0.8rem; }
+  .doc-card .dot { width: 8px; height: 8px; }
+}
+
+@media (max-width: 1279px) and (prefers-reduced-motion: reduce) {
+  .stage-viewport,
+  .stage-wrap.board-scroll .stage-viewport { scroll-behavior: auto; }
 }
 
 /* —— Glass panels / lists —— */

@@ -9,10 +9,12 @@
     "待對方補充資料後交行政",
     "報價進行中",
     "已提交待回覆",
-    "排期執委會中",
-    "排期董事會中",
-    "完成",
+    "排期執委會／董事會",
+    "已獲執委會／董事會通過，待同事提交",
   ];
+
+  const NARROW_MQ = "(max-width: 1279px)";
+  const NARROW_VISIBLE_COLS = 3;
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
   const FILTER = { pa: "", q: "", submitter: "", status: "" };
@@ -24,6 +26,7 @@
   let emailChart = null;
   let currentView = "board";
   let kpiAnimated = false;
+  let pendingCenter = true;
 
   function esc(s) {
     return String(s ?? "")
@@ -59,7 +62,11 @@
     const stQ = FILTER.status.trim();
     if (paQ && !String(d.id || "").toLowerCase().includes(paQ)) return false;
     if (subQ && (d.submitter || "").trim() !== subQ) return false;
-    if (stQ && (d.status || "").trim() !== stQ) return false;
+    if (stQ) {
+      const raw = (d.status || "").trim();
+      const col = (d.board_column || raw).trim();
+      if (stQ !== raw && stQ !== col) return false;
+    }
     if (q) {
       const hay = `${d.id || ""} ${d.title || ""} ${d.submitter || ""} ${(d.follow_up || []).join(" ")}`.toLowerCase();
       if (!hay.includes(q)) return false;
@@ -72,7 +79,15 @@
   }
 
   function boardDocs() {
-    return allDocs();
+    return DATA.documents || [];
+  }
+
+  function isNarrowBoard() {
+    return window.matchMedia && window.matchMedia(NARROW_MQ).matches;
+  }
+
+  function docColumn(d) {
+    return (d.board_column || d.status || "").trim();
   }
 
   function fanDegs(n) {
@@ -226,24 +241,38 @@
     sel.value = keep || "";
 
     const order = statusOrder();
-    const stSet = new Set();
+    const colSet = new Set();
+    const leftover = new Set();
     allDocs().forEach((d) => {
-      if (d.status) stSet.add(d.status);
+      const raw = (d.status || "").trim();
+      if (!raw) return;
+      if (raw === "完成") {
+        leftover.add("完成");
+        return;
+      }
+      colSet.add(docColumn(d));
     });
     const stSel = $("#f-status");
     const keepSt = FILTER.status;
     const opts = [];
+    const shown = new Set();
     order.forEach((s) => {
-      if (stSet.has(s)) {
+      if (colSet.has(s) && !shown.has(s)) {
         opts.push(s);
-        stSet.delete(s);
+        shown.add(s);
       }
     });
-    if (stSet.has("完成")) {
+    if (leftover.has("完成")) {
       opts.push("完成");
-      stSet.delete("完成");
+      leftover.delete("完成");
     }
-    Array.from(stSet)
+    allDocs().forEach((d) => {
+      const raw = (d.status || "").trim();
+      if (!raw || raw === "完成") return;
+      const col = docColumn(d);
+      if (!shown.has(col) && !shown.has(raw)) leftover.add(raw);
+    });
+    Array.from(leftover)
       .sort((a, b) => a.localeCompare(b, "zh-Hant"))
       .forEach((s) => opts.push(s));
     stSel.innerHTML =
@@ -259,7 +288,7 @@
     const done = (DATA.completed_documents || []).length;
     el.textContent = filtered
       ? `顯示 ${shown}／${total}`
-      : `共 ${total} 份（未完成 ${inc}，已完成 ${done}；完成欄與「已完成」分頁同一批）`;
+      : `共 ${inc} 份未完成（已完成 ${done} 份見「已完成」分頁）`;
   }
 
   function cardHtml(d, delayMs, zPx) {
@@ -269,10 +298,12 @@
     const who = (d.submitter || "").trim() || "—";
     const dayLabel = closed ? `${esc(fmtDays(days))} 總天數` : `${esc(fmtDays(days))} 天`;
     let extra = "";
+    if (d.schedule_meeting) {
+      extra += `<div class="meet-pill">${esc(d.schedule_meeting)}</div>`;
+    }
     if (d.schedule_date) {
-      const meet = d.schedule_meeting ? `${d.schedule_meeting} ` : "";
       const sd = d.schedule_days != null && d.schedule_days !== "" ? ` · 已過 ${esc(fmtDays(d.schedule_days))} 天` : "";
-      extra += `<div class="sched">排期${esc(meet)}：${esc(d.schedule_date)}${sd}</div>`;
+      extra += `<div class="sched">排期：${esc(d.schedule_date)}${sd}</div>`;
     }
     if (d.approved_date) {
       extra += `<div class="sched">批准：${esc(d.approved_date)}</div>`;
@@ -303,8 +334,8 @@
 
     stage.innerHTML = order
       .map((st, pi) => {
-        const col = filtered.filter((d) => d.status === st);
-        const allInStatus = docs.filter((d) => d.status === st).length;
+        const col = filtered.filter((d) => docColumn(d) === st);
+        const allInStatus = docs.filter((d) => docColumn(d) === st).length;
         const fan = fans[pi] != null ? fans[pi] : 0;
         const pillarDelay = Math.min(pi * 55, 280);
         const cards =
@@ -345,7 +376,13 @@
       btn.addEventListener("click", () => openDetail(btn.dataset.id));
     });
     requestAnimationFrame(() => {
-      requestAnimationFrame(updateStageNav);
+      requestAnimationFrame(() => {
+        if (pendingCenter) {
+          pendingCenter = false;
+          centerAwaitingColumn();
+        }
+        updateStageNav();
+      });
     });
   }
 
@@ -491,6 +528,13 @@
     return col.getBoundingClientRect().width + gap;
   }
 
+  function visibleColCount(vp) {
+    if (isNarrowBoard()) return NARROW_VISIBLE_COLS;
+    const step = colStep(vp);
+    if (step <= 0) return 1;
+    return Math.max(1, Math.round(vp.clientWidth / step));
+  }
+
   function updateStageNav() {
     const vp = $("#stage-viewport");
     const prev = $("#stage-prev");
@@ -499,35 +543,91 @@
     const hint = $("#stage-nav-hint");
     if (!vp) return;
     const overflow = vp.scrollWidth > vp.clientWidth + 4;
-    if (wrap) wrap.classList.toggle("board-scroll", overflow);
+    const narrow = isNarrowBoard();
+    if (wrap) {
+      wrap.classList.toggle("is-narrow", narrow);
+      wrap.classList.toggle("board-scroll", narrow || overflow);
+    }
+    const canSlide = narrow || overflow;
     if (prev && next) {
       const max = Math.max(0, vp.scrollWidth - vp.clientWidth);
-      prev.disabled = !overflow || vp.scrollLeft <= 2;
-      next.disabled = !overflow || vp.scrollLeft >= max - 2;
+      prev.disabled = !canSlide || vp.scrollLeft <= 2;
+      next.disabled = !canSlide || vp.scrollLeft >= max - 2;
     }
     if (wrap) {
-      wrap.classList.toggle("can-prev", overflow && vp.scrollLeft > 2);
-      wrap.classList.toggle("can-next", overflow && vp.scrollLeft < Math.max(0, vp.scrollWidth - vp.clientWidth) - 2);
+      wrap.classList.toggle("can-prev", canSlide && vp.scrollLeft > 2);
+      wrap.classList.toggle("can-next", canSlide && vp.scrollLeft < Math.max(0, vp.scrollWidth - vp.clientWidth) - 2);
     }
     if (hint) {
-      if (!overflow) {
+      if (!canSlide) {
         hint.textContent = "";
       } else {
         const cols = $$(".pillar-slot", vp);
         const step = colStep(vp);
         const start = step > 0 ? Math.round(vp.scrollLeft / step) + 1 : 1;
-        const vis = step > 0 ? Math.max(1, Math.round(vp.clientWidth / step)) : cols.length;
+        const vis = visibleColCount(vp);
         const end = Math.min(cols.length, start + vis - 1);
-        hint.textContent = `顯示第 ${start}–${end} 欄，共 ${cols.length} 欄 · 可用左右按鈕或水平滑動查看全部狀態`;
+        hint.textContent = `顯示第 ${start}–${end} 欄，共 ${cols.length} 欄 · 左右按鈕可移到上一組／下一組`;
       }
     }
+  }
+
+  let scrollAnim = 0;
+  function animateScrollTo(vp, target, ms) {
+    const max = Math.max(0, vp.scrollWidth - vp.clientWidth);
+    target = Math.max(0, Math.min(max, target));
+    if (reduceMotion()) {
+      vp.scrollLeft = target;
+      updateStageNav();
+      return;
+    }
+    const start = vp.scrollLeft;
+    const delta = target - start;
+    if (Math.abs(delta) < 1) return;
+    const dur = ms || 420;
+    const id = ++scrollAnim;
+    const t0 = performance.now();
+    const prevSnap = vp.style.scrollSnapType;
+    const prevBeh = vp.style.scrollBehavior;
+    vp.style.scrollSnapType = "none";
+    vp.style.scrollBehavior = "auto";
+    function frame(now) {
+      if (id !== scrollAnim) return;
+      const t = Math.min(1, (now - t0) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      vp.scrollLeft = start + delta * eased;
+      if (t < 1) requestAnimationFrame(frame);
+      else {
+        vp.style.scrollSnapType = prevSnap;
+        vp.style.scrollBehavior = prevBeh;
+        updateStageNav();
+      }
+    }
+    requestAnimationFrame(frame);
   }
 
   function shiftStage(dir) {
     const vp = $("#stage-viewport");
     if (!vp) return;
-    const reduce = reduceMotion();
-    vp.scrollBy({ left: dir * colStep(vp), behavior: reduce ? "auto" : "smooth" });
+    const step = colStep(vp);
+    const group = step * visibleColCount(vp);
+    const aligned = Math.round(vp.scrollLeft / step) * step;
+    animateScrollTo(vp, aligned + dir * group, 420);
+  }
+
+  function centerAwaitingColumn() {
+    const vp = $("#stage-viewport");
+    if (!vp || !isNarrowBoard()) return;
+    const cols = $$(".pillar-slot", vp);
+    if (!cols.length) return;
+    const mid = cols.findIndex((c) => (c.dataset.status || "") === "已提交待回覆");
+    if (mid < 0) return;
+    const vis = NARROW_VISIBLE_COLS;
+    const start = Math.max(0, Math.min(mid - Math.floor((vis - 1) / 2), Math.max(0, cols.length - vis)));
+    const prevBeh = vp.style.scrollBehavior;
+    vp.style.scrollBehavior = "auto";
+    vp.scrollLeft = start * colStep(vp);
+    vp.style.scrollBehavior = prevBeh;
   }
 
   let stageNavBound = false;
