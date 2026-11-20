@@ -13,8 +13,8 @@
     "已獲執委會／董事會通過，待同事提交",
   ];
 
-  const NARROW_MQ = "(max-width: 1279px)";
-  const NARROW_VISIBLE_COLS = 3;
+  const VISIBLE_COLS = 3;
+  const SLIDE_MS = 420;
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
   const FILTER = { pa: "", q: "", submitter: "", status: "" };
@@ -80,10 +80,6 @@
 
   function boardDocs() {
     return DATA.documents || [];
-  }
-
-  function isNarrowBoard() {
-    return window.matchMedia && window.matchMedia(NARROW_MQ).matches;
   }
 
   function docColumn(d) {
@@ -380,6 +376,8 @@
         if (pendingCenter) {
           pendingCenter = false;
           centerAwaitingColumn();
+        } else {
+          restoreStagePosition();
         }
         updateStageNav();
       });
@@ -522,17 +520,32 @@
 
   function colStep(vp) {
     const col = vp.querySelector(".pillar-slot");
-    const stage = vp.querySelector(".stage");
+    const stage = vp.querySelector(".stage") || $("#kanban-stage");
     if (!col) return Math.max(1, vp.clientWidth);
     const gap = parseFloat(getComputedStyle(stage).gap) || 0;
     return col.getBoundingClientRect().width + gap;
   }
 
-  function visibleColCount(vp) {
-    if (isNarrowBoard()) return NARROW_VISIBLE_COLS;
-    const step = colStep(vp);
-    if (step <= 0) return 1;
-    return Math.max(1, Math.round(vp.clientWidth / step));
+  function maxStageIndex(vp) {
+    const cols = $$(".pillar-slot", vp);
+    return Math.max(0, cols.length - VISIBLE_COLS);
+  }
+
+  let stageX = 0;
+  let stageIndex = 0;
+  let slideAnim = 0;
+
+  function applyStageX(x, stage) {
+    stageX = x;
+    stage.style.setProperty("--stage-x", `${-x}px`);
+  }
+
+  function restoreStagePosition() {
+    const vp = $("#stage-viewport");
+    const stage = $("#kanban-stage");
+    if (!vp || !stage) return;
+    stageIndex = Math.max(0, Math.min(maxStageIndex(vp), stageIndex));
+    applyStageX(stageIndex * colStep(vp), stage);
   }
 
   function updateStageNav() {
@@ -542,64 +555,60 @@
     const wrap = vp && vp.closest(".stage-wrap");
     const hint = $("#stage-nav-hint");
     if (!vp) return;
-    const overflow = vp.scrollWidth > vp.clientWidth + 4;
-    const narrow = isNarrowBoard();
-    if (wrap) {
-      wrap.classList.toggle("is-narrow", narrow);
-      wrap.classList.toggle("board-scroll", narrow || overflow);
-    }
-    const canSlide = narrow || overflow;
+    const cols = $$(".pillar-slot", vp);
+    const maxIdx = maxStageIndex(vp);
+    const canSlide = cols.length > VISIBLE_COLS;
     if (prev && next) {
-      const max = Math.max(0, vp.scrollWidth - vp.clientWidth);
-      prev.disabled = !canSlide || vp.scrollLeft <= 2;
-      next.disabled = !canSlide || vp.scrollLeft >= max - 2;
+      prev.disabled = !canSlide || stageIndex <= 0;
+      next.disabled = !canSlide || stageIndex >= maxIdx;
     }
     if (wrap) {
-      wrap.classList.toggle("can-prev", canSlide && vp.scrollLeft > 2);
-      wrap.classList.toggle("can-next", canSlide && vp.scrollLeft < Math.max(0, vp.scrollWidth - vp.clientWidth) - 2);
+      wrap.classList.toggle("can-prev", canSlide && stageIndex > 0);
+      wrap.classList.toggle("can-next", canSlide && stageIndex < maxIdx);
     }
     if (hint) {
-      if (!canSlide) {
+      if (!cols.length) {
         hint.textContent = "";
       } else {
-        const cols = $$(".pillar-slot", vp);
-        const step = colStep(vp);
-        const start = step > 0 ? Math.round(vp.scrollLeft / step) + 1 : 1;
-        const vis = visibleColCount(vp);
-        const end = Math.min(cols.length, start + vis - 1);
+        const start = stageIndex + 1;
+        const end = Math.min(cols.length, stageIndex + VISIBLE_COLS);
         hint.textContent = `顯示第 ${start}–${end} 欄，共 ${cols.length} 欄 · 左右按鈕可移到上一組／下一組`;
       }
     }
   }
 
-  let scrollAnim = 0;
-  function animateScrollTo(vp, target, ms) {
-    const max = Math.max(0, vp.scrollWidth - vp.clientWidth);
-    target = Math.max(0, Math.min(max, target));
+  function animateStageTo(index, ms) {
+    const vp = $("#stage-viewport");
+    const stage = $("#kanban-stage");
+    if (!vp || !stage) return;
+    index = Math.max(0, Math.min(maxStageIndex(vp), index));
+    const target = index * colStep(vp);
     if (reduceMotion()) {
-      vp.scrollLeft = target;
+      stageIndex = index;
+      applyStageX(target, stage);
       updateStageNav();
       return;
     }
-    const start = vp.scrollLeft;
+    const start = stageX;
     const delta = target - start;
-    if (Math.abs(delta) < 1) return;
-    const dur = ms || 420;
-    const id = ++scrollAnim;
+    if (Math.abs(delta) < 1) {
+      stageIndex = index;
+      applyStageX(target, stage);
+      updateStageNav();
+      return;
+    }
+    const dur = ms || SLIDE_MS;
+    const id = ++slideAnim;
     const t0 = performance.now();
-    const prevSnap = vp.style.scrollSnapType;
-    const prevBeh = vp.style.scrollBehavior;
-    vp.style.scrollSnapType = "none";
-    vp.style.scrollBehavior = "auto";
     function frame(now) {
-      if (id !== scrollAnim) return;
+      if (id !== slideAnim) return;
       const t = Math.min(1, (now - t0) / dur);
       const eased = 1 - Math.pow(1 - t, 3);
-      vp.scrollLeft = start + delta * eased;
+      applyStageX(start + delta * eased, stage);
       if (t < 1) requestAnimationFrame(frame);
       else {
-        vp.style.scrollSnapType = prevSnap;
-        vp.style.scrollBehavior = prevBeh;
+        stageIndex = index;
+        applyStageX(target, stage);
         updateStageNav();
       }
     }
@@ -607,27 +616,23 @@
   }
 
   function shiftStage(dir) {
-    const vp = $("#stage-viewport");
-    if (!vp) return;
-    const step = colStep(vp);
-    const group = step * visibleColCount(vp);
-    const aligned = Math.round(vp.scrollLeft / step) * step;
-    animateScrollTo(vp, aligned + dir * group, 420);
+    animateStageTo(stageIndex + dir * VISIBLE_COLS, SLIDE_MS);
   }
 
   function centerAwaitingColumn() {
     const vp = $("#stage-viewport");
-    if (!vp || !isNarrowBoard()) return;
+    const stage = $("#kanban-stage");
+    if (!vp || !stage) return;
     const cols = $$(".pillar-slot", vp);
     if (!cols.length) return;
     const mid = cols.findIndex((c) => (c.dataset.status || "") === "已提交待回覆");
-    if (mid < 0) return;
-    const vis = NARROW_VISIBLE_COLS;
-    const start = Math.max(0, Math.min(mid - Math.floor((vis - 1) / 2), Math.max(0, cols.length - vis)));
-    const prevBeh = vp.style.scrollBehavior;
-    vp.style.scrollBehavior = "auto";
-    vp.scrollLeft = start * colStep(vp);
-    vp.style.scrollBehavior = prevBeh;
+    const vis = VISIBLE_COLS;
+    let start = 0;
+    if (mid >= 0) {
+      start = Math.max(0, Math.min(mid - Math.floor((vis - 1) / 2), maxStageIndex(vp)));
+    }
+    stageIndex = start;
+    applyStageX(start * colStep(vp), stage);
   }
 
   let stageNavBound = false;
@@ -636,12 +641,15 @@
     const vp = $("#stage-viewport");
     const prev = $("#stage-prev");
     const next = $("#stage-next");
-    if (!vp || !prev || !next) return;
+    const stage = $("#kanban-stage");
+    if (!vp || !prev || !next || !stage) return;
     stageNavBound = true;
     prev.addEventListener("click", () => shiftStage(-1));
     next.addEventListener("click", () => shiftStage(1));
-    vp.addEventListener("scroll", updateStageNav, { passive: true });
-    window.addEventListener("resize", updateStageNav);
+    window.addEventListener("resize", () => {
+      restoreStagePosition();
+      updateStageNav();
+    });
     document.addEventListener("keydown", (e) => {
       if (currentView !== "board") return;
       if (e.defaultPrevented) return;
@@ -655,6 +663,47 @@
         shiftStage(1);
       }
     });
+
+    let pid = null;
+    let dragStartX = 0;
+    let dragOrigin = 0;
+    let dragging = false;
+    let suppressClick = false;
+    vp.addEventListener("pointerdown", (e) => {
+      if (e.button) return;
+      pid = e.pointerId;
+      dragStartX = e.clientX;
+      dragOrigin = stageX;
+      dragging = false;
+      try { vp.setPointerCapture(pid); } catch (_) {}
+    });
+    vp.addEventListener("pointermove", (e) => {
+      if (pid == null || e.pointerId !== pid) return;
+      const dx = e.clientX - dragStartX;
+      if (!dragging && Math.abs(dx) < 8) return;
+      dragging = true;
+      slideAnim += 1;
+      const max = maxStageIndex(vp) * colStep(vp);
+      applyStageX(Math.max(0, Math.min(max, dragOrigin - dx)), stage);
+    });
+    const endDrag = (e) => {
+      if (pid == null || e.pointerId !== pid) return;
+      pid = null;
+      if (!dragging) return;
+      dragging = false;
+      suppressClick = true;
+      const step = colStep(vp);
+      const idx = Math.round(stageX / step);
+      animateStageTo(Math.max(0, Math.min(maxStageIndex(vp), idx)), 320);
+    };
+    vp.addEventListener("pointerup", endDrag);
+    vp.addEventListener("pointercancel", endDrag);
+    vp.addEventListener("click", (e) => {
+      if (!suppressClick) return;
+      suppressClick = false;
+      e.preventDefault();
+      e.stopPropagation();
+    }, true);
   }
 
   function renderOverview() {
