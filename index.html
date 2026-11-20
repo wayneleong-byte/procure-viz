@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/board.css?v=202611200857">
+<link rel="stylesheet" href="./assets/board.css?v=202611201157">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
@@ -82,14 +82,24 @@
           <div class="stage-floor"></div>
           <div class="stage-glow"></div>
         </div>
-        <div class="stage" id="kanban-stage" aria-label="狀態玻璃柱看板"></div>
+        <button type="button" class="stage-nav prev" id="stage-prev" aria-label="向左移動欄位" disabled>
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="stage-viewport" id="stage-viewport">
+          <div class="stage" id="kanban-stage" aria-label="狀態玻璃柱看板"></div>
+        </div>
+        <button type="button" class="stage-nav next" id="stage-next" aria-label="向右移動欄位" disabled>
+          <span aria-hidden="true">›</span>
+        </button>
       </div>
+      <p class="stage-nav-hint" id="stage-nav-hint"></p>
+      <p class="hint board-hint">狀態列由左至右共七欄，中間為「已提交待回覆」。完成欄與「已完成」分頁為同一批文件。欄位較窄時可用左右按鈕查看全部狀態。</p>
     </section>
 
     <section id="view-overview" class="view" role="tabpanel" hidden>
       <div class="glass-panel">
         <h2>總覽列表</h2>
-        <p class="hint">未完成＋已完成；點列展開時間線。</p>
+        <p class="hint">未完成＋已完成，按文件編號｜第一次提交日期排序；點列展開時間線。已完成文件亦出現在看板室「完成」欄，並非消失。</p>
         <div class="list-head ov"><span>編號</span><span>狀態</span><span>屬性</span><span>名稱</span><span>同事</span></div>
         <div id="list-overview" class="flat-list"></div>
       </div>
@@ -98,6 +108,7 @@
     <section id="view-completed" class="view" role="tabpanel" hidden>
       <div class="glass-panel">
         <h2>已完成文件</h2>
+        <p class="hint">與看板室「完成」欄為同一批文件，可在此按列表查看。</p>
         <div class="list-head done"><span>編號</span><span>總天數</span><span>屬性</span><span>名稱</span><span>供應商</span></div>
         <div id="list-completed" class="flat-list"></div>
       </div>
@@ -155,6 +166,6 @@
   <div class="detail-body" id="detail-body"></div>
 </aside>
 
-<script src="./assets/board.js?v=202611200857"></script>
+<script src="./assets/board.js?v=202611201157"></script>
 </body>
 </html>

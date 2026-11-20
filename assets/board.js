@@ -5,15 +5,16 @@
   const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
 
   const STATUS_ORDER = [
-    "行政部與甲方跟進中",
-    "待對方補充資料後交行政",
-    "已提交待回覆",
-    "報價進行中",
     "行政部已回覆待同事重交",
+    "待對方補充資料後交行政",
+    "報價進行中",
+    "已提交待回覆",
+    "排期執委會中",
+    "排期董事會中",
+    "完成",
   ];
 
   const ROLE_ZH = { admin: "行政部", edu: "EDU", third: "第三方" };
-  const FAN_DEG = [-18, -9, 0, 9, 18];
   const FILTER = { pa: "", q: "", submitter: "", status: "" };
 
   const reduceMotion = () =>
@@ -68,6 +69,27 @@
 
   function allDocs() {
     return (DATA.documents || []).concat(DATA.completed_documents || []);
+  }
+
+  function boardDocs() {
+    return allDocs();
+  }
+
+  function fanDegs(n) {
+    if (n <= 1) return [0];
+    const half = n >= 7 ? 18 : 18;
+    const mid = (n - 1) / 2;
+    const step = (2 * half) / (n - 1);
+    return Array.from({ length: n }, (_, i) => Math.round((i - mid) * step * 10) / 10);
+  }
+
+  function overviewSort(a, b) {
+    const id = String(a.id || "").localeCompare(String(b.id || ""), "zh-Hant", {
+      numeric: true,
+      sensitivity: "base",
+    });
+    if (id) return id;
+    return String(a.first_submit || "").localeCompare(String(b.first_submit || ""));
   }
 
   function countUp(el, target, { duration = 700, suffix = "" } = {}) {
@@ -142,7 +164,13 @@
     if (!box) return;
     const sc = (DATA.meta && DATA.meta.status_counts) || {};
     const order = statusOrder();
-    const total = Number(DATA.meta && DATA.meta.incomplete_count) || order.reduce((a, s) => a + (sc[s] || 0), 0) || 1;
+    const hasDone = order.includes("完成");
+    const total =
+      (hasDone
+        ? Number(DATA.meta && DATA.meta.overview_count)
+        : Number(DATA.meta && DATA.meta.incomplete_count)) ||
+      order.reduce((a, s) => a + (sc[s] || 0), 0) ||
+      1;
     box.innerHTML = order
       .map((st) => {
         const n = sc[st] || 0;
@@ -227,19 +255,39 @@
   function updateFilterCount(shown, total) {
     const el = $("#filter-count");
     const filtered = !!(FILTER.pa || FILTER.q || FILTER.submitter || FILTER.status);
-    el.textContent = filtered ? `顯示 ${shown}／${total}` : `共 ${total} 份未完成`;
+    const inc = (DATA.documents || []).length;
+    const done = (DATA.completed_documents || []).length;
+    el.textContent = filtered
+      ? `顯示 ${shown}／${total}`
+      : `共 ${total} 份（未完成 ${inc}，已完成 ${done}；完成欄與「已完成」分頁同一批）`;
   }
 
   function cardHtml(d, delayMs, zPx) {
-    const days = d.days_in_status;
-    const rc = riskClass(days);
+    const closed = (d.status || "") === "完成";
+    const days = closed ? (d.process_days ?? d.days_since_first_submit) : d.days_in_status;
+    const rc = closed ? "risk-low" : riskClass(d.days_in_status);
     const who = (d.submitter || "").trim() || "—";
+    const dayLabel = closed ? `${esc(fmtDays(days))} 總天數` : `${esc(fmtDays(days))} 天`;
+    let extra = "";
+    if (d.schedule_date) {
+      const meet = d.schedule_meeting ? `${d.schedule_meeting} ` : "";
+      const sd = d.schedule_days != null && d.schedule_days !== "" ? ` · 已過 ${esc(fmtDays(d.schedule_days))} 天` : "";
+      extra += `<div class="sched">排期${esc(meet)}：${esc(d.schedule_date)}${sd}</div>`;
+    }
+    if (d.approved_date) {
+      extra += `<div class="sched">批准：${esc(d.approved_date)}</div>`;
+    }
+    if (d.resubmit_after_approval) {
+      const rd = d.approval_resub_days != null && d.approval_resub_days !== "" ? ` · ${esc(fmtDays(d.approval_resub_days))} 天` : "";
+      extra += `<div class="sched">批准後再遞交：${esc(d.resubmit_after_approval)}${rd}</div>`;
+    }
     return `<button type="button" class="doc-card ${rc}" data-id="${esc(d.id)}"
       style="--delay:${delayMs}ms;--z:${zPx}px;--lift:0px">
       <div class="id">${esc(d.id)}</div>
       <div class="title" title="${esc(d.title || "")}">${esc(d.title || "")}</div>
+      ${extra}
       <div class="meta">
-        <span class="days"><i class="dot" aria-hidden="true"></i>${esc(fmtDays(days))} 天</span>
+        <span class="days"><i class="dot" aria-hidden="true"></i>${dayLabel}</span>
         <span>${esc(who)}</span>
       </div>
     </button>`;
@@ -248,16 +296,16 @@
   function renderKanban() {
     const stage = $("#kanban-stage");
     const order = statusOrder();
-    const docs = DATA.documents || [];
+    const docs = boardDocs();
     const filtered = docs.filter(matchDoc);
     updateFilterCount(filtered.length, docs.length);
-    const mid = (order.length - 1) / 2;
+    const fans = fanDegs(order.length);
 
     stage.innerHTML = order
       .map((st, pi) => {
         const col = filtered.filter((d) => d.status === st);
         const allInStatus = docs.filter((d) => d.status === st).length;
-        const fan = FAN_DEG[pi] != null ? FAN_DEG[pi] : (pi - mid) * 9;
+        const fan = fans[pi] != null ? fans[pi] : 0;
         const pillarDelay = Math.min(pi * 55, 280);
         const cards =
           col.length === 0
@@ -295,6 +343,9 @@
 
     $$(".doc-card", stage).forEach((btn) => {
       btn.addEventListener("click", () => openDetail(btn.dataset.id));
+    });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(updateStageNav);
     });
   }
 
@@ -414,6 +465,9 @@
       · 首次至今：${esc(fmtDays(doc.days_since_first_submit))}
       · 首次：${esc(doc.first_submit || "—")}
       · 最近行政回覆：${esc(doc.last_reply || "—")}
+      ${doc.schedule_date ? ` · 排期${esc(doc.schedule_meeting ? doc.schedule_meeting : "")}：${esc(doc.schedule_date)}${doc.schedule_days != null && doc.schedule_days !== "" ? `（已過 ${esc(fmtDays(doc.schedule_days))} 天）` : ""}` : ""}
+      ${doc.approved_date ? ` · 批准：${esc(doc.approved_date)}` : ""}
+      ${doc.resubmit_after_approval ? ` · 批准後再遞交：${esc(doc.resubmit_after_approval)}${doc.approval_resub_days != null && doc.approval_resub_days !== "" ? `（${esc(fmtDays(doc.approval_resub_days))} 天）` : ""}` : ""}
       ${doc.last_reply_summary ? `<br>摘要：${esc(doc.last_reply_summary)}` : ""}
     `;
     $("#detail-body").innerHTML = renderTimeline(doc);
@@ -429,9 +483,83 @@
     $("#drawer-backdrop").hidden = true;
   }
 
+  function colStep(vp) {
+    const col = vp.querySelector(".pillar-slot");
+    const stage = vp.querySelector(".stage");
+    if (!col) return Math.max(1, vp.clientWidth);
+    const gap = parseFloat(getComputedStyle(stage).gap) || 0;
+    return col.getBoundingClientRect().width + gap;
+  }
+
+  function updateStageNav() {
+    const vp = $("#stage-viewport");
+    const prev = $("#stage-prev");
+    const next = $("#stage-next");
+    const wrap = vp && vp.closest(".stage-wrap");
+    const hint = $("#stage-nav-hint");
+    if (!vp) return;
+    const overflow = vp.scrollWidth > vp.clientWidth + 4;
+    if (wrap) wrap.classList.toggle("board-scroll", overflow);
+    if (prev && next) {
+      const max = Math.max(0, vp.scrollWidth - vp.clientWidth);
+      prev.disabled = !overflow || vp.scrollLeft <= 2;
+      next.disabled = !overflow || vp.scrollLeft >= max - 2;
+    }
+    if (wrap) {
+      wrap.classList.toggle("can-prev", overflow && vp.scrollLeft > 2);
+      wrap.classList.toggle("can-next", overflow && vp.scrollLeft < Math.max(0, vp.scrollWidth - vp.clientWidth) - 2);
+    }
+    if (hint) {
+      if (!overflow) {
+        hint.textContent = "";
+      } else {
+        const cols = $$(".pillar-slot", vp);
+        const step = colStep(vp);
+        const start = step > 0 ? Math.round(vp.scrollLeft / step) + 1 : 1;
+        const vis = step > 0 ? Math.max(1, Math.round(vp.clientWidth / step)) : cols.length;
+        const end = Math.min(cols.length, start + vis - 1);
+        hint.textContent = `顯示第 ${start}–${end} 欄，共 ${cols.length} 欄 · 可用左右按鈕或水平滑動查看全部狀態`;
+      }
+    }
+  }
+
+  function shiftStage(dir) {
+    const vp = $("#stage-viewport");
+    if (!vp) return;
+    const reduce = reduceMotion();
+    vp.scrollBy({ left: dir * colStep(vp), behavior: reduce ? "auto" : "smooth" });
+  }
+
+  let stageNavBound = false;
+  function bindStageNav() {
+    if (stageNavBound) return;
+    const vp = $("#stage-viewport");
+    const prev = $("#stage-prev");
+    const next = $("#stage-next");
+    if (!vp || !prev || !next) return;
+    stageNavBound = true;
+    prev.addEventListener("click", () => shiftStage(-1));
+    next.addEventListener("click", () => shiftStage(1));
+    vp.addEventListener("scroll", updateStageNav, { passive: true });
+    window.addEventListener("resize", updateStageNav);
+    document.addEventListener("keydown", (e) => {
+      if (currentView !== "board") return;
+      if (e.defaultPrevented) return;
+      const tag = (e.target && e.target.tagName) || "";
+      if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        shiftStage(-1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        shiftStage(1);
+      }
+    });
+  }
+
   function renderOverview() {
     const list = $("#list-overview");
-    const docs = allDocs().filter(matchDoc);
+    const docs = allDocs().filter(matchDoc).sort(overviewSort);
     if (!docs.length) {
       list.innerHTML = `<div class="empty">沒有符合篩選的文件</div>`;
       return;
@@ -734,6 +862,7 @@
     }
     renderMeta();
     fillFilterOptions();
+    bindStageNav();
     renderKanban();
   }
 

@@ -26,12 +26,17 @@ ADMIN_FOLDERS = {"04 Procure"}
 EDU_FOLDERS = {"000[提交至行政採購文件]", "000 文件進度查詢"}
 
 # Fixed display order for glass columns, home, and tabs (left → right)
+# 總覽狀態列（左→右）；「已提交待回覆」必須在 7 欄正中間。
+# 用本機完整狀態名稱。舊欄「行政部與甲方跟進中」不在此列；
+# 若本機仍有該狀態文件，main() 會把該欄追加在「完成」之前並印出警告，不會丟棄。
 STATUS_ORDER = [
-    "行政部與甲方跟進中",
-    "待對方補充資料後交行政",
-    "已提交待回覆",
-    "報價進行中",
     "行政部已回覆待同事重交",
+    "待對方補充資料後交行政",
+    "報價進行中",
+    "已提交待回覆",
+    "排期執委會中",
+    "排期董事會中",
+    "完成",
 ]
 
 STATUS_GROUP = {
@@ -40,12 +45,17 @@ STATUS_GROUP = {
     "行政部與甲方跟進中": "admin_client",
     "待對方補充資料後交行政": "awaiting_party",
     "行政部已回覆待同事重交": "pending_resubmit",
+    "排期執委會中": "scheduled_exco",
+    "排期董事會中": "scheduled_board",
+    "完成": "completed",
 }
 
 THIRD_STATUSES = {
     "報價進行中",
     "行政部與甲方跟進中",
     "待對方補充資料後交行政",
+    "排期執委會中",
+    "排期董事會中",
 }
 
 KIND_LABEL_ZH = {
@@ -56,6 +66,9 @@ KIND_LABEL_ZH = {
     "notice": "通知",
     "other": "其他",
     "progress_inquiry": "進度查詢",
+    "schedule": "排期會議",
+    "committee_approval": "執委會／董事會批准",
+    "resubmit_after_approval": "批准後再遞交",
 }
 
 STAGE_LABEL_ZH = {
@@ -390,6 +403,8 @@ def status_anchor_date(doc: dict) -> str:
         return doc.get("last_reply") or ""
     if status == "已提交待回覆":
         return doc.get("last_resubmit") or first or ""
+    if status in ("排期執委會中", "排期董事會中"):
+        return doc.get("schedule_date") or doc.get("last_reply") or first or ""
     if status in THIRD_STATUSES:
         return (
             doc.get("last_reply")
@@ -579,6 +594,91 @@ def build_timeline(
                 }
             )
 
+        # 其他通知：YYYY-MM-DD HH:MM …（例如報價邀請、呈交秘書長）
+        sched_raw = (doc.get("schedule_date") or "").strip()
+        for note in r.get("notes") or []:
+            m = re.search(
+                r"其他通知：\s*(20\d{2}-\d{2}-\d{2}(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?)\s*(.*)",
+                str(note),
+            )
+            if not m:
+                continue
+            raw, text = m.group(1).strip(), (m.group(2) or "").strip()
+            if not raw or raw in seen or raw == (reply_raw or "") or raw == sched_raw:
+                continue
+            seen.add(raw)
+            ndt = parse_dt(raw)
+            if len(text) > 160:
+                text = text[:157] + "…"
+            nodes.append(
+                {
+                    "t": raw,
+                    "ts": ndt.timestamp() if ndt else None,
+                    "kind": "notice",
+                    "role": "admin",
+                    "label": f"R{rn} 通知",
+                    "detail": text,
+                    "who": display_name(r.get("replier") or "行政部"),
+                    "round": rn,
+                    "secondary": False,
+                }
+            )
+
+    def _append_event(raw, *, kind, role, label, detail="", who=""):
+        if not raw:
+            return
+        edt = parse_dt(raw)
+        nodes.append(
+            {
+                "t": raw,
+                "ts": edt.timestamp() if edt else None,
+                "kind": kind,
+                "role": role,
+                "label": label,
+                "detail": detail or "",
+                "who": who or "",
+                "round": None,
+                "secondary": False,
+            }
+        )
+
+    meeting = (doc.get("schedule_meeting") or "").strip()
+    sched = (doc.get("schedule_date") or "").strip()
+    if sched:
+        if meeting == "執委會":
+            slabel = "排期執委會"
+        elif meeting == "董事會":
+            slabel = "排期董事會"
+        elif meeting:
+            slabel = f"排期{meeting}"
+        else:
+            slabel = "排期會議"
+        sdays = doc.get("schedule_days")
+        sdetail = f"已過 {sdays} 天" if sdays not in (None, "") else ""
+        _append_event(sched, kind="schedule", role="third", label=slabel, detail=sdetail)
+
+    approved = (doc.get("approved_date") or "").strip()
+    if approved:
+        _append_event(
+            approved,
+            kind="committee_approval",
+            role="third",
+            label="執委會／董事會批准",
+        )
+
+    resub_ap = (doc.get("resubmit_after_approval") or "").strip()
+    if resub_ap:
+        rdays = doc.get("approval_resub_days")
+        rdetail = f"耗時 {rdays} 天" if rdays not in (None, "") else ""
+        _append_event(
+            resub_ap,
+            kind="resubmit_after_approval",
+            role="edu",
+            label="批准後再遞交",
+            detail=rdetail,
+            who=display_name(doc.get("submitter")),
+        )
+
     # Progress inquiry markers (secondary)
     for p in progress:
         if not p.get("linked"):
@@ -677,6 +777,10 @@ def build_timeline(
             "admin_reply": 3,
             "third_party": 3,
             "completed": 5,
+            "notice": 3,
+            "schedule": 3,
+            "committee_approval": 3,
+            "resubmit_after_approval": 2,
             "progress_inquiry": 4,
         }
         # Sort first
@@ -1109,6 +1213,17 @@ def main() -> None:
     emails = ds.get("emails") or []
     sheet_by_id = load_sheet_row_map()
 
+    # Keep every local status visible. Official 7-col order stays fixed;
+    # any leftover status (e.g. 行政部與甲方跟進中) is inserted before 完成.
+    present = {((d.get("status") or "").strip()) for d in docs_all if (d.get("status") or "").strip()}
+    extra = [s for s in sorted(present) if s not in STATUS_ORDER]
+    if extra:
+        insert_at = STATUS_ORDER.index("完成") if "完成" in STATUS_ORDER else len(STATUS_ORDER)
+        for s in extra:
+            STATUS_ORDER.insert(insert_at, s)
+            insert_at += 1
+            print(f"WARNING: unexpected status {s!r} kept in board (inserted before 完成)")
+
     def doc_sort(d):
         status = d.get("status") or ""
         try:
@@ -1187,6 +1302,12 @@ def main() -> None:
             "award_amount": award.get("award_amount"),
             "award_date": award.get("award_date"),
             "award_sort_date": award_sort or None,
+            "schedule_meeting": d.get("schedule_meeting") or "",
+            "schedule_date": d.get("schedule_date") or "",
+            "schedule_days": d.get("schedule_days"),
+            "approved_date": d.get("approved_date") or "",
+            "resubmit_after_approval": d.get("resubmit_after_approval") or "",
+            "approval_resub_days": d.get("approval_resub_days"),
         }
 
     viz_docs = [build_doc_viz(d, closed=False) for d in incomplete_sorted]
@@ -1272,7 +1393,7 @@ def main() -> None:
         )
 
     status_counts = {s: 0 for s in STATUS_ORDER}
-    for d in viz_docs:
+    for d in viz_docs + viz_completed:
         st = d["status"]
         if st in status_counts:
             status_counts[st] += 1
@@ -1308,12 +1429,14 @@ def main() -> None:
             "status_counts": status_counts,
             "submitters": submitters,
             "notes": [
-                "未完成＝目前狀態唔係「完成」；已完成見「已完成文件流程時間記錄」；總覽＝全部文件",
+                "未完成＝目前狀態唔係「完成」；已完成見看板「完成」欄及「已完成」分頁（同一批文件）；總覽＝全部文件",
+                "總覽狀態列由左至右：待同事重交、待對方補充、報價進行中、已提交待回覆、排期執委會中、排期董事會中、完成；「已提交待回覆」在正中間",
                 "時間線由首次提交／紀錄起點起；節點之間色塊＝間隔天數（紅＝行政部、綠＝EDU、藍＝第三方）",
                 "時間比例＝各角色間隔天數佔比（行政部／EDU／第三方；未完成含至今 open gap）",
                 "已完成案時間線喺最後事件收束，唔再延伸至今日；文件總天數＝首次／起點→完成",
                 "辦公時間＝平日 09:00–18:30 Asia/Macau；其餘平日時段及週末＝非辦公時間",
                 "獲判給的供應商／預算金額／最終判給金額：Sheet 欄位就緒後自動帶入；未補顯示「待補」",
+                "排期會議／排期日期／排期已過天數、批准日期與批准後再遞交：有資料才顯示",
             ],
         },
         "documents": viz_docs,
