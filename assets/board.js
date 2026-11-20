@@ -669,26 +669,36 @@
     let dragOrigin = 0;
     let dragging = false;
     let suppressClick = false;
-    vp.addEventListener("pointerdown", (e) => {
-      if (e.button) return;
-      pid = e.pointerId;
-      dragStartX = e.clientX;
-      dragOrigin = stageX;
-      dragging = false;
-      try { vp.setPointerCapture(pid); } catch (_) {}
-    });
-    vp.addEventListener("pointermove", (e) => {
+    let captured = false;
+
+    const onMove = (e) => {
       if (pid == null || e.pointerId !== pid) return;
       const dx = e.clientX - dragStartX;
       if (!dragging && Math.abs(dx) < 8) return;
-      dragging = true;
+      if (!dragging) {
+        dragging = true;
+        // Capture only after a real drag starts. Capturing on pointerdown
+        // retargets the following click to the viewport, so cards never open.
+        try {
+          vp.setPointerCapture(pid);
+          captured = true;
+        } catch (_) {}
+      }
       slideAnim += 1;
       const max = maxStageIndex(vp) * colStep(vp);
       applyStageX(Math.max(0, Math.min(max, dragOrigin - dx)), stage);
-    });
+    };
+
     const endDrag = (e) => {
       if (pid == null || e.pointerId !== pid) return;
+      if (captured) {
+        try { vp.releasePointerCapture(pid); } catch (_) {}
+      }
+      captured = false;
       pid = null;
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", endDrag);
+      window.removeEventListener("pointercancel", endDrag);
       if (!dragging) return;
       dragging = false;
       suppressClick = true;
@@ -696,8 +706,18 @@
       const idx = Math.round(stageX / step);
       animateStageTo(Math.max(0, Math.min(maxStageIndex(vp), idx)), 320);
     };
-    vp.addEventListener("pointerup", endDrag);
-    vp.addEventListener("pointercancel", endDrag);
+
+    vp.addEventListener("pointerdown", (e) => {
+      if (e.button) return;
+      pid = e.pointerId;
+      dragStartX = e.clientX;
+      dragOrigin = stageX;
+      dragging = false;
+      captured = false;
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", endDrag);
+      window.addEventListener("pointercancel", endDrag);
+    });
     vp.addEventListener("click", (e) => {
       if (!suppressClick) return;
       suppressClick = false;
