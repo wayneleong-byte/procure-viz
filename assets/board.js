@@ -43,6 +43,25 @@
     return Number.isInteger(n) ? String(n) : String(Math.round(n * 10) / 10);
   }
 
+
+  function compactAlertNote(notes) {
+    const hit = (notes || []).find((n) => String(n).includes("報價期結束"));
+    if (!hit) return "";
+    const m = String(hit).match(/報價期結束（日期\s*([^）]+)）/);
+    return m ? `備註：報價期結束（${m[1]}）` : "備註：報價期結束";
+  }
+
+  function notesHtml(doc) {
+    const notes = doc.notes || [];
+    if (!notes.length || doc.id !== "PA-26-303") return "";
+    return (
+      "<br>備註：" +
+      notes
+        .map((n) => `<div class="doc-note doc-note-alert">${esc(n)}</div>`)
+        .join("")
+    );
+  }
+
   function riskClass(days) {
     const n = Number(days);
     if (!Number.isFinite(n)) return "risk-low";
@@ -308,6 +327,10 @@
       const rd = d.approval_resub_days != null && d.approval_resub_days !== "" ? ` · ${esc(fmtDays(d.approval_resub_days))} 天` : "";
       extra += `<div class="sched">批准後再遞交：${esc(d.resubmit_after_approval)}${rd}</div>`;
     }
+    if (d.id === "PA-26-303") {
+      const line = compactAlertNote(d.notes);
+      if (line) extra += `<div class="card-note card-note-alert">${esc(line)}</div>`;
+    }
     return `<button type="button" class="doc-card ${rc}" data-id="${esc(d.id)}"
       style="--delay:${delayMs}ms;--z:${zPx}px;--lift:0px">
       <div class="id">${esc(d.id)}</div>
@@ -504,6 +527,7 @@
       ${doc.approved_date ? ` · 批准：${esc(doc.approved_date)}` : ""}
       ${doc.resubmit_after_approval ? ` · 批准後再遞交：${esc(doc.resubmit_after_approval)}${doc.approval_resub_days != null && doc.approval_resub_days !== "" ? `（${esc(fmtDays(doc.approval_resub_days))} 天）` : ""}` : ""}
       ${doc.last_reply_summary ? `<br>摘要：${esc(doc.last_reply_summary)}` : ""}
+      ${notesHtml(doc)}
     `;
     $("#detail-body").innerHTML = renderTimeline(doc);
     drawer.classList.add("open");

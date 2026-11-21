@@ -1313,6 +1313,7 @@ def main() -> None:
             "current_round": d.get("current_round"),
             "last_reply": d.get("last_reply") or "",
             "last_reply_summary": (d.get("last_reply_summary") or "")[:240],
+            "notes": [str(n).strip() for n in (d.get("notes") or []) if str(n).strip()],
             "last_resubmit": d.get("last_resubmit") or "",
             "admin_clock_from": d.get("admin_clock_from") or "",
             "days_since_reply": d.get("days_since_reply"),

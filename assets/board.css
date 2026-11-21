@@ -562,6 +562,21 @@ input.wide:focus {
   font-weight: 700; font-variant-numeric: tabular-nums;
   color: var(--risk, var(--slate));
 }
+
+.doc-card .card-note {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+.doc-card .card-note-alert,
+.detail-meta .doc-note-alert {
+  color: #f87171;
+  font-weight: 700;
+}
+.detail-meta .doc-note {
+  margin-top: 6px;
+  line-height: 1.45;
+}
 .doc-card .meet-pill {
   display: inline-block;
   margin-top: 6px;
