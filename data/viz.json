@@ -2,8 +2,8 @@
   "meta": {
     "title": "教育部工作文件進程（不包括HR）",
     "subtitle": "",
-    "generated_at": "2026-11-26 14:06",
-    "source_generated_at": "2026-11-26 13:58",
+    "generated_at": "2026-11-26 14:56",
+    "source_generated_at": "2026-11-26 14:50",
     "today": "2026-11-26",
     "timezone": "Asia/Macau",
     "work_hours": "09:00–18:30",
@@ -25,8 +25,8 @@
     "status_counts": {
       "行政部已回覆待同事重交": 6,
       "待對方補充資料後交行政": 1,
-      "報價進行中": 3,
-      "已提交待回覆": 21,
+      "報價進行中": 2,
+      "已提交待回覆": 22,
       "排期執委會／董事會": 1,
       "已獲執委會／董事會通過，待同事提交": 0
     },
@@ -97,9 +97,9 @@
       "colleague_total": "",
       "time_share": {
         "admin_days": 0.0,
-        "edu_days": 10.1,
+        "edu_days": 10.2,
         "third_days": 0.0,
-        "total_days": 10.1,
+        "total_days": 10.2,
         "admin_pct": 0.0,
         "edu_pct": 100.0,
         "third_pct": 0.0
@@ -132,18 +132,18 @@
         "gaps": [
           {
             "from_t": "2026-11-16 10:44",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794797040.0,
-            "to_ts": 1795673219.30887,
-            "days": 10.1,
+            "to_ts": 1795676207.181883,
+            "days": 10.2,
             "role": "edu",
             "open": true,
-            "label": "至今 10.1 天"
+            "label": "至今 10.2 天"
           }
         ],
         "span": {
           "min_ts": 1794797040.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -595,9 +595,9 @@
           },
           {
             "from_t": "2026-11-18 21:18",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795007880.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 7.7,
             "role": "edu",
             "open": true,
@@ -606,7 +606,7 @@
         ],
         "span": {
           "min_ts": 1784736000.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -753,9 +753,9 @@
           },
           {
             "from_t": "2026-11-23 15:08",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795417680.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 3.0,
             "role": "edu",
             "open": true,
@@ -764,7 +764,7 @@
         ],
         "span": {
           "min_ts": 1790650140.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -812,12 +812,12 @@
       "colleague_total": 1.4,
       "time_share": {
         "admin_days": 13.7,
-        "edu_days": 2.2,
+        "edu_days": 2.3,
         "third_days": 14.0,
-        "total_days": 29.9,
-        "admin_pct": 45.8,
-        "edu_pct": 7.4,
-        "third_pct": 46.8
+        "total_days": 30.0,
+        "admin_pct": 45.7,
+        "edu_pct": 7.7,
+        "third_pct": 46.6
       },
       "timeline": {
         "nodes": [
@@ -974,18 +974,18 @@
           },
           {
             "from_t": "2026-11-24 20:31",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795523460.0,
-            "to_ts": 1795673219.30887,
-            "days": 1.7,
+            "to_ts": 1795676207.181883,
+            "days": 1.8,
             "role": "edu",
             "open": true,
-            "label": "至今 1.7 天"
+            "label": "至今 1.8 天"
           }
         ],
         "span": {
           "min_ts": 1793087760.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -1033,12 +1033,12 @@
       "colleague_total": 2.1,
       "time_share": {
         "admin_days": 14.2,
-        "edu_days": 0.9,
+        "edu_days": 1.0,
         "third_days": 8.1,
-        "total_days": 23.2,
-        "admin_pct": 61.2,
-        "edu_pct": 3.9,
-        "third_pct": 34.9
+        "total_days": 23.3,
+        "admin_pct": 60.9,
+        "edu_pct": 4.3,
+        "third_pct": 34.8
       },
       "timeline": {
         "nodes": [
@@ -1132,18 +1132,18 @@
           },
           {
             "from_t": "2026-11-25 15:40",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795592400.0,
-            "to_ts": 1795673219.30887,
-            "days": 0.9,
+            "to_ts": 1795676207.181883,
+            "days": 1.0,
             "role": "edu",
             "open": true,
-            "label": "至今 0.9 天"
+            "label": "至今 1.0 天"
           }
         ],
         "span": {
           "min_ts": 1793674080.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -1387,9 +1387,9 @@
           },
           {
             "from_t": "2026-11-25 16:28",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795595280.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 0.9,
             "role": "edu",
             "open": true,
@@ -1398,7 +1398,7 @@
         ],
         "span": {
           "min_ts": 1792566900.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -1669,9 +1669,9 @@
           },
           {
             "from_t": "2026-11-19 21:50",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795096200.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 6.7,
             "role": "third",
             "open": true,
@@ -1680,7 +1680,7 @@
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -1729,8 +1729,8 @@
       "time_share": {
         "admin_days": 10.8,
         "edu_days": 0.2,
-        "third_days": 46.8,
-        "total_days": 57.8,
+        "third_days": 46.9,
+        "total_days": 57.9,
         "admin_pct": 18.7,
         "edu_pct": 0.3,
         "third_pct": 81.0
@@ -1905,200 +1905,18 @@
           },
           {
             "from_t": "2026-11-06 15:49",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1793951340.0,
-            "to_ts": 1795673219.30887,
-            "days": 19.9,
+            "to_ts": 1795676207.181883,
+            "days": 20.0,
             "role": "third",
             "open": true,
-            "label": "至今 19.9 天"
+            "label": "至今 20.0 天"
           }
         ],
         "span": {
           "min_ts": 1790679420.0,
-          "max_ts": 1795673219.30887
-        }
-      },
-      "awarded_supplier": null,
-      "budget_amount": null,
-      "award_amount": null,
-      "award_date": null,
-      "award_sort_date": null,
-      "schedule_meeting": "",
-      "schedule_date": "",
-      "schedule_days": "",
-      "approved_date": "",
-      "resubmit_after_approval": "",
-      "approval_resub_days": ""
-    },
-    {
-      "id": "PA-26-288",
-      "stage": "Form 1",
-      "title": "為澳門科學館採購無線導覽設備",
-      "status": "報價進行中",
-      "board_column": "報價進行中",
-      "status_group": "quotation",
-      "attr_label": "R3 · Form 1",
-      "submitter": "Jane Leong",
-      "follow_up": [
-        "Jane Leong"
-      ],
-      "first_submit": "2026-10-08",
-      "status_since": "2026-11-16 15:22",
-      "completed_at": "",
-      "days_in_status": 10,
-      "days_since_first_submit": 49,
-      "process_days": null,
-      "current_round": 3,
-      "last_reply": "2026-11-16 15:22",
-      "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：浩瀚廣告禮品設計有限公司、天璇文化展覽策劃有限公司、筆克國際(澳門)有限公司",
-      "notes": [
-        "Oscar 2026-11-20（t76u，文件可視化轉達）：11-19 16:23 已向供應商發出報價邀請，其後無信；由已提交待回覆改為報價進行中（11-17 Jane 第三次提交後狀態未隨報價邀請更新）。既有 MANUAL_TIMELINE／MANUAL_ROUNDS／11-11 撤回「待對方補充」紀錄仍保留，本條只覆寫目前狀態",
-        "Oscar 2026-11-26（t32u，以後都這樣處理）：報價期結束（日期 2026-11-25 約 10:27；Jane Leong Inbox「PA-26-288向供應商發出報價邀請期已結束(更新進度)」；報價邀請期於 2026-11-24 結束，見證文件於 2026-11-25 完成；該信不在三個追蹤資料夾，只寫備註、未入表；Message-ID <1897158896.1726329.1795573639836.JavaMail.zimbra@msc.org.mo>）",
-        "Oscar 2026-10-24 指示加入追蹤；Oscar 2026-11-04（t16u/t17u）更正輪次（10/24 知會非重交；11/03 第二次提交）；Oscar 2026-11-11（總管轉交）確認 11-03 後為已提交待回覆（時鐘自 11-03）；2026-11-16 15:22 行政部第2次通知後改為行政部已回覆待同事重交；2026-11-17 16:17 Jane 第三次提交（submit/0000368845）後改為已提交待回覆",
-        "Oscar 2026-11-04（t16u/t17u）確認：首次提交 2026-10-08（時間不詳，記為日期）；2026-10-24 19:11 Jane→Oscar 信為知會／寄件備份（非重交）；000 無 10/8 提交信；行政部處理耗時按日曆日計，為約數",
-        "Oscar 2026-11-04（t16u/t17u）確認時間線：首次提交 2026-10-08 → 行政部第1次通知 2026-10-23 20:28；2026-10-24 19:11 Jane→Oscar 信為知會／寄件備份（主旨含第一次提交，非重交）；第二次提交 2026-11-03；000 無 10/8 提交信；耗時按日曆日計，為約數；Oscar 2026-11-11（總管轉交）：11-03 第二次提交後改為已提交待回覆，時鐘自 2026-11-03 起計；2026-11-16 15:22 行政部第2次通知（procure/0000368759）後改為行政部已回覆待同事重交；2026-11-17 16:17 Jane 第三次提交（submit/0000368845；主旨：11月17日第三次提交--增加抽選之供應商事宜）後改為已提交待回覆"
-      ],
-      "last_resubmit": "2026-11-17 16:17",
-      "admin_clock_from": "",
-      "days_since_reply": "",
-      "n_rounds": 3,
-      "admin_total": 28,
-      "colleague_total": 12.0,
-      "time_share": {
-        "admin_days": 15.9,
-        "edu_days": 10.1,
-        "third_days": 23.5,
-        "total_days": 49.5,
-        "admin_pct": 32.1,
-        "edu_pct": 20.4,
-        "third_pct": 47.5
-      },
-      "timeline": {
-        "nodes": [
-          {
-            "t": "2026-10-08",
-            "ts": 1791388800.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R1 提交",
-            "detail": "第1次通知、附件「第1次修改」、首次提交（Oscar 2026-11-04 確認）",
-            "who": "Jane Leong",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-10-23 20:28",
-            "ts": 1792758480.0,
-            "kind": "admin_reply",
-            "role": "admin",
-            "label": "R1 行政回覆",
-            "detail": "須按附件修改（附件：PA-26-288_第1次修改.pdf）",
-            "who": "Procure",
-            "round": 1,
-            "secondary": false
-          },
-          {
-            "t": "2026-11-03",
-            "ts": 1793635200.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R2 提交",
-            "detail": "第二次提交（Oscar 2026-11-04 確認）、第2次通知",
-            "who": "Jane Leong",
-            "round": 2,
-            "secondary": false
-          },
-          {
-            "t": "2026-11-11 11:32",
-            "ts": 1794367920.0,
-            "kind": "progress_inquiry",
-            "role": "edu",
-            "label": "進度查詢",
-            "detail": "文件進度查詢：技術條款文件《PA-26-288 為澳門科學館採購無線導覽設備》",
-            "who": "Jane Leong",
-            "round": null,
-            "secondary": true,
-            "closed": true
-          },
-          {
-            "t": "2026-11-16 15:22",
-            "ts": 1794813720.0,
-            "kind": "third_party",
-            "role": "third",
-            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：浩瀚廣告禮品設計有限公司、天璇文化展覽策劃有限公司、筆克國際(澳門)有限公司",
-            "detail": "",
-            "who": "Procure",
-            "round": 2,
-            "secondary": false
-          },
-          {
-            "t": "2026-11-17 16:17",
-            "ts": 1794903420.0,
-            "kind": "submission",
-            "role": "edu",
-            "label": "R3 提交",
-            "detail": "第三次提交（增加抽選之供應商）",
-            "who": "Jane Leong",
-            "round": 3,
-            "secondary": false
-          }
-        ],
-        "gaps": [
-          {
-            "from_t": "2026-10-08",
-            "to_t": "2026-10-23 20:28",
-            "from_ts": 1791388800.0,
-            "to_ts": 1792758480.0,
-            "days": 15.9,
-            "role": "admin",
-            "open": false,
-            "label": "15.9 天"
-          },
-          {
-            "from_t": "2026-10-23 20:28",
-            "to_t": "2026-11-03",
-            "from_ts": 1792758480.0,
-            "to_ts": 1793635200.0,
-            "days": 10.1,
-            "role": "edu",
-            "open": false,
-            "label": "10.1 天"
-          },
-          {
-            "from_t": "2026-11-03",
-            "to_t": "2026-11-16 15:22",
-            "from_ts": 1793635200.0,
-            "to_ts": 1794813720.0,
-            "days": 13.6,
-            "role": "third",
-            "open": false,
-            "label": "13.6 天"
-          },
-          {
-            "from_t": "2026-11-16 15:22",
-            "to_t": "2026-11-17 16:17",
-            "from_ts": 1794813720.0,
-            "to_ts": 1794903420.0,
-            "days": 1.0,
-            "role": "third",
-            "open": false,
-            "label": "1.0 天"
-          },
-          {
-            "from_t": "2026-11-17 16:17",
-            "to_t": "2026-11-26 14:06",
-            "from_ts": 1794903420.0,
-            "to_ts": 1795673219.30887,
-            "days": 8.9,
-            "role": "third",
-            "open": true,
-            "label": "至今 8.9 天"
-          }
-        ],
-        "span": {
-          "min_ts": 1791388800.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -2146,11 +1964,11 @@
       "time_share": {
         "admin_days": 3.7,
         "edu_days": 0.9,
-        "third_days": 8.4,
-        "total_days": 13.0,
-        "admin_pct": 28.5,
+        "third_days": 8.5,
+        "total_days": 13.1,
+        "admin_pct": 28.2,
         "edu_pct": 6.9,
-        "third_pct": 64.6
+        "third_pct": 64.9
       },
       "timeline": {
         "nodes": [
@@ -2274,18 +2092,18 @@
           },
           {
             "from_t": "2026-11-20 22:38",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795185480.0,
-            "to_ts": 1795673219.30887,
-            "days": 5.6,
+            "to_ts": 1795676207.181883,
+            "days": 5.7,
             "role": "third",
             "open": true,
-            "label": "至今 5.6 天"
+            "label": "至今 5.7 天"
           }
         ],
         "span": {
           "min_ts": 1794553020.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -2338,10 +2156,10 @@
       "admin_total": 13,
       "colleague_total": 1.9,
       "time_share": {
-        "admin_days": 85.8,
+        "admin_days": 85.9,
         "edu_days": 15.7,
         "third_days": 0.0,
-        "total_days": 101.5,
+        "total_days": 101.6,
         "admin_pct": 84.5,
         "edu_pct": 15.5,
         "third_pct": 0.0
@@ -2537,18 +2355,18 @@
           },
           {
             "from_t": "2026-10-30 13:00",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1793336400.0,
-            "to_ts": 1795673219.30887,
-            "days": 27.0,
+            "to_ts": 1795676207.181883,
+            "days": 27.1,
             "role": "admin",
             "open": true,
-            "label": "至今 27.0 天"
+            "label": "至今 27.1 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -2595,10 +2413,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 23.1,
+        "admin_days": 23.2,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 23.1,
+        "total_days": 23.2,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -2656,18 +2474,18 @@
         "gaps": [
           {
             "from_t": "2026-11-03 10:59",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1793674740.0,
-            "to_ts": 1795673219.30887,
-            "days": 23.1,
+            "to_ts": 1795676207.181883,
+            "days": 23.2,
             "role": "admin",
             "open": true,
-            "label": "至今 23.1 天"
+            "label": "至今 23.2 天"
           }
         ],
         "span": {
           "min_ts": 1793674740.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -2748,9 +2566,9 @@
         "gaps": [
           {
             "from_t": "2026-11-05 12:16",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1793852160.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 21.1,
             "role": "admin",
             "open": true,
@@ -2759,7 +2577,7 @@
         ],
         "span": {
           "min_ts": 1793852160.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -2810,13 +2628,13 @@
       "admin_total": 21,
       "colleague_total": 62,
       "time_share": {
-        "admin_days": 17.9,
+        "admin_days": 18.0,
         "edu_days": 9.1,
         "third_days": 74.5,
-        "total_days": 101.5,
-        "admin_pct": 17.6,
+        "total_days": 101.6,
+        "admin_pct": 17.7,
         "edu_pct": 9.0,
-        "third_pct": 73.4
+        "third_pct": 73.3
       },
       "timeline": {
         "nodes": [
@@ -3035,18 +2853,18 @@
           },
           {
             "from_t": "2026-11-08 15:33",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794123180.0,
-            "to_ts": 1795673219.30887,
-            "days": 17.9,
+            "to_ts": 1795676207.181883,
+            "days": 18.0,
             "role": "admin",
             "open": true,
-            "label": "至今 17.9 天"
+            "label": "至今 18.0 天"
           }
         ],
         "span": {
           "min_ts": 1786896000.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -3226,9 +3044,9 @@
           },
           {
             "from_t": "2026-11-10 12:54",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794286440.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 16.1,
             "role": "admin",
             "open": true,
@@ -3237,7 +3055,7 @@
         ],
         "span": {
           "min_ts": 1790240520.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -3384,9 +3202,9 @@
           },
           {
             "from_t": "2026-11-11 09:50",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794361800.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 15.2,
             "role": "admin",
             "open": true,
@@ -3395,7 +3213,189 @@
         ],
         "span": {
           "min_ts": 1790737920.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
+        }
+      },
+      "awarded_supplier": null,
+      "budget_amount": null,
+      "award_amount": null,
+      "award_date": null,
+      "award_sort_date": null,
+      "schedule_meeting": "",
+      "schedule_date": "",
+      "schedule_days": "",
+      "approved_date": "",
+      "resubmit_after_approval": "",
+      "approval_resub_days": ""
+    },
+    {
+      "id": "PA-26-288",
+      "stage": "Form 1",
+      "title": "為澳門科學館採購無線導覽設備",
+      "status": "已提交待回覆",
+      "board_column": "已提交待回覆",
+      "status_group": "awaiting_admin",
+      "attr_label": "R3 · Form 1",
+      "submitter": "Jane Leong",
+      "follow_up": [
+        "Jane Leong"
+      ],
+      "first_submit": "2026-10-08",
+      "status_since": "2026-11-17 16:17",
+      "completed_at": "",
+      "days_in_status": 9,
+      "days_since_first_submit": 49,
+      "process_days": null,
+      "current_round": 3,
+      "last_reply": "2026-11-16 15:22",
+      "last_reply_summary": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：浩瀚廣告禮品設計有限公司、天璇文化展覽策劃有限公司、筆克國際(澳門)有限公司",
+      "notes": [
+        "Oscar 2026-11-26（t32u，以後都這樣處理）：報價期結束（日期 2026-11-25 約 10:27；Jane Leong Inbox「PA-26-288向供應商發出報價邀請期已結束(更新進度)」；報價邀請期於 2026-11-24 結束，見證文件於 2026-11-25 完成；該信不在三個追蹤資料夾，只寫備註、未入表；Message-ID <1897158896.1726329.1795573639836.JavaMail.zimbra@msc.org.mo>）",
+        "Oscar 2026-10-24 指示加入追蹤；Oscar 2026-11-04（t16u/t17u）更正輪次（10/24 知會非重交；11/03 第二次提交）；Oscar 2026-11-11（總管轉交）確認 11-03 後為已提交待回覆（時鐘自 11-03）；2026-11-16 15:22 行政部第2次通知後改為行政部已回覆待同事重交；2026-11-17 16:17 Jane 第三次提交（submit/0000368845）後改為已提交待回覆",
+        "Oscar 2026-11-04（t16u/t17u）確認：首次提交 2026-10-08（時間不詳，記為日期）；2026-10-24 19:11 Jane→Oscar 信為知會／寄件備份（非重交）；000 無 10/8 提交信；行政部處理耗時按日曆日計，為約數",
+        "Oscar 2026-11-04（t16u/t17u）確認時間線：首次提交 2026-10-08 → 行政部第1次通知 2026-10-23 20:28；2026-10-24 19:11 Jane→Oscar 信為知會／寄件備份（主旨含第一次提交，非重交）；第二次提交 2026-11-03；000 無 10/8 提交信；耗時按日曆日計，為約數；Oscar 2026-11-11（總管轉交）：11-03 第二次提交後改為已提交待回覆，時鐘自 2026-11-03 起計；2026-11-16 15:22 行政部第2次通知（procure/0000368759）後改為行政部已回覆待同事重交；2026-11-17 16:17 Jane 第三次提交（submit/0000368845；主旨：11月17日第三次提交--增加抽選之供應商事宜）後改為已提交待回覆",
+        "Oscar t33u（2026-11-26）：因報價期已於 2026-11-24 結束（Jane Inbox 11-25 10:27 備註已載），由報價進行中改為已提交待回覆；撤回 2026-11-20 t76u 報價進行中覆寫（不另疊已提交待回覆覆寫，以免 recompute_timing 把最後一輪 elapsed_open 清空）；時鐘仍自 11-17 16:17 Jane 第三次提交起計（該 Inbox 報價期結束信不吸入三夾、不改 last_reply／輪次／時鐘）。階段維持 Form 1。11-11 撤回「待對方補充」仍有效。last_reply 仍為 2026-11-16 15:22。"
+      ],
+      "last_resubmit": "2026-11-17 16:17",
+      "admin_clock_from": "",
+      "days_since_reply": "",
+      "n_rounds": 3,
+      "admin_total": 28,
+      "colleague_total": 12.0,
+      "time_share": {
+        "admin_days": 24.8,
+        "edu_days": 10.1,
+        "third_days": 14.6,
+        "total_days": 49.5,
+        "admin_pct": 50.1,
+        "edu_pct": 20.4,
+        "third_pct": 29.5
+      },
+      "timeline": {
+        "nodes": [
+          {
+            "t": "2026-10-08",
+            "ts": 1791388800.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R1 提交",
+            "detail": "第1次通知、附件「第1次修改」、首次提交（Oscar 2026-11-04 確認）",
+            "who": "Jane Leong",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-10-23 20:28",
+            "ts": 1792758480.0,
+            "kind": "admin_reply",
+            "role": "admin",
+            "label": "R1 行政回覆",
+            "detail": "須按附件修改（附件：PA-26-288_第1次修改.pdf）",
+            "who": "Procure",
+            "round": 1,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-03",
+            "ts": 1793635200.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R2 提交",
+            "detail": "第二次提交（Oscar 2026-11-04 確認）、第2次通知",
+            "who": "Jane Leong",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-11 11:32",
+            "ts": 1794367920.0,
+            "kind": "progress_inquiry",
+            "role": "edu",
+            "label": "進度查詢",
+            "detail": "文件進度查詢：技術條款文件《PA-26-288 為澳門科學館採購無線導覽設備》",
+            "who": "Jane Leong",
+            "round": null,
+            "secondary": true,
+            "closed": true
+          },
+          {
+            "t": "2026-11-16 15:22",
+            "ts": 1794813720.0,
+            "kind": "third_party",
+            "role": "third",
+            "label": "按權限機關意見須增加3間抽選供應商並更新「建議供應商名單」：浩瀚廣告禮品設計有限公司、天璇文化展覽策劃有限公司、筆克國際(澳門)有限公司",
+            "detail": "",
+            "who": "Procure",
+            "round": 2,
+            "secondary": false
+          },
+          {
+            "t": "2026-11-17 16:17",
+            "ts": 1794903420.0,
+            "kind": "submission",
+            "role": "edu",
+            "label": "R3 提交",
+            "detail": "第三次提交（增加抽選之供應商）",
+            "who": "Jane Leong",
+            "round": 3,
+            "secondary": false
+          }
+        ],
+        "gaps": [
+          {
+            "from_t": "2026-10-08",
+            "to_t": "2026-10-23 20:28",
+            "from_ts": 1791388800.0,
+            "to_ts": 1792758480.0,
+            "days": 15.9,
+            "role": "admin",
+            "open": false,
+            "label": "15.9 天"
+          },
+          {
+            "from_t": "2026-10-23 20:28",
+            "to_t": "2026-11-03",
+            "from_ts": 1792758480.0,
+            "to_ts": 1793635200.0,
+            "days": 10.1,
+            "role": "edu",
+            "open": false,
+            "label": "10.1 天"
+          },
+          {
+            "from_t": "2026-11-03",
+            "to_t": "2026-11-16 15:22",
+            "from_ts": 1793635200.0,
+            "to_ts": 1794813720.0,
+            "days": 13.6,
+            "role": "third",
+            "open": false,
+            "label": "13.6 天"
+          },
+          {
+            "from_t": "2026-11-16 15:22",
+            "to_t": "2026-11-17 16:17",
+            "from_ts": 1794813720.0,
+            "to_ts": 1794903420.0,
+            "days": 1.0,
+            "role": "third",
+            "open": false,
+            "label": "1.0 天"
+          },
+          {
+            "from_t": "2026-11-17 16:17",
+            "to_t": "2026-11-26 14:56",
+            "from_ts": 1794903420.0,
+            "to_ts": 1795676207.181883,
+            "days": 8.9,
+            "role": "admin",
+            "open": true,
+            "label": "至今 8.9 天"
+          }
+        ],
+        "span": {
+          "min_ts": 1791388800.0,
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -3476,9 +3476,9 @@
         "gaps": [
           {
             "from_t": "2026-11-17 17:03",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794906180.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 8.9,
             "role": "admin",
             "open": true,
@@ -3487,7 +3487,7 @@
         ],
         "span": {
           "min_ts": 1794906180.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -3536,10 +3536,10 @@
       "admin_total": 44.2,
       "colleague_total": 18.8,
       "time_share": {
-        "admin_days": 43.7,
+        "admin_days": 43.8,
         "edu_days": 11.2,
         "third_days": 16.7,
-        "total_days": 71.6,
+        "total_days": 71.7,
         "admin_pct": 61.1,
         "edu_pct": 15.6,
         "third_pct": 23.3
@@ -3741,18 +3741,18 @@
           },
           {
             "from_t": "2026-11-18 18:03",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794996180.0,
-            "to_ts": 1795673219.30887,
-            "days": 7.8,
+            "to_ts": 1795676207.181883,
+            "days": 7.9,
             "role": "admin",
             "open": true,
-            "label": "至今 7.8 天"
+            "label": "至今 7.9 天"
           }
         ],
         "span": {
           "min_ts": 1789488000.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -3800,10 +3800,10 @@
       "admin_total": 57.6,
       "colleague_total": 7.3,
       "time_share": {
-        "admin_days": 42.5,
+        "admin_days": 42.6,
         "edu_days": 5.2,
         "third_days": 25.8,
-        "total_days": 73.5,
+        "total_days": 73.6,
         "admin_pct": 57.8,
         "edu_pct": 7.1,
         "third_pct": 35.1
@@ -3963,18 +3963,18 @@
           },
           {
             "from_t": "2026-11-18 15:40",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794987600.0,
-            "to_ts": 1795673219.30887,
-            "days": 7.9,
+            "to_ts": 1795676207.181883,
+            "days": 8.0,
             "role": "admin",
             "open": true,
-            "label": "至今 7.9 天"
+            "label": "至今 8.0 天"
           }
         ],
         "span": {
           "min_ts": 1789315200.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -4043,9 +4043,9 @@
         "gaps": [
           {
             "from_t": "2026-11-18 18:39",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794998340.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 7.8,
             "role": "admin",
             "open": true,
@@ -4054,7 +4054,7 @@
         ],
         "span": {
           "min_ts": 1794998340.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -4355,9 +4355,9 @@
           },
           {
             "from_t": "2026-11-20 15:18",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795159080.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 6.0,
             "role": "admin",
             "open": true,
@@ -4366,7 +4366,7 @@
         ],
         "span": {
           "min_ts": 1790222460.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -4416,13 +4416,13 @@
       "admin_total": 132.7,
       "colleague_total": 26.9,
       "time_share": {
-        "admin_days": 36.5,
+        "admin_days": 36.6,
         "edu_days": 26.3,
         "third_days": 72.7,
-        "total_days": 135.5,
-        "admin_pct": 26.9,
+        "total_days": 135.6,
+        "admin_pct": 27.0,
         "edu_pct": 19.4,
-        "third_pct": 53.7
+        "third_pct": 53.6
       },
       "timeline": {
         "nodes": [
@@ -4624,18 +4624,18 @@
           },
           {
             "from_t": "2026-11-23 22:46",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795445160.0,
-            "to_ts": 1795673219.30887,
-            "days": 2.6,
+            "to_ts": 1795676207.181883,
+            "days": 2.7,
             "role": "admin",
             "open": true,
-            "label": "至今 2.6 天"
+            "label": "至今 2.7 天"
           }
         ],
         "span": {
           "min_ts": 1783958400.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -4679,10 +4679,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 2.9,
+        "admin_days": 3.0,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 2.9,
+        "total_days": 3.0,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -4704,18 +4704,18 @@
         "gaps": [
           {
             "from_t": "2026-11-23 15:56",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795420560.0,
-            "to_ts": 1795673219.30887,
-            "days": 2.9,
+            "to_ts": 1795676207.181883,
+            "days": 3.0,
             "role": "admin",
             "open": true,
-            "label": "至今 2.9 天"
+            "label": "至今 3.0 天"
           }
         ],
         "span": {
           "min_ts": 1795420560.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -4761,10 +4761,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 2.9,
+        "admin_days": 3.0,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 2.9,
+        "total_days": 3.0,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -4786,18 +4786,18 @@
         "gaps": [
           {
             "from_t": "2026-11-23 15:59",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795420740.0,
-            "to_ts": 1795673219.30887,
-            "days": 2.9,
+            "to_ts": 1795676207.181883,
+            "days": 3.0,
             "role": "admin",
             "open": true,
-            "label": "至今 2.9 天"
+            "label": "至今 3.0 天"
           }
         ],
         "span": {
           "min_ts": 1795420740.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -4988,9 +4988,9 @@
           },
           {
             "from_t": "2026-11-24 12:25",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795494300.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 2.1,
             "role": "admin",
             "open": true,
@@ -4999,7 +4999,7 @@
         ],
         "span": {
           "min_ts": 1791777120.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -5046,13 +5046,13 @@
       "admin_total": 32.5,
       "colleague_total": 1.8,
       "time_share": {
-        "admin_days": 18.1,
+        "admin_days": 18.2,
         "edu_days": 1.8,
         "third_days": 17.1,
-        "total_days": 37.0,
-        "admin_pct": 48.9,
+        "total_days": 37.1,
+        "admin_pct": 49.0,
         "edu_pct": 4.9,
-        "third_pct": 46.2
+        "third_pct": 46.1
       },
       "timeline": {
         "nodes": [
@@ -5233,18 +5233,18 @@
           },
           {
             "from_t": "2026-11-24 18:15",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795515300.0,
-            "to_ts": 1795673219.30887,
-            "days": 1.8,
+            "to_ts": 1795676207.181883,
+            "days": 1.9,
             "role": "admin",
             "open": true,
-            "label": "至今 1.8 天"
+            "label": "至今 1.9 天"
           }
         ],
         "span": {
           "min_ts": 1792471980.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -5313,9 +5313,9 @@
         "gaps": [
           {
             "from_t": "2026-11-24 18:47",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795517220.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 1.8,
             "role": "admin",
             "open": true,
@@ -5324,7 +5324,7 @@
         ],
         "span": {
           "min_ts": 1795517220.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -5620,9 +5620,9 @@
           },
           {
             "from_t": "2026-11-25 17:08",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795597680.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 0.9,
             "role": "admin",
             "open": true,
@@ -5631,7 +5631,7 @@
         ],
         "span": {
           "min_ts": 1790650080.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -5904,9 +5904,9 @@
           },
           {
             "from_t": "2026-11-25 17:02",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795597320.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 0.9,
             "role": "admin",
             "open": true,
@@ -5915,7 +5915,7 @@
         ],
         "span": {
           "min_ts": 1789963380.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -6195,9 +6195,9 @@
           },
           {
             "from_t": "2026-11-25 16:54",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795596840.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 0.9,
             "role": "admin",
             "open": true,
@@ -6206,7 +6206,7 @@
         ],
         "span": {
           "min_ts": 1792080000.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -6250,10 +6250,10 @@
       "admin_total": "",
       "colleague_total": "",
       "time_share": {
-        "admin_days": 0.8,
+        "admin_days": 0.9,
         "edu_days": 0.0,
         "third_days": 0.0,
-        "total_days": 0.8,
+        "total_days": 0.9,
         "admin_pct": 100.0,
         "edu_pct": 0.0,
         "third_pct": 0.0
@@ -6275,18 +6275,18 @@
         "gaps": [
           {
             "from_t": "2026-11-25 18:10",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1795601400.0,
-            "to_ts": 1795673219.30887,
-            "days": 0.8,
+            "to_ts": 1795676207.181883,
+            "days": 0.9,
             "role": "admin",
             "open": true,
-            "label": "至今 0.8 天"
+            "label": "至今 0.9 天"
           }
         ],
         "span": {
           "min_ts": 1795601400.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
@@ -6505,9 +6505,9 @@
           },
           {
             "from_t": "2026-11-13 19:55",
-            "to_t": "2026-11-26 14:06",
+            "to_t": "2026-11-26 14:56",
             "from_ts": 1794570900.0,
-            "to_ts": 1795673219.30887,
+            "to_ts": 1795676207.181883,
             "days": 12.8,
             "role": "third",
             "open": true,
@@ -6516,7 +6516,7 @@
         ],
         "span": {
           "min_ts": 1790679180.0,
-          "max_ts": 1795673219.30887
+          "max_ts": 1795676207.181883
         }
       },
       "awarded_supplier": null,
