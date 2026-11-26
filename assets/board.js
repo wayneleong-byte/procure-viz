@@ -51,13 +51,20 @@
     return m ? `備註：報價期結束（${m[1]}）` : "備註：報價期結束";
   }
 
+  function isQuotePeriodEndNote(n) {
+    return /報價期結束（日期/.test(String(n));
+  }
+
   function notesHtml(doc) {
     const notes = doc.notes || [];
-    if (!notes.length || doc.id !== "PA-26-303") return "";
+    if (!notes.length || !notes.some(isQuotePeriodEndNote)) return "";
     return (
       "<br>備註：" +
       notes
-        .map((n) => `<div class="doc-note doc-note-alert">${esc(n)}</div>`)
+        .map((n) => {
+          const cls = isQuotePeriodEndNote(n) ? "doc-note doc-note-alert" : "doc-note";
+          return `<div class="${cls}">${esc(n)}</div>`;
+        })
         .join("")
     );
   }
@@ -327,7 +334,7 @@
       const rd = d.approval_resub_days != null && d.approval_resub_days !== "" ? ` · ${esc(fmtDays(d.approval_resub_days))} 天` : "";
       extra += `<div class="sched">批准後再遞交：${esc(d.resubmit_after_approval)}${rd}</div>`;
     }
-    if (d.id === "PA-26-303") {
+    {
       const line = compactAlertNote(d.notes);
       if (line) extra += `<div class="card-note card-note-alert">${esc(line)}</div>`;
     }
